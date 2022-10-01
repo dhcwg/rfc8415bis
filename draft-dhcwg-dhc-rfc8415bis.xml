@@ -12,7 +12,7 @@
 <?rfc subcompact="no" ?>
 <?rfc text-list-symbols="-*+o"?>
 
-<rfc category="std" docName="draft-dhcwg-dhc-rfc8415bis-00"
+<rfc category="std" docName="draft-dhcwg-dhc-rfc8415bis-latest"
      ipr="pre5378Trust200902"
      obsoletes="8415"
      submissionType="IETF" consensus="yes">
