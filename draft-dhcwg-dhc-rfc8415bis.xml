@@ -200,7 +200,8 @@
 
         <t><xref target="RFC8415"/> provided a unified, corrected, and cleaned-up
         definition of DHCPv6 that also covered all applicable errata filed
-        against older RFCs. It also obsoleted a small number of mechanisms.</t>
+        against older RFCs. It also obsoleted a small number of mechanisms:
+        delayed authentication, lifetime and timer hints sent by a client.</t>
 
         <t>This document obsoletes <xref target="RFC8415"/> by applying all
         applicable errata and obsoleting two features that have not
@@ -4934,6 +4935,10 @@
         <t>The Identity Association for Temporary Addresses (IA_TA) option
         is deprecated. Please refer to <xref target="RFC8415"/> for more
         information on this option.</t>
+
+        <t>The client SHOULD NOT send this option. The server SHOULD NOT send this
+        option. When the server receives IA_TA option, the option SHOULD be
+        ignored and the message processing should continue as usual.</t>
       </section>
 
       <section anchor="RFC3315-22.6" title="IA Address Option">
@@ -6412,7 +6417,6 @@
       <?rfc include='reference.RFC.6221.xml'?>
       <?rfc include='reference.RFC.6355.xml'?>
       <?rfc include='reference.RFC.7227.xml'?>
-      <?rfc include='reference.RFC.7283.xml'?>
       <?rfc include='reference.RFC.8085.xml'?>
       <?rfc include='reference.RFC.8174.xml'?>
       <?rfc include='reference.RFC.8200.xml'?>
@@ -6499,6 +6503,7 @@
       <?rfc include='reference.RFC.7083.xml'?>
       <?rfc include='reference.RFC.7084.xml'?>
       <?rfc include='reference.RFC.7136.xml'?>
+      <?rfc include='reference.RFC.7283.xml'?>
       <?rfc include='reference.RFC.7341.xml'?>
       <?rfc include='reference.RFC.7368.xml'?>
       <?rfc include='reference.RFC.7513.xml'?>
@@ -6567,7 +6572,7 @@ clients, relay agents, and servers as these mechanisms were "optional".
       <t hangText="UNICAST option.">
       The Server Unicast Option has been deprecated. Use of this
       was rarely practical as typically relay agents between the
-      client and server need to gleam information from the
+      client and server need to glean information from the
       communication and cannot be bypassed.</t>
       </list>
 </t>
