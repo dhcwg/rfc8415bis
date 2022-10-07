@@ -12,7 +12,7 @@
 <?rfc subcompact="no" ?>
 <?rfc text-list-symbols="-*+o"?>
 
-<rfc category="std" docName="draft-dhcwg-dhc-rfc8415bis-00"
+<rfc category="std" docName="draft-dhcwg-dhc-rfc8415bis-01"
      ipr="pre5378Trust200902"
      obsoletes="8415"
      submissionType="IETF" consensus="yes">
@@ -4937,7 +4937,7 @@
         information on this option.</t>
 
         <t>The client SHOULD NOT send this option. The server SHOULD NOT send this
-        option. When the server receives IA_TA option, the option SHOULD be
+        option. When the server receives an IA_TA option, the option SHOULD be
         ignored and the message processing should continue as usual.</t>
       </section>
 
