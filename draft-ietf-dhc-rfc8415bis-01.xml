@@ -6400,6 +6400,15 @@
       &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt; as
       obsolete.
       </t>
+         
+      <t>IANA is requested to update other references to <xref target="RFC8415"/>
+      with references to this document at:
+      <list style="symbols">
+        <t>https://www.iana.org/assignments/auth-namespaces (four entries)</t>
+        <t>https://www.iana.org/assignments/bootp-dhcp-parameters (two entries)</t>
+        <t>https://www.iana.org/assignments/ipv6-multicast-addresses (two entries)</t>
+        <t>https://www.iana.org/assignments/service-names-port-numbers (two entries; UDP ports 546 and 547)</t>
+      </list></t>
 
     </section>
 
@@ -6466,7 +6475,6 @@
           <date />
         </front>
       </reference>
-
 
       <?rfc include='reference.RFC.0826.xml'?>
 
