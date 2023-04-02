@@ -4343,7 +4343,7 @@
           <li>Client Identifier (see <xref target="RFC3315-22.2" format="default"/>)</li>
           <li>Server Identifier (see <xref target="RFC3315-22.3" format="default"/>)</li>
           <li>IA_NA (see <xref target="RFC3315-22.4" format="default"/>)</li>
-          <li>IA_TA (option obsolete, see <xref target="RFC3315-22.5" format="default"/>)</li>
+          <li>IA_TA (option obsoleted, see <xref target="RFC3315-22.5" format="default"/>)</li>
           <li>IA_PD (see <xref target="IA_PD-option" format="default"/>)</li>
           <li>IA Address (see <xref target="RFC3315-22.6" format="default"/>)</li>
           <li>IA Prefix (see <xref target="IAPREFIX-option" format="default"/>)</li>
@@ -4621,7 +4621,7 @@
               <td align="right">5</td>
               <td align="left">Sent by a server to a client to force the client to send messages
           to the server using the All_DHCP_Relay_Agents_and_Servers multicast
-          address. Obsolete as no longer used.</td>
+          address. Obsoleted; longer used.</td>
             </tr>
             <tr>
               <td align="left">NoPrefixAvail</td>
