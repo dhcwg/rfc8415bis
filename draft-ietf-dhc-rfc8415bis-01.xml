@@ -97,8 +97,9 @@
       either in place of or in addition to stateless address autoconfiguration
       (SLAAC).</t>
       <t>This document replaces RFC8415 to incorporate reported errata and to
-      deprecate assignment of temporary addresses (the IA_TA option) and the
-      server unicast capability (the Server Unicast option).</t>
+      obsolete the assignment of temporary addresses (the IA_TA option) and the
+      server unicast capability (the Server Unicast option and UseMulticast
+      status code).</t>
     </abstract>
   </front>
   <middle>
@@ -1789,11 +1790,6 @@
       contain unknown options (or instances of vendor options with unknown
       enterprise-number values). These should be ignored as if they were not
       present.  This is critical to provide for future extensions of DHCP.</t>
-      <t>A server MUST discard any Solicit, Confirm, or Rebind messages
-      it receives with a Layer 3 unicast
-      destination address. A server SHOULD discard other client messages it
-      receives with a Layer 3 unicast destination address - see
-      <xref target="use-multicast" format="default"/>.</t>
       <t>A client or server MUST discard any received DHCP messages
       with an unknown message type.</t>
       <section numbered="true" toc="default">
@@ -2752,11 +2748,6 @@
           the desired operation, the client MUST limit the rate at which it
           retransmits the message and limit the duration of the time during
           which it retransmits the message (see <xref target="rate-limit" format="default"/>).</t>
-          <t>If the client receives a Reply message with a status code of
-          UseMulticast, the client records the receipt of the message and
-          sends subsequent messages to the server through the interface on
-          which the message was received using multicast. The client resends
-          the original message using multicast.</t>
           <t>Otherwise (no status code or another status code), the client
           processes the Reply as described below based on the original message
           for which the Reply was received.</t>
@@ -3631,21 +3622,14 @@
         <name>Reception of Unicast Messages</name>
         <t>The server is not supposed to accept unicast traffic from a
         client. The Server Unicast option (see <xref target="RFC3315-22.12" format="default"/>)
-        has been deprecated and hence clients should no longer send the
-        server unicast messages. However, a server that may have supported
-        the Server Unicast option and is upgraded to not support it, may receive a
-        unicast message if it previously sent the client the Server Unicast
-        Option.</t>
-        <t>When the server receives a message via unicast from a client,
-        the server discards that message and responds with an Advertise
-        (when responding to a Solicit message) or Reply message (when
-        responding to any other messages) containing a Status Code option
-        (see <xref target="RFC3315-22.13" format="default"/>) with the
-        value UseMulticast, a Server Identifier option
-        (see <xref target="RFC3315-22.3" format="default"/>) containing the
-        server's DUID, the Client Identifier option
-        (see <xref target="RFC3315-22.2" format="default"/>) from the client
-        message (if any), and no other options.</t>
+        and UseMulticast status code (see <xref target="RFC3315-22.13" format="default"/>)
+        have been obsoleted and hence clients should no longer send the
+        server unicast messages nor receive the UseMulticast status code.
+        However, a server that may have supported the Server Unicast option
+        and is upgraded to not support it, may continue to receive
+        unicast messages if it previously sent the client the Server Unicast
+        option. But this causes no harm and the client will eventually switch
+        back to sending multicast messages (such as after it is rebooted).</t>
       </section>
     </section>
     <section anchor="RFC3315-20" numbered="true" toc="default">
@@ -4238,7 +4222,7 @@
       <section anchor="RFC3315-22.5" numbered="true" toc="default">
         <name>Identity Association for Temporary Addresses Option</name>
         <t>The Identity Association for Temporary Addresses (IA_TA) option
-        is deprecated. Please refer to <xref target="RFC8415" format="default"/> for more
+        is obsolete. Please refer to <xref target="RFC8415" format="default"/> for more
         information on this option.</t>
         <t>The client SHOULD NOT send this option. The server SHOULD NOT send this
         option. When the server receives IA_TA option, the option SHOULD be
@@ -4359,7 +4343,7 @@
           <li>Client Identifier (see <xref target="RFC3315-22.2" format="default"/>)</li>
           <li>Server Identifier (see <xref target="RFC3315-22.3" format="default"/>)</li>
           <li>IA_NA (see <xref target="RFC3315-22.4" format="default"/>)</li>
-          <li>IA_TA (option deprecated, see <xref target="RFC3315-22.5" format="default"/>)</li>
+          <li>IA_TA (option obsoleted, see <xref target="RFC3315-22.5" format="default"/>)</li>
           <li>IA_PD (see <xref target="IA_PD-option" format="default"/>)</li>
           <li>IA Address (see <xref target="RFC3315-22.6" format="default"/>)</li>
           <li>IA Prefix (see <xref target="IAPREFIX-option" format="default"/>)</li>
@@ -4368,7 +4352,7 @@
           <li>Preference (see <xref target="RFC3315-22.8" format="default"/>)</li>
           <li>Relay Message (see <xref target="RFC3315-22.10" format="default"/>)</li>
           <li>Authentication (see <xref target="RFC3315-22.11" format="default"/>)</li>
-          <li>Server Unicast (option deprecated, see <xref target="RFC3315-22.12" format="default"/>)</li>
+          <li>Server Unicast (option obsoleted, see <xref target="RFC3315-22.12" format="default"/>)</li>
           <li>Status Code (see <xref target="RFC3315-22.13" format="default"/>)</li>
           <li>Rapid Commit (see <xref target="RFC3315-22.14" format="default"/>)</li>
           <li>User Class (see <xref target="RFC3315-22.15" format="default"/>)</li>
@@ -4549,7 +4533,7 @@
       </section>
       <section anchor="RFC3315-22.12" numbered="true" toc="default">
         <name>Server Unicast Option</name>
-        <t>The Server Unicast option is deprecated. Please refer to
+        <t>The Server Unicast option is obsolete. Please refer to
          <xref target="RFC8415" format="default"/> for more information on this option.</t>
       </section>
       <section anchor="RFC3315-22.13" numbered="true" toc="default">
@@ -4637,7 +4621,7 @@
               <td align="right">5</td>
               <td align="left">Sent by a server to a client to force the client to send messages
           to the server using the All_DHCP_Relay_Agents_and_Servers multicast
-          address.</td>
+          address. Obsoleted; longer used.</td>
             </tr>
             <tr>
               <td align="left">NoPrefixAvail</td>
@@ -5525,10 +5509,13 @@
       document at
       &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt;.</t>
       <t>IANA is requested to mark the IA_TA (option code 4) and
-      UNICAST (option code 12) in the Options Code table at
+      UNICAST (option code 12) in the Option Codes table at
       &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt; as
-      obsolete.
-      </t>
+      obsolete.</t>
+      <t>IANA is requested to mark the UseMulticast (status code 5) in
+      the Status Codes table at
+      &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt; as
+      obsolete.</t>      
       <t>IANA is requested to update other references to <xref target="RFC8415" format="default"/>
       with references to this document at:
       </t>
@@ -6432,7 +6419,7 @@
 
       </t>
       <ol spacing="normal" type="1"><li>
-          <t>The following mechanisms were deprecated. These were not widely
+          <t>The following mechanisms were obsoleted. These were not widely
 deployed while adding complexity to client and server implementations.
 Legacy implementations MAY support them, but implementations conformant
 to this document MUST NOT rely on them. Obsoleting these features does
@@ -6443,22 +6430,27 @@ clients, relay agents, and servers as these mechanisms were "optional".
           <dl newline="false" spacing="normal">
             <dt>IA_TA option.</dt>
             <dd>
-      The Identity Association for Temporary
-      Addresses Option has been deprecated. A client that
-      needs a short-term / special
+      The Identity Association for Temporary Addresses option has
+      been obsoleted. A client that needs a short-term / special
       purpose address can use a new IA_NA binding to request an
       address and release it when finished with it.</dd>
             <dt>UNICAST option.</dt>
             <dd>
-      The Server Unicast Option has been deprecated. Use of this
+      The Server Unicast option has been obsoleted. Use of this
       was rarely practical as typically relay agents between the
       client and server need to glean information from the
       communication and cannot be bypassed.</dd>
+            <dt>UseMulticast status code.</dt>
+            <dd>
+      The UseMulticast status code has been obsoleted. Clients
+      will always multicast messages (as Server Unicast option
+      has been obsoleted) and servers will no longer check for
+      unicast traffic.</dd>
           </dl>
         </li>
         <li>The following errata for RFC 8415 were incorporated:
 Erratum IDs 6159 and 6183. Note that Erratum ID 6269 was no longer
-applicable after the Server Unicast Option was deprecated.
+applicable after the Server Unicast Option was obsoleted.
 </li>
         <li>A reference to RFC 7943 was added to <xref target="addr-assign-ia-na" format="default"/> as
 it documents a method that might be used to generate addresses and was
