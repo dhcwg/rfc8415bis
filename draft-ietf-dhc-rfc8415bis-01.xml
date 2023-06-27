@@ -3623,8 +3623,8 @@
         <t>The server is not supposed to accept unicast traffic from a
         client. The Server Unicast option (see <xref target="RFC3315-22.12" format="default"/>)
         and UseMulticast status code (see <xref target="RFC3315-22.13" format="default"/>)
-        have been obsoleted and hence clients should no longer send the
-        server unicast messages nor receive the UseMulticast status code.
+        have been obsoleted and hence clients should no longer send messages
+        to a server's unicast address nor receive the UseMulticast status code.
         However, a server that may have supported the Server Unicast option
         and is upgraded to not support it, may continue to receive
         unicast messages if it previously sent the client the Server Unicast
@@ -6567,12 +6567,12 @@ INF_MAX_RT         *
       in RFC 8415 and by the authors of that document.
       </t>
       <t>A number of additional people have contributed to identifying issues
-      with RFC 8415: Fernando Gont, Felix Hamme, and Rene Engel.
+      with RFC 8415, including Fernando Gont, Felix Hamme, and Rene Engel.
       </t>
-      <t>We also thank the following for their review of this updated
-      document: XXX.
+      <t>We also thank the DHC working group for their review of this updated
+      document and providing information on implementations of DHCPv6.
       </t>
-      <t>Also, special thanks to XXX for shepherding this document
+      <t>Also, special thanks to Suresh Krishnan for shepherding this document
       through the IETF process.
       </t>
     </section>
