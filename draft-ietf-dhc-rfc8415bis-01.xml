@@ -6570,7 +6570,7 @@ INF_MAX_RT         *
       with RFC 8415, including Fernando Gont, Felix Hamme, and Rene Engel.
       </t>
       <t>We also thank the DHC working group for their review of this updated
-      document and providing information on implementations of DHCPv6.
+      document.
       </t>
       <t>Also, special thanks to Suresh Krishnan for shepherding this document
       through the IETF process.
