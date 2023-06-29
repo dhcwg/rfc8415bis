@@ -4723,7 +4723,7 @@
         user‑class-data is formatted as follows:</t>
         <figure anchor="FigOption15Data">
           <name>Format of user-class-data Field</name>
-          <artwork align="left" name="" type="" alt=""><![CDATA[
+          <artwork align="left" name="" type="" alt=""><![CDATA[/
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-...-+-+-+-+-+-+-+
    |        user-class-len         |          opaque-data          |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-...-+-+-+-+-+-+-+
@@ -6423,7 +6423,7 @@
 deployed while adding complexity to client and server implementations.
 Legacy implementations MAY support them, but implementations conformant
 to this document MUST NOT rely on them. Obsoleting these features does
-not cause any interoperatability issues when mixing updated and non-updates
+not cause any interoperatability issues when mixing updated and non-updated
 clients, relay agents, and servers as these mechanisms were "optional".
 
           </t>
