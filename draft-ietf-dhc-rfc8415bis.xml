@@ -749,6 +749,14 @@
        address autoconfiguration <xref target="RFC4862" format="default"/>, the advertised
        preferred and valid lifetimes MUST NOT exceed the corresponding
        remaining lifetimes of the delegated prefix.</t>
+       <t>
+       A client that has delegated any of the address space received through
+       DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant
+       delegated prefix while any of the address is outstanding.
+       That includes addressed leased out by normal DHCPv6 (IA_NA), prefixes via
+       DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router
+       Advertisements.
+       </t>
       </section>
       <section anchor="OpModes-CPE" numbered="true" toc="default">
         <name>DHCP for Customer Edge Routers</name>
