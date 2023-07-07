@@ -6569,7 +6569,7 @@ INF_MAX_RT         *
 
       <t>The DHCPv6 protocol was originally published as RFC 3315 in July 2003. Many extensions were defined and RFC
       8415 was published in November 2018. The protocol was implemented by many vendors that claim DHCPv6 compliance.
-      It is sometimes difficult to access whether full compliance with 8415 is claimed.</t>
+      It is sometimes difficult to determine whether full compliance with 8415 is claimed.</t>
 
       <t>The DHCPv6 protocol enjoys multiple interoperable implementations from all sectors of industry.
       There are many open source and proprietary implementations, both general software and hardware-specific.
