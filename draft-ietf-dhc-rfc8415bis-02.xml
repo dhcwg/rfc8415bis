@@ -6572,7 +6572,7 @@ INF_MAX_RT         *
       It is sometimes difficult to access whether full compliance with 8415 is claimed.</t>
 
       <t>The DHCPv6 protocol enjoys multiple interoperable implementations from all sectors of industry.
-      There are many open source and proprietary implementations, both software and hardware based.
+      There are many open source and proprietary implementations, both general software and hardware-specific.
       The following implementations (listed alphabetically) are known to support DHCPv6:</t>
 
       <ul>
