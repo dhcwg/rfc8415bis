@@ -5397,31 +5397,29 @@
 
       <ul>
         <li>Android (Google): In March 2023 (IETF'115) Google revealed it is working on the PD client
-        implementation for Android. Open source.</li>
+        implementation for Android. Open source. Maturity: prototype.</li>
         <!-- https://datatracker.ietf.org/meeting/116/materials/slides-116-v6ops-using-dhcp-pd-to-allocate-64-per-host-in-broadcast-networks-00,
         slide 17 -->
 
-        <li>udhcpc6 (busybox): Minimum footprint implementation, intended for embedded devices. It used to
-        be a separate project (udhcpc6), but it is now part of the BusyBox project. Open source. Client
-        implementation.</li>
-
-        <li>CPNR (Cisco): Cisco's software suite that supports many protocols, including RFC8415 compliant
-        server functionality. Proprietary.</li>
+        <li>Cisco Prime Network Registrar: Cisco's software suite that supports many protocols, including RFC8415 compliant
+        server functionality. Proprietary. Maturity: widely used.</li>
 
         <li>dhcpcd: Client implementation. Works on many Linux and BSD distributions, but seems to be the
-        default client for various BSD flavors. Open source.</li>
+        default client for various BSD flavors. Maturity: widely used, in particular on BSD systems.</li>
 
         <li>dhcpd (ISC): Client, relay and server implementation, present in most Linux and BSD
-        distributions. Open source. The project is no longer developed, but the software is still in wide use.</li>
+        distributions. Open source (Mozilla Public License v2). The project is no longer developed, but
+        the software is still in wide use.</li>
 
         <li>dibbler: Client, relay and server implementation. Limited compatibility with RFC8415. Open
-        source. The project is no longer developed, but the software is still in wide use.</li>
+        source (GNU GPLv2). The project is no longer developed, but the software is still in wide use. The biggest
+        known deployment is 16 million devices.</li>
 
         <li>dnsmasq: Probably the most popular implementation in terms of number of devices. Very popular
         among CPE and various home appliances. Client and server implementation with some relay capabilities. Open
         source.</li>
 
-        <li>EOS (Arrista): Proprietary implementation for network switches, routers and other networking
+        <li>EOS (Arista): Proprietary implementation for network switches, routers and other networking
         hardware. RFC8415 support explicitly stated. Server, client, relay implementation.</li>
 
         <li>FreeRADIUS: RADIUS implementation that also provides DHCPv6 server functionality. Open
@@ -5437,11 +5435,11 @@
         <li>IOS (Cisco): Server, relay, and client implementation that runs on Cisco routers, switches and
         other networking hardware. Proprietary.</li>
 
-        <li>Kea (ISC): Server implementation. Open source.</li>
+        <li>Kea (ISC): Server implementation. Open source (Mozilla Public License v2).</li>
         <!-- https://kea.readthedocs.io/en/kea-2.4.0/arm/dhcp6-srv.html#supported-dhcpv6-standards -->
 
-        <li>JunOS (Juniper): Server, relay, and client implementation that runs on Juniper routers and
-        switches. Proprietary.</li>
+        <li>JunOS (Juniper): Server, relay, and client implementation that runs on Juniper routers,
+        switches, and other networking hardware. Proprietary. Widely used.</li>
         <!-- https://www.juniper.net/documentation/us/en/software/junos/dhcp/topics/topic-map/dhcpv6-server.html -->
 
         <li>macOS (Apple):  - Client implementation for Macs (laptops and desktops). Proprietary.</li>
@@ -5456,12 +5454,22 @@
         <li>ServPoET (Finepoint): Server implementation. Proprietary.</li>
         <!-- https://finepoint.com/servpoet/ -->
 
+        <li>udhcpc6 (busybox): Minimum footprint implementation, intended for embedded devices. It used to
+        be a separate project (udhcpc6), but it is now part of the BusyBox project. Open source. Client
+        implementation.</li>
+
         <li>Windows (Microsoft): Microsoft Windows provides client implementation, which is probably still
         the most popular OS on desktops and laptops. The server version of Windows provides DHCPv6 server implementation. Proprietary.</li>
     </ul>
 
     <t>The DHCPv6 support is also mandated by some third parts specs. For example, all cable modems conformant to
     DOCSIS3 must support DHCPv6 client functionality.</t>
+
+    <t>There are many large scale deployments that use DHCPv6. One of them is Comcast's Xfinity. Authors are
+    aware of many other large scale country wide deployments, but due to NDAs cannot list them.</t>
+
+    <t>University of New Hampshire's InterOperability Laboratory runs USGv6 Testing Program. Testing DHCPv6
+    compliance is one aspect of the testing program.</t>
 
     </section>
 
