@@ -5364,8 +5364,8 @@
 
     <section anchor="impl-status" title="Implementation status">
 
-      <t>NOTE TO RFC EDITOR: Please remove this section before publication. It is intended for the IESG evaluation.
-      </t>
+      <t>NOTE TO RFC EDITOR: Please remove this section before publication.
+      It is intended for the IESG evaluation.</t>
 
       <t>This section records the status of known implementations of the
      protocol defined by this specification at the time of posting of
@@ -5397,66 +5397,75 @@
 
       <ul>
         <li>Android (Google): In March 2023 (IETF'115) Google revealed it is working on the PD client
-        implementation for Android. Open source. Maturity: prototype.</li>
-        <!-- https://datatracker.ietf.org/meeting/116/materials/slides-116-v6ops-using-dhcp-pd-to-allocate-64-per-host-in-broadcast-networks-00,
-        slide 17 -->
+        implementation for Android. Open source. Maturity: prototype. Details are scarce, but it seems
+        the implementation will focus on PD functionality. Source: https://datatracker.ietf.org/meeting/116/materials/slides-116-v6ops-using-dhcp-pd-to-allocate-64-per-host-in-broadcast-networks-00,
+        slide 17.</li>
 
-        <li>Cisco Prime Network Registrar: Cisco's software suite that supports many protocols, including RFC8415 compliant
-        server functionality. Proprietary. Maturity: widely used.</li>
+        <li>Cisco Prime Network Registrar: Cisco's software suite that supports many protocols, including RFC8415
+        compliant server functionality. Proprietary. Maturity: widely used. One of the authors of this I-D was
+        heavily involved in CPNR development. Source:
+        https://www.cisco.com/c/en/us/products/collateral/cloud-systems-management/prime-network-registrar/datasheet-c78-729989.html.</li>
 
         <li>dhcpcd: Client implementation. Works on many Linux and BSD distributions, but seems to be the
-        default client for various BSD flavors. Maturity: widely used, in particular on BSD systems.</li>
+        default client for various BSD flavors. Open source (BSD). Maturity: widely used, in particular on BSD systems.
+        Source: https://github.com/NetworkConfiguration/dhcpcd .</li>
 
         <li>dhcpd (ISC): Client, relay and server implementation, present in most Linux and BSD
         distributions. Open source (Mozilla Public License v2). The project is no longer developed, but
-        the software is still in wide use.</li>
+        the software is still in wide use. Source: https://www.isc.org/dhcp/ .</li>
 
         <li>dibbler: Client, relay and server implementation. Limited compatibility with RFC8415. Open
         source (GNU GPLv2). The project is no longer developed, but the software is still in wide use. The biggest
-        known deployment is 16 million devices.</li>
+        known deployment is 16 million devices. One of the authors of this I-D was the leading developer.
+        Source: https://klub.com.pl/dhcpv6/ .</li>
 
         <li>dnsmasq: Probably the most popular implementation in terms of number of devices. Very popular
         among CPE and various home appliances. Client and server implementation with some relay capabilities. Open
-        source.</li>
+        source (GPL v2 or v3). Source: https://dnsmasq.org/ .</li>
 
         <li>EOS (Arista): Proprietary implementation for network switches, routers and other networking
-        hardware. RFC8415 support explicitly stated. Server, client, relay implementation.</li>
+        hardware. RFC8415 support explicitly stated. Server, client, relay implementation. Source:
+        https://www.arista.com/en/um-eos/eos-ipv6 .</li>
 
         <li>FreeRADIUS: RADIUS implementation that also provides DHCPv6 server functionality. Open
         source.</li>
 
         <li>Huawei: Server, client and relay functionalities are available on most routers and switches.
-        Proprietary.</li> <!-- source:
-        https://support.huawei.com/hedex/hdx.do?docid=EDOC1100247463&id=EN-US_TASK_0176372622, see "Configuring
-        Server/Relay/client/PD client" on the left panel -->
+        Proprietary. Source: https://support.huawei.com/hedex/hdx.do?docid=EDOC1100247463&amp;id=EN-US_TASK_0176372622, see
+        "Configuring Server/Relay/client/PD client" on the left panel. </li>
 
-        <li>iOS (Apple): Client implementation running on Apple portable devices (iPhones, iPads, etc.). Proprietary.</li>
+        <li>iOS (Apple): Client implementation running on Apple portable devices (iPhones, iPads, etc.). Proprietary.
+        The implentation is widely used.</li>
 
         <li>IOS (Cisco): Server, relay, and client implementation that runs on Cisco routers, switches and
-        other networking hardware. Proprietary.</li>
+        other networking hardware. Proprietary. Widely used. Source:
+        https://community.cisco.com/t5/networking-knowledge-base/part-1-implementing-dhcpv6-stateful-dhcpv6/ta-p/3145631
+        .</li>
 
-        <li>Kea (ISC): Server implementation. Open source (Mozilla Public License v2).</li>
-        <!-- https://kea.readthedocs.io/en/kea-2.4.0/arm/dhcp6-srv.html#supported-dhcpv6-standards -->
+        <li>Kea (ISC): Server implementation. Open source (Mozilla Public License v2). It is a modern
+        replacement for now retired isc-dhcp. More than 500 users subscribed to the mailing list. One of the authors of
+        this I-D is the lead developer.
+        Source: https://kea.readthedocs.io/en/kea-2.4.0/arm/dhcp6-srv.html#supported-dhcpv6-standards .</li>
 
         <li>JunOS (Juniper): Server, relay, and client implementation that runs on Juniper routers,
-        switches, and other networking hardware. Proprietary. Widely used.</li>
-        <!-- https://www.juniper.net/documentation/us/en/software/junos/dhcp/topics/topic-map/dhcpv6-server.html -->
+        switches, and other networking hardware. Proprietary. Widely used. Source:
+        https://www.juniper.net/documentation/us/en/software/junos/dhcp/topics/topic-map/dhcpv6-server.html .</li>
 
-        <li>macOS (Apple):  - Client implementation for Macs (laptops and desktops). Proprietary.</li>
+        <li>macOS (Apple): Client implementation for Macs (laptops and desktops). Proprietary. Widely used.</li>
 
-        <li>odhcp6c (OpenWRT): Minimalistic client implementation intended for embedded environment. Open source.</li>
+        <li>odhcp6c (OpenWRT): Minimalistic client implementation intended for embedded environment. Open source
+        (GPL-2). Source: https://github.com/openwrt/odhcp6c .</li>
 
         <li>RouterOS (Mikrotik): Server, relay, and client implementation running on Mikrotik networking
-        hardware (routers, switches, many other appliances). Proprietary.</li>
-        <!-- https://wiki.mikrotik.com/wiki/Manual:IPv6/DHCP_Client,
-        https://wiki.mikrotik.com/wiki/Manual:IPv6/DHCP_Server, https://wiki.mikrotik.com/wiki/Manual:RouterOS6_news -->
+        hardware (routers, switches, many other appliances). Proprietary. Sources:
+        https://wiki.mikrotik.com/wiki/Manual:IPv6/DHCP_Client, https://wiki.mikrotik.com/wiki/Manual:IPv6/DHCP_Server, https://wiki.mikrotik.com/wiki/Manual:RouterOS6_news .</li>
 
-        <li>ServPoET (Finepoint): Server implementation. Proprietary.</li>
-        <!-- https://finepoint.com/servpoet/ -->
+        <li>ServPoET (Finepoint): Server implementation. Proprietary. One of the authors of this I-D was the lead
+        developer. Source: https://finepoint.com/servpoet/ .</li>
 
         <li>udhcpc6 (busybox): Minimum footprint implementation, intended for embedded devices. It used to
-        be a separate project (udhcpc6), but it is now part of the BusyBox project. Open source. Client
-        implementation.</li>
+        be a separate project (udhcpc6), but it is now part of the BusyBox project. Open source (GPL-v2). Client
+        implementation. Source: https://udhcp.busybox.net/README.udhcpc .</li>
 
         <li>Windows (Microsoft): Microsoft Windows provides client implementation, which is probably still
         the most popular OS on desktops and laptops. The server version of Windows provides DHCPv6 server implementation. Proprietary.</li>
