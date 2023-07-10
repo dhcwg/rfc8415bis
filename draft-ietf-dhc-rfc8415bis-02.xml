@@ -5472,13 +5472,19 @@
     </ul>
 
     <t>The DHCPv6 support is also mandated by some third parts specs. For example, all cable modems conformant to
-    DOCSIS3 must support DHCPv6 client functionality.</t>
+    DOCSIS3.0 or later must support DHCPv6 client functionality.</t>
 
     <t>There are many large scale deployments that use DHCPv6. One of them is Comcast's Xfinity. Authors are
-    aware of many other large scale country wide deployments, but due to NDAs cannot list them.</t>
+    aware of many other large scale country wide deployments, but due to signed Non-Disclosure Agreements cannot
+    list them.</t>
 
     <t>University of New Hampshire's InterOperability Laboratory runs USGv6 Testing Program. Testing DHCPv6
-    compliance is one aspect of the testing program.</t>
+    compliance is one aspect of the program.</t>
+
+    <t>While the original IPv6 Ready Logo testing involved the original DHCPv6 specifications (primarily RFC3315,
+    RFC3633), the large number of tested and certified implementations supports the breadth and depth of DHCPv6
+    impementations available and deployed in the marketplace over the years that confirm the protocol specifications are
+    up to Internet Standard. See https://www.ipv6ready.org/db/index.php/public/search/?l=&amp;c=&amp;ds=&amp;de=&amp;pc=&amp;ap=2&amp;oem=&amp;etc=D&amp;fw=&amp;vn=&amp;do=1&amp;o=6.- </t>
 
     </section>
 
