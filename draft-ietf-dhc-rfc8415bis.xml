@@ -12,7 +12,7 @@
 <?rfc subcompact="no" ?>
 <?rfc text-list-symbols="-*+o"?>
 
-<rfc category="std" docName="draft-dhcwg-dhc-rfc8415bis-00"
+<rfc category="std" docName="draft-ietf-dhc-rfc8415bis-00"
      ipr="pre5378Trust200902"
      obsoletes="8415"
      submissionType="IETF" consensus="yes">
@@ -120,7 +120,7 @@
       </address>
     </author>
 
-    <date year="2022"/>
+    <date year="2023"/>
 
     <keyword>DHCPv6</keyword>
     <keyword>IPv6</keyword>
