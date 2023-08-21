@@ -757,6 +757,12 @@
        DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router
        Advertisements.
        </t>
+       <t>
+         <xref target="RFC9096" format="default" /> suggests never sending
+         DHCP-PD release events upon restarts, and section 3.3 of that
+         document gives more details on coordination of lifetimes between WAN
+         (DHCPv6-PD client) and LAN (DHCPv6-PD server) sides.
+       </t>
       </section>
       <section anchor="OpModes-CPE" numbered="true" toc="default">
         <name>DHCP for Customer Edge Routers</name>
@@ -6524,6 +6530,7 @@
           <seriesInfo name="RFC" value="8981"/>
           <seriesInfo name="DOI" value="10.17487/RFC8981"/>
         </reference>
+        <?rfc include="reference.RFC.9096.xml" ?>
         <reference anchor="TR-187" target="https://www.broadband-forum.org/technical/download/TR-187_Issue-2.pdf">
           <front>
             <title>TR-187 - IPv6 for PPP Broadband Access</title>
