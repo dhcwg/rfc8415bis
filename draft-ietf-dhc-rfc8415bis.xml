@@ -750,17 +750,18 @@
        preferred and valid lifetimes MUST NOT exceed the corresponding
        remaining lifetimes of the delegated prefix.</t>
        <t>
-       A client that has delegated any of the address space received through
-       DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant
-       delegated prefix while any of the address is outstanding.
-       That includes addressed leased out by normal DHCPv6 (IA_NA), prefixes via
-       DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router
-       Advertisements.
+         A client that has delegated any of the address space received through
+         DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant
+         delegated prefix while any of the address space is outstanding.
+         <xref target="RFC9096" format="default" /> section WPD-9 makes this
+         Best Current Practice.
+         That includes addressed leased out by normal DHCPv6 (IA_NA), prefixes via
+         DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router
+         Advertisements.
        </t>
        <t>
-         <xref target="RFC9096" format="default" /> suggests never sending
-         DHCP-PD release events upon restarts, and section 3.3 of that
-         document gives more details on coordination of lifetimes between WAN
+         <xref target="RFC9096" format="default" /> section 3.3 further
+         provides more guidance on coordination of lifetimes between WAN
          (DHCPv6-PD client) and LAN (DHCPv6-PD server) sides.
        </t>
       </section>
