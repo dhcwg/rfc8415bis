@@ -13,12 +13,12 @@
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
 <?rfc text-list-symbols="-*+o"?>
-<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-ietf-dhc-rfc8415bis-01" ipr="pre5378Trust200902" obsoletes="8415" submissionType="IETF" consensus="true" updates="" xml:lang="en" tocInclude="true" tocDepth="4" symRefs="true" sortRefs="true" version="3">
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-ietf-dhc-rfc8415bis-02" ipr="pre5378Trust200902" obsoletes="8415" submissionType="IETF" consensus="true" updates="" xml:lang="en" tocInclude="true" tocDepth="4" symRefs="true" sortRefs="true" version="3">
   <!-- xml2rfc v2v3 conversion 3.17.0 -->
   <front>
     <title abbrev="DHCP for IPv6">Dynamic Host Configuration Protocol for IPv6
     (DHCPv6)</title>
-    <seriesInfo name="Internet-Draft" value="draft-ietf-dhc-rfc8415bis-01"/>
+    <seriesInfo name="Internet-Draft" value="draft-ietf-dhc-rfc8415bis-02"/>
     <author fullname="Tomek Mrugalski" initials="T." surname="Mrugalski">
       <organization abbrev="ISC">Internet Systems Consortium,
       Inc.</organization>
@@ -4723,7 +4723,7 @@
         user‑class-data is formatted as follows:</t>
         <figure anchor="FigOption15Data">
           <name>Format of user-class-data Field</name>
-          <artwork align="left" name="" type="" alt=""><![CDATA[/
+          <artwork align="left" name="" type="" alt=""><![CDATA[
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-...-+-+-+-+-+-+-+
    |        user-class-len         |          opaque-data          |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-...-+-+-+-+-+-+-+
@@ -5361,6 +5361,133 @@
         which the client received the INF_MAX_RT option.</t>
       </section>
     </section>
+
+    <section anchor="impl-status" title="Implementation status">
+
+      <t>NOTE TO RFC EDITOR: Please remove this section before publication.
+      It is intended for the IESG evaluation.</t>
+
+      <t>This section records the status of known implementations of the
+     protocol defined by this specification at the time of posting of
+     this Internet-Draft, and is based on a proposal described in
+     RFC 7942.  The description of implementations in this section is
+     intended to assist the IETF in its decision processes in
+     progressing drafts to RFCs.  Please note that the listing of any
+     individual implementation here does not imply endorsement by the
+     IETF.  Furthermore, no effort has been spent to verify the
+     information presented here that was supplied by IETF contributors.
+     This is not intended as, and must not be construed to be, a
+     catalog of available implementations or their features.  Readers
+     are advised to note that other implementations may exist.</t>
+
+     <t>According to RFC 7942, "this will allow reviewers and working
+     groups to assign due consideration to documents that have the
+     benefit of running code, which may serve as evidence of valuable
+     experimentation and feedback that have made the implemented
+     protocols more mature.  It is up to the individual working groups
+     to use this information as they see fit".</t>
+
+      <t>The DHCPv6 protocol was originally published as RFC 3315 in July 2003. Many extensions were defined and RFC
+      8415 was published in November 2018. The protocol was implemented by many vendors that claim DHCPv6 compliance.
+      It is sometimes difficult to determine whether full compliance with 8415 is claimed.</t>
+
+      <t>The DHCPv6 protocol enjoys multiple interoperable implementations from all sectors of industry.
+      There are many open source and proprietary implementations, both general software and hardware-specific.
+      The following implementations (listed alphabetically) are known to support DHCPv6:</t>
+
+      <ul>
+        <li>Android (Google): In March 2023 (IETF'115) Google revealed it is working on the PD client
+        implementation for Android. Open source. Maturity: prototype. Details are scarce, but it seems
+        the implementation will focus on PD functionality. Source: https://datatracker.ietf.org/meeting/116/materials/slides-116-v6ops-using-dhcp-pd-to-allocate-64-per-host-in-broadcast-networks-00,
+        slide 17.</li>
+
+        <li>Cisco Prime Network Registrar: Cisco's software suite that supports many protocols, including RFC8415
+        compliant server functionality. Proprietary. Maturity: widely used. One of the authors of this I-D was
+        heavily involved in CPNR development. Source:
+        https://www.cisco.com/c/en/us/products/collateral/cloud-systems-management/prime-network-registrar/datasheet-c78-729989.html.</li>
+
+        <li>dhcpcd: Client implementation. Works on many Linux and BSD distributions, but seems to be the
+        default client for various BSD flavors. Open source (BSD). Maturity: widely used, in particular on BSD systems.
+        Source: https://github.com/NetworkConfiguration/dhcpcd .</li>
+
+        <li>dhcpd (ISC): Client, relay and server implementation, present in most Linux and BSD
+        distributions. Open source (Mozilla Public License v2). The project is no longer developed, but
+        the software is still in wide use. Source: https://www.isc.org/dhcp/ .</li>
+
+        <li>dibbler: Client, relay and server implementation. Limited compatibility with RFC8415. Open
+        source (GNU GPLv2). The project is no longer developed, but the software is still in wide use. The biggest
+        known deployment is 16 million devices. One of the authors of this I-D was the leading developer.
+        Source: https://klub.com.pl/dhcpv6/ .</li>
+
+        <li>dnsmasq: Probably the most popular implementation in terms of number of devices. Very popular
+        among CPE and various home appliances. Client and server implementation with some relay capabilities. Open
+        source (GPL v2 or v3). Source: https://dnsmasq.org/ .</li>
+
+        <li>EOS (Arista): Proprietary implementation for network switches, routers and other networking
+        hardware. RFC8415 support explicitly stated. Server, client, relay implementation. Source:
+        https://www.arista.com/en/um-eos/eos-ipv6 .</li>
+
+        <li>FreeRADIUS: RADIUS implementation that also provides DHCPv6 server functionality. Open
+        source.</li>
+
+        <li>Huawei: Server, client and relay functionalities are available on most routers and switches.
+        Proprietary. Source: https://support.huawei.com/hedex/hdx.do?docid=EDOC1100247463&amp;id=EN-US_TASK_0176372622, see
+        "Configuring Server/Relay/client/PD client" on the left panel. </li>
+
+        <li>iOS (Apple): Client implementation running on Apple portable devices (iPhones, iPads, etc.). Proprietary.
+        The implentation is widely used.</li>
+
+        <li>IOS (Cisco): Server, relay, and client implementation that runs on Cisco routers, switches and
+        other networking hardware. Proprietary. Widely used. Source:
+        https://community.cisco.com/t5/networking-knowledge-base/part-1-implementing-dhcpv6-stateful-dhcpv6/ta-p/3145631
+        .</li>
+
+        <li>Kea (ISC): Server implementation. Open source (Mozilla Public License v2). It is a modern
+        replacement for now retired isc-dhcp. More than 500 users subscribed to the mailing list. One of the authors of
+        this I-D is the lead developer.
+        Source: https://kea.readthedocs.io/en/kea-2.4.0/arm/dhcp6-srv.html#supported-dhcpv6-standards .</li>
+
+        <li>JunOS (Juniper): Server, relay, and client implementation that runs on Juniper routers,
+        switches, and other networking hardware. Proprietary. Widely used. Source:
+        https://www.juniper.net/documentation/us/en/software/junos/dhcp/topics/topic-map/dhcpv6-server.html .</li>
+
+        <li>macOS (Apple): Client implementation for Macs (laptops and desktops). Proprietary. Widely used.</li>
+
+        <li>odhcp6c (OpenWRT): Minimalistic client implementation intended for embedded environment. Open source
+        (GPL-2). Source: https://github.com/openwrt/odhcp6c .</li>
+
+        <li>RouterOS (Mikrotik): Server, relay, and client implementation running on Mikrotik networking
+        hardware (routers, switches, many other appliances). Proprietary. Sources:
+        https://wiki.mikrotik.com/wiki/Manual:IPv6/DHCP_Client, https://wiki.mikrotik.com/wiki/Manual:IPv6/DHCP_Server, https://wiki.mikrotik.com/wiki/Manual:RouterOS6_news .</li>
+
+        <li>ServPoET (Finepoint): Server implementation. Proprietary. One of the authors of this I-D was the lead
+        developer. Source: https://finepoint.com/servpoet/ .</li>
+
+        <li>udhcpc6 (busybox): Minimum footprint implementation, intended for embedded devices. It used to
+        be a separate project (udhcpc6), but it is now part of the BusyBox project. Open source (GPL-v2). Client
+        implementation. Source: https://udhcp.busybox.net/README.udhcpc .</li>
+
+        <li>Windows (Microsoft): Microsoft Windows provides client implementation, which is probably still
+        the most popular OS on desktops and laptops. The server version of Windows provides DHCPv6 server implementation. Proprietary.</li>
+    </ul>
+
+    <t>The DHCPv6 support is also mandated by some third parts specs. For example, all cable modems conformant to
+    DOCSIS3.0 or later must support DHCPv6 client functionality.</t>
+
+    <t>There are many large scale deployments that use DHCPv6. One of them is Comcast's Xfinity. Authors are
+    aware of many other large scale country wide deployments, but due to signed Non-Disclosure Agreements cannot
+    list them.</t>
+
+    <t>University of New Hampshire's InterOperability Laboratory runs USGv6 Testing Program. Testing DHCPv6
+    compliance is one aspect of the program.</t>
+
+    <t>While the original IPv6 Ready Logo testing involved the original DHCPv6 specifications (primarily RFC3315,
+    RFC3633), the large number of tested and certified implementations supports the breadth and depth of DHCPv6
+    impementations available and deployed in the marketplace over the years that confirm the protocol specifications are
+    up to Internet Standard. See https://www.ipv6ready.org/db/index.php/public/search/?l=&amp;c=&amp;ds=&amp;de=&amp;pc=&amp;ap=2&amp;oem=&amp;etc=D&amp;fw=&amp;vn=&amp;do=1&amp;o=6.- </t>
+
+    </section>
+
     <section anchor="security" numbered="true" toc="default">
       <name>Security Considerations</name>
       <t>This section discusses security considerations that are not related
@@ -5515,7 +5642,7 @@
       <t>IANA is requested to mark the UseMulticast (status code 5) in
       the Status Codes table at
       &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt; as
-      obsolete.</t>      
+      obsolete.</t>
       <t>IANA is requested to update other references to <xref target="RFC8415" format="default"/>
       with references to this document at:
       </t>
@@ -6561,6 +6688,7 @@ INF_MAX_RT         *
       "options" field of the Relay-forward and Relay-reply messages
       (see <xref target="RFC3315-7" format="default"/>).</t>
     </section>
+
     <section numbered="false" toc="default">
       <name>Acknowledgments</name>
       <t>This document is merely a refinement of earlier work as described
@@ -6576,5 +6704,6 @@ INF_MAX_RT         *
       through the IETF process.
       </t>
     </section>
+
   </back>
 </rfc>
