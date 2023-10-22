@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 22 February 2024                                  M. Richardson
+Expires: 24 April 2024                                     M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                          21 August 2023
+                                                         22 October 2023
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 February 2024.
+   This Internet-Draft will expire on 24 April 2024.
 
 Copyright Notice
 
@@ -946,6 +946,18 @@ Table of Contents
    autoconfiguration [RFC4862], the advertised preferred and valid
    lifetimes MUST NOT exceed the corresponding remaining lifetimes of
    the delegated prefix.
+
+   A client that has delegated any of the address space received through
+   DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant
+   delegated prefix while any of the address space is outstanding.
+   [RFC9096] section WPD-9 makes this Best Current Practice.  That
+   includes addressed leased out by normal DHCPv6 (IA_NA), prefixes via
+   DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router
+   Advertisements.
+
+   [RFC9096] section 3.3 further provides more guidance on coordination
+   of lifetimes between WAN (DHCPv6-PD client) and LAN (DHCPv6-PD
+   server) sides.
 
 6.4.  DHCP for Customer Edge Routers
 
@@ -6260,6 +6272,11 @@ Table of Contents
               Autoconfiguration in IPv6", RFC 8981,
               DOI 10.17487/RFC8981, February 2021,
               <https://www.rfc-editor.org/info/rfc8981>.
+
+   [RFC9096]  Gont, F., Žorž, J., Patterson, R., and B. Volz, "Improving
+              the Reaction of Customer Edge Routers to IPv6 Renumbering
+              Events", BCP 234, RFC 9096, DOI 10.17487/RFC9096, August
+              2021, <https://www.rfc-editor.org/info/rfc9096>.
 
    [TR-187]   Broadband Forum, "TR-187 - IPv6 for PPP Broadband Access",
               February 2013, <https://www.broadband-
