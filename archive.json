@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-09-12T01:11:24.611714+00:00",
+  "timestamp": "2023-10-22T01:19:14.822994+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -705,7 +705,7 @@
       "labels": [],
       "body": "This paragraph attempts to deal with lifetimes for DHCPv6-PD, with the remainder of the issues dealt with in references.",
       "createdAt": "2023-08-21T17:55:28Z",
-      "updatedAt": "2023-09-11T12:39:31Z",
+      "updatedAt": "2023-10-20T20:00:37Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "bb656f652686944a2e6f595979a43594fca2deab",
@@ -730,6 +730,20 @@
           "body": "> I think you meant \u201caddress space\u201d? \r\n\r\nyes, I also see that I've repeated myself, so I've merged some text.\r\n",
           "createdAt": "2023-08-21T18:20:50Z",
           "updatedAt": "2023-08-21T18:20:50Z"
+        },
+        {
+          "author": "twintersunh",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@mcr Are we going to merge this and ship this version of the draft for the upcoming IETF?",
+          "createdAt": "2023-10-20T19:58:23Z",
+          "updatedAt": "2023-10-20T19:58:23Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Be really nice to have WGLC and send this on!!- Bernie (from iPad)On Oct 20, 2023, at 3:58 PM, Timothy Winters ***@***.***> wrote:\ufeff\r\n@mcr Are we going to merge this and ship this version of the draft for the upcoming IETF?\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because your review was requested.Message ID: ***@***.***>",
+          "createdAt": "2023-10-20T20:00:36Z",
+          "updatedAt": "2023-10-20T20:00:36Z"
         }
       ],
       "reviews": [
