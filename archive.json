@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-10-22T01:19:14.822994+00:00",
+  "timestamp": "2023-10-24T01:14:05.356668+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -698,24 +698,26 @@
       "id": "PR_kwDOFL5NeM5Yaeb0",
       "title": "proposed text dealing with DHCP PD Release",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/7",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This paragraph attempts to deal with lifetimes for DHCPv6-PD, with the remainder of the issues dealt with in references.",
       "createdAt": "2023-08-21T17:55:28Z",
-      "updatedAt": "2023-10-20T20:00:37Z",
+      "updatedAt": "2023-10-22T14:43:33Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "bb656f652686944a2e6f595979a43594fca2deab",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "release-pd-advice",
       "headRefOid": "2955e996d476140048944c2184b530ed5b06363e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-10-22T14:43:30Z",
+      "mergedAt": "2023-10-22T14:43:30Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "5de20d84e0957efd8f1a75ae6aef107ea1e96429"
+      },
       "comments": [
         {
           "author": "bevolz",
