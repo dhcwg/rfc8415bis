@@ -84,7 +84,7 @@
         <email>tim@qacafe.com</email>
       </address>
     </author>
-    <date year="2023"/>
+    <date year="2024"/>
     <keyword>DHCPv6</keyword>
     <keyword>IPv6</keyword>
     <keyword>DHCP</keyword>
@@ -3735,6 +3735,10 @@
           other out‑of‑band communication to configure routing
           information for delegated prefixes on any router through which the
           client may forward traffic.</t>
+
+          <t>Several problems related to Prefix Delegation and Relay Agents and a set of
+          requirements to address them are defined in <xref target="RFC8987" format="default"/>.
+          </t>
         </section>
       </section>
       <section numbered="true" toc="default">
@@ -6531,6 +6535,7 @@
           <seriesInfo name="RFC" value="8981"/>
           <seriesInfo name="DOI" value="10.17487/RFC8981"/>
         </reference>
+        <?rfc include="reference.RFC.8987.xml" ?>
         <?rfc include="reference.RFC.9096.xml" ?>
         <reference anchor="TR-187" target="https://www.broadband-forum.org/technical/download/TR-187_Issue-2.pdf">
           <front>
@@ -6711,7 +6716,8 @@ INF_MAX_RT         *
       in RFC 8415 and by the authors of that document.
       </t>
       <t>A number of additional people have contributed to identifying issues
-      with RFC 8415, including Fernando Gont, Felix Hamme, and Rene Engel.
+      with RFC 8415, including Fernando Gont, Felix Hamme, Rene Engel, and
+      Esko Dijk.
       </t>
       <t>We also thank the DHC working group for their review of this updated
       document.
