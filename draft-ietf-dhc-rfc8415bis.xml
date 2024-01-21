@@ -764,6 +764,8 @@
          provides more guidance on coordination of lifetimes between WAN
          (DHCPv6-PD client) and LAN (DHCPv6-PD server) sides.
        </t>
+       <t>Several problems related to Prefix Delegation and Relay Agents and a set of
+       requirements to address them are defined in <xref target="RFC8987" format="default"/>.</t>
       </section>
       <section anchor="OpModes-CPE" numbered="true" toc="default">
         <name>DHCP for Customer Edge Routers</name>
@@ -3739,10 +3741,6 @@
           other out‑of‑band communication to configure routing
           information for delegated prefixes on any router through which the
           client may forward traffic.</t>
-
-          <t>Several problems related to Prefix Delegation and Relay Agents and a set of
-          requirements to address them are defined in <xref target="RFC8987" format="default"/>.
-          </t>
         </section>
       </section>
       <section numbered="true" toc="default">
