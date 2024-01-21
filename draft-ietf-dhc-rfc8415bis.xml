@@ -5446,6 +5446,9 @@
         among CPE and various home appliances. Client and server implementation with some relay capabilities. Open
         source (GPL v2 or v3). Source: https://dnsmasq.org/ .</li>
 
+        <li>EdgeMax (Ubiquiti): Proprietary implementation running on EdgeMax hardware, home and small enterprise
+        gateways and switches. Focused on DHCPv6-PD. Source: https://help.ui.com/hc/en-us/articles/115002531728-EdgeRouter-Beginners-Guide-to-EdgeRouter.</li>
+
         <li>EOS (Arista): Proprietary implementation for network switches, routers and other networking
         hardware. RFC8415 support explicitly stated. Server, client, relay implementation. Source:
         https://www.arista.com/en/um-eos/eos-ipv6 .</li>
@@ -5489,6 +5492,9 @@
         <li>udhcpc6 (busybox): Minimum footprint implementation, intended for embedded devices. It used to
         be a separate project (udhcpc6), but it is now part of the BusyBox project. Open source (GPL-v2). Client
         implementation. Source: https://udhcp.busybox.net/README.udhcpc .</li>
+
+        <li>Unifi (Ubiquiti): Server, relay, and client implementation running on UniFi hardware (routers, switches,
+        firewalls). Proprietary. Source: https://help.ui.com/hc/en-us/articles/115005868927-UniFi-Gateway-Static-IPv6-and-DHCPv6-Prefix-Delegation.</li>
 
         <li>Windows (Microsoft): Microsoft Windows provides client implementation, which is probably still
         the most popular OS on desktops and laptops. The server version of Windows provides DHCPv6 server implementation. Proprietary.</li>
