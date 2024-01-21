@@ -2995,6 +2995,10 @@
             <li>The client changes access points (e.g., if
               using Wi-Fi technology).</li>
           </ul>
+          <t>Specific algorithms for detecting network attachement changes are out of scope
+          for this document. Two possible mechanisms for detecting situation where refreshing
+          configuration information may be needed, are defined in <xref target="RFC6059"
+          format="default"/>, and <xref target="RFC4957" format="default" />.</t>
           <t>When the client detects that it may have moved to a new link and it
           has obtained addresses and no delegated prefixes from a server, the
           client SHOULD initiate a Confirm/Reply message exchange. The client
@@ -6156,6 +6160,7 @@
           <seriesInfo name="RFC" value="4943"/>
           <seriesInfo name="DOI" value="10.17487/RFC4943"/>
         </reference>
+        <?rfc include="reference.RFC.4957.xml" ?>
         <reference anchor="RFC4994" target="https://www.rfc-editor.org/info/rfc4994" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.4994.xml">
           <front>
             <title>DHCPv6 Relay Agent Echo Request Option</title>
@@ -6213,6 +6218,7 @@
           <seriesInfo name="RFC" value="5905"/>
           <seriesInfo name="DOI" value="10.17487/RFC5905"/>
         </reference>
+        <?rfc include="reference.RFC.6059.xml" ?>
         <reference anchor="RFC6422" target="https://www.rfc-editor.org/info/rfc6422" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.6422.xml">
           <front>
             <title>Relay-Supplied DHCP Options</title>
@@ -6716,8 +6722,8 @@ INF_MAX_RT         *
       in RFC 8415 and by the authors of that document.
       </t>
       <t>A number of additional people have contributed to identifying issues
-      with RFC 8415, including Fernando Gont, Felix Hamme, Rene Engel, and
-      Esko Dijk.
+      with RFC 8415, including Fernando Gont, Felix Hamme, Rene Engel, Esko Dijk,
+      and Ted Lemon.
       </t>
       <t>We also thank the DHC working group for their review of this updated
       document.
