@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 21 July 2024                                      M. Richardson
+Expires: 24 July 2024                                      M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                         18 January 2024
+                                                         21 January 2024
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 July 2024.
+   This Internet-Draft will expire on 24 July 2024.
 
 Copyright Notice
 
@@ -3201,6 +3201,11 @@ Table of Contents
    *  The client changes access points (e.g., if using Wi-Fi
       technology).
 
+   Specific algorithms for detecting network attachement changes are out
+   of scope for this document.  Two possible mechanisms for detecting
+   situation where refreshing configuration information may be needed,
+   are defined in [RFC6059], and [RFC4957].
+
    When the client detects that it may have moved to a new link and it
    has obtained addresses and no delegated prefixes from a server, the
    client SHOULD initiate a Confirm/Reply message exchange.  The client
@@ -5695,6 +5700,11 @@ Table of Contents
       capabilities.  Open source (GPL v2 or v3).  Source:
       https://dnsmasq.org/ .
 
+   *  EdgeMax (Ubiquiti): Proprietary implementation running on EdgeMax
+      hardware, home and small enterprise gateways and switches.
+      Focused on DHCPv6-PD.  Source: https://help.ui.com/hc/en-us/
+      articles/115002531728-EdgeRouter-Beginners-Guide-to-EdgeRouter.
+
    *  EOS (Arista): Proprietary implementation for network switches,
       routers and other networking hardware.  RFC8415 support explicitly
       stated.  Server, client, relay implementation.  Source:
@@ -5755,6 +5765,11 @@ Table of Contents
       it is now part of the BusyBox project.  Open source (GPL-v2).
       Client implementation.  Source: https://udhcp.busybox.net/
       README.udhcpc .
+
+   *  Unifi (Ubiquiti): Server, relay, and client implementation running
+      on UniFi hardware (routers, switches, firewalls).  Proprietary.
+      Source: https://help.ui.com/hc/en-us/articles/115005868927-UniFi-
+      Gateway-Static-IPv6-and-DHCPv6-Prefix-Delegation.
 
    *  Windows (Microsoft): Microsoft Windows provides client
       implementation, which is probably still the most popular OS on
@@ -6148,6 +6163,12 @@ Table of Contents
               RFC 4943, DOI 10.17487/RFC4943, September 2007,
               <https://www.rfc-editor.org/info/rfc4943>.
 
+   [RFC4957]  Krishnan, S., Ed., Montavont, N., Njedjou, E., Veerepalli,
+              S., and A. Yegin, Ed., "Link-Layer Event Notifications for
+              Detecting Network Attachments", RFC 4957,
+              DOI 10.17487/RFC4957, August 2007,
+              <https://www.rfc-editor.org/info/rfc4957>.
+
    [RFC4994]  Zeng, S., Volz, B., Kinnear, K., and J. Brzozowski,
               "DHCPv6 Relay Agent Echo Request Option", RFC 4994,
               DOI 10.17487/RFC4994, September 2007,
@@ -6169,6 +6190,11 @@ Table of Contents
    [RFC5908]  Gayraud, R. and B. Lourdelet, "Network Time Protocol (NTP)
               Server Option for DHCPv6", RFC 5908, DOI 10.17487/RFC5908,
               June 2010, <https://www.rfc-editor.org/info/rfc5908>.
+
+   [RFC6059]  Krishnan, S. and G. Daley, "Simple Procedures for
+              Detecting Network Attachment in IPv6", RFC 6059,
+              DOI 10.17487/RFC6059, November 2010,
+              <https://www.rfc-editor.org/info/rfc6059>.
 
    [RFC6422]  Lemon, T. and Q. Wu, "Relay-Supplied DHCP Options",
               RFC 6422, DOI 10.17487/RFC6422, December 2011,
@@ -6435,8 +6461,8 @@ Acknowledgments
    RFC 8415 and by the authors of that document.
 
    A number of additional people have contributed to identifying issues
-   with RFC 8415, including Fernando Gont, Felix Hamme, Rene Engel, and
-   Esko Dijk.
+   with RFC 8415, including Fernando Gont, Felix Hamme, Rene Engel, Esko
+   Dijk, and Ted Lemon.
 
    We also thank the DHC working group for their review of this updated
    document.
