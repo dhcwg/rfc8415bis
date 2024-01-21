@@ -959,6 +959,9 @@ Table of Contents
    of lifetimes between WAN (DHCPv6-PD client) and LAN (DHCPv6-PD
    server) sides.
 
+   Several problems related to Prefix Delegation and Relay Agents and a
+   set of requirements to address them are defined in [RFC8987].
+
 6.4.  DHCP for Customer Edge Routers
 
    The DHCP requirements and network architecture for Customer Edge
@@ -3982,9 +3985,6 @@ Table of Contents
    out-of-band communication to configure routing information for
    delegated prefixes on any router through which the client may forward
    traffic.
-
-   Several problems related to Prefix Delegation and Relay Agents and a
-   set of requirements to address them are defined in [RFC8987].
 
 19.2.  Relaying a Relay-reply Message
 
