@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-18T01:19:18.426186+00:00",
+  "timestamp": "2024-01-21T01:25:23.659245+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -763,6 +763,40 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOFL5NeM5kc9Ul",
+      "title": "Changes after WGLC",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/8",
+      "state": "OPEN",
+      "author": "tomaszmrugalski",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "These are the changes after WGLC. This PR is still work in progress.",
+      "createdAt": "2024-01-18T18:03:23Z",
+      "updatedAt": "2024-01-20T12:19:11Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "5de20d84e0957efd8f1a75ae6aef107ea1e96429",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "wglc-updates",
+      "headRefOid": "efe20e278a1bbc364089465c588907d001c21927",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Tomek, wouldn\u2019t the additional text to reference RFC8987 be better at or near end of section 6.3, DHCP for Prefix Delegation?Thanks for starting the work to finish this up.- BernieOn Jan 18, 2024, at 1:03\u202fPM, Tomek Mrugalski ***@***.***> wrote:\ufeffThese are the changes after WGLC. This PR is still work in progress.\r\n\r\n\r\n\r\nYou can view, comment on, or merge this pull request online at:\r\n\u00a0\u00a0https://github.com/dhcwg/rfc8415bis/pull/8\r\n\r\nCommit Summary\r\n\r\n  67f1ec8  reference to RFC8987 (relay-pd requirements) added\r\n  efe20e2  .gitignore tweaked\r\n\r\n\r\nFile Changes  (2\u00a0files)\r\n\r\n  \r\n    M\r\n    .gitignore\r\n    (1)\r\n  \r\n  \r\n    M\r\n    draft-ietf-dhc-rfc8415bis.xml\r\n    (10)\r\n  \r\n\r\n\r\nPatch Links:\r\n\r\n  https://github.com/dhcwg/rfc8415bis/pull/8.patch\r\n  https://github.com/dhcwg/rfc8415bis/pull/8.diff\r\n\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you are subscribed to this thread.Message ID: ***@***.***>",
+          "createdAt": "2024-01-20T12:19:10Z",
+          "updatedAt": "2024-01-20T12:19:10Z"
+        }
+      ],
+      "reviews": []
     }
   ]
 }
