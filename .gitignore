@@ -21,3 +21,4 @@ draft-ietf-dhc-rfc8415bis.xml
 package-lock.json
 report.xml
 !requirements.txt
+/venv/

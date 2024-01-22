@@ -84,7 +84,7 @@
         <email>tim@qacafe.com</email>
       </address>
     </author>
-    <date year="2023"/>
+    <date year="2024"/>
     <keyword>DHCPv6</keyword>
     <keyword>IPv6</keyword>
     <keyword>DHCP</keyword>
@@ -764,6 +764,8 @@
          provides more guidance on coordination of lifetimes between WAN
          (DHCPv6-PD client) and LAN (DHCPv6-PD server) sides.
        </t>
+       <t>Several problems related to Prefix Delegation and Relay Agents and a set of
+       requirements to address them are defined in <xref target="RFC8987" format="default"/>.</t>
       </section>
       <section anchor="OpModes-CPE" numbered="true" toc="default">
         <name>DHCP for Customer Edge Routers</name>
@@ -2995,6 +2997,10 @@
             <li>The client changes access points (e.g., if
               using Wi-Fi technology).</li>
           </ul>
+          <t>Specific algorithms for detecting network attachement changes are out of scope
+          for this document. Two possible mechanisms for detecting situation where refreshing
+          configuration information may be needed, are defined in <xref target="RFC6059"
+          format="default"/>, and <xref target="RFC4957" format="default" />.</t>
           <t>When the client detects that it may have moved to a new link and it
           has obtained addresses and no delegated prefixes from a server, the
           client SHOULD initiate a Confirm/Reply message exchange. The client
@@ -5438,6 +5444,9 @@
         among CPE and various home appliances. Client and server implementation with some relay capabilities. Open
         source (GPL v2 or v3). Source: https://dnsmasq.org/ .</li>
 
+        <li>EdgeMax (Ubiquiti): Proprietary implementation running on EdgeMax hardware, home and small enterprise
+        gateways and switches. Focused on DHCPv6-PD. Source: https://help.ui.com/hc/en-us/articles/115002531728-EdgeRouter-Beginners-Guide-to-EdgeRouter.</li>
+
         <li>EOS (Arista): Proprietary implementation for network switches, routers and other networking
         hardware. RFC8415 support explicitly stated. Server, client, relay implementation. Source:
         https://www.arista.com/en/um-eos/eos-ipv6 .</li>
@@ -5481,6 +5490,9 @@
         <li>udhcpc6 (busybox): Minimum footprint implementation, intended for embedded devices. It used to
         be a separate project (udhcpc6), but it is now part of the BusyBox project. Open source (GPL-v2). Client
         implementation. Source: https://udhcp.busybox.net/README.udhcpc .</li>
+
+        <li>Unifi (Ubiquiti): Server, relay, and client implementation running on UniFi hardware (routers, switches,
+        firewalls). Proprietary. Source: https://help.ui.com/hc/en-us/articles/115005868927-UniFi-Gateway-Static-IPv6-and-DHCPv6-Prefix-Delegation.</li>
 
         <li>Windows (Microsoft): Microsoft Windows provides client implementation, which is probably still
         the most popular OS on desktops and laptops. The server version of Windows provides DHCPv6 server implementation. Proprietary.</li>
@@ -6152,6 +6164,7 @@
           <seriesInfo name="RFC" value="4943"/>
           <seriesInfo name="DOI" value="10.17487/RFC4943"/>
         </reference>
+        <?rfc include="reference.RFC.4957.xml" ?>
         <reference anchor="RFC4994" target="https://www.rfc-editor.org/info/rfc4994" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.4994.xml">
           <front>
             <title>DHCPv6 Relay Agent Echo Request Option</title>
@@ -6209,6 +6222,7 @@
           <seriesInfo name="RFC" value="5905"/>
           <seriesInfo name="DOI" value="10.17487/RFC5905"/>
         </reference>
+        <?rfc include="reference.RFC.6059.xml" ?>
         <reference anchor="RFC6422" target="https://www.rfc-editor.org/info/rfc6422" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.6422.xml">
           <front>
             <title>Relay-Supplied DHCP Options</title>
@@ -6531,6 +6545,7 @@
           <seriesInfo name="RFC" value="8981"/>
           <seriesInfo name="DOI" value="10.17487/RFC8981"/>
         </reference>
+        <?rfc include="reference.RFC.8987.xml" ?>
         <?rfc include="reference.RFC.9096.xml" ?>
         <reference anchor="TR-187" target="https://www.broadband-forum.org/technical/download/TR-187_Issue-2.pdf">
           <front>
@@ -6711,7 +6726,8 @@ INF_MAX_RT         *
       in RFC 8415 and by the authors of that document.
       </t>
       <t>A number of additional people have contributed to identifying issues
-      with RFC 8415, including Fernando Gont, Felix Hamme, and Rene Engel.
+      with RFC 8415, including Fernando Gont, Felix Hamme, Rene Engel, Esko Dijk,
+      and Ted Lemon.
       </t>
       <t>We also thank the DHC working group for their review of this updated
       document.
