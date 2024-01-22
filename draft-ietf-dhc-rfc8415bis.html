@@ -23,26 +23,26 @@
       server unicast capability (the Server Unicast option and UseMulticast
       status code). 
     " name="description">
-<meta content="xml2rfc 3.18.2" name="generator">
+<meta content="xml2rfc 3.19.1" name="generator">
 <meta content="DHCPv6" name="keyword">
 <meta content="IPv6" name="keyword">
 <meta content="DHCP" name="keyword">
 <meta content="draft-ietf-dhc-rfc8415bis-02" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.18.2
+  xml2rfc 3.19.1
     Python 3.11.6
-    ConfigArgParse 1.5.3
+    ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
     Jinja2 3.1.2
     lxml 4.9.3
-    platformdirs 3.11.0
+    platformdirs 4.1.0
     pycountry 22.3.5
-    PyYAML 6.0
+    PyYAML 6.0.1
     requests 2.31.0
-    setuptools 67.7.2
+    setuptools 68.2.2
     six 1.16.0
-    wcwidth 0.2.8
+    wcwidth 0.2.13
 -->
 <link href="draft-ietf-dhc-rfc8415bis.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1041,11 +1041,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">DHCP for IPv6</td>
-<td class="right">October 2023</td>
+<td class="right">January 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mrugalski, et al.</td>
-<td class="center">Expires 24 April 2024</td>
+<td class="center">Expires 25 July 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1061,12 +1061,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc8415" class="eref">8415</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-10-22" class="published">22 October 2023</time>
+<time datetime="2024-01-22" class="published">22 January 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-04-24">24 April 2024</time></dd>
+<dd class="expires"><time datetime="2024-07-25">25 July 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1126,7 +1126,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 24 April 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 July 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1135,7 +1135,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2023 IETF Trust and the persons identified as the
+            Copyright (c) 2024 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -2492,6 +2492,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
          <span>[<a href="#RFC9096" class="cite xref">RFC9096</a>]</span> section 3.3 further
          provides more guidance on coordination of lifetimes between WAN
          (DHCPv6-PD client) and LAN (DHCPv6-PD server) sides.<a href="#section-6.3-13" class="pilcrow">¶</a></p>
+<p id="section-6.3-14">Several problems related to Prefix Delegation and Relay Agents and a set of
+       requirements to address them are defined in <span>[<a href="#RFC8987" class="cite xref">RFC8987</a>]</span>.<a href="#section-6.3-14" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="OpModes-CPE">
@@ -5188,7 +5190,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
               using Wi-Fi technology).<a href="#section-18.2.12-2.4" class="pilcrow">¶</a>
 </li>
           </ul>
-<p id="section-18.2.12-3">When the client detects that it may have moved to a new link and it
+<p id="section-18.2.12-3">Specific algorithms for detecting network attachement changes are out of scope
+          for this document. Two possible mechanisms for detecting situation where refreshing
+          configuration information may be needed, are defined in <span>[<a href="#RFC6059" class="cite xref">RFC6059</a>]</span>, and <span>[<a href="#RFC4957" class="cite xref">RFC4957</a>]</span>.<a href="#section-18.2.12-3" class="pilcrow">¶</a></p>
+<p id="section-18.2.12-4">When the client detects that it may have moved to a new link and it
           has obtained addresses and no delegated prefixes from a server, the
           client SHOULD initiate a Confirm/Reply message exchange. The client
           includes any IAs assigned to the interface that may have moved to a
@@ -5196,17 +5201,17 @@ svg :is([fill="white"], [fill^="#fff"]) {
           Confirm message. Any responding servers will indicate whether those
           addresses are appropriate for the link to which the client is
           attached with the status in the Reply message it returns to the
-          client.<a href="#section-18.2.12-3" class="pilcrow">¶</a></p>
-<p id="section-18.2.12-4">If the client has any valid delegated prefixes obtained from the
+          client.<a href="#section-18.2.12-4" class="pilcrow">¶</a></p>
+<p id="section-18.2.12-5">If the client has any valid delegated prefixes obtained from the
           DHCP server, the client MUST
           initiate a Rebind/Reply message exchange as described in <a href="#RFC3315-18.1.4" class="auto internal xref">Section 18.2.5</a>, with the exception that the
           retransmission parameters should be set as for the Confirm message
           (see <a href="#RFC3315-18.1.2" class="auto internal xref">Section 18.2.3</a>). The client includes IA_NAs and IA_PDs,
-          along with the associated leases, in its Rebind message.<a href="#section-18.2.12-4" class="pilcrow">¶</a></p>
-<p id="section-18.2.12-5">If the client has only obtained network information using Information-request/Reply
+          along with the associated leases, in its Rebind message.<a href="#section-18.2.12-5" class="pilcrow">¶</a></p>
+<p id="section-18.2.12-6">If the client has only obtained network information using Information-request/Reply
           message exchanges, the client MUST initiate an Information-request/Reply message exchange as
-          described in <a href="#RFC3315-18.1.5" class="auto internal xref">Section 18.2.6</a>.<a href="#section-18.2.12-5" class="pilcrow">¶</a></p>
-<p id="section-18.2.12-6">If not associated with one of the above-mentioned conditions, a client SHOULD
+          described in <a href="#RFC3315-18.1.5" class="auto internal xref">Section 18.2.6</a>.<a href="#section-18.2.12-6" class="pilcrow">¶</a></p>
+<p id="section-18.2.12-7">If not associated with one of the above-mentioned conditions, a client SHOULD
           initiate a Renew/Reply exchange (as if the T1 time expired) as described in
           <a href="#RFC3315-18.1.3" class="auto internal xref">Section 18.2.4</a> or an Information-request/Reply exchange as
           described in <a href="#RFC3315-18.1.5" class="auto internal xref">Section 18.2.6</a> if the client detects a
@@ -5215,7 +5220,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
           are deprecated), as this may indicate a configuration change.  However,
           a client MUST rate‑limit such
           attempts to avoid flooding a server with requests when there are link issues
-          (for example, only doing one of these at most every 30 seconds).<a href="#section-18.2.12-6" class="pilcrow">¶</a></p>
+          (for example, only doing one of these at most every 30 seconds).<a href="#section-18.2.12-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -8206,52 +8211,58 @@ svg :is([fill="white"], [fill^="#fff"]) {
         among CPE and various home appliances. Client and server implementation with some relay capabilities. Open
         source (GPL v2 or v3). Source: https://dnsmasq.org/ .<a href="#section-22-6.6" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.7">EOS (Arista): Proprietary implementation for network switches, routers and other networking
+        <li class="normal" id="section-22-6.7">EdgeMax (Ubiquiti): Proprietary implementation running on EdgeMax hardware, home and small enterprise
+        gateways and switches. Focused on DHCPv6-PD. Source: https://help.ui.com/hc/en-us/articles/115002531728-EdgeRouter-Beginners-Guide-to-EdgeRouter.<a href="#section-22-6.7" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="section-22-6.8">EOS (Arista): Proprietary implementation for network switches, routers and other networking
         hardware. RFC8415 support explicitly stated. Server, client, relay implementation. Source:
-        https://www.arista.com/en/um-eos/eos-ipv6 .<a href="#section-22-6.7" class="pilcrow">¶</a>
+        https://www.arista.com/en/um-eos/eos-ipv6 .<a href="#section-22-6.8" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.8">FreeRADIUS: RADIUS implementation that also provides DHCPv6 server functionality. Open
-        source.<a href="#section-22-6.8" class="pilcrow">¶</a>
+        <li class="normal" id="section-22-6.9">FreeRADIUS: RADIUS implementation that also provides DHCPv6 server functionality. Open
+        source.<a href="#section-22-6.9" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.9">Huawei: Server, client and relay functionalities are available on most routers and switches.
+        <li class="normal" id="section-22-6.10">Huawei: Server, client and relay functionalities are available on most routers and switches.
         Proprietary. Source: https://support.huawei.com/hedex/hdx.do?docid=EDOC1100247463&amp;id=EN-US_TASK_0176372622, see
-        "Configuring Server/Relay/client/PD client" on the left panel.<a href="#section-22-6.9" class="pilcrow">¶</a>
+        "Configuring Server/Relay/client/PD client" on the left panel.<a href="#section-22-6.10" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.10">iOS (Apple): Client implementation running on Apple portable devices (iPhones, iPads, etc.). Proprietary.
-        The implentation is widely used.<a href="#section-22-6.10" class="pilcrow">¶</a>
+        <li class="normal" id="section-22-6.11">iOS (Apple): Client implementation running on Apple portable devices (iPhones, iPads, etc.). Proprietary.
+        The implentation is widely used.<a href="#section-22-6.11" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.11">IOS (Cisco): Server, relay, and client implementation that runs on Cisco routers, switches and
+        <li class="normal" id="section-22-6.12">IOS (Cisco): Server, relay, and client implementation that runs on Cisco routers, switches and
         other networking hardware. Proprietary. Widely used. Source:
         https://community.cisco.com/t5/networking-knowledge-base/part-1-implementing-dhcpv6-stateful-dhcpv6/ta-p/3145631
-        .<a href="#section-22-6.11" class="pilcrow">¶</a>
+        .<a href="#section-22-6.12" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.12">Kea (ISC): Server implementation. Open source (Mozilla Public License v2). It is a modern
+        <li class="normal" id="section-22-6.13">Kea (ISC): Server implementation. Open source (Mozilla Public License v2). It is a modern
         replacement for now retired isc-dhcp. More than 500 users subscribed to the mailing list. One of the authors of
         this I-D is the lead developer.
-        Source: https://kea.readthedocs.io/en/kea-2.4.0/arm/dhcp6-srv.html#supported-dhcpv6-standards .<a href="#section-22-6.12" class="pilcrow">¶</a>
+        Source: https://kea.readthedocs.io/en/kea-2.4.0/arm/dhcp6-srv.html#supported-dhcpv6-standards .<a href="#section-22-6.13" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.13">JunOS (Juniper): Server, relay, and client implementation that runs on Juniper routers,
+        <li class="normal" id="section-22-6.14">JunOS (Juniper): Server, relay, and client implementation that runs on Juniper routers,
         switches, and other networking hardware. Proprietary. Widely used. Source:
-        https://www.juniper.net/documentation/us/en/software/junos/dhcp/topics/topic-map/dhcpv6-server.html .<a href="#section-22-6.13" class="pilcrow">¶</a>
+        https://www.juniper.net/documentation/us/en/software/junos/dhcp/topics/topic-map/dhcpv6-server.html .<a href="#section-22-6.14" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.14">macOS (Apple): Client implementation for Macs (laptops and desktops). Proprietary. Widely used.<a href="#section-22-6.14" class="pilcrow">¶</a>
+        <li class="normal" id="section-22-6.15">macOS (Apple): Client implementation for Macs (laptops and desktops). Proprietary. Widely used.<a href="#section-22-6.15" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.15">odhcp6c (OpenWRT): Minimalistic client implementation intended for embedded environment. Open source
-        (GPL-2). Source: https://github.com/openwrt/odhcp6c .<a href="#section-22-6.15" class="pilcrow">¶</a>
+        <li class="normal" id="section-22-6.16">odhcp6c (OpenWRT): Minimalistic client implementation intended for embedded environment. Open source
+        (GPL-2). Source: https://github.com/openwrt/odhcp6c .<a href="#section-22-6.16" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.16">RouterOS (Mikrotik): Server, relay, and client implementation running on Mikrotik networking
+        <li class="normal" id="section-22-6.17">RouterOS (Mikrotik): Server, relay, and client implementation running on Mikrotik networking
         hardware (routers, switches, many other appliances). Proprietary. Sources:
-        https://wiki.mikrotik.com/wiki/Manual:IPv6/DHCP_Client, https://wiki.mikrotik.com/wiki/Manual:IPv6/DHCP_Server, https://wiki.mikrotik.com/wiki/Manual:RouterOS6_news .<a href="#section-22-6.16" class="pilcrow">¶</a>
+        https://wiki.mikrotik.com/wiki/Manual:IPv6/DHCP_Client, https://wiki.mikrotik.com/wiki/Manual:IPv6/DHCP_Server, https://wiki.mikrotik.com/wiki/Manual:RouterOS6_news .<a href="#section-22-6.17" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.17">ServPoET (Finepoint): Server implementation. Proprietary. One of the authors of this I-D was the lead
-        developer. Source: https://finepoint.com/servpoet/ .<a href="#section-22-6.17" class="pilcrow">¶</a>
+        <li class="normal" id="section-22-6.18">ServPoET (Finepoint): Server implementation. Proprietary. One of the authors of this I-D was the lead
+        developer. Source: https://finepoint.com/servpoet/ .<a href="#section-22-6.18" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.18">udhcpc6 (busybox): Minimum footprint implementation, intended for embedded devices. It used to
+        <li class="normal" id="section-22-6.19">udhcpc6 (busybox): Minimum footprint implementation, intended for embedded devices. It used to
         be a separate project (udhcpc6), but it is now part of the BusyBox project. Open source (GPL-v2). Client
-        implementation. Source: https://udhcp.busybox.net/README.udhcpc .<a href="#section-22-6.18" class="pilcrow">¶</a>
+        implementation. Source: https://udhcp.busybox.net/README.udhcpc .<a href="#section-22-6.19" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-22-6.19">Windows (Microsoft): Microsoft Windows provides client implementation, which is probably still
-        the most popular OS on desktops and laptops. The server version of Windows provides DHCPv6 server implementation. Proprietary.<a href="#section-22-6.19" class="pilcrow">¶</a>
+        <li class="normal" id="section-22-6.20">Unifi (Ubiquiti): Server, relay, and client implementation running on UniFi hardware (routers, switches,
+        firewalls). Proprietary. Source: https://help.ui.com/hc/en-us/articles/115005868927-UniFi-Gateway-Static-IPv6-and-DHCPv6-Prefix-Delegation.<a href="#section-22-6.20" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="section-22-6.21">Windows (Microsoft): Microsoft Windows provides client implementation, which is probably still
+        the most popular OS on desktops and laptops. The server version of Windows provides DHCPv6 server implementation. Proprietary.<a href="#section-22-6.21" class="pilcrow">¶</a>
 </li>
       </ul>
 <p id="section-22-7">The DHCPv6 support is also mandated by some third parts specs. For example, all cable modems conformant to
@@ -8613,6 +8624,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <dd>
 <span class="refAuthor">Roy, S.</span>, <span class="refAuthor">Durand, A.</span>, and <span class="refAuthor">J. Paugh</span>, <span class="refTitle">"IPv6 Neighbor Discovery On-Link Assumption Considered Harmful"</span>, <span class="seriesInfo">RFC 4943</span>, <span class="seriesInfo">DOI 10.17487/RFC4943</span>, <time datetime="2007-09" class="refDate">September 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc4943">https://www.rfc-editor.org/info/rfc4943</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC4957">[RFC4957]</dt>
+        <dd>
+<span class="refAuthor">Krishnan, S., Ed.</span>, <span class="refAuthor">Montavont, N.</span>, <span class="refAuthor">Njedjou, E.</span>, <span class="refAuthor">Veerepalli, S.</span>, and <span class="refAuthor">A. Yegin, Ed.</span>, <span class="refTitle">"Link-Layer Event Notifications for Detecting Network Attachments"</span>, <span class="seriesInfo">RFC 4957</span>, <span class="seriesInfo">DOI 10.17487/RFC4957</span>, <time datetime="2007-08" class="refDate">August 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc4957">https://www.rfc-editor.org/info/rfc4957</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC4994">[RFC4994]</dt>
         <dd>
 <span class="refAuthor">Zeng, S.</span>, <span class="refAuthor">Volz, B.</span>, <span class="refAuthor">Kinnear, K.</span>, and <span class="refAuthor">J. Brzozowski</span>, <span class="refTitle">"DHCPv6 Relay Agent Echo Request Option"</span>, <span class="seriesInfo">RFC 4994</span>, <span class="seriesInfo">DOI 10.17487/RFC4994</span>, <time datetime="2007-09" class="refDate">September 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc4994">https://www.rfc-editor.org/info/rfc4994</a>&gt;</span>. </dd>
@@ -8632,6 +8647,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt id="RFC5908">[RFC5908]</dt>
         <dd>
 <span class="refAuthor">Gayraud, R.</span> and <span class="refAuthor">B. Lourdelet</span>, <span class="refTitle">"Network Time Protocol (NTP) Server Option for DHCPv6"</span>, <span class="seriesInfo">RFC 5908</span>, <span class="seriesInfo">DOI 10.17487/RFC5908</span>, <time datetime="2010-06" class="refDate">June 2010</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5908">https://www.rfc-editor.org/info/rfc5908</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6059">[RFC6059]</dt>
+        <dd>
+<span class="refAuthor">Krishnan, S.</span> and <span class="refAuthor">G. Daley</span>, <span class="refTitle">"Simple Procedures for Detecting Network Attachment in IPv6"</span>, <span class="seriesInfo">RFC 6059</span>, <span class="seriesInfo">DOI 10.17487/RFC6059</span>, <time datetime="2010-11" class="refDate">November 2010</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc6059">https://www.rfc-editor.org/info/rfc6059</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6422">[RFC6422]</dt>
         <dd>
@@ -8720,6 +8739,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt id="RFC8981">[RFC8981]</dt>
         <dd>
 <span class="refAuthor">Gont, F.</span>, <span class="refAuthor">Krishnan, S.</span>, <span class="refAuthor">Narten, T.</span>, and <span class="refAuthor">R. Draves</span>, <span class="refTitle">"Temporary Address Extensions for Stateless Address Autoconfiguration in IPv6"</span>, <span class="seriesInfo">RFC 8981</span>, <span class="seriesInfo">DOI 10.17487/RFC8981</span>, <time datetime="2021-02" class="refDate">February 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8981">https://www.rfc-editor.org/info/rfc8981</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8987">[RFC8987]</dt>
+        <dd>
+<span class="refAuthor">Farrer, I.</span>, <span class="refAuthor">Kottapalli, N.</span>, <span class="refAuthor">Hunek, M.</span>, and <span class="refAuthor">R. Patterson</span>, <span class="refTitle">"DHCPv6 Prefix Delegating Relay Requirements"</span>, <span class="seriesInfo">RFC 8987</span>, <span class="seriesInfo">DOI 10.17487/RFC8987</span>, <time datetime="2021-02" class="refDate">February 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8987">https://www.rfc-editor.org/info/rfc8987</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9096">[RFC9096]</dt>
         <dd>
@@ -8911,7 +8934,8 @@ INF_MAX_RT         *
 <p id="appendix-D-1">This document is merely a refinement of earlier work as described
       in RFC 8415 and by the authors of that document.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
 <p id="appendix-D-2">A number of additional people have contributed to identifying issues
-      with RFC 8415, including Fernando Gont, Felix Hamme, and Rene Engel.<a href="#appendix-D-2" class="pilcrow">¶</a></p>
+      with RFC 8415, including Fernando Gont, Felix Hamme, Rene Engel, Esko Dijk,
+      and Ted Lemon.<a href="#appendix-D-2" class="pilcrow">¶</a></p>
 <p id="appendix-D-3">We also thank the DHC working group for their review of this updated
       document.<a href="#appendix-D-3" class="pilcrow">¶</a></p>
 <p id="appendix-D-4">Also, special thanks to Suresh Krishnan for shepherding this document
