@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-21T01:25:23.659245+00:00",
+  "timestamp": "2024-01-23T01:20:55.936984+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -769,24 +769,26 @@
       "id": "PR_kwDOFL5NeM5kc9Ul",
       "title": "Changes after WGLC",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/8",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "tomaszmrugalski",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "These are the changes after WGLC. This PR is still work in progress.",
+      "body": "These are the changes after WGLC:\r\n\r\n- Added references to RFC8987, 6059, 4957.\r\n- Added two items to the implementation report\r\n- updated acknowledgements\r\n",
       "createdAt": "2024-01-18T18:03:23Z",
-      "updatedAt": "2024-01-20T12:19:11Z",
+      "updatedAt": "2024-01-22T15:19:55Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "5de20d84e0957efd8f1a75ae6aef107ea1e96429",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "wglc-updates",
-      "headRefOid": "efe20e278a1bbc364089465c588907d001c21927",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "5a56974424cb4771f196bdf94d0abf8d278d4ad4",
+      "closedAt": "2024-01-22T15:19:55Z",
+      "mergedAt": "2024-01-22T15:19:55Z",
+      "mergedBy": "tomaszmrugalski",
+      "mergeCommit": {
+        "oid": "cfc8eb076926e9aeb4d796c8e8824eda56bf1842"
+      },
       "comments": [
         {
           "author": "bevolz",
@@ -794,9 +796,50 @@
           "body": "Tomek, wouldn\u2019t the additional text to reference RFC8987 be better at or near end of section 6.3, DHCP for Prefix Delegation?Thanks for starting the work to finish this up.- BernieOn Jan 18, 2024, at 1:03\u202fPM, Tomek Mrugalski ***@***.***> wrote:\ufeffThese are the changes after WGLC. This PR is still work in progress.\r\n\r\n\r\n\r\nYou can view, comment on, or merge this pull request online at:\r\n\u00a0\u00a0https://github.com/dhcwg/rfc8415bis/pull/8\r\n\r\nCommit Summary\r\n\r\n  67f1ec8  reference to RFC8987 (relay-pd requirements) added\r\n  efe20e2  .gitignore tweaked\r\n\r\n\r\nFile Changes  (2\u00a0files)\r\n\r\n  \r\n    M\r\n    .gitignore\r\n    (1)\r\n  \r\n  \r\n    M\r\n    draft-ietf-dhc-rfc8415bis.xml\r\n    (10)\r\n  \r\n\r\n\r\nPatch Links:\r\n\r\n  https://github.com/dhcwg/rfc8415bis/pull/8.patch\r\n  https://github.com/dhcwg/rfc8415bis/pull/8.diff\r\n\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you are subscribed to this thread.Message ID: ***@***.***>",
           "createdAt": "2024-01-20T12:19:10Z",
           "updatedAt": "2024-01-20T12:19:10Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Tomek, wouldn\u2019t the additional text to reference RFC8987 be better at or near end of section 6.3, DHCP for Prefix Delegation?\r\n\r\nHey Bernie!\r\nYou're right. Moved. Is it any better now?\r\n",
+          "createdAt": "2024-01-21T16:44:31Z",
+          "updatedAt": "2024-01-21T16:44:31Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Okay, I went through those handful of comments we received so far and added requested references. There's one discussion thread that sort of hung (See [Esko's mail from Nov. 20](https://mailarchive.ietf.org/arch/msg/dhcwg/frlawaPCzBLbVMUAE7-hElg-qBA/). Esko on Nov. 11 he proposed to update 5 items, but once someone (Tim, I think) explained the scope of bis work, he asked:\r\n\r\n> If we change text to clarify something, without proposing new functionality, would that still fit in the 8415bis scope or cleaning up, or not?\r\n\r\nbut he got no answer. In my opinion the list in 18.2.12 is non-normative. I treat it as a non-exhaustive list of examples, so I'm fine if they want to add couple more. He also proposed to donate a text for \"significant change\", I'd love to get it.\r\n\r\nThoughts?",
+          "createdAt": "2024-01-21T16:59:43Z",
+          "updatedAt": "2024-01-21T16:59:43Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM5tZck7",
+          "commit": {
+            "abbreviatedOid": "5a56974"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-21T17:54:11Z",
+          "updatedAt": "2024-01-21T17:54:11Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5tZgxA",
+          "commit": {
+            "abbreviatedOid": "5a56974"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks ok to me.",
+          "createdAt": "2024-01-21T18:48:57Z",
+          "updatedAt": "2024-01-21T18:48:57Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
