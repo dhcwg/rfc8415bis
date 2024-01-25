@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-23T01:20:55.936984+00:00",
+  "timestamp": "2024-01-25T01:21:04.786601+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -840,6 +840,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOFL5NeM5k8KpH",
+      "title": "Clarification of \"the significant change\" on link",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/9",
+      "state": "OPEN",
+      "author": "tomaszmrugalski",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR is about resolving issues raised during WGLC by Esko Dijk. The [initial proposals](https://mailarchive.ietf.org/arch/msg/dhcwg/BtE7OBvoysnm0kySMYum9EUqEYc/) called for 5 changes:\r\n1. rejected as it would change the normative language.\r\n2. the requirement to send confirm,renew or inf-request needs to be clarified - discussion in progress\r\n3. already applied on this PR\r\n4. the M bit is informative.\r\n5. I would be hesitant to add new normative language to add any extra delays.\r\n\r\nI already applied changes proposed by Esko in his Nov. 11 mail regarding 3 (clarify the text significant changes).\r\n",
+      "createdAt": "2024-01-24T11:12:17Z",
+      "updatedAt": "2024-01-24T11:12:17Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "cfc8eb076926e9aeb4d796c8e8824eda56bf1842",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "refresh-clarify",
+      "headRefOid": "ba2f62048bda4ed66b09c1ef9a11527e2e3590d5",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
