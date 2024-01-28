@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-25T01:21:04.786601+00:00",
+  "timestamp": "2024-01-28T01:18:31.292836+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -776,7 +776,7 @@
       "labels": [],
       "body": "These are the changes after WGLC:\r\n\r\n- Added references to RFC8987, 6059, 4957.\r\n- Added two items to the implementation report\r\n- updated acknowledgements\r\n",
       "createdAt": "2024-01-18T18:03:23Z",
-      "updatedAt": "2024-01-22T15:19:55Z",
+      "updatedAt": "2024-01-25T16:26:03Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "5de20d84e0957efd8f1a75ae6aef107ea1e96429",
@@ -838,6 +838,46 @@
           "createdAt": "2024-01-21T18:48:57Z",
           "updatedAt": "2024-01-21T18:48:57Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5t61rH",
+          "commit": {
+            "abbreviatedOid": "5a56974"
+          },
+          "author": "EskoDijk",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-25T16:22:34Z",
+          "updatedAt": "2024-01-25T16:22:34Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "\"attachement\" -> \"attachment\"",
+              "createdAt": "2024-01-25T16:22:34Z",
+              "updatedAt": "2024-01-25T16:22:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5t65GQ",
+          "commit": {
+            "abbreviatedOid": "5a56974"
+          },
+          "author": "EskoDijk",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-25T16:26:03Z",
+          "updatedAt": "2024-01-25T16:26:03Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "\"situation\" -> \"situations\"",
+              "createdAt": "2024-01-25T16:26:03Z",
+              "updatedAt": "2024-01-25T16:26:04Z"
+            }
+          ]
         }
       ]
     },
@@ -853,7 +893,7 @@
       "labels": [],
       "body": "This PR is about resolving issues raised during WGLC by Esko Dijk. The [initial proposals](https://mailarchive.ietf.org/arch/msg/dhcwg/BtE7OBvoysnm0kySMYum9EUqEYc/) called for 5 changes:\r\n1. rejected as it would change the normative language.\r\n2. the requirement to send confirm,renew or inf-request needs to be clarified - discussion in progress\r\n3. already applied on this PR\r\n4. the M bit is informative.\r\n5. I would be hesitant to add new normative language to add any extra delays.\r\n\r\nI already applied changes proposed by Esko in his Nov. 11 mail regarding 3 (clarify the text significant changes).\r\n",
       "createdAt": "2024-01-24T11:12:17Z",
-      "updatedAt": "2024-01-24T11:12:17Z",
+      "updatedAt": "2024-01-25T16:56:14Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "cfc8eb076926e9aeb4d796c8e8824eda56bf1842",
@@ -864,7 +904,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "EskoDijk",
+          "authorAssociation": "NONE",
+          "body": "Thanks @tomaszmrugalski , building further on my email response to Tim of Nov 17 2023, I'm proposing to add the following item to the bullet list of examples in 18.2.12:\r\n\r\n```\r\n* The client\u2019s network interface indicates a disconnection event, followed by a connection event.\r\n```",
+          "createdAt": "2024-01-25T16:56:13Z",
+          "updatedAt": "2024-01-25T16:56:13Z"
+        }
+      ],
       "reviews": []
     }
   ]
