@@ -2997,8 +2997,8 @@
             <li>The client changes access points (e.g., if
               using Wi-Fi technology).</li>
           </ul>
-          <t>Specific algorithms for detecting network attachement changes are out of scope
-          for this document. Two possible mechanisms for detecting situation where refreshing
+          <t>Specific algorithms for detecting network attachment changes are out of scope
+          for this document. Two possible mechanisms for detecting situations where refreshing
           configuration information may be needed, are defined in <xref target="RFC6059"
           format="default"/>, and <xref target="RFC4957" format="default" />.</t>
           <t>When the client detects that it may have moved to a new link and it
