@@ -3204,6 +3204,9 @@ Table of Contents
    *  The client changes access points (e.g., if using Wi-Fi
       technology).
 
+   *  The client’s network interface indicates a disconnection event,
+      followed by a connection event.
+
    Specific algorithms for detecting network attachment changes are out
    of scope for this document.  Two possible mechanisms for detecting
    situations where refreshing configuration information may be needed,
