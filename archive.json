@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-30T01:13:34.336328+00:00",
+  "timestamp": "2024-02-01T01:17:37.964242+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -776,7 +776,7 @@
       "labels": [],
       "body": "These are the changes after WGLC:\r\n\r\n- Added references to RFC8987, 6059, 4957.\r\n- Added two items to the implementation report\r\n- updated acknowledgements\r\n",
       "createdAt": "2024-01-18T18:03:23Z",
-      "updatedAt": "2024-01-25T16:26:03Z",
+      "updatedAt": "2024-01-31T17:07:50Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "5de20d84e0957efd8f1a75ae6aef107ea1e96429",
@@ -810,6 +810,27 @@
           "body": "Okay, I went through those handful of comments we received so far and added requested references. There's one discussion thread that sort of hung (See [Esko's mail from Nov. 20](https://mailarchive.ietf.org/arch/msg/dhcwg/frlawaPCzBLbVMUAE7-hElg-qBA/). Esko on Nov. 11 he proposed to update 5 items, but once someone (Tim, I think) explained the scope of bis work, he asked:\r\n\r\n> If we change text to clarify something, without proposing new functionality, would that still fit in the 8415bis scope or cleaning up, or not?\r\n\r\nbut he got no answer. In my opinion the list in 18.2.12 is non-normative. I treat it as a non-exhaustive list of examples, so I'm fine if they want to add couple more. He also proposed to donate a text for \"significant change\", I'd love to get it.\r\n\r\nThoughts?",
           "createdAt": "2024-01-21T16:59:43Z",
           "updatedAt": "2024-01-21T16:59:43Z"
+        },
+        {
+          "author": "EskoDijk",
+          "authorAssociation": "NONE",
+          "body": "@tomaszmrugalski It looks like my review comments (nits) were missed, or I commented too late. Can you still address these? If not then it's left for the final editor.",
+          "createdAt": "2024-01-31T08:20:31Z",
+          "updatedAt": "2024-01-31T08:20:31Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> @tomaszmrugalski It looks like my review comments (nits) were missed, or I commented too late. Can you still address these? If not then it's left for the final editor.\r\n\r\nYes, I can. Addressed. You wrote on your mail from Jan 25th that you want to send some text next week. I thought I'd just wait and do all of them together.\r\n\r\nAnyway, it's not too late. ",
+          "createdAt": "2024-01-31T17:05:51Z",
+          "updatedAt": "2024-01-31T17:05:51Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I've pushed those corrections to #9 (see commit 99cc9ffb03c2e5724675a55ea6cee26089636d8b).",
+          "createdAt": "2024-01-31T17:07:49Z",
+          "updatedAt": "2024-01-31T17:07:49Z"
         }
       ],
       "reviews": [
@@ -878,6 +899,46 @@
               "updatedAt": "2024-01-25T16:26:04Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5uhtyG",
+          "commit": {
+            "abbreviatedOid": "5a56974"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-31T17:01:04Z",
+          "updatedAt": "2024-01-31T17:01:04Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "Corrected. Thanks!",
+              "createdAt": "2024-01-31T17:01:04Z",
+              "updatedAt": "2024-01-31T17:01:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5uht3z",
+          "commit": {
+            "abbreviatedOid": "5a56974"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-31T17:01:15Z",
+          "updatedAt": "2024-01-31T17:01:15Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "Corrected. Thanks!",
+              "createdAt": "2024-01-31T17:01:15Z",
+              "updatedAt": "2024-01-31T17:01:15Z"
+            }
+          ]
         }
       ]
     },
@@ -893,13 +954,13 @@
       "labels": [],
       "body": "This PR is about resolving issues raised during WGLC by Esko Dijk. The [initial proposals](https://mailarchive.ietf.org/arch/msg/dhcwg/BtE7OBvoysnm0kySMYum9EUqEYc/) called for 5 changes:\r\n1. rejected as it would change the normative language.\r\n2. the requirement to send confirm,renew or inf-request needs to be clarified - discussion in progress\r\n3. already applied on this PR\r\n4. the M bit is informative.\r\n5. I would be hesitant to add new normative language to add any extra delays.\r\n\r\nI already applied changes proposed by Esko in his Nov. 11 mail regarding 3 (clarify the text significant changes).\r\n",
       "createdAt": "2024-01-24T11:12:17Z",
-      "updatedAt": "2024-01-25T16:56:14Z",
+      "updatedAt": "2024-01-31T17:13:12Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "cfc8eb076926e9aeb4d796c8e8824eda56bf1842",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "refresh-clarify",
-      "headRefOid": "ba2f62048bda4ed66b09c1ef9a11527e2e3590d5",
+      "headRefOid": "b93a619d3e93c966dd439886b8df505f9450293e",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -911,6 +972,13 @@
           "body": "Thanks @tomaszmrugalski , building further on my email response to Tim of Nov 17 2023, I'm proposing to add the following item to the bullet list of examples in 18.2.12:\r\n\r\n```\r\n* The client\u2019s network interface indicates a disconnection event, followed by a connection event.\r\n```",
           "createdAt": "2024-01-25T16:56:13Z",
           "updatedAt": "2024-01-25T16:56:13Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I'm proposing to add the following item to the bullet list of examples in 18.2.12:\r\n> \r\n> ```\r\n> * The client\u2019s network interface indicates a disconnection event, followed by a connection event.\r\n> ```\r\nThanks for the text. Looks good to me. Added.\r\n",
+          "createdAt": "2024-01-31T17:10:18Z",
+          "updatedAt": "2024-01-31T17:10:18Z"
         }
       ],
       "reviews": []
