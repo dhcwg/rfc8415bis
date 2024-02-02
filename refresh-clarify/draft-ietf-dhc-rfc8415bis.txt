@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 3 August 2024                                     M. Richardson
+Expires: 5 August 2024                                     M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                         31 January 2024
+                                                         2 February 2024
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 August 2024.
+   This Internet-Draft will expire on 5 August 2024.
 
 Copyright Notice
 
@@ -3234,18 +3234,30 @@ Table of Contents
    an Information-request/Reply message exchange as described in
    Section 18.2.6.
 
-   If not associated with one of the above-mentioned conditions, a
-   client SHOULD initiate a Renew/Reply exchange (as if the T1 time
-   expired) as described in Section 18.2.4 or an Information-request/
-   Reply exchange as described in Section 18.2.6 if the client detects a
+   If not associated with a detection of having moved to a new link, a
+   client SHOULD initiate one of the Renew/Reply, Confirm/Reply or
+   Information-request/Reply exchanges, if the client detects a
    significant change regarding the prefixes available on the link.  A
    change is considered significant when one or more on-link prefixes
    are added, and/or one or more existing on-link prefixes are
    deprecated.  The reason for this is that such a significant change
    may indicate a configuration change at the server.  However, a client
-   MUST rate-limit such attempts to avoid flooding a server with
-   requests when there are link issues (for example, only doing one of
-   these at most every 30 seconds).
+   MUST rate-limit such exchange attempts to avoid flooding a server
+   with requests when there are link issues (for example, only doing one
+   of these at most every 30 seconds).
+
+   The above selection of an exchange to initiate depends on the
+   client's current state:
+
+   *  If the client has any valid delegated prefixes obtained from the
+      server, it sends Renew (as if the T1 time expired) as described in
+      Section 18.2.4.
+
+   *  Else, if the client obtained address(es) from the server, it sends
+      Confirm as described in Section 18.2.3.
+
+   *  Else, if only network information was obtained from the server, it
+      sends Information-request as described in Section 18.2.6
 
 18.3.  Server Behavior
 
