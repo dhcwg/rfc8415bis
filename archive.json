@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-01T01:17:37.964242+00:00",
+  "timestamp": "2024-02-04T01:18:29.152552+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -947,24 +947,26 @@
       "id": "PR_kwDOFL5NeM5k8KpH",
       "title": "Clarification of \"the significant change\" on link",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/9",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "tomaszmrugalski",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This PR is about resolving issues raised during WGLC by Esko Dijk. The [initial proposals](https://mailarchive.ietf.org/arch/msg/dhcwg/BtE7OBvoysnm0kySMYum9EUqEYc/) called for 5 changes:\r\n1. rejected as it would change the normative language.\r\n2. the requirement to send confirm,renew or inf-request needs to be clarified - discussion in progress\r\n3. already applied on this PR\r\n4. the M bit is informative.\r\n5. I would be hesitant to add new normative language to add any extra delays.\r\n\r\nI already applied changes proposed by Esko in his Nov. 11 mail regarding 3 (clarify the text significant changes).\r\n",
       "createdAt": "2024-01-24T11:12:17Z",
-      "updatedAt": "2024-01-31T17:13:12Z",
+      "updatedAt": "2024-02-02T10:42:55Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "cfc8eb076926e9aeb4d796c8e8824eda56bf1842",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "refresh-clarify",
-      "headRefOid": "b93a619d3e93c966dd439886b8df505f9450293e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "00b94becfe74e95c85dba456ffc5b9559e025763",
+      "closedAt": "2024-02-02T10:42:55Z",
+      "mergedAt": "2024-02-02T10:42:55Z",
+      "mergedBy": "tomaszmrugalski",
+      "mergeCommit": {
+        "oid": "15f907aa2265bff0d53b3c1daf3aeac45e57653b"
+      },
       "comments": [
         {
           "author": "EskoDijk",
@@ -979,9 +981,51 @@
           "body": "> I'm proposing to add the following item to the bullet list of examples in 18.2.12:\r\n> \r\n> ```\r\n> * The client\u2019s network interface indicates a disconnection event, followed by a connection event.\r\n> ```\r\nThanks for the text. Looks good to me. Added.\r\n",
           "createdAt": "2024-01-31T17:10:18Z",
           "updatedAt": "2024-01-31T17:10:18Z"
+        },
+        {
+          "author": "EskoDijk",
+          "authorAssociation": "NONE",
+          "body": "@tomaszmrugalski  here below for completeness the updated text for point 2. as I proposed on the list:\r\n\r\nOLD: \r\n\r\nIf not associated with one of the above-mentioned conditions, a client SHOULD initiate a Renew/Reply exchange (as if the T1 time expired) as described in Section 18.2.4 or an Information-request/Reply exchange as described in Section 18.2.6 if the client detects a significant change regarding the prefixes available on the link (when new prefixes are added or existing prefixes are deprecated), as this may indicate a configuration change. However, a client MUST rate\u2011limit such attempts to avoid flooding a server with requests when there are link issues (for example, only doing one of these at most every 30 seconds).\r\n\r\nNEW:\r\n\r\nIf not associated with a detection of having moved to a new link, a client SHOULD initiate one of the Renew/Reply, Confirm/Reply or Information-request/Reply exchanges, if the client detects a significant change regarding the prefixes available on the link. A change is considered significant when one or more on-link prefixes are added, and/or one or more existing on-link prefixes are deprecated. The reason for this is that such a significant change may indicate a configuration change at the server. However, a client MUST rate\u2011limit such exchange attempts to avoid flooding a server with requests when there are link issues (for example, only doing one of these at most every 30 seconds).\r\n\r\nThe above selection of an exchange to initiate depends on the client's current state:\r\n1. If the client has any valid delegated prefixes obtained from the server, it sends Renew (as if the T1 time expired) as described in Section 18.2.4.\r\n2. Else, if the client obtained address(es) from the server, it sends Confirm as described in Section 18.2.3.\r\n3. Else, if only network information was obtained from the server, it sends Information-request as described in Section 18.2.6.\r\n\r\n",
+          "createdAt": "2024-02-01T14:46:13Z",
+          "updatedAt": "2024-02-01T14:46:13Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> @tomaszmrugalski here below for completeness the updated text for point 2. as I proposed on the list:\r\n> NEW:\r\n\r\nI put this into commit a0037bbde069593d945c138116af9866d141dfd3. Please check.\r\n",
+          "createdAt": "2024-02-02T02:46:49Z",
+          "updatedAt": "2024-02-02T02:46:49Z"
+        },
+        {
+          "author": "EskoDijk",
+          "authorAssociation": "NONE",
+          "body": "@mcr Thanks for integrating: text looks ok. The new <li> items still need their closing </li> element; as we're not in HTML country :-) ",
+          "createdAt": "2024-02-02T07:57:29Z",
+          "updatedAt": "2024-02-02T07:57:29Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> element; as we're not in HTML country :-)\r\n\r\nFixed. Thanks for donating the text. MCR already approved, and it looks good to me, too.\r\n",
+          "createdAt": "2024-02-02T10:42:27Z",
+          "updatedAt": "2024-02-02T10:42:27Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM5uwRY8",
+          "commit": {
+            "abbreviatedOid": "a0037bb"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-02T02:47:07Z",
+          "updatedAt": "2024-02-02T02:47:07Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
