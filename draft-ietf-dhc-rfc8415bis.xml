@@ -6565,6 +6565,7 @@
           <seriesInfo name="RFC" value="8981"/>
           <seriesInfo name="DOI" value="10.17487/RFC8981"/>
         </reference>
+        <?rfc include="reference.RFC.8947.xml" ?>
         <?rfc include="reference.RFC.8987.xml" ?>
         <?rfc include="reference.RFC.9096.xml" ?>
         <reference anchor="TR-187" target="https://www.broadband-forum.org/technical/download/TR-187_Issue-2.pdf">
