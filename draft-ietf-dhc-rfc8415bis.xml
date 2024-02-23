@@ -398,7 +398,7 @@
             prefix. Throughout this document, "IA" is used to refer to
             an identity association without identifying the type
             of a lease in the IA. At the time of writing this document, there
-            are three IA types defined: IA_NA, IA_TA (obsoleted), and IA_PD. One other 
+            are three IA types defined: IA_NA, IA_TA (obsoleted), and IA_PD. One other
             IA type was defined (see <xref target="RFC8947"/>) and more
             may be defined in the future.</dd>
           <dt>IA option(s)</dt>
