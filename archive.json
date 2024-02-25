@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-22T01:12:56.102712+00:00",
+  "timestamp": "2024-02-25T01:17:30.564435+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1024,6 +1024,68 @@
           "createdAt": "2024-02-02T02:47:07Z",
           "updatedAt": "2024-02-02T02:47:07Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOFL5NeM5nyvyS",
+      "title": "Addressed the nits from Tomek comments.",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/10",
+      "state": "MERGED",
+      "author": "twintersunh",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Update Section 4.2.\r\n\r\nhttps://mailarchive.ietf.org/arch/msg/dhcwg/Vdux2pnuxVszCMVtp4W6UOh607Y/",
+      "createdAt": "2024-02-23T20:53:22Z",
+      "updatedAt": "2024-02-23T22:35:54Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "15f907aa2265bff0d53b3c1daf3aeac45e57653b",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "nits_tomek",
+      "headRefOid": "a9c9f42370a6a4913b7f3f340b366ac226fd990e",
+      "closedAt": "2024-02-23T21:47:17Z",
+      "mergedAt": "2024-02-23T21:47:17Z",
+      "mergedBy": "twintersunh",
+      "mergeCommit": {
+        "oid": "faa2975b6f902b5082f2d2887381e0b241e6cffa"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM5xMEQ-",
+          "commit": {
+            "abbreviatedOid": "a9c9f42"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-23T21:44:20Z",
+          "updatedAt": "2024-02-23T21:44:20Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5xMSVW",
+          "commit": {
+            "abbreviatedOid": "a9c9f42"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-23T22:35:54Z",
+          "updatedAt": "2024-02-23T22:35:54Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "Seems ok.",
+              "createdAt": "2024-02-23T22:35:54Z",
+              "updatedAt": "2024-02-23T22:35:54Z"
+            }
+          ]
         }
       ]
     }
