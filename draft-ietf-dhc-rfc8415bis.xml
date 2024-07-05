@@ -13,12 +13,12 @@
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
 <?rfc text-list-symbols="-*+o"?>
-<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-ietf-dhc-rfc8415bis-02" ipr="pre5378Trust200902" obsoletes="8415" submissionType="IETF" consensus="true" updates="" xml:lang="en" tocInclude="true" tocDepth="4" symRefs="true" sortRefs="true" version="3">
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-ietf-dhc-rfc8415bis-05" ipr="pre5378Trust200902" obsoletes="8415" submissionType="IETF" consensus="true" updates="" xml:lang="en" tocInclude="true" tocDepth="4" symRefs="true" sortRefs="true" version="3">
   <!-- xml2rfc v2v3 conversion 3.17.0 -->
   <front>
     <title abbrev="DHCP for IPv6">Dynamic Host Configuration Protocol for IPv6
     (DHCPv6)</title>
-    <seriesInfo name="Internet-Draft" value="draft-ietf-dhc-rfc8415bis-latest"/>
+    <seriesInfo name="Internet-Draft" value="draft-ietf-dhc-rfc8415bis-05"/>
     <author fullname="Tomek Mrugalski" initials="T." surname="Mrugalski">
       <organization abbrev="ISC">Internet Systems Consortium,
       Inc.</organization>
@@ -837,6 +837,10 @@
         <name>UDP Ports</name>
         <t>Clients listen for DHCP messages on UDP port 546. Servers and relay
         agents listen for DHCP messages on UDP port 547.</t>
+        <t>Clients, servers, and relay agents MAY send DHCP messages from any UDP
+        (source) port they are allowed to use, including their designated destination
+        ports. Nevertheless, regardless of the source port used, DHCP messages MUST
+        be sent to their designated destination ports.</t>
       </section>
       <section anchor="RFC3315-5.3" numbered="true" toc="default">
         <name>DHCP Message Types</name>
@@ -2220,7 +2224,7 @@
           IA option type can be included.</t>
           <t>The client MAY include addresses in IA Address options (see
           <xref target="RFC3315-22.6" format="default"/>) encapsulated
-          within IA_NA optiona as hints to the server about the
+          within IA_NA option as hints to the server about the
           addresses for which the client has a preference.</t>
           <t>The client MAY include values in IA Prefix options (see
           <xref target="IAPREFIX-option" format="default"/>)
@@ -4272,10 +4276,7 @@
       <section anchor="RFC3315-22.6" numbered="true" toc="default">
         <name>IA Address Option</name>
         <t>The IA Address option is used to specify an address associated
-        with an IA_NA. The IA Address option must be encapsulated
-        in the IA_NA‑options field of an IA_NA option
-        (see <xref target="RFC3315-22.4" format="default"/>).
-        The IAaddr‑options field encapsulates those options that are
+        with an IA_NA. The IAaddr‑options field encapsulates those options that are
         specific to this address.</t>
         <t>The format of the IA Address option is:</t>
         <figure anchor="FigOption5">
