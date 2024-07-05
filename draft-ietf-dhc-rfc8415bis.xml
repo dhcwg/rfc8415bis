@@ -18,7 +18,7 @@
   <front>
     <title abbrev="DHCP for IPv6">Dynamic Host Configuration Protocol for IPv6
     (DHCPv6)</title>
-    <seriesInfo name="Internet-Draft" value="draft-ietf-dhc-rfc8415bis-05"/>
+    <seriesInfo name="Internet-Draft" value="draft-ietf-dhc-rfc8415bis-latest"/>
     <author fullname="Tomek Mrugalski" initials="T." surname="Mrugalski">
       <organization abbrev="ISC">Internet Systems Consortium,
       Inc.</organization>
