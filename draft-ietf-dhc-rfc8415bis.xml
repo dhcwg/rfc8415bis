@@ -4279,7 +4279,7 @@
         In this document it is only specified to be encapsulated within an
         IA_NA.  DHCPv6 Leasequery <xref target="RFC5007" format="default"/> makes
         use of the IA Address Option without encapsulating it in IA_NA. The IAaddr‑options
-        field encapsulates those options that arespecific to this address.</t>
+        field encapsulates those options that are specific to this address.</t>
         <t>The format of the IA Address option is:</t>
         <figure anchor="FigOption5">
           <name>IA Address Option Format</name>
