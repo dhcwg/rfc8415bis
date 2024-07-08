@@ -13,12 +13,12 @@
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
 <?rfc text-list-symbols="-*+o"?>
-<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-ietf-dhc-rfc8415bis-05" ipr="pre5378Trust200902" obsoletes="8415" submissionType="IETF" consensus="true" updates="" xml:lang="en" tocInclude="true" tocDepth="4" symRefs="true" sortRefs="true" version="3">
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" docName="draft-ietf-dhc-rfc8415bis-latest" ipr="pre5378Trust200902" obsoletes="8415" submissionType="IETF" consensus="true" updates="" xml:lang="en" tocInclude="true" tocDepth="4" symRefs="true" sortRefs="true" version="3">
   <!-- xml2rfc v2v3 conversion 3.17.0 -->
   <front>
     <title abbrev="DHCP for IPv6">Dynamic Host Configuration Protocol for IPv6
     (DHCPv6)</title>
-    <seriesInfo name="Internet-Draft" value="draft-ietf-dhc-rfc8415bis-05"/>
+    <seriesInfo name="Internet-Draft" value="draft-ietf-dhc-rfc8415bis-latest"/>
     <author fullname="Tomek Mrugalski" initials="T." surname="Mrugalski">
       <organization abbrev="ISC">Internet Systems Consortium,
       Inc.</organization>
@@ -4275,9 +4275,11 @@
       </section>
       <section anchor="RFC3315-22.6" numbered="true" toc="default">
         <name>IA Address Option</name>
-        <t>The IA Address option is used to specify an address associated
-        with an IA_NA. The IAaddr‑options field encapsulates those options that are
-        specific to this address.</t>
+        <t>The IA Address option is used to specify an address.
+        In this document it is only specified to be encapsulated within an
+        IA_NA.  DHCPv6 Leasequery <xref target="RFC5007" format="default"/> specifies
+        using of the IA Address Option. The IAaddr‑options field encapsulates those
+        options that arespecific to this address.</t>
         <t>The format of the IA Address option is:</t>
         <figure anchor="FigOption5">
           <name>IA Address Option Format</name>
