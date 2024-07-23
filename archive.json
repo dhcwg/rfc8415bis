@@ -1,0 +1,1203 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2024-07-23T01:25:43.476323+00:00",
+  "repo": "dhcwg/rfc8415bis",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 2,
+      "id": "I_kwDOFL5NeM5gZ8YN",
+      "title": "Section 18.3.8 Decline Reply message",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/2",
+      "state": "CLOSED",
+      "author": "twintersunh",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "OLD:\r\nThe client includes a Status Code option (see [Section 21.13](https://datatracker.ietf.org/doc/html/rfc8415# section-21.13))\r\nwith the value Success, a Server Identifier option (see [Section 21.3(https://datatracker.ietf.org/doc/html/rfc8415#section-21.3)) with the server's DUID, and a Client Identifier option (see [Section 21.2](https://datatracker.ietf.org/doc/html/rfc8415#section-21.2)) with the client's DUID.\r\nNEW:\r\nThe server includes a Status Code option....\r\n",
+      "createdAt": "2023-03-09T14:54:51Z",
+      "updatedAt": "2023-03-10T13:28:05Z",
+      "closedAt": "2023-03-10T13:28:05Z",
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hi \u2026 not sure what or why this was generated, but this was fixed in 8415bis already.- Bernie (from iPad)On Mar 9, 2023, at 9:55 AM, Timothy Winters ***@***.***> wrote:\ufeff\nOLD:\nThe client includes a Status Code option (see [Section 21.13](https://datatracker.ietf.org/doc/html/rfc8415# section-21.13))\nwith the value Success, a Server Identifier option (see [Section 21.3(https://datatracker.ietf.org/doc/html/rfc8415#section-21.3)) with the server's DUID, and a Client Identifier option (see Section 21.2) with the client's DUID.\nNEW:\nThe server includes a Status Code option....\n\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you are subscribed to this thread.Message ID: ***@***.***>",
+          "createdAt": "2023-03-09T20:41:44Z",
+          "updatedAt": "2023-03-09T20:41:44Z"
+        },
+        {
+          "author": "twintersunh",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Already fixed.",
+          "createdAt": "2023-03-10T13:28:05Z",
+          "updatedAt": "2023-03-10T13:28:05Z"
+        }
+      ]
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOFL5NeM5ADtc7",
+      "title": "various changes (see 1st comment)",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/1",
+      "state": "MERGED",
+      "author": "tomaszmrugalski",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Here are the changes I'd like to submit:\r\n\r\n- RFC7283 to informative reference (was obsoleted by 8415, can't keep it as normative, as idnits treats it as an error)\r\n- added list of deprecated mechanisms in 8415 (there is a similar list for 8415bis)\r\n- typo (gleaming => gleaning)\r\n- added text what to do if IA_TA is received (ignore option, continue message processing)",
+      "createdAt": "2022-10-03T13:50:06Z",
+      "updatedAt": "2022-10-06T20:01:58Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "3659aab16a65580ca2d1616db003ba4f856c096f",
+      "headRepository": "tomaszmrugalski/rfc8415bis",
+      "headRefName": "main",
+      "headRefOid": "e5c8c8ee974167d404c7d8cda98e2625022a70c7",
+      "closedAt": "2022-10-06T20:01:58Z",
+      "mergedAt": "2022-10-06T20:01:58Z",
+      "mergedBy": "tomaszmrugalski",
+      "mergeCommit": {
+        "oid": "441c5e41aa9dfa9e47a0d9a98c6f16bfcf4e35fb"
+      },
+      "comments": [
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Updated the IA_TA processing as discussed over mail (MUST => SHOULD).",
+          "createdAt": "2022-10-05T20:51:15Z",
+          "updatedAt": "2022-10-05T20:51:15Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM5DQnLU",
+          "commit": {
+            "abbreviatedOid": "9361cd2"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-10-03T13:56:57Z",
+          "updatedAt": "2022-10-03T13:56:57Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5De2Ia",
+          "commit": {
+            "abbreviatedOid": "e5c8c8e"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-10-05T23:43:18Z",
+          "updatedAt": "2022-10-05T23:43:18Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOFL5NeM5NcGm1",
+      "title": "Address further server unicast obsoleting",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/3",
+      "state": "MERGED",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Hi:\r\n\r\nHere's additional changes to address the discussion in the WG regarding removing the UseMulticast status code and more. I likely should confirm on mailing list ... but likely it will be quiet and perhaps best to just ask folks to review. Basic changes are:\r\n- Changed deprecated to obsolete as features are really gone in this specification.\r\n- Obsoleted UseMulticast status code.\r\n- Removed remaining text related to unicast/multicast checks by servers.\r\n\r\nI didn't check that XML code is OK, but will do so shortly.\r\n\r\nNote: This version uses XML2RFC V3! I didn't create a pull request for that as I used the tool to do this and it resulted in an identical txt version of the document.",
+      "createdAt": "2023-04-02T20:53:40Z",
+      "updatedAt": "2023-06-27T12:47:28Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "9466d832a246e167b18676da896b6002ce041c09",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "bevolz-patch-2",
+      "headRefOid": "8b1d1fb1a163471eaa09a49811f5b68ed4a2c626",
+      "closedAt": "2023-06-27T12:47:26Z",
+      "mergedAt": "2023-06-27T12:47:26Z",
+      "mergedBy": "bevolz",
+      "mergeCommit": {
+        "oid": "8d00b5975e9e087a573c8744580d723d371ad9a9"
+      },
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I guess changes ok. Perhaps \u201cthe server unicast\u201d should be \u201cthe server\u2019s unicast\u201d?- Bernie (from iPad)On Apr 27, 2023, at 4:38 AM, Tomek Mrugalski ***@***.***> wrote:\ufeff\n@tomaszmrugalski commented on this pull request.\n\n\n\nIn draft-ietf-dhc-rfc8415bis-01.xml:\n> -        the Server Unicast option and is upgraded to not support it, may receive a\n-        unicast message if it previously sent the client the Server Unicast\n-        Option.</t>\n-        <t>When the server receives a message via unicast from a client,\n-        the server discards that message and responds with an Advertise\n-        (when responding to a Solicit message) or Reply message (when\n-        responding to any other messages) containing a Status Code option\n-        (see <xref target=\"RFC3315-22.13\" format=\"default\"/>) with the\n-        value UseMulticast, a Server Identifier option\n-        (see <xref target=\"RFC3315-22.3\" format=\"default\"/>) containing the\n-        server's DUID, the Client Identifier option\n-        (see <xref target=\"RFC3315-22.2\" format=\"default\"/>) from the client\n-        message (if any), and no other options.</t>\n+        and UseMulticast status code (see <xref target=\"RFC3315-22.13\" format=\"default\"/>)\n+        have been obsoleted and hence clients should no longer send the\n+        server unicast messages nor receive the UseMulticast status code.\n\n\u2b07\ufe0f Suggested change\n-        server unicast messages nor receive the UseMulticast status code.\n+        messages sent to the server unicast address nor receive the UseMulticast status code.\n\n\n\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you authored the thread.Message ID: ***@***.***>",
+          "createdAt": "2023-04-27T18:49:38Z",
+          "updatedAt": "2023-04-27T18:49:38Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We can remove that MUST.For the other change:+        <t>The server is SHOULD NOT accept unicast traffic from aThe \u201cis\u201d should be removed! But personally I would prefer to leave this as it was as using RFC2119 keywords implies that someone could add a conformance test which we don\u2019t want. And it also seems odd to have removed MUST from other section and then add SHOULD NOT here.- Bernie (from iPad)On Jun 8, 2023, at 8:55 AM, Timothy Winters ***@***.***> wrote:\ufeff\r\n@twintersunh commented on this pull request.\r\n\r\n\r\n\r\nIn draft-ietf-dhc-rfc8415bis-01.xml:\r\n> @@ -1789,11 +1790,6 @@\r\n       contain unknown options (or instances of vendor options with unknown\r\n       enterprise-number values). These should be ignored as if they were not\r\n       present.  This is critical to provide for future extensions of DHCP.</t>\r\n-      <t>A server MUST discard any Solicit, Confirm, or Rebind messages\r\n\r\nDo we want to remove the discard of Solicit, Confirm, and Rebind which should be Multicast?\r\n\r\n\r\n\r\nIn draft-ietf-dhc-rfc8415bis-01.xml:\r\n> @@ -3631,21 +3622,14 @@\r\n         <name>Reception of Unicast Messages</name>\r\n         <t>The server is not supposed to accept unicast traffic from a\r\n\r\n\u2b07\ufe0f Suggested change\r\n-        <t>The server is not supposed to accept unicast traffic from a\r\n+        <t>The server is SHOULD NOT accept unicast traffic from a\r\n\r\n\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you authored the thread.Message ID: ***@***.***>",
+          "createdAt": "2023-06-10T11:10:42Z",
+          "updatedAt": "2023-06-10T11:10:42Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM5Tp2NB",
+          "commit": {
+            "abbreviatedOid": "8b1d1fb"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "I've reviewed the changes. Looks good overall, with some minor wordsmithing proposed. I tried to use github's suggestion mechanism. If you like it, you can click approve and those will be applied automatically.",
+          "createdAt": "2023-04-27T08:34:35Z",
+          "updatedAt": "2023-04-27T08:38:07Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "I don't like the \"server unicast messages\". It's ambiguous. Is it \"messages with server-unicast option\", \"messages sent to the server unicast address\" or both? We should rephrase. Maybe \"messages sent to the server unicast address\"?",
+              "createdAt": "2023-04-27T08:34:35Z",
+              "updatedAt": "2023-04-27T08:38:07Z"
+            },
+            {
+              "originalPosition": 59,
+              "body": "```suggestion\r\n        and is upgraded to no longer support it, may continue to receive\r\n```",
+              "createdAt": "2023-04-27T08:35:15Z",
+              "updatedAt": "2023-04-27T08:38:07Z"
+            },
+            {
+              "originalPosition": 98,
+              "body": "```suggestion\r\n        <t>The Server Unicast option is obsoleted. Please refer to\r\n```",
+              "createdAt": "2023-04-27T08:36:22Z",
+              "updatedAt": "2023-04-27T08:38:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5Tp4cA",
+          "commit": {
+            "abbreviatedOid": "8b1d1fb"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-27T08:38:42Z",
+          "updatedAt": "2023-04-27T08:38:43Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "```suggestion\r\n        messages sent to the server unicast address nor receive the UseMulticast status code.\r\n```",
+              "createdAt": "2023-04-27T08:38:42Z",
+              "updatedAt": "2023-04-27T08:38:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5Xm_z1",
+          "commit": {
+            "abbreviatedOid": "8b1d1fb"
+          },
+          "author": "twintersunh",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-08T12:46:42Z",
+          "updatedAt": "2023-06-08T12:55:33Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "Do we want to remove the discard of Solicit, Confirm, and Rebind which should be Multicast?",
+              "createdAt": "2023-06-08T12:46:42Z",
+              "updatedAt": "2023-06-08T12:55:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5YthXV",
+          "commit": {
+            "abbreviatedOid": "8b1d1fb"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-06-20T14:41:46Z",
+          "updatedAt": "2023-06-20T14:41:46Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "This text would be broken because of the \"the\" on line 3626 (\"send the messages sent to the server unicast address\"). I'm not sure how to adjust the text to fix this in GitHub tool here? I think we should say \"and hence clients should no longer send messages to a server's unicast address nor receive the UseMulticast status code.\"",
+              "createdAt": "2023-06-20T14:41:46Z",
+              "updatedAt": "2023-06-20T14:41:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5YtiU8",
+          "commit": {
+            "abbreviatedOid": "8b1d1fb"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "I updated this some - though there is still one issue outstanding as the proposed text is broken. Not sure how to fix this.",
+          "createdAt": "2023-06-20T14:43:09Z",
+          "updatedAt": "2023-06-20T14:43:09Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOFL5NeM5Uvs0n",
+      "title": "Put better makefiles ci",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/4",
+      "state": "MERGED",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This rebases the document onto the latest MT templates, with github actions to do all the work.\r\n",
+      "createdAt": "2023-07-05T21:04:52Z",
+      "updatedAt": "2023-07-05T21:22:03Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "ddb602e593a3267d2741ad652a31d58f228c3c55",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "put-better-makefiles-ci",
+      "headRefOid": "bbfea3c60a91319f6fa732ac68e67ecd3f9085a7",
+      "closedAt": "2023-07-05T21:22:02Z",
+      "mergedAt": "2023-07-05T21:22:02Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "bbfea3c60a91319f6fa732ac68e67ecd3f9085a7"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOFL5NeM5Uv5hp",
+      "title": "Put better makefiles ci",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/5",
+      "state": "MERGED",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mcr"
+      ],
+      "labels": [],
+      "body": "This pull request reparents the repo with the MT template, and imports the -02.xml file (with the document name updated).\r\nThis does all the work in github actions, or locally, as you wish.\r\n",
+      "createdAt": "2023-07-05T21:34:02Z",
+      "updatedAt": "2023-08-21T17:51:25Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "fff6c4549b46e00767d13b679d573493d9ae4631",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "put-better-makefiles-ci",
+      "headRefOid": "c35c80def1cda2701bc9d7c07951eb07ab09373c",
+      "closedAt": "2023-08-21T17:51:22Z",
+      "mergedAt": "2023-08-21T17:51:22Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "bb656f652686944a2e6f595979a43594fca2deab"
+      },
+      "comments": [
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The [CI job](https://github.com/dhcwg/rfc8415bis/actions/runs/5469161480/jobs/9957739455?pr=5) has a step called `Archieve Built Drafts`. It claims to upload them somewhere. Do you know where? Is this a stable, long term storage?",
+          "createdAt": "2023-07-07T11:51:49Z",
+          "updatedAt": "2023-07-07T11:51:49Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I also agree that keeping multiple copies is confusing.Well, I obviously like it. Sometimes there\u2019s a need to undo things done in a newer draft and also much easier to fine issues (especially xml related) when you can easily compare to a known \u201cgood\u201d copy (i.e., submitted as draft). Tagging does work too but more easily forgotten.Also, if we submit xml version (which is what I\u2019ve been doing), perhaps possible to pull that from datatracker?I understand that it likely messes up automation since file name changes over time as draft progresses.- Bernie (from iPad)On Jul 9, 2023, at 5:10 PM, Tomek Mrugalski ***@***.***> wrote:\ufeff\r\n@tomaszmrugalski commented on this pull request.\r\n\r\n\r\n\r\nIn draft-dhcwg-dhc-rfc8415bis.xml:\r\n> @@ -1,6738 +0,0 @@\r\n-<?xml version=\"1.0\" encoding=\"US-ASCII\"?>\r\n\r\nI think you missed my point. I'm OK with removing them, just not the way how you proposed by simply deleting them. This way you'd lose the history of changes, you wouldn't be able to use git blame to find out who committed specific line, etc.\r\nI also agree that keeping multiple copies is confusing. I did apply my changes to wrong file...\r\nI don't have a good answer how to handle this properly, just some vague idea that could possibly work. We could do interactive rebase to rewrite history. We could keep renaming a single file to match whatever filename the next commit wanted to update. At the end, we would have a single file with the changes applied by appropriate authors. It's a bit more work. I can do an experiment some time next week if you feel it's useful.\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you were mentioned.Message ID: ***@***.***>",
+          "createdAt": "2023-07-09T21:23:02Z",
+          "updatedAt": "2023-07-09T21:23:02Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I think you missed my point. I'm OK with removing them, just not the way how you proposed by simply deleting them.\r\n\r\nIf you'd like I can go back and commit each of them as .xml and pile them up properly.\r\nI tried to do this when we first started, but got told it wasn't important.\r\n\r\n",
+          "createdAt": "2023-07-10T01:13:55Z",
+          "updatedAt": "2023-07-10T01:13:55Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I also agree that keeping multiple copies is confusing.Well, I obviously like it. Sometimes there\u2019s a need to undo things done in a newer draft and also much easier to fine issues (especially xml related) when you can easily compare to a known \u201cgood\u201d copy \r\n\r\n1. Well, 99% of the XML issues go away if you'd let us use kramdown as I originally proposed.  And the formatting of the XML is really really really poor, so no wonder there are problems with debugging xml2rfc issues.  I basically begged you to let me setup the repo properly when we started.\r\n\r\n2. Clearly, git and revision control does not suit you.  If you aren't doing a git commit every ~20 minutes, right after you type \"make\", then you aren't really using revision control. It's just a complicated USB drive.\r\n\r\n3. git cat-file HEAD^^^ foo.xml >oldfile.xml\r\n\r\n",
+          "createdAt": "2023-07-10T01:18:59Z",
+          "updatedAt": "2023-07-10T01:18:59Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@mcr, I tried to clean up this PR, but removing the commit that deleted extra files caused the job to fail. If you need the original commits, I've pushed all your changes to [old-files-removal branch](https://github.com/dhcwg/rfc8415bis/tree/old-files-removal).",
+          "createdAt": "2023-07-10T20:37:12Z",
+          "updatedAt": "2023-07-10T20:37:12Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "My email to Eric and Suresh about the Implementation Status section bounced for that email addres for Sheng. It does seem to be his IETF email but not sure what might be going on.- Bernie (from iPad)On Aug 17, 2023, at 5:37 PM, Michael Richardson ***@***.***> wrote:\ufeff\r\n@mcr commented on this pull request.\r\n\r\n\r\n\r\nIn .github/CODEOWNERS:\r\n> @@ -0,0 +1,3 @@\r\n+# Automatically generated CODEOWNERS\r\n+# Regenerate with `make update-codeowners`\r\n+draft-ietf-dhc-rfc8415bis.xml ***@***.*** ***@***.*** ***@***.*** ***@***.*** ***@***.***\r\n\r\nI don't know anything about this, but that address is what I expect to use for IETF work.\r\nSheng did leave Huawei, so I think his address is correct.\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you were mentioned.Message ID: ***@***.***>",
+          "createdAt": "2023-08-17T21:54:41Z",
+          "updatedAt": "2023-08-17T21:54:41Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> My email to Eric and Suresh about the Implementation Status section bounced for that email addres for Sheng. \r\n\r\nHe replied to me at that address.\r\n",
+          "createdAt": "2023-08-18T00:05:16Z",
+          "updatedAt": "2023-08-18T00:05:16Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM5aXBFg",
+          "commit": {
+            "abbreviatedOid": "297c26b"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-07-06T08:02:42Z",
+          "updatedAt": "2023-07-06T08:02:42Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "This should probably point to */dhcwg/*, not */mcr/*",
+              "createdAt": "2023-07-06T08:02:42Z",
+              "updatedAt": "2023-07-06T08:02:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5ahMrM",
+          "commit": {
+            "abbreviatedOid": "297c26b"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Overall, I like most of the changes a lot. Github actions are very useful, the addition of CI pipeline is awesome, the makefile works well for me.\r\n\r\nWhat's probably controversial is the removal of old versions. If you want to go ahead with this, I think the best would be to move it to separate PR and merge the rest of it.\r\n\r\nThere are some minor nits here and there that should be addressed before merging.",
+          "createdAt": "2023-07-07T11:54:21Z",
+          "updatedAt": "2023-07-07T12:06:14Z",
+          "comments": [
+            {
+              "originalPosition": 3,
+              "body": "I don't know what CODEOWNERS file syntax is, but it claims @mcr and Sheng's mails are incorrect. Should they match what's on your github's account e-mails list?\r\n\r\n",
+              "createdAt": "2023-07-07T11:54:21Z",
+              "updatedAt": "2023-07-07T12:06:14Z"
+            },
+            {
+              "originalPosition": 4,
+              "body": "`/mcr/` => `/dhcwg/`",
+              "createdAt": "2023-07-07T11:55:29Z",
+              "updatedAt": "2023-07-07T12:06:14Z"
+            },
+            {
+              "originalPosition": 34,
+              "body": "This merge artifact should be removed.",
+              "createdAt": "2023-07-07T11:58:02Z",
+              "updatedAt": "2023-07-07T12:06:14Z"
+            },
+            {
+              "originalPosition": 1,
+              "body": "I agree that keeping copies in git is not a good practice. But I'm against removing them the way it's done here.\r\n\r\nIn my perfect world, there would be one file with history and specific versions would be tagged.\r\n\r\nYou might also check up with @bevolz. I recall Bernie was fond of keeping the copies for easier comparison.",
+              "createdAt": "2023-07-07T12:03:16Z",
+              "updatedAt": "2023-07-07T12:06:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5akzWw",
+          "commit": {
+            "abbreviatedOid": "297c26b"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-07-07T18:57:51Z",
+          "updatedAt": "2023-07-07T18:57:52Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "It would be updated as soon as the first run of the Editor Copy action was run.",
+              "createdAt": "2023-07-07T18:57:51Z",
+              "updatedAt": "2023-07-07T18:57:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5akzwj",
+          "commit": {
+            "abbreviatedOid": "297c26b"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-07-07T18:59:17Z",
+          "updatedAt": "2023-07-07T18:59:17Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "Sure, we can use GIT as a shared zip drive.  But, the extra files distract and confuse.\r\n",
+              "createdAt": "2023-07-07T18:59:17Z",
+              "updatedAt": "2023-07-07T18:59:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5ap_mf",
+          "commit": {
+            "abbreviatedOid": "297c26b"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-07-09T21:10:28Z",
+          "updatedAt": "2023-07-09T21:10:28Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "I think you missed my point. I'm OK with removing them, just not the way how you proposed by simply deleting them. This way you'd lose the history of changes, you wouldn't be able to use `git blame` to find out who committed specific line, etc.\r\n\r\nI also agree that keeping multiple copies is confusing. I did apply my changes to wrong file...\r\n\r\nI don't have a good answer how to handle this properly, just some vague idea that could possibly work. We could do interactive rebase to rewrite history. We could keep renaming a single file to match whatever filename the next commit wanted to update. At the end, we would have a single file with the changes applied by appropriate authors. It's a bit more work. I can do an experiment some time next week if you feel it's useful.",
+              "createdAt": "2023-07-09T21:10:28Z",
+              "updatedAt": "2023-07-09T21:10:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5ap_q0",
+          "commit": {
+            "abbreviatedOid": "297c26b"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-07-09T21:13:18Z",
+          "updatedAt": "2023-07-09T21:13:19Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "As @mcr explained, this would be updated as soon as the first run of the Editor Copy action was run.",
+              "createdAt": "2023-07-09T21:13:19Z",
+              "updatedAt": "2023-07-09T21:13:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5axThk",
+          "commit": {
+            "abbreviatedOid": "297c26b"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-07-10T19:38:18Z",
+          "updatedAt": "2023-07-10T19:38:18Z",
+          "comments": [
+            {
+              "originalPosition": 34,
+              "body": "I've pushed a fix 669f7986f105285ede76d5e3a14a6eba532fb559 that fixes this.",
+              "createdAt": "2023-07-10T19:38:18Z",
+              "updatedAt": "2023-07-10T19:38:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5ax-4V",
+          "commit": {
+            "abbreviatedOid": "297c26b"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-07-10T21:09:18Z",
+          "updatedAt": "2023-07-10T21:09:19Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "> I think you missed my point. I'm OK with removing them, just not the way how you proposed by simply deleting them. \r\n\r\nI have now merged them into the history.",
+              "createdAt": "2023-07-10T21:09:19Z",
+              "updatedAt": "2023-07-10T21:09:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5cXk5r",
+          "commit": {
+            "abbreviatedOid": "bf6998a"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "There's one tiny [nit in CODEOWNERS](https://github.com/dhcwg/rfc8415bis/pull/5/files#r1255710782), but I'm not sure what to do with it. It's OK to merge if we don't know how to fix it or it's too much hassle.\r\n",
+          "createdAt": "2023-07-27T12:03:38Z",
+          "updatedAt": "2023-07-27T12:03:38Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5eYsbQ",
+          "commit": {
+            "abbreviatedOid": "297c26b"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-08-17T21:37:14Z",
+          "updatedAt": "2023-08-17T21:37:14Z",
+          "comments": [
+            {
+              "originalPosition": 3,
+              "body": "I don't know anything about this, but that address is what I expect to use for IETF work.\r\nSheng did leave Huawei, so I think his address is correct.",
+              "createdAt": "2023-08-17T21:37:14Z",
+              "updatedAt": "2023-08-17T21:37:15Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOFL5NeM5UyMdC",
+      "title": "Implementation report",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/6",
+      "state": "MERGED",
+      "author": "tomaszmrugalski",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR adds an implementation report. This is as far as I could push it before ran out of time. Many of the RFC7942 requests are fulfilled, but some aren't.\r\n\r\nPlease review.",
+      "createdAt": "2023-07-06T08:16:29Z",
+      "updatedAt": "2023-07-10T19:27:57Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "ddb602e593a3267d2741ad652a31d58f228c3c55",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "impl-report",
+      "headRefOid": "e5357ffe8a7260e3f7a81bbb49adecb832e621d8",
+      "closedAt": "2023-07-10T19:27:57Z",
+      "mergedAt": "2023-07-10T19:27:57Z",
+      "mergedBy": "tomaszmrugalski",
+      "mergeCommit": {
+        "oid": "fff6c4549b46e00767d13b679d573493d9ae4631"
+      },
+      "comments": [
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "A question to whoever reviews this: Do we want to mention IPv6 ready phase-2/DHCPv6 tests? It's old (2012), but there's a bunch of extra implementations that are not mentioned above?\r\n\r\nhttps://www.ipv6ready.org/db/index.php/public/search/?l=&c=&ds=&de=&pc=&ap=2&oem=&etc=D&fw=&vn=&do=1&o=6\r\n",
+          "createdAt": "2023-07-09T22:01:54Z",
+          "updatedAt": "2023-07-09T22:01:54Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@bevolz, I think I addressed all your comments from 2 days ago. Thanks for reviewing!",
+          "createdAt": "2023-07-09T22:02:34Z",
+          "updatedAt": "2023-07-09T22:02:34Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks!Nice to have added sources and good not to make these normal informational \u201creferences\u201d as that section will be removed.- Bernie (from iPad)On Jul 9, 2023, at 6:02 PM, Tomek Mrugalski ***@***.***> wrote:\ufeff\r\n@bevolz, I think I addressed all your comments from 2 days ago. Thanks for reviewing!\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you were mentioned.Message ID: ***@***.***>",
+          "createdAt": "2023-07-09T23:14:11Z",
+          "updatedAt": "2023-07-09T23:14:11Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Tim might have some comments about this.Personally, I think it is useful but to caution in that these data are pre-RFC8415 but show the breadth of implementations and testing for DHCPv6 and the real world experience that provided input to the changes to the protocol for RFC8415 and this latest work (bis).- Bernie (from iPad)On Jul 9, 2023, at 6:02 PM, Tomek Mrugalski ***@***.***> wrote:\ufeff\r\nA question to whoever reviews this: Do we want to mention IPv6 ready phase-2/DHCPv6 tests? It's old (2012), but there's a bunch of extra implementations that are not mentioned above?\r\nhttps://www.ipv6ready.org/db/index.php/public/search/?l=&c=&ds=&de=&pc=&ap=2&oem=&etc=D&fw=&vn=&do=1&o=6\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you are subscribed to this thread.Message ID: ***@***.***>",
+          "createdAt": "2023-07-09T23:18:27Z",
+          "updatedAt": "2023-07-09T23:18:27Z"
+        },
+        {
+          "author": "twintersunh",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@tomaszmrugalski @bevolz The IPv6 Ready Logo is 3315, and not 8415 devices so don't reference that.  USGv6 has been slow to create the testing content for DHCPv6 so there isn't anything to reference there or at the UNH-IOL.",
+          "createdAt": "2023-07-10T13:43:56Z",
+          "updatedAt": "2023-07-10T13:43:56Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I still think it is relevant as 8415 mostly consolidated the DHCPv6 standards and addressed removing some unused parts \u2026 there were a few new requirements (such as 7550) but these in themselves don\u2019t cause interoperability issues if not implemented.How about something like:While the original IPv6 Ready Logo testing involved the original DHCPv6 specifications (primarily RFC3315, RFC3633), the large number of tested and certified implementations supports the breadth and depth of DHCPv6 impementations available and deployed in the marketplace over the years that confirm the protocol specifications are up to Internet Standard. See\u00a0https://www.ipv6ready.org/db/index.php/public/search/?l=&c=&ds=&de=&pc=&ap=2&oem=&etc=D&fw=&vn=&do=1&o=6.- Bernie (from iPad)On Jul 10, 2023, at 9:44 AM, Timothy Winters ***@***.***> wrote:\ufeff\r\n@tomaszmrugalski @bevolz The IPv6 Ready Logo is 3315, and not 8415 devices so don't reference that.  USGv6 has been slow to create the testing content for DHCPv6 so there isn't anything to reference there or at the UNH-IOL.\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you were mentioned.Message ID: ***@***.***>",
+          "createdAt": "2023-07-10T15:57:17Z",
+          "updatedAt": "2023-07-10T15:57:17Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Bernie gave go-ahead over e-mail. Merging!",
+          "createdAt": "2023-07-10T19:27:52Z",
+          "updatedAt": "2023-07-10T19:27:52Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOFL5NeM5Yaeb0",
+      "title": "proposed text dealing with DHCP PD Release",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/7",
+      "state": "MERGED",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This paragraph attempts to deal with lifetimes for DHCPv6-PD, with the remainder of the issues dealt with in references.",
+      "createdAt": "2023-08-21T17:55:28Z",
+      "updatedAt": "2023-10-22T14:43:33Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "bb656f652686944a2e6f595979a43594fca2deab",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "release-pd-advice",
+      "headRefOid": "2955e996d476140048944c2184b530ed5b06363e",
+      "closedAt": "2023-10-22T14:43:30Z",
+      "mergedAt": "2023-10-22T14:43:30Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "5de20d84e0957efd8f1a75ae6aef107ea1e96429"
+      },
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think you meant \u201caddress space\u201d?      <t>       A client that has delegated any of the address space received through       DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant       delegated prefix while any of the address space is outstanding.       That includes addressed leased out by normal DHCPv6 (IA_NA), prefixes via       DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router       Advertisements.And \u201coutstanding\u201d on its own here is maybe not clearest? Perhaps something about has been advertised or delegated with a non-zero outstanding valid lifetime?      <t>       A client that has delegated any of the address space received through       DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant       delegated prefix while any of the address space has a non-zero\r\n       valid lifetime remaining.       That includes addressed leased out by normal DHCPv6 (IA_NA), prefixes via       DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router       Advertisements.I\u2019d really prefer referencing the later works as informational too.- Bernie (from iPad)On Aug 21, 2023, at 1:55 PM, Michael Richardson ***@***.***> wrote:\ufeffThis paragraph attempts to deal with lifetimes for DHCPv6-PD, with the remainder of the issues dealt with in references.\r\n\r\n\r\n\r\nYou can view, comment on, or merge this pull request online at:\r\n\u00a0\u00a0https://github.com/dhcwg/rfc8415bis/pull/7\r\n\r\nCommit Summary\r\n\r\n  7920d63  proposed text dealing with DHCP PD Release\r\n\r\n\r\nFile Changes  (1\u00a0file)\r\n\r\n  \r\n    M\r\n    draft-ietf-dhc-rfc8415bis.xml\r\n    (8)\r\n  \r\n\r\n\r\nPatch Links:\r\n\r\n  https://github.com/dhcwg/rfc8415bis/pull/7.patch\r\n  https://github.com/dhcwg/rfc8415bis/pull/7.diff\r\n\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because your review was requested.Message ID: ***@***.***>",
+          "createdAt": "2023-08-21T18:15:01Z",
+          "updatedAt": "2023-08-21T18:15:01Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I think you meant \u201caddress space\u201d? \r\n\r\nyes, I also see that I've repeated myself, so I've merged some text.\r\n",
+          "createdAt": "2023-08-21T18:20:50Z",
+          "updatedAt": "2023-08-21T18:20:50Z"
+        },
+        {
+          "author": "twintersunh",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@mcr Are we going to merge this and ship this version of the draft for the upcoming IETF?",
+          "createdAt": "2023-10-20T19:58:23Z",
+          "updatedAt": "2023-10-20T19:58:23Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Be really nice to have WGLC and send this on!!- Bernie (from iPad)On Oct 20, 2023, at 3:58 PM, Timothy Winters ***@***.***> wrote:\ufeff\r\n@mcr Are we going to merge this and ship this version of the draft for the upcoming IETF?\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because your review was requested.Message ID: ***@***.***>",
+          "createdAt": "2023-10-20T20:00:36Z",
+          "updatedAt": "2023-10-20T20:00:36Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM5gjZ7Y",
+          "commit": {
+            "abbreviatedOid": "2955e99"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Hi:\r\n\r\nI think two small edits would improve this and I am ok with the text. One is to use a semicolon instead of period at end of \u201cfirst\u201d sentence. Second is to change addressed to addresses in last sentence.\r\n\r\n         A client that has delegated any of the address space received through\r\n         DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant\r\n         delegated prefix while any of the address space is outstanding;\r\n         <xref target=\"RFC9096\" format=\"default\" /> section WPD-9 makes this\r\n         Best Current Practice.\r\n         That includes addresses leased out by normal DHCPv6 (IA_NA), prefixes via\r\n         DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router\r\n         Advertisements.",
+          "createdAt": "2023-09-11T12:39:31Z",
+          "updatedAt": "2023-09-11T12:39:31Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOFL5NeM5kc9Ul",
+      "title": "Changes after WGLC",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/8",
+      "state": "MERGED",
+      "author": "tomaszmrugalski",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "These are the changes after WGLC:\r\n\r\n- Added references to RFC8987, 6059, 4957.\r\n- Added two items to the implementation report\r\n- updated acknowledgements\r\n",
+      "createdAt": "2024-01-18T18:03:23Z",
+      "updatedAt": "2024-01-31T17:07:50Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "5de20d84e0957efd8f1a75ae6aef107ea1e96429",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "wglc-updates",
+      "headRefOid": "5a56974424cb4771f196bdf94d0abf8d278d4ad4",
+      "closedAt": "2024-01-22T15:19:55Z",
+      "mergedAt": "2024-01-22T15:19:55Z",
+      "mergedBy": "tomaszmrugalski",
+      "mergeCommit": {
+        "oid": "cfc8eb076926e9aeb4d796c8e8824eda56bf1842"
+      },
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Tomek, wouldn\u2019t the additional text to reference RFC8987 be better at or near end of section 6.3, DHCP for Prefix Delegation?Thanks for starting the work to finish this up.- BernieOn Jan 18, 2024, at 1:03\u202fPM, Tomek Mrugalski ***@***.***> wrote:\ufeffThese are the changes after WGLC. This PR is still work in progress.\r\n\r\n\r\n\r\nYou can view, comment on, or merge this pull request online at:\r\n\u00a0\u00a0https://github.com/dhcwg/rfc8415bis/pull/8\r\n\r\nCommit Summary\r\n\r\n  67f1ec8  reference to RFC8987 (relay-pd requirements) added\r\n  efe20e2  .gitignore tweaked\r\n\r\n\r\nFile Changes  (2\u00a0files)\r\n\r\n  \r\n    M\r\n    .gitignore\r\n    (1)\r\n  \r\n  \r\n    M\r\n    draft-ietf-dhc-rfc8415bis.xml\r\n    (10)\r\n  \r\n\r\n\r\nPatch Links:\r\n\r\n  https://github.com/dhcwg/rfc8415bis/pull/8.patch\r\n  https://github.com/dhcwg/rfc8415bis/pull/8.diff\r\n\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you are subscribed to this thread.Message ID: ***@***.***>",
+          "createdAt": "2024-01-20T12:19:10Z",
+          "updatedAt": "2024-01-20T12:19:10Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Tomek, wouldn\u2019t the additional text to reference RFC8987 be better at or near end of section 6.3, DHCP for Prefix Delegation?\r\n\r\nHey Bernie!\r\nYou're right. Moved. Is it any better now?\r\n",
+          "createdAt": "2024-01-21T16:44:31Z",
+          "updatedAt": "2024-01-21T16:44:31Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Okay, I went through those handful of comments we received so far and added requested references. There's one discussion thread that sort of hung (See [Esko's mail from Nov. 20](https://mailarchive.ietf.org/arch/msg/dhcwg/frlawaPCzBLbVMUAE7-hElg-qBA/). Esko on Nov. 11 he proposed to update 5 items, but once someone (Tim, I think) explained the scope of bis work, he asked:\r\n\r\n> If we change text to clarify something, without proposing new functionality, would that still fit in the 8415bis scope or cleaning up, or not?\r\n\r\nbut he got no answer. In my opinion the list in 18.2.12 is non-normative. I treat it as a non-exhaustive list of examples, so I'm fine if they want to add couple more. He also proposed to donate a text for \"significant change\", I'd love to get it.\r\n\r\nThoughts?",
+          "createdAt": "2024-01-21T16:59:43Z",
+          "updatedAt": "2024-01-21T16:59:43Z"
+        },
+        {
+          "author": "EskoDijk",
+          "authorAssociation": "NONE",
+          "body": "@tomaszmrugalski It looks like my review comments (nits) were missed, or I commented too late. Can you still address these? If not then it's left for the final editor.",
+          "createdAt": "2024-01-31T08:20:31Z",
+          "updatedAt": "2024-01-31T08:20:31Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> @tomaszmrugalski It looks like my review comments (nits) were missed, or I commented too late. Can you still address these? If not then it's left for the final editor.\r\n\r\nYes, I can. Addressed. You wrote on your mail from Jan 25th that you want to send some text next week. I thought I'd just wait and do all of them together.\r\n\r\nAnyway, it's not too late. ",
+          "createdAt": "2024-01-31T17:05:51Z",
+          "updatedAt": "2024-01-31T17:05:51Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I've pushed those corrections to #9 (see commit 99cc9ffb03c2e5724675a55ea6cee26089636d8b).",
+          "createdAt": "2024-01-31T17:07:49Z",
+          "updatedAt": "2024-01-31T17:07:49Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM5tZck7",
+          "commit": {
+            "abbreviatedOid": "5a56974"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-21T17:54:11Z",
+          "updatedAt": "2024-01-21T17:54:11Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5tZgxA",
+          "commit": {
+            "abbreviatedOid": "5a56974"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks ok to me.",
+          "createdAt": "2024-01-21T18:48:57Z",
+          "updatedAt": "2024-01-21T18:48:57Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5t61rH",
+          "commit": {
+            "abbreviatedOid": "5a56974"
+          },
+          "author": "EskoDijk",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-25T16:22:34Z",
+          "updatedAt": "2024-01-25T16:22:34Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "\"attachement\" -> \"attachment\"",
+              "createdAt": "2024-01-25T16:22:34Z",
+              "updatedAt": "2024-01-25T16:22:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5t65GQ",
+          "commit": {
+            "abbreviatedOid": "5a56974"
+          },
+          "author": "EskoDijk",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-25T16:26:03Z",
+          "updatedAt": "2024-01-25T16:26:03Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "\"situation\" -> \"situations\"",
+              "createdAt": "2024-01-25T16:26:03Z",
+              "updatedAt": "2024-01-25T16:26:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5uhtyG",
+          "commit": {
+            "abbreviatedOid": "5a56974"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-31T17:01:04Z",
+          "updatedAt": "2024-01-31T17:01:04Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "Corrected. Thanks!",
+              "createdAt": "2024-01-31T17:01:04Z",
+              "updatedAt": "2024-01-31T17:01:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5uht3z",
+          "commit": {
+            "abbreviatedOid": "5a56974"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-31T17:01:15Z",
+          "updatedAt": "2024-01-31T17:01:15Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "Corrected. Thanks!",
+              "createdAt": "2024-01-31T17:01:15Z",
+              "updatedAt": "2024-01-31T17:01:15Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOFL5NeM5k8KpH",
+      "title": "Clarification of \"the significant change\" on link",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/9",
+      "state": "MERGED",
+      "author": "tomaszmrugalski",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR is about resolving issues raised during WGLC by Esko Dijk. The [initial proposals](https://mailarchive.ietf.org/arch/msg/dhcwg/BtE7OBvoysnm0kySMYum9EUqEYc/) called for 5 changes:\r\n1. rejected as it would change the normative language.\r\n2. the requirement to send confirm,renew or inf-request needs to be clarified - discussion in progress\r\n3. already applied on this PR\r\n4. the M bit is informative.\r\n5. I would be hesitant to add new normative language to add any extra delays.\r\n\r\nI already applied changes proposed by Esko in his Nov. 11 mail regarding 3 (clarify the text significant changes).\r\n",
+      "createdAt": "2024-01-24T11:12:17Z",
+      "updatedAt": "2024-02-02T10:42:55Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "cfc8eb076926e9aeb4d796c8e8824eda56bf1842",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "refresh-clarify",
+      "headRefOid": "00b94becfe74e95c85dba456ffc5b9559e025763",
+      "closedAt": "2024-02-02T10:42:55Z",
+      "mergedAt": "2024-02-02T10:42:55Z",
+      "mergedBy": "tomaszmrugalski",
+      "mergeCommit": {
+        "oid": "15f907aa2265bff0d53b3c1daf3aeac45e57653b"
+      },
+      "comments": [
+        {
+          "author": "EskoDijk",
+          "authorAssociation": "NONE",
+          "body": "Thanks @tomaszmrugalski , building further on my email response to Tim of Nov 17 2023, I'm proposing to add the following item to the bullet list of examples in 18.2.12:\r\n\r\n```\r\n* The client\u2019s network interface indicates a disconnection event, followed by a connection event.\r\n```",
+          "createdAt": "2024-01-25T16:56:13Z",
+          "updatedAt": "2024-01-25T16:56:13Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I'm proposing to add the following item to the bullet list of examples in 18.2.12:\r\n> \r\n> ```\r\n> * The client\u2019s network interface indicates a disconnection event, followed by a connection event.\r\n> ```\r\nThanks for the text. Looks good to me. Added.\r\n",
+          "createdAt": "2024-01-31T17:10:18Z",
+          "updatedAt": "2024-01-31T17:10:18Z"
+        },
+        {
+          "author": "EskoDijk",
+          "authorAssociation": "NONE",
+          "body": "@tomaszmrugalski  here below for completeness the updated text for point 2. as I proposed on the list:\r\n\r\nOLD: \r\n\r\nIf not associated with one of the above-mentioned conditions, a client SHOULD initiate a Renew/Reply exchange (as if the T1 time expired) as described in Section 18.2.4 or an Information-request/Reply exchange as described in Section 18.2.6 if the client detects a significant change regarding the prefixes available on the link (when new prefixes are added or existing prefixes are deprecated), as this may indicate a configuration change. However, a client MUST rate\u2011limit such attempts to avoid flooding a server with requests when there are link issues (for example, only doing one of these at most every 30 seconds).\r\n\r\nNEW:\r\n\r\nIf not associated with a detection of having moved to a new link, a client SHOULD initiate one of the Renew/Reply, Confirm/Reply or Information-request/Reply exchanges, if the client detects a significant change regarding the prefixes available on the link. A change is considered significant when one or more on-link prefixes are added, and/or one or more existing on-link prefixes are deprecated. The reason for this is that such a significant change may indicate a configuration change at the server. However, a client MUST rate\u2011limit such exchange attempts to avoid flooding a server with requests when there are link issues (for example, only doing one of these at most every 30 seconds).\r\n\r\nThe above selection of an exchange to initiate depends on the client's current state:\r\n1. If the client has any valid delegated prefixes obtained from the server, it sends Renew (as if the T1 time expired) as described in Section 18.2.4.\r\n2. Else, if the client obtained address(es) from the server, it sends Confirm as described in Section 18.2.3.\r\n3. Else, if only network information was obtained from the server, it sends Information-request as described in Section 18.2.6.\r\n\r\n",
+          "createdAt": "2024-02-01T14:46:13Z",
+          "updatedAt": "2024-02-01T14:46:13Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> @tomaszmrugalski here below for completeness the updated text for point 2. as I proposed on the list:\r\n> NEW:\r\n\r\nI put this into commit a0037bbde069593d945c138116af9866d141dfd3. Please check.\r\n",
+          "createdAt": "2024-02-02T02:46:49Z",
+          "updatedAt": "2024-02-02T02:46:49Z"
+        },
+        {
+          "author": "EskoDijk",
+          "authorAssociation": "NONE",
+          "body": "@mcr Thanks for integrating: text looks ok. The new <li> items still need their closing </li> element; as we're not in HTML country :-) ",
+          "createdAt": "2024-02-02T07:57:29Z",
+          "updatedAt": "2024-02-02T07:57:29Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> element; as we're not in HTML country :-)\r\n\r\nFixed. Thanks for donating the text. MCR already approved, and it looks good to me, too.\r\n",
+          "createdAt": "2024-02-02T10:42:27Z",
+          "updatedAt": "2024-02-02T10:42:27Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM5uwRY8",
+          "commit": {
+            "abbreviatedOid": "a0037bb"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-02T02:47:07Z",
+          "updatedAt": "2024-02-02T02:47:07Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOFL5NeM5nyvyS",
+      "title": "Addressed the nits from Tomek comments.",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/10",
+      "state": "MERGED",
+      "author": "twintersunh",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Update Section 4.2.\r\n\r\nhttps://mailarchive.ietf.org/arch/msg/dhcwg/Vdux2pnuxVszCMVtp4W6UOh607Y/",
+      "createdAt": "2024-02-23T20:53:22Z",
+      "updatedAt": "2024-02-23T22:35:54Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "15f907aa2265bff0d53b3c1daf3aeac45e57653b",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "nits_tomek",
+      "headRefOid": "a9c9f42370a6a4913b7f3f340b366ac226fd990e",
+      "closedAt": "2024-02-23T21:47:17Z",
+      "mergedAt": "2024-02-23T21:47:17Z",
+      "mergedBy": "twintersunh",
+      "mergeCommit": {
+        "oid": "faa2975b6f902b5082f2d2887381e0b241e6cffa"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM5xMEQ-",
+          "commit": {
+            "abbreviatedOid": "a9c9f42"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-23T21:44:20Z",
+          "updatedAt": "2024-02-23T21:44:20Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOFL5NeM5xMSVW",
+          "commit": {
+            "abbreviatedOid": "a9c9f42"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-23T22:35:54Z",
+          "updatedAt": "2024-02-23T22:35:54Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "Seems ok.",
+              "createdAt": "2024-02-23T22:35:54Z",
+              "updatedAt": "2024-02-23T22:35:54Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDOFL5NeM50jYRU",
+      "title": "Updated UDP port text and removed IA Addr requirement to be IA_NA.",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/11",
+      "state": "OPEN",
+      "author": "twintersunh",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-07-05T16:26:11Z",
+      "updatedAt": "2024-07-08T19:41:51Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "faa2975b6f902b5082f2d2887381e0b241e6cffa",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "tim/draft-05",
+      "headRefOid": "f1473976057cd4b99a5cdcd4dedd0e5b318f1492",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hi Tim:In general, looks great. However, the new section for IA Address Option:      <section anchor=\"RFC3315-22.6\" numbered=\"true\" toc=\"default\">        <name>IA Address Option</name>        <t>The IA Address option is used to specify an address associated        with an IA_NA. The IAaddr\u2011options field encapsulates those options that are        specific to this address.</t>        <t>The format of the IA Address option is:</t>Is not necessarily much better as it still ties this option to IA_NA which it isn\u2019t in a Leasequrery nor in the address notification work.I wonder whether the following is better:\u00a0 \u00a0 \u00a0<section anchor=\"RFC3315-22.6\" numbered=\"true\" toc=\"default\">\r\n\u00a0 \u00a0 \u00a0<name>IA Address Option</name>\r\n\u00a0 \u00a0 \u00a0<t>The IA Address option is used to specify an address.\r\n\u00a0 \u00a0 \u00a0In this document it is only used encapsulated within an IA_NA.\r\n\u00a0 \u00a0 \u00a0The IAaddr options field encapsulates those options that are\r\n\u00a0 \u00a0 \u00a0specific to this address.</t>\r\n\u00a0 \u00a0 \u00a0<t>The format of the IA Address option is:</t>Or something like that. We could reference that it is used elsewhere in Leasequery (RFC 5007) and the new address notification RFC <to be>, but not sure that is necessary?- Bernie (from iPad)On Jul 5, 2024, at 12:26\u202fPM, Timothy Winters ***@***.***> wrote:\ufeff\r\n\r\n\r\n\r\nYou can view, comment on, or merge this pull request online at:\r\n\u00a0\u00a0https://github.com/dhcwg/rfc8415bis/pull/11\r\n\r\nCommit Summary\r\n\r\n  4150a23  Updated UDP port text and removed IA Addr requirement to be IA_NA.\r\n\r\n\r\nFile Changes  (1\u00a0file)\r\n\r\n  \r\n    M\r\n    draft-ietf-dhc-rfc8415bis.xml\r\n    (15)\r\n  \r\n\r\n\r\nPatch Links:\r\n\r\n  https://github.com/dhcwg/rfc8415bis/pull/11.patch\r\n  https://github.com/dhcwg/rfc8415bis/pull/11.diff\r\n\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because your review was requested.Message ID: ***@***.***>",
+          "createdAt": "2024-07-05T19:16:35Z",
+          "updatedAt": "2024-07-05T19:16:35Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Oh, and thanks for working on this!\r\n\r\nIf and when we\u2019re ready to publish, I\u2019m happy to do a final review comparing current published with new.\r\n\r\n- Bernie (from iPad)\r\n",
+          "createdAt": "2024-07-05T19:19:21Z",
+          "updatedAt": "2024-07-05T19:19:21Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "go ahead. Not sure how these other commits wound up in your branch, but whatever.\r\n",
+          "createdAt": "2024-07-06T21:07:26Z",
+          "updatedAt": "2024-07-06T21:08:19Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I've reviewed those changes and they look good. I particularly like the port clarification.",
+          "createdAt": "2024-07-08T11:14:50Z",
+          "updatedAt": "2024-07-08T11:14:50Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "And thanks for moving forward with this!",
+          "createdAt": "2024-07-08T11:24:18Z",
+          "updatedAt": "2024-07-08T11:24:18Z"
+        },
+        {
+          "author": "twintersunh",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I reverted my bad commit, my apologies for the noise.  I made changes based on Bernie's feedback.",
+          "createdAt": "2024-07-08T18:40:09Z",
+          "updatedAt": "2024-07-08T18:40:09Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hi Tim:Thanks \u2026\u00a0 \u00a0 \u00a0 \u00a0 The IA Address option is used to specify an address.\r\n\u00a0 \u00a0 \u00a0 \u00a0 In this document it is only specified to be encapsulated within an\r\n\u00a0 \u00a0 \u00a0 \u00a0 IA_NA.\u00a0 DHCPv6 Leasequery <xref target=\"RFC5007\" format=\"default\"/> specifies\r\n\u00a0 \u00a0 \u00a0 \u00a0 using of the IA Address Option. The IAaddr\u2011options field encapsulates those\r\n\u00a0 \u00a0 \u00a0 \u00a0 options that arespecific to this address.\r\n\r\nHowever, a space is missing in \u201carespecific\u201d and it might be better to say:\r\n\r\n\u00a0 \u00a0 \u00a0 \u00a0 DHCPv6 Leasequery <xref target=\"RFC5007\" format=\"default\"/> makes\r\n\u00a0 \u00a0 \u00a0 \u00a0 use of the IA Address Option without encapsulating it in IA_NA.- Bernie (from iPad)On Jul 8, 2024, at 2:40\u202fPM, Timothy Winters ***@***.***> wrote:\ufeff\r\nI reverted my bad commit, my apologies for the noise.  I made changes based on Bernie's feedback.\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because your review was requested.Message ID: ***@***.***>",
+          "createdAt": "2024-07-08T18:51:54Z",
+          "updatedAt": "2024-07-08T18:51:54Z"
+        },
+        {
+          "author": "twintersunh",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks for the quick review Bernie.  Made the changes.",
+          "createdAt": "2024-07-08T19:23:26Z",
+          "updatedAt": "2024-07-08T19:23:26Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM6A17yH",
+          "commit": {
+            "abbreviatedOid": "9a69e41"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-07-06T21:07:34Z",
+          "updatedAt": "2024-07-06T21:07:34Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6A7MPV",
+          "commit": {
+            "abbreviatedOid": "9a69e41"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-07-08T11:15:57Z",
+          "updatedAt": "2024-07-08T11:15:57Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}
