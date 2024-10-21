@@ -165,7 +165,8 @@
         been widely implemented - the assignment of temporary addresses
         using the IA_TA option and allowing clients to unicast some messages
         directly to the server if the server sent the Server Unicast option
-        to a client in an early exchange.
+        to a client in an early exchange. It also clarifies that clients, servers, and relay agents
+        can send DHCP messages from any UDP (source) port they are allowed to use including their designated destination ports.
         For a complete list of changes made to <xref target="RFC8415" format="default"/>
         see <xref target="ChangeSummary" format="default"/>.</t>
       </section>
@@ -4267,7 +4268,7 @@
       <section anchor="RFC3315-22.5" numbered="true" toc="default">
         <name>Identity Association for Temporary Addresses Option</name>
         <t>The Identity Association for Temporary Addresses (IA_TA) option
-        is obsolete. Please refer to <xref target="RFC8415" format="default"/> for more
+        is obsolete. Please refer to <xref target="RFC8415" format="default"/> for historical
         information on this option.</t>
         <t>The client SHOULD NOT send this option. The server SHOULD NOT send this
         option. When the server receives IA_TA option, the option SHOULD be
@@ -4578,7 +4579,7 @@
       <section anchor="RFC3315-22.12" numbered="true" toc="default">
         <name>Server Unicast Option</name>
         <t>The Server Unicast option is obsolete. Please refer to
-         <xref target="RFC8415" format="default"/> for more information on this option.</t>
+         <xref target="RFC8415" format="default"/> for historical information on this option.</t>
       </section>
       <section anchor="RFC3315-22.13" numbered="true" toc="default">
         <name>Status Code Option</name>
@@ -6638,6 +6639,7 @@ applicable after the Server Unicast Option was obsoleted.
 it documents a method that might be used to generate addresses and was
 inadvertently missed when compiling RFC 8415.
 </li>
+        <li>Clarified that clients, servers, and relay agents can send DHCP messages from any UDP (source) port they are allowed to use including their designated destination ports.</li>
       </ol>
     </section>
     <section anchor="RFC3315-A" numbered="true" toc="default">
