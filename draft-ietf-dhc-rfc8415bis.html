@@ -1741,7 +1741,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
         been widely implemented - the assignment of temporary addresses
         using the IA_TA option and allowing clients to unicast some messages
         directly to the server if the server sent the Server Unicast option
-        to a client in an early exchange.
+        to a client in an early exchange. It also clarifies that clients, servers, and relay agents
+        can send DHCP messages from any UDP (source) port they are allowed to use including their designated destination ports.
         For a complete list of changes made to <span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span>
         see <a href="#ChangeSummary" class="auto internal xref">Appendix A</a>.<a href="#section-1.1-4" class="pilcrow">¶</a></p>
 </section>
@@ -2052,9 +2053,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
             A client may have more than one IA assigned to it -- for example,
             one for each of its interfaces. Each IA holds one type of
             lease; for example, an identity association for non-temporary
-            addresses (IA_NA) holds an address, and an identity
-            association for prefix delegation (IA_PD) holds a delegated
-            prefix. Throughout this document, "IA" is used to refer to
+            addresses (IA_NA) holds addresses, and an identity
+            association for prefix delegation (IA_PD) holds delegated
+            prefixes. Throughout this document, "IA" is used to refer to
             an identity association without identifying the type
             of a lease in the IA. At the time of writing this document, there
             are three IA types defined: IA_NA, IA_TA (obsoleted), and IA_PD. One other
@@ -5199,7 +5200,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
           </ul>
 <p id="section-18.2.12-3">Specific algorithms for detecting network attachment changes are out of scope
           for this document. Two possible mechanisms for detecting situations where refreshing
-          configuration information may be needed, are defined in <span>[<a href="#RFC6059" class="cite xref">RFC6059</a>]</span>, and <span>[<a href="#RFC4957" class="cite xref">RFC4957</a>]</span>.<a href="#section-18.2.12-3" class="pilcrow">¶</a></p>
+          configuration information may be needed are defined in <span>[<a href="#RFC6059" class="cite xref">RFC6059</a>]</span> and <span>[<a href="#RFC4957" class="cite xref">RFC4957</a>]</span>.<a href="#section-18.2.12-3" class="pilcrow">¶</a></p>
 <p id="section-18.2.12-4">When the client detects that it may have moved to a new link and it
           has obtained addresses and no delegated prefixes from a server, the
           client SHOULD initiate a Confirm/Reply message exchange. The client
@@ -6664,7 +6665,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-21.5" class="section-number selfRef">21.5. </a><a href="#name-identity-association-for-te" class="section-name selfRef">Identity Association for Temporary Addresses Option</a>
         </h3>
 <p id="section-21.5-1">The Identity Association for Temporary Addresses (IA_TA) option
-        is obsolete. Please refer to <span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span> for more
+        is obsolete. Please refer to <span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span> for historical
         information on this option.<a href="#section-21.5-1" class="pilcrow">¶</a></p>
 <p id="section-21.5-2">The client SHOULD NOT send this option. The server SHOULD NOT send this
         option. When the server receives IA_TA option, the option SHOULD be
@@ -7102,7 +7103,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-21.12" class="section-number selfRef">21.12. </a><a href="#name-server-unicast-option" class="section-name selfRef">Server Unicast Option</a>
         </h3>
 <p id="section-21.12-1">The Server Unicast option is obsolete. Please refer to
-         <span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span> for more information on this option.<a href="#section-21.12-1" class="pilcrow">¶</a></p>
+         <span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span> for historical information on this option.<a href="#section-21.12-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="RFC3315-22.13">
@@ -7210,7 +7211,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
               <td class="text-right" rowspan="1" colspan="1">5</td>
               <td class="text-left" rowspan="1" colspan="1">Sent by a server to a client to force the client to send messages
           to the server using the All_DHCP_Relay_Agents_and_Servers multicast
-          address. Obsoleted; longer used.</td>
+          address. Obsoleted; no longer used.</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">NoPrefixAvail</td>
@@ -8832,6 +8833,8 @@ applicable after the Server Unicast Option was obsoleted.<a href="#appendix-A-2.
 it documents a method that might be used to generate addresses and was
 inadvertently missed when compiling RFC 8415.<a href="#appendix-A-2.3" class="pilcrow">¶</a>
 </li>
+        <li id="appendix-A-2.4">Clarified that clients, servers, and relay agents can send DHCP messages from any UDP (source) port they are allowed to use including their designated destination ports.<a href="#appendix-A-2.4" class="pilcrow">¶</a>
+</li>
       </ol>
 </section>
 </div>
@@ -8962,7 +8965,7 @@ INF_MAX_RT         *
       in RFC 8415 and by the authors of that document.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
 <p id="appendix-D-2">A number of additional people have contributed to identifying issues
       with RFC 8415, including Fernando Gont, Felix Hamme, Rene Engel, Esko Dijk,
-      and Ted Lemon.<a href="#appendix-D-2" class="pilcrow">¶</a></p>
+      Jen Linkova, Tomoyuki Sahara, and Ted Lemon.<a href="#appendix-D-2" class="pilcrow">¶</a></p>
 <p id="appendix-D-3">We also thank the DHC working group for their review of this updated
       document.<a href="#appendix-D-3" class="pilcrow">¶</a></p>
 <p id="appendix-D-4">Also, special thanks to Suresh Krishnan for shepherding this document

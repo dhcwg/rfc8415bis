@@ -303,8 +303,10 @@ Table of Contents
    the assignment of temporary addresses using the IA_TA option and
    allowing clients to unicast some messages directly to the server if
    the server sent the Server Unicast option to a client in an early
-   exchange.  For a complete list of changes made to [RFC8415] see
-   Appendix A.
+   exchange.  It also clarifies that clients, servers, and relay agents
+   can send DHCP messages from any UDP (source) port they are allowed to
+   use including their designated destination ports.  For a complete
+   list of changes made to [RFC8415] see Appendix A.
 
 1.2.  Relationship to DHCPv4
 
@@ -553,10 +555,10 @@ Table of Contents
                              interfaces.  Each IA holds one type of
                              lease; for example, an identity association
                              for non-temporary addresses (IA_NA) holds
-                             an address, and an identity association for
-                             prefix delegation (IA_PD) holds a delegated
-                             prefix.  Throughout this document, "IA" is
-                             used to refer to an identity association
+                             addresses, and an identity association for
+                             prefix delegation (IA_PD) holds delegated
+                             prefixes.  Throughout this document, "IA"
+                             is used to refer to an identity association
                              without identifying the type of a lease in
                              the IA.  At the time of writing this
                              document, there are three IA types defined:
@@ -3215,8 +3217,8 @@ Table of Contents
 
    Specific algorithms for detecting network attachment changes are out
    of scope for this document.  Two possible mechanisms for detecting
-   situations where refreshing configuration information may be needed,
-   are defined in [RFC6059], and [RFC4957].
+   situations where refreshing configuration information may be needed
+   are defined in [RFC6059] and [RFC4957].
 
    When the client detects that it may have moved to a new link and it
    has obtained addresses and no delegated prefixes from a server, the
@@ -4515,8 +4517,8 @@ Table of Contents
 21.5.  Identity Association for Temporary Addresses Option
 
    The Identity Association for Temporary Addresses (IA_TA) option is
-   obsolete.  Please refer to [RFC8415] for more information on this
-   option.
+   obsolete.  Please refer to [RFC8415] for historical information on
+   this option.
 
    The client SHOULD NOT send this option.  The server SHOULD NOT send
    this option.  When the server receives IA_TA option, the option
@@ -4841,7 +4843,7 @@ Table of Contents
 21.12.  Server Unicast Option
 
    The Server Unicast option is obsolete.  Please refer to [RFC8415] for
-   more information on this option.
+   historical information on this option.
 
 21.13.  Status Code Option
 
@@ -4910,7 +4912,7 @@ Table of Contents
        |               |      | force the client to send messages |
        |               |      | to the server using the           |
        |               |      | All_DHCP_Relay_Agents_and_Servers |
-       |               |      | multicast address.  Obsoleted;    |
+       |               |      | multicast address.  Obsoleted; no |
        |               |      | longer used.                      |
        +---------------+------+-----------------------------------+
        | NoPrefixAvail |    6 | The server has no prefixes        |
@@ -6380,6 +6382,10 @@ Appendix A.  Summary of Changes
        a method that might be used to generate addresses and was
        inadvertently missed when compiling RFC 8415.
 
+   4.  Clarified that clients, servers, and relay agents can send DHCP
+       messages from any UDP (source) port they are allowed to use
+       including their designated destination ports.
+
 Appendix B.  Appearance of Options in Message Types
 
    The following tables indicate with a "*" the options that are allowed
@@ -6490,7 +6496,7 @@ Acknowledgments
 
    A number of additional people have contributed to identifying issues
    with RFC 8415, including Fernando Gont, Felix Hamme, Rene Engel, Esko
-   Dijk, and Ted Lemon.
+   Dijk, Jen Linkova, Tomoyuki Sahara, and Ted Lemon.
 
    We also thank the DHC working group for their review of this updated
    document.
