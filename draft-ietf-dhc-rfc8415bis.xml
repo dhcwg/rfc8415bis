@@ -165,7 +165,8 @@
         been widely implemented - the assignment of temporary addresses
         using the IA_TA option and allowing clients to unicast some messages
         directly to the server if the server sent the Server Unicast option
-        to a client in an early exchange.
+        to a client in an early exchange. It also clarifies that clients, servers, and relay agents
+        can send DHCP messages from any UDP (source) port they are allowed to use including their designated destination ports.
         For a complete list of changes made to <xref target="RFC8415" format="default"/>
         see <xref target="ChangeSummary" format="default"/>.</t>
       </section>
@@ -393,9 +394,9 @@
             A client may have more than one IA assigned to it -- for example,
             one for each of its interfaces. Each IA holds one type of
             lease; for example, an identity association for non-temporary
-            addresses (IA_NA) holds an address, and an identity
-            association for prefix delegation (IA_PD) holds a delegated
-            prefix. Throughout this document, "IA" is used to refer to
+            addresses (IA_NA) holds addresses, and an identity
+            association for prefix delegation (IA_PD) holds delegated
+            prefixes. Throughout this document, "IA" is used to refer to
             an identity association without identifying the type
             of a lease in the IA. At the time of writing this document, there
             are three IA types defined: IA_NA, IA_TA (obsoleted), and IA_PD. One other
@@ -3006,8 +3007,8 @@
           </ul>
           <t>Specific algorithms for detecting network attachment changes are out of scope
           for this document. Two possible mechanisms for detecting situations where refreshing
-          configuration information may be needed, are defined in <xref target="RFC6059"
-          format="default"/>, and <xref target="RFC4957" format="default" />.</t>
+          configuration information may be needed are defined in <xref target="RFC6059"
+          format="default"/> and <xref target="RFC4957" format="default" />.</t>
           <t>When the client detects that it may have moved to a new link and it
           has obtained addresses and no delegated prefixes from a server, the
           client SHOULD initiate a Confirm/Reply message exchange. The client
@@ -4267,7 +4268,7 @@
       <section anchor="RFC3315-22.5" numbered="true" toc="default">
         <name>Identity Association for Temporary Addresses Option</name>
         <t>The Identity Association for Temporary Addresses (IA_TA) option
-        is obsolete. Please refer to <xref target="RFC8415" format="default"/> for more
+        is obsolete. Please refer to <xref target="RFC8415" format="default"/> for historical
         information on this option.</t>
         <t>The client SHOULD NOT send this option. The server SHOULD NOT send this
         option. When the server receives IA_TA option, the option SHOULD be
@@ -4578,7 +4579,7 @@
       <section anchor="RFC3315-22.12" numbered="true" toc="default">
         <name>Server Unicast Option</name>
         <t>The Server Unicast option is obsolete. Please refer to
-         <xref target="RFC8415" format="default"/> for more information on this option.</t>
+         <xref target="RFC8415" format="default"/> for historical information on this option.</t>
       </section>
       <section anchor="RFC3315-22.13" numbered="true" toc="default">
         <name>Status Code Option</name>
@@ -4665,7 +4666,7 @@
               <td align="right">5</td>
               <td align="left">Sent by a server to a client to force the client to send messages
           to the server using the All_DHCP_Relay_Agents_and_Servers multicast
-          address. Obsoleted; longer used.</td>
+          address. Obsoleted; no longer used.</td>
             </tr>
             <tr>
               <td align="left">NoPrefixAvail</td>
@@ -6638,6 +6639,7 @@ applicable after the Server Unicast Option was obsoleted.
 it documents a method that might be used to generate addresses and was
 inadvertently missed when compiling RFC 8415.
 </li>
+        <li>Clarified that clients, servers, and relay agents can send DHCP messages from any UDP (source) port they are allowed to use including their designated destination ports.</li>
       </ol>
     </section>
     <section anchor="RFC3315-A" numbered="true" toc="default">
@@ -6751,7 +6753,7 @@ INF_MAX_RT         *
       </t>
       <t>A number of additional people have contributed to identifying issues
       with RFC 8415, including Fernando Gont, Felix Hamme, Rene Engel, Esko Dijk,
-      and Ted Lemon.
+      Jen Linkova, Tomoyuki Sahara, and Ted Lemon.
       </t>
       <t>We also thank the DHC working group for their review of this updated
       document.
