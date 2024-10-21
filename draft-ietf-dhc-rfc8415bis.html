@@ -23,25 +23,24 @@
       server unicast capability (the Server Unicast option and UseMulticast
       status code). 
     " name="description">
-<meta content="xml2rfc 3.19.4" name="generator">
+<meta content="xml2rfc 3.23.2" name="generator">
 <meta content="DHCPv6" name="keyword">
 <meta content="IPv6" name="keyword">
 <meta content="DHCP" name="keyword">
-<meta content="draft-ietf-dhc-rfc8415bis-02" name="ietf.draft">
+<meta content="draft-ietf-dhc-rfc8415bis-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.19.4
-    Python 3.11.6
+  xml2rfc 3.23.2
+    Python 3.12.7
     ConfigArgParse 1.7
-    google-i18n-address 3.1.0
+    google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.2
-    lxml 4.9.3
-    platformdirs 4.2.0
+    Jinja2 3.1.4
+    lxml 4.9.4
+    platformdirs 4.3.6
     pycountry 22.3.5
     PyYAML 6.0.1
-    requests 2.31.0
-    setuptools 68.2.2
-    six 1.16.0
+    requests 2.32.3
+    setuptools 70.3.0
     wcwidth 0.2.13
 -->
 <link href="draft-ietf-dhc-rfc8415bis.xml" rel="alternate" type="application/rfc+xml">
@@ -1041,11 +1040,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">DHCP for IPv6</td>
-<td class="right">February 2024</td>
+<td class="right">October 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mrugalski, et al.</td>
-<td class="center">Expires 26 August 2024</td>
+<td class="center">Expires 24 April 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1061,12 +1060,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc8415" class="eref">8415</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-02-23" class="published">23 February 2024</time>
+<time datetime="2024-10-21" class="published">21 October 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-08-26">26 August 2024</time></dd>
+<dd class="expires"><time datetime="2025-04-24">24 April 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1126,7 +1125,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 26 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 24 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2588,6 +2587,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
         </h3>
 <p id="section-7.2-1">Clients listen for DHCP messages on UDP port 546. Servers and relay
         agents listen for DHCP messages on UDP port 547.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.2-2">Clients, servers, and relay agents MAY send DHCP messages from any UDP
+        (source) port they are allowed to use, including their designated destination
+        ports. Nevertheless, regardless of the source port used, DHCP messages MUST
+        be sent to their designated destination ports.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
 </section>
 <div id="RFC3315-5.3">
 <section id="section-7.3">
@@ -4268,7 +4271,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
           IA option type can be included.<a href="#section-18.2.1-4" class="pilcrow">¶</a></p>
 <p id="section-18.2.1-5">The client MAY include addresses in IA Address options (see
           <a href="#RFC3315-22.6" class="auto internal xref">Section 21.6</a>) encapsulated
-          within IA_NA optiona as hints to the server about the
+          within IA_NA option as hints to the server about the
           addresses for which the client has a preference.<a href="#section-18.2.1-5" class="pilcrow">¶</a></p>
 <p id="section-18.2.1-6">The client MAY include values in IA Prefix options (see
           <a href="#IAPREFIX-option" class="auto internal xref">Section 21.22</a>)
@@ -6673,12 +6676,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-ia-address-option">
 <a href="#section-21.6" class="section-number selfRef">21.6. </a><a href="#name-ia-address-option" class="section-name selfRef">IA Address Option</a>
         </h3>
-<p id="section-21.6-1">The IA Address option is used to specify an address associated
-        with an IA_NA. The IA Address option must be encapsulated
-        in the IA_NA‑options field of an IA_NA option
-        (see <a href="#RFC3315-22.4" class="auto internal xref">Section 21.4</a>).
-        The IAaddr‑options field encapsulates those options that are
-        specific to this address.<a href="#section-21.6-1" class="pilcrow">¶</a></p>
+<p id="section-21.6-1">The IA Address option is used to specify an address.
+        In this document it is only specified to be encapsulated within an
+        IA_NA.  DHCPv6 Leasequery <span>[<a href="#RFC5007" class="cite xref">RFC5007</a>]</span> makes
+        use of the IA Address Option without encapsulating it in IA_NA. The IAaddr‑options
+        field encapsulates those options that are specific to this address.<a href="#section-21.6-1" class="pilcrow">¶</a></p>
 <p id="section-21.6-2">The format of the IA Address option is:<a href="#section-21.6-2" class="pilcrow">¶</a></p>
 <span id="name-ia-address-option-format"></span><div id="FigOption5">
 <figure id="figure-16">
