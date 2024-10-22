@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-20T01:51:45.214678+00:00",
+  "timestamp": "2024-10-22T01:45:19.143463+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1094,24 +1094,26 @@
       "id": "PR_kwDOFL5NeM50jYRU",
       "title": "Updated UDP port text and removed IA Addr requirement to be IA_NA.",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/11",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "twintersunh",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-07-05T16:26:11Z",
-      "updatedAt": "2024-07-08T19:41:51Z",
+      "updatedAt": "2024-10-21T15:23:25Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "faa2975b6f902b5082f2d2887381e0b241e6cffa",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "tim/draft-05",
       "headRefOid": "f1473976057cd4b99a5cdcd4dedd0e5b318f1492",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-10-21T15:23:25Z",
+      "mergedAt": "2024-10-21T15:23:25Z",
+      "mergedBy": "twintersunh",
+      "mergeCommit": {
+        "oid": "5372e68dd06c1f9eb469a49576da6a4f016e1c03"
+      },
       "comments": [
         {
           "author": "bevolz",
@@ -1198,6 +1200,36 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 12,
+      "id": "PR_kwDOFL5NeM5_W_BW",
+      "title": "Tim/draft 06",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/12",
+      "state": "MERGED",
+      "author": "twintersunh",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "twintersunh"
+      ],
+      "labels": [],
+      "body": "- Addressed Bernie's comments on 05\r\n- Addressed Document Shepards comments.",
+      "createdAt": "2024-10-21T18:13:48Z",
+      "updatedAt": "2024-10-21T18:15:51Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "5372e68dd06c1f9eb469a49576da6a4f016e1c03",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "tim/draft-06",
+      "headRefOid": "6f9807ad8cc5b0a8c291ef708b07f35649276e25",
+      "closedAt": "2024-10-21T18:15:51Z",
+      "mergedAt": "2024-10-21T18:15:51Z",
+      "mergedBy": "twintersunh",
+      "mergeCommit": {
+        "oid": "7403a7017e64141fbbe027a0021648977f5d4b56"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
