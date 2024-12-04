@@ -1817,7 +1817,7 @@
       included in the message), and a Status Code option (see <xref target="RFC3315-22.13" format="default"/>) with status UnspecFail.</t>
       <t>Clients, relay agents, and servers MUST NOT discard messages that
       contain unknown options (or instances of vendor options with unknown
-      enterprise-number values). These should be ignored as if they were not
+      enterprise-number values). These options should be ignored as if they were not
       present.  This is critical to provide for future extensions of DHCP.</t>
       <t>A client or server MUST discard any received DHCP messages
       with an unknown message type.</t>
