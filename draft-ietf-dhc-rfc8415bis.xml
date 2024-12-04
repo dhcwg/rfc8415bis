@@ -18,7 +18,12 @@
   <front>
     <title abbrev="DHCP for IPv6">Dynamic Host Configuration Protocol for IPv6
     (DHCPv6)</title>
-    <seriesInfo name="Internet-Draft" value="draft-ietf-dhc-rfc8415bis-latest"/>
+    <!-- The status field doesn't seem to work, at least not with the latest xml2rfc 3.25.0.
+         The RFC7991, section 2.47.3 bullet 1 says it should. But the
+         https://ietf-tools.github.io/xml2rfc/#name-seriesinfo docs have it empty.
+         Is this attribute being deprecated?
+         -->
+    <seriesInfo name="Internet-Draft" value="draft-ietf-dhc-rfc8415bis-latest" status="full-standard"/>
     <author fullname="Tomek Mrugalski" initials="T." surname="Mrugalski">
       <organization abbrev="ISC">Internet Systems Consortium,
       Inc.</organization>
@@ -96,7 +101,7 @@
       of one or more IPv6 addresses and/or IPv6 prefixes. DHCPv6 can operate
       either in place of or in addition to stateless address autoconfiguration
       (SLAAC).</t>
-      <t>This document replaces RFC8415 to incorporate reported errata and to
+      <t>This document obsoletes RFC8415 to incorporate reported errata and to
       obsolete the assignment of temporary addresses (the IA_TA option) and the
       server unicast capability (the Server Unicast option and UseMulticast
       status code).</t>
@@ -398,14 +403,14 @@
             association for prefix delegation (IA_PD) holds delegated
             prefixes. Throughout this document, "IA" is used to refer to
             an identity association without identifying the type
-            of a lease in the IA. At the time of writing this document, there
-            are three IA types defined: IA_NA, IA_TA (obsoleted), and IA_PD. One other
-            IA type was defined (see <xref target="RFC8947"/>) and more
+            of a lease in the IA. At the time of writing this document (2024), there
+            are four IA types defined: IA_NA, IA_TA (obsoleted), IA_PD, and IA_LL
+            (see <xref target="RFC8947" format="default"/>). New IA types
             may be defined in the future.</dd>
           <dt>IA option(s)</dt>
-          <dd>At the time of writing this document,
-            one or more IA_NA, IA_TA (obsoleted), and/or IA_PD options. New IA types may
-            be defined in the future.</dd>
+          <dd>At the time of writing this document (2024),
+            one or more IA_NA, IA_TA (obsoleted), IA_PD, and/or IA_LL options.
+            New IA types may be defined in the future.</dd>
           <dt>IAID</dt>
           <dd>Identity Association Identifier: an identifier
             for an IA, chosen by the client. Each IA has an IAID, which is
@@ -421,8 +426,9 @@
             IA_PD option.</dd>
           <dt>IA_TA</dt>
           <dd>Identity Association for Temporary Addresses:
-            an IA that carries temporary addresses (see <xref target="RFC8981" format="default"/>). See <xref target="RFC8415" format="default"/>
-            for details on the now obsoleted IA_TA option.</dd>
+            an IA that carries temporary addresses (see <xref target="RFC8981" format="default"/>). This
+            option is obsolete. See <xref target="RFC8415" format="default"/>
+            for details.</dd>
           <dt>lease</dt>
           <dd>A contract by which the server grants the use
             of an address or delegated prefix to the client for a specified
@@ -757,8 +763,8 @@
          delegated prefix while any of the address space is outstanding.
          <xref target="RFC9096" format="default" /> section WPD-9 makes this
          Best Current Practice.
-         That includes addressed leased out by normal DHCPv6 (IA_NA), prefixes via
-         DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router
+         That includes addresses leased out by DHCPv6 (IA_NA), prefixes delegated
+         via DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router
          Advertisements.
        </t>
        <t>
@@ -841,7 +847,7 @@
         <t>Clients, servers, and relay agents MAY send DHCP messages from any UDP
         (source) port they are allowed to use, including their designated destination
         ports. Nevertheless, regardless of the source port used, DHCP messages MUST
-        be sent to their designated destination ports.</t>
+        be sent to ports specified above (e.g., clients sending to port 547).</t>
       </section>
       <section anchor="RFC3315-5.3" numbered="true" toc="default">
         <name>DHCP Message Types</name>
@@ -1682,7 +1688,7 @@
       <section anchor="t1-t2-0" numbered="true" toc="default">
         <name>Client Behavior when T1 and/or T2 Are 0</name>
         <t>In certain cases, T1 and/or T2 values may be set to 0. Currently,
-        there are three such cases:
+        there are two such cases:
 
         </t>
         <ol spacing="normal" type="1"><li>a client received an IA_NA option (see <xref target="RFC3315-22.4" format="default"/>) with a zero value</li>
@@ -3672,7 +3678,7 @@
         have been obsoleted and hence clients should no longer send messages
         to a server's unicast address nor receive the UseMulticast status code.
         However, a server that may have supported the Server Unicast option
-        and is upgraded to not support it, may continue to receive
+        and is upgraded to not support it, MAY continue to receive
         unicast messages if it previously sent the client the Server Unicast
         option. But this causes no harm and the client will eventually switch
         back to sending multicast messages (such as after it is rebooted).</t>
@@ -4273,6 +4279,12 @@
         <t>The client SHOULD NOT send this option. The server SHOULD NOT send this
         option. When the server receives IA_TA option, the option SHOULD be
         ignored and the message processing should continue as usual.</t>
+
+        <t>As this option was never popular among server or client
+        implementations before being deprecated, any implementations that
+        still attempt to send it are unlikely to have the option being
+        processed.</t>
+
       </section>
       <section anchor="RFC3315-22.6" numbered="true" toc="default">
         <name>IA Address Option</name>
@@ -4580,6 +4592,17 @@
         <name>Server Unicast Option</name>
         <t>The Server Unicast option is obsolete. Please refer to
          <xref target="RFC8415" format="default"/> for historical information on this option.</t>
+
+         <t>The client SHOULD NOT request this option in ORO.  The server SHOULD NOT send
+         this option, even when requested by clients.  When any entity receives server unicast
+         option, the option SHOULD be ignored and the message processing should continue as
+         usual.</t>
+
+         <t>As this option was not very popular and it typically required special
+         configuration by those server implementations that did support it,
+         clients still requesting this option in ORO are increasingly unlikely
+         to get it.</t>
+
       </section>
       <section anchor="RFC3315-22.13" numbered="true" toc="default">
         <name>Status Code Option</name>
@@ -6554,6 +6577,7 @@
           <seriesInfo name="RFC" value="8168"/>
           <seriesInfo name="DOI" value="10.17487/RFC8168"/>
         </reference>
+        <?rfc include="reference.RFC.8947.xml" ?>
         <reference anchor="RFC8981" target="https://www.rfc-editor.org/info/rfc8981" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8981.xml">
           <front>
             <title>Temporary Address Extensions for Stateless Address Autoconfiguration in IPv6</title>
@@ -6569,7 +6593,6 @@
           <seriesInfo name="RFC" value="8981"/>
           <seriesInfo name="DOI" value="10.17487/RFC8981"/>
         </reference>
-        <?rfc include="reference.RFC.8947.xml" ?>
         <?rfc include="reference.RFC.8987.xml" ?>
         <?rfc include="reference.RFC.9096.xml" ?>
         <reference anchor="TR-187" target="https://www.broadband-forum.org/technical/download/TR-187_Issue-2.pdf">
