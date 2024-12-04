@@ -1953,9 +1953,9 @@ Table of Contents
 
    Clients, relay agents, and servers MUST NOT discard messages that
    contain unknown options (or instances of vendor options with unknown
-   enterprise-number values).  These should be ignored as if they were
-   not present.  This is critical to provide for future extensions of
-   DHCP.
+   enterprise-number values).  These options should be ignored as if
+   they were not present.  This is critical to provide for future
+   extensions of DHCP.
 
    A client or server MUST discard any received DHCP messages with an
    unknown message type.
