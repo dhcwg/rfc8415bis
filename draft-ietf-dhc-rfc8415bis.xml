@@ -403,14 +403,14 @@
             association for prefix delegation (IA_PD) holds delegated
             prefixes. Throughout this document, "IA" is used to refer to
             an identity association without identifying the type
-            of a lease in the IA. At the time of writing this document (2024), there
-            are four IA types defined: IA_NA, IA_TA (obsoleted), IA_PD, and IA_LL
-            (see <xref target="RFC8947" format="default"/>). New IA types
-            may be defined in the future.</dd>
+            of a lease in the IA. This document defines three IA types:
+            IA_NA, IA_TA (obsoleted), and IA_PD. Another IA type (IA_LL) was
+            defined in <xref target="RFC8947" format="default"/> and more
+            may be defined.</dd>
           <dt>IA option(s)</dt>
-          <dd>At the time of writing this document (2024),
-            one or more IA_NA, IA_TA (obsoleted), IA_PD, and/or IA_LL options.
-            New IA types may be defined in the future.</dd>
+          <dd>In this document, one or more IA_NA, IA_TA (obsoleted), and/or IA_PD.
+            Another IA type (IA_LL) was defined in <xref target="RFC8947" format="default"/>
+            and more may be defined.</dd>
           <dt>IAID</dt>
           <dd>Identity Association Identifier: an identifier
             for an IA, chosen by the client. Each IA has an IAID, which is
