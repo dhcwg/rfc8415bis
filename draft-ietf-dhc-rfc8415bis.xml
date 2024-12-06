@@ -3649,11 +3649,12 @@
         and UseMulticast status code (see <xref target="RFC3315-22.13" format="default"/>)
         have been obsoleted and hence clients should no longer send messages
         to a server's unicast address nor receive the UseMulticast status code.
-        However, a server that may have supported the Server Unicast option
-        and is upgraded to not support it, MAY continue to receive
+        However, a server that previously supported the Server Unicast option
+        and is upgraded to not support it, may continue to receive
         unicast messages if it previously sent the client the Server Unicast
         option. But this causes no harm and the client will eventually switch
-        back to sending multicast messages (such as after it is rebooted).</t>
+        back to sending multicast messages (such as after the lease's rebinding time
+        is reached or the client is rebooted).</t>
       </section>
     </section>
     <section anchor="RFC3315-20" numbered="true" toc="default">
@@ -4254,8 +4255,7 @@
 
         <t>As this option was never popular among server or client
         implementations before being deprecated, any implementations that
-        still attempt to send it are unlikely to have the option being
-        processed.</t>
+        still attempt to send it are unlikely to have the option processed.</t>
 
       </section>
       <section anchor="RFC3315-22.6" numbered="true" toc="default">
