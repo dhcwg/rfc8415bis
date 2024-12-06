@@ -696,6 +696,35 @@
         <figure anchor="FigISPNetwork">
           <name>Prefix Delegation Network</name>
           <artwork alt="Network architecture" type="svg" src="fig1.svg" />
+          <artwork alt="Network architecture" type="ascii-art">
+<![CDATA[
+                   ______________________         \
+                  /                      \         \
+                 |    ISP core network    |         \
+                  \__________ ___________/           |
+                             |                       |
+                     +-------+-------+               |
+                     |  Aggregation  |               | ISP
+                     |    device     |               | network
+                     |  (delegating  |               |
+                     |    router)    |               |
+                     +-------+-------+               |
+                             |                      /
+                             |Network link to      /
+                             |subscriber premises /
+                             |
+                      +------+------+             \
+                      |     CPE     |              \
+                      | (requesting |               \
+                      |   router)   |                |
+                      +----+---+----+                |
+                           |   |                     | Subscriber
+    ---+-------------+-----+   +-----+------         | network
+       |             |               |               |
+  +----+-----+ +-----+----+     +----+-----+         |
+  |Subscriber| |Subscriber|     |Subscriber|        /
+  |    PC    | |    PC    |     |    PC    |       /
+  +----------+ +----------+     +----------+      /]]></artwork>
         </figure>
         <t>In this example, the server (delegating router) is configured with a set of
         prefixes to be used for assignment to customers at the time of each
