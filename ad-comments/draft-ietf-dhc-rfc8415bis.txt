@@ -560,16 +560,15 @@ Table of Contents
                              prefixes.  Throughout this document, "IA"
                              is used to refer to an identity association
                              without identifying the type of a lease in
-                             the IA.  At the time of writing this
-                             document (2024), there are four IA types
-                             defined: IA_NA, IA_TA (obsoleted), IA_PD,
-                             and IA_LL (see [RFC8947]).  New IA types
-                             may be defined in the future.
+                             the IA.  This document defines three IA
+                             types: IA_NA, IA_TA (obsoleted), and IA_PD.
+                             Another IA type (IA_LL) was defined in
+                             [RFC8947] and more may be defined.
 
-   IA option(s)              At the time of writing this document
-                             (2024), one or more IA_NA, IA_TA
-                             (obsoleted), IA_PD, and/or IA_LL options.
-                             New IA types may be defined in the future.
+   IA option(s)              In this document, one or more IA_NA, IA_TA
+                             (obsoleted), and/or IA_PD.  Another IA type
+                             (IA_LL) was defined in [RFC8947] and more
+                             may be defined.
 
    IAID                      Identity Association Identifier: an
                              identifier for an IA, chosen by the client.
