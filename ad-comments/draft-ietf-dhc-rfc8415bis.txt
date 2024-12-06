@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 8 June 2025                                       M. Richardson
+Expires: 9 June 2025                                       M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                         5 December 2024
+                                                         6 December 2024
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 June 2025.
+   This Internet-Draft will expire on 9 June 2025.
 
 Copyright Notice
 
@@ -3885,12 +3885,13 @@ Table of Contents
    The Server Unicast option (see Section 21.12) and UseMulticast status
    code (see Section 21.13) have been obsoleted and hence clients should
    no longer send messages to a server's unicast address nor receive the
-   UseMulticast status code.  However, a server that may have supported
-   the Server Unicast option and is upgraded to not support it, MAY
-   continue to receive unicast messages if it previously sent the client
-   the Server Unicast option.  But this causes no harm and the client
-   will eventually switch back to sending multicast messages (such as
-   after it is rebooted).
+   UseMulticast status code.  However, a server that previously
+   supported the Server Unicast option and is upgraded to not support
+   it, may continue to receive unicast messages if it previously sent
+   the client the Server Unicast option.  But this causes no harm and
+   the client will eventually switch back to sending multicast messages
+   (such as after the lease's rebinding time is reached or the client is
+   rebooted).
 
 19.  Relay Agent Behavior
 
@@ -4502,8 +4503,7 @@ Table of Contents
 
    As this option was never popular among server or client
    implementations before being deprecated, any implementations that
-   still attempt to send it are unlikely to have the option being
-   processed.
+   still attempt to send it are unlikely to have the option processed.
 
 21.6.  IA Address Option
 

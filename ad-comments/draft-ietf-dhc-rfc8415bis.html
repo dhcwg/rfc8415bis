@@ -1060,7 +1060,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mrugalski, et al.</td>
-<td class="center">Expires 8 June 2025</td>
+<td class="center">Expires 9 June 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1076,12 +1076,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc8415" class="eref">8415</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-12-05" class="published">5 December 2024</time>
+<time datetime="2024-12-06" class="published">6 December 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-06-08">8 June 2025</time></dd>
+<dd class="expires"><time datetime="2025-06-09">9 June 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1141,7 +1141,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 8 June 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 9 June 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -5978,11 +5978,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
         and UseMulticast status code (see <a href="#RFC3315-22.13" class="auto internal xref">Section 21.13</a>)
         have been obsoleted and hence clients should no longer send messages
         to a server's unicast address nor receive the UseMulticast status code.
-        However, a server that may have supported the Server Unicast option
-        and is upgraded to not support it, MAY continue to receive
+        However, a server that previously supported the Server Unicast option
+        and is upgraded to not support it, may continue to receive
         unicast messages if it previously sent the client the Server Unicast
         option. But this causes no harm and the client will eventually switch
-        back to sending multicast messages (such as after it is rebooted).<a href="#section-18.4-1" class="pilcrow">¶</a></p>
+        back to sending multicast messages (such as after the lease's rebinding time
+        is reached or the client is rebooted).<a href="#section-18.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -6729,8 +6730,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         ignored and the message processing should continue as usual.<a href="#section-21.5-2" class="pilcrow">¶</a></p>
 <p id="section-21.5-3">As this option was never popular among server or client
         implementations before being deprecated, any implementations that
-        still attempt to send it are unlikely to have the option being
-        processed.<a href="#section-21.5-3" class="pilcrow">¶</a></p>
+        still attempt to send it are unlikely to have the option processed.<a href="#section-21.5-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="RFC3315-22.6">
