@@ -550,7 +550,11 @@ figcaption, caption {
   }
   pre, svg {
     display: inline-block;
-    overflow-x: auto;
+    /* In the horizontal direction, sometimes people make over-sized figures.
+       Scrollbars for those is therefore necessary: auto adds them as necessary..
+       In the vertical direction, the line-height can combine with the font
+       asender/descender height to produce scrollbars: hidden avoids that. */
+    overflow: auto hidden;
   }
   pre {
     max-width: 100%;
@@ -1060,7 +1064,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mrugalski, et al.</td>
-<td class="center">Expires 9 June 2025</td>
+<td class="center">Expires 14 June 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1076,12 +1080,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc8415" class="eref">8415</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-12-06" class="published">6 December 2024</time>
+<time datetime="2024-12-11" class="published">11 December 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-06-09">9 June 2025</time></dd>
+<dd class="expires"><time datetime="2025-06-14">14 June 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1141,7 +1145,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 9 June 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 14 June 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2430,77 +2434,37 @@ svg :is([fill="white"], [fill^="#fff"]) {
         architecture in which prefix delegation could be used.<a href="#section-6.3-6" class="pilcrow">¶</a></p>
 <span id="name-prefix-delegation-network"></span><div id="FigISPNetwork">
 <figure id="figure-1">
-          <div class="alignLeft art-svg artwork" id="section-6.3-7.1">
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="480" stroke-linecap="round" font-size="13px" font-family="monospace" text-anchor="middle" class="diagram" version="1.1" viewBox="0 0 512.0 480.0">
-              <desc>Network architecture</desc>
-              <g>
-                <title>Layer 1</title>
-                <path id="svg_1" stroke="black" fill="none" d="m8,400l0,48"></path>
-                <path id="svg_2" stroke="black" fill="none" d="m48,368l0,32"></path>
-                <path id="svg_3" stroke="black" fill="none" d="m96,400l0,48"></path>
-                <path id="svg_4" stroke="black" fill="none" d="m112,400l0,48"></path>
-                <path id="svg_5" stroke="black" fill="none" d="m160,112l0,80"></path>
-                <path id="svg_6" stroke="black" fill="none" d="m160,368l0,32"></path>
-                <path id="svg_7" stroke="black" fill="none" d="m168,272l0,64"></path>
-                <path id="svg_8" stroke="black" fill="none" d="m200,400l0,48"></path>
-                <path id="svg_9" stroke="black" fill="none" d="m208,336l0,32"></path>
-                <path id="svg_10" stroke="black" fill="none" d="m224,88l0,24"></path>
-                <path id="svg_11" stroke="black" fill="none" d="m224,192l0,80"></path>
-                <path id="svg_12" stroke="black" fill="none" d="m240,336l0,32"></path>
-                <path id="svg_13" stroke="black" fill="none" d="m248,400l0,48"></path>
-                <path id="svg_14" stroke="black" fill="none" d="m280,272l0,64"></path>
-                <path id="svg_15" stroke="black" fill="none" d="m288,112l0,80"></path>
-                <path id="svg_16" stroke="black" fill="none" d="m288,368l0,32"></path>
-                <path id="svg_17" stroke="black" fill="none" d="m336,400l0,48"></path>
-                <path id="svg_18" stroke="black" fill="none" d="m416,80l0,112"></path>
-                <path id="svg_19" stroke="black" fill="none" d="m416,320l0,80"></path>
-                <path id="svg_20" stroke="black" fill="none" d="m160,112l128,0"></path>
-                <path id="svg_21" stroke="black" fill="none" d="m160,192l128,0"></path>
-                <path id="svg_22" stroke="black" fill="none" d="m168,272l112,0"></path>
-                <path id="svg_23" stroke="black" fill="none" d="m168,336l112,0"></path>
-                <path id="svg_24" stroke="black" fill="none" d="m24,368l184,0"></path>
-                <path id="svg_25" stroke="black" fill="none" d="m240,368l96,0"></path>
-                <path id="svg_26" stroke="black" fill="none" d="m8,400l88,0"></path>
-                <path id="svg_27" stroke="black" fill="none" d="m112,400l88,0"></path>
-                <path id="svg_28" stroke="black" fill="none" d="m248,400l88,0"></path>
-                <path id="svg_29" stroke="black" fill="none" d="m8,448l88,0"></path>
-                <path id="svg_30" stroke="black" fill="none" d="m112,448l88,0"></path>
-                <path id="svg_31" stroke="black" fill="none" d="m248,448l88,0"></path>
-                <path id="svg_32" stroke="black" fill="none" d="m392,272l24,48"></path>
-                <path id="svg_34" stroke="black" fill="none" d="m392,32l24,48"></path>
-                <path id="svg_36" stroke="black" fill="none" d="m392,240l24,-48"></path>
-                <path id="svg_37" stroke="black" fill="none" d="m392,448l24,-48"></path>
-                <g id="svg_41" class="text">
-                  <text id="svg_42" y="68" x="227.81448">ISP core network</text>
-                  <text id="svg_45" y="132" x="223.81448">Aggregation</text>
-                  <text id="svg_46" y="132" x="439.81448">ISP</text>
-                  <text id="svg_47" y="148" x="219.81448">device</text>
-                  <text id="svg_48" y="148" x="455.81448">network</text>
-                  <text id="svg_49" y="164" x="223.81448">(delegating</text>
-                  <text id="svg_50" y="180" x="223.81448">router)</text>
-                  <text id="svg_51" y="228" x="287.81448">Network link to</text>
-                  <text id="svg_52" y="244" x="303.81448">subscriber premises</text>
-                  <text id="svg_53" y="292" x="223.81448">CPE</text>
-                  <text id="svg_54" y="308" x="223.81448">(requesting</text>
-                  <text id="svg_55" y="324" x="223.81448">router)</text>
-                  <text id="svg_56" y="356" x="467.81448">Subscriber</text>
-                  <text id="svg_57" y="372" x="455.81448">network</text>
-                  <text id="svg_58" y="420" x="51.81448">Subscriber</text>
-                  <text id="svg_59" y="420" x="155.81448">Subscriber</text>
-                  <text id="svg_60" y="420" x="291.81448">Subscriber</text>
-                  <text id="svg_61" y="436" x="51.81448">PC</text>
-                  <text id="svg_62" y="436" x="155.81448">PC</text>
-                  <text id="svg_63" y="436" x="291.81448">PC</text>
-                </g>
-                <line fill="none" id="svg_70" y2="87.55453" x2="139.55439" y1="63.5546" x1="127.55442"></line>
-                <line id="svg_71" y2="93.33229" x2="110.66558" y1="19.99918" x1="35.99913" fill="none"></line>
-                <line id="svg_72" y2="107.99892" x2="152.44324" y1="110.22113" x1="170.22096" fill="none"></line>
-                <line id="svg_77" y2="154.66545" x2="146.66548" y1="163.10987" x1="156.44322" fill="none"></line>
-                <line id="svg_78" y2="88.88786" x2="76.44346" y1="95.99895" x1="79.99901" fill="none"></line>
-                <rect rx="39" id="svg_82" height="48.88875" width="187.99945" y="38.22135" x="133.33218" stroke="black" fill="none"></rect>
-              </g>
-            </svg>
-          </div>
+          <div class="alignLeft art-ascii-art art-text artwork" id="section-6.3-7.1">
+<pre>
+
+                   ______________________         \
+                  /                      \         \
+                 |    ISP core network    |         \
+                  \__________ ___________/           |
+                             |                       |
+                     +-------+-------+               |
+                     |  Aggregation  |               | ISP
+                     |    device     |               | network
+                     |  (delegating  |               |
+                     |    router)    |               |
+                     +-------+-------+               |
+                             |                      /
+                             |Network link to      /
+                             |subscriber premises /
+                             |
+                      +------+------+             \
+                      |     CPE     |              \
+                      | (requesting |               \
+                      |   router)   |                |
+                      +----+---+----+                |
+                           |   |                     | Subscriber
+    ---+-------------+-----+   +-----+------         | network
+       |             |               |               |
+  +----+-----+ +-----+----+     +----+-----+         |
+  |Subscriber| |Subscriber|     |Subscriber|        /
+  |    PC    | |    PC    |     |    PC    |       /
+  +----------+ +----------+     +----------+      /</pre>
+</div>
 <figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
 <a href="#name-prefix-delegation-network" class="selfRef">Prefix Delegation Network</a>
           </figcaption></figure>
