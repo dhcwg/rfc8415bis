@@ -695,7 +695,6 @@
         architecture in which prefix delegation could be used.</t>
         <figure anchor="FigISPNetwork">
           <name>Prefix Delegation Network</name>
-          <artwork alt="Network architecture" type="svg" src="fig1.svg" />
           <artwork alt="Network architecture" type="ascii-art">
 <![CDATA[
                    ______________________         \
