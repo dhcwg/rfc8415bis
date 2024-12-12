@@ -5143,32 +5143,30 @@ Table of Contents
 
    The vendor-option-data field MUST be encoded as a sequence of
    code/length/value fields of format identical to the DHCP options (see
-   Section 21.1).  The sub-option codes are defined by the vendor
+   Section 21.1).  The suboption codes are defined by the vendor
    identified in the enterprise-number field and are not managed by
-   IANA.  Each of the sub-options is formatted as follows:
+   IANA.  Each of the suboptions is formatted as follows:
 
        0                   1                   2                   3
        0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-      |          sub-opt-code         |         sub-option-len        |
+      |          sub-opt-code         |         suboption-len         |
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
       .                                                               .
-      .                        sub-option-data                        .
+      .                        suboption-data                        .
       .                                                               .
       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
                  Figure 29: Vendor-specific Options Format
 
-   sub-opt-code            The code for the sub-option.  A 2-octet
-                           field.
+   sub-opt-code            The code for the suboption.  A 2-octet field.
 
-   sub-option-len          An unsigned integer giving the length of the
-                           sub-option-data field in this sub-option in
+   suboption-len           An unsigned integer giving the length of the
+                           suboption-data field in this suboption in
                            octets.  A 2-octet field.
 
-   sub-option-data         The data area for the sub-option.  The
-                           length, in octets, is specified by
-                           sub-option-len.
+   suboption-data          The data area for the suboption.  The length,
+                           in octets, is specified by sub-option-len.
 
    Multiple instances of the Vendor-specific Information option may
    appear in a DHCP message.  Each instance of the option is interpreted
@@ -5176,7 +5174,7 @@ Table of Contents
    Enterprise Number in that option.  Servers and clients MUST NOT send
    more than one instance of the Vendor-specific Information option with
    the same Enterprise Number.  Each instance of the Vendor-specific
-   Information option MAY contain multiple sub-options.
+   Information option MAY contain multiple suboptions.
 
    A client that is interested in receiving a Vendor-specific
    Information option:

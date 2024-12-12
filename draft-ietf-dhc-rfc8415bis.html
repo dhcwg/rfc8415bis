@@ -7542,9 +7542,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
         configure the node's IPv6 stack to be functional.<a href="#section-21.17-5" class="pilcrow">¶</a></p>
 <p id="section-21.17-6">The vendor-option-data field MUST be encoded as a sequence of
         code/length/value fields of format identical to the DHCP options
-        (see <a href="#RFC3315-22.1" class="auto internal xref">Section 21.1</a>). The sub-option codes are defined
+        (see <a href="#RFC3315-22.1" class="auto internal xref">Section 21.1</a>). The suboption codes are defined
         by the vendor identified in the enterprise-number field and are not
-        managed by IANA. Each of the sub-options is formatted as follows:<a href="#section-21.17-6" class="pilcrow">¶</a></p>
+        managed by IANA. Each of the suboptions is formatted as follows:<a href="#section-21.17-6" class="pilcrow">¶</a></p>
 <span id="name-vendor-specific-options-for"></span><div id="FigOption17Data">
 <figure id="figure-29">
           <div class="alignLeft art-text artwork" id="section-21.17-7.1">
@@ -7552,10 +7552,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |          sub-opt-code         |         sub-option-len        |
+   |          sub-opt-code         |         suboption-len         |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    .                                                               .
-   .                        sub-option-data                        .
+   .                        suboption-data                        .
    .                                                               .
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 </pre>
@@ -7566,18 +7566,18 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </div>
 <span class="break"></span><dl class="dlParallel" id="section-21.17-8">
           <dt id="section-21.17-8.1">   sub-opt-code</dt>
-          <dd style="margin-left: 12.0em" id="section-21.17-8.2">The code for the sub-option. A
+          <dd style="margin-left: 12.0em" id="section-21.17-8.2">The code for the suboption. A
             2-octet field.<a href="#section-21.17-8.2" class="pilcrow">¶</a>
 </dd>
           <dd class="break"></dd>
-<dt id="section-21.17-8.3">   sub-option-len</dt>
+<dt id="section-21.17-8.3">   suboption-len</dt>
           <dd style="margin-left: 12.0em" id="section-21.17-8.4">An unsigned integer giving the length
-            of the sub-option-data field in this sub-option in octets. A
+            of the suboption-data field in this suboption in octets. A
             2-octet field.<a href="#section-21.17-8.4" class="pilcrow">¶</a>
 </dd>
           <dd class="break"></dd>
-<dt id="section-21.17-8.5">   sub-option-data</dt>
-          <dd style="margin-left: 12.0em" id="section-21.17-8.6">The data area for the sub-option.
+<dt id="section-21.17-8.5">   suboption-data</dt>
+          <dd style="margin-left: 12.0em" id="section-21.17-8.6">The data area for the suboption.
             The length, in octets, is specified by sub‑option‑len.<a href="#section-21.17-8.6" class="pilcrow">¶</a>
 </dd>
         <dd class="break"></dd>
@@ -7588,7 +7588,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         Enterprise Number in that option. Servers and clients MUST NOT send
         more than one instance of the Vendor-specific Information option with
         the same Enterprise Number. Each instance of the Vendor-specific
-        Information option MAY contain multiple sub-options.<a href="#section-21.17-9" class="pilcrow">¶</a></p>
+        Information option MAY contain multiple suboptions.<a href="#section-21.17-9" class="pilcrow">¶</a></p>
 <p id="section-21.17-10">A client that is interested in receiving a Vendor-specific
         Information option:<a href="#section-21.17-10" class="pilcrow">¶</a></p>
 <ul class="normal">
