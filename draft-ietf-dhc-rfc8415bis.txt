@@ -16,7 +16,7 @@ Expires: 15 June 2025                                      M. Richardson
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
-                    draft-ietf-dhc-rfc8415bis-latest
+                      draft-ietf-dhc-rfc8415bis-07
 
 Abstract
 
@@ -3211,7 +3211,7 @@ Table of Contents
    *  The client changes access points (e.g., if using Wi-Fi
       technology).
 
-   *  The client’s network interface indicates a disconnection event,
+   *  The client's network interface indicates a disconnection event,
       followed by a connection event.
 
    Specific algorithms for detecting network attachment changes are out
