@@ -3008,7 +3008,7 @@
             <li>The client returns from sleep mode.</li>
             <li>The client changes access points (e.g., if
               using Wi-Fi technology).</li>
-            <li>The client’s network interface indicates a disconnection event,
+            <li>The client's network interface indicates a disconnection event,
             followed by a connection event.</li>
           </ul>
           <t>Specific algorithms for detecting network attachment changes are out of scope
