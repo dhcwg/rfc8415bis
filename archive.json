@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-12T01:53:28.224681+00:00",
+  "timestamp": "2024-12-15T02:00:30.812268+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1236,24 +1236,26 @@
       "id": "PR_kwDOFL5NeM6EGrmo",
       "title": "Addressing AD comments",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/13",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "tomaszmrugalski",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This PR attempts to address [responsible AD comments](https://mailarchive.ietf.org/arch/msg/dhcwg/DAuBEg10-I3XawzJOvzt2uhxe0o/). Here's the list of edits made:\r\n\r\n - replaces => obsoletes\r\n - year added to time of writing\r\n - rephrased weird \"normal DHCPv6\" expression\r\n - IA_LL referenced in terminology\r\n - corrected: addressed => addresses\r\n - corrected: three cases => two cases\r\n - one normative MAY added in 18.4\r\n - clarified what happens if IA_TA or SERVER_UNICAST is still used\r\n - clarified ignoring unknown options\r\n\r\nRemaining items:\r\n- convert ascii drawings to SVG\r\n",
       "createdAt": "2024-12-04T22:45:20Z",
-      "updatedAt": "2024-12-11T18:44:31Z",
+      "updatedAt": "2024-12-12T11:37:18Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "7403a7017e64141fbbe027a0021648977f5d4b56",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "ad-comments",
       "headRefOid": "33be8de77d5ddd7310a06f0cb6a581b79dd75a19",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-12-12T11:37:18Z",
+      "mergedAt": "2024-12-12T11:37:18Z",
+      "mergedBy": "tomaszmrugalski",
+      "mergeCommit": {
+        "oid": "9989c123f0089e50485f156a70173d933563405d"
+      },
       "comments": [
         {
           "author": "tomaszmrugalski",
@@ -1261,6 +1263,13 @@
           "body": "We had a brief discussion among interested parties and @bevolz, @twintersunh, Suresh, @mcr, and me prefer to stick with ASCII art, so I've reverted.",
           "createdAt": "2024-12-11T18:44:30Z",
           "updatedAt": "2024-12-11T18:44:30Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Bernie confirmed, Eric asking to publish -07. Merging and publishing.",
+          "createdAt": "2024-12-12T11:37:15Z",
+          "updatedAt": "2024-12-12T11:37:15Z"
         }
       ],
       "reviews": []
