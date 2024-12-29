@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-26T01:43:12.145503+00:00",
+  "timestamp": "2024-12-29T01:52:21.262128+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1272,6 +1272,32 @@
           "updatedAt": "2024-12-12T11:37:15Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDOFL5NeM6GXL-b",
+      "title": "suggested: edits from Dale Worley",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/14",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Edits from GENART review\r\n",
+      "createdAt": "2024-12-28T18:05:42Z",
+      "updatedAt": "2024-12-28T18:05:42Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "18d3e8fec775bf569bccb06b1a9a5d7cafaf2f42",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "worley-review-edits",
+      "headRefOid": "20ed651050959f6ffa90974d1838538729890f1f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
