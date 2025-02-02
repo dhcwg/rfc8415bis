@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 1 July 2025                                       M. Richardson
+Expires: 5 August 2024                                     M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                        28 December 2024
+                                                         2 February 2024
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 July 2025.
+   This Internet-Draft will expire on 5 August 2024.
 
 Copyright Notice
 
@@ -3249,7 +3249,7 @@ Table of Contents
    are added, and/or one or more existing on-link prefixes are
    deprecated.  The reason for this is that such a significant change
    may indicate a configuration change at the server.  However, a client
-   MUST rate-limit such exchange attempts to avoid flooding a server
+   MUST rate-limit such initiation attempts to avoid flooding a server
    with requests when there are link issues (for example, only doing one
    of these at most every 30 seconds).
 
@@ -3905,13 +3905,13 @@ Table of Contents
 
 18.4.  Reception of Unicast Messages
 
-   The server is not supposed to accept unicast traffic from a client.
-   The Server Unicast option (see Section 21.12) and UseMulticast status
+   The server SHOULD NOT accept unicast traffic from a client.  The
+   Server Unicast option (see Section 21.12) and UseMulticast status
    code (see Section 21.13) have been obsoleted and hence clients should
    no longer send messages to a server's unicast address nor receive the
    UseMulticast status code.  However, a server that previously
    supported the Server Unicast option and is upgraded to not support
-   it, may continue to receive unicast messages if it previously sent
+   it, MAY continue to receive unicast messages if it previously sent
    the client the Server Unicast option.  But this causes no harm and
    the client will eventually switch back to sending multicast messages
    (such as after the lease's rebinding time is reached or the client is
@@ -4404,8 +4404,12 @@ Table of Contents
    is used to carry an IA_NA, the parameters associated with the IA_NA,
    and the non-temporary addresses associated with the IA_NA.
 
-   Addresses appearing in an IA_NA option are not temporary addresses
-   (see Section 21.5).
+   A client that needs a short-term / special purpose address can use a
+   new IA_NA binding to request an address and release it when finished
+   with it.
+
+   Note: Addresses appearing in an IA_NA option are not temporary
+   addresses (see Section 21.5).
 
    The format of the IA_NA option is:
 
@@ -6333,7 +6337,7 @@ Table of Contents
               Issues", RFC 8168, DOI 10.17487/RFC8168, May 2017,
               <https://www.rfc-editor.org/info/rfc8168>.
 
-   [RFC8947]  Volz, B., Mrugalski, T., and C. Bernardos, "Link-Layer
+   [RFC8947]  Volz, B., Mrugalski, T., and CJ. Bernardos, "Link-Layer
               Address Assignment Mechanism for DHCPv6", RFC 8947,
               DOI 10.17487/RFC8947, December 2020,
               <https://www.rfc-editor.org/info/rfc8947>.
@@ -6388,7 +6392,10 @@ Appendix A.  Summary of Changes
 
    2.  The following errata for RFC 8415 were incorporated: Erratum IDs
        6159 and 6183.  Note that Erratum ID 6269 was no longer
-       applicable after the Server Unicast Option was obsoleted.
+       applicable after the Server Unicast Option was obsoleted.  Note
+       that erratum 6159 is also no longer applicable now that temporary
+       addresses have been obsoleted.  Indeed, the section (6.5) that
+       erratum 6159 corrects has been deleted.
 
    3.  A reference to RFC 7943 was added to Section 13.1 as it documents
        a method that might be used to generate addresses and was

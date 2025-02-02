@@ -34,7 +34,7 @@
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.4
+    Jinja2 3.1.5
     lxml 5.3.0
     platformdirs 4.3.6
     pycountry 24.6.1
@@ -1060,11 +1060,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">DHCP for IPv6</td>
-<td class="right">December 2024</td>
+<td class="right">February 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mrugalski, et al.</td>
-<td class="center">Expires 1 July 2025</td>
+<td class="center">Expires 5 August 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1080,12 +1080,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc8415" class="eref">8415</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-12-28" class="published">28 December 2024</time>
+<time datetime="2024-02-02" class="published">2 February 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-07-01">1 July 2025</time></dd>
+<dd class="expires"><time datetime="2024-08-05">5 August 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1145,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 1 July 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 5 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -5250,7 +5250,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
             are deprecated.
             The reason for this is that such a significant change may indicate
             a configuration change at the server.
-            However, a client MUST rate‑limit such exchange attempts to avoid
+            However, a client MUST rate‑limit such initiation attempts to avoid
             flooding a server with requests when there are link issues (for
             example, only doing one of these at most every 30 seconds).<a href="#section-18.2.12-7" class="pilcrow">¶</a></p>
 <p id="section-18.2.12-8">
@@ -5937,13 +5937,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-reception-of-unicast-messag">
 <a href="#section-18.4" class="section-number selfRef">18.4. </a><a href="#name-reception-of-unicast-messag" class="section-name selfRef">Reception of Unicast Messages</a>
         </h3>
-<p id="section-18.4-1">The server is not supposed to accept unicast traffic from a
+<p id="section-18.4-1">The server SHOULD NOT accept unicast traffic from a
         client. The Server Unicast option (see <a href="#RFC3315-22.12" class="auto internal xref">Section 21.12</a>)
         and UseMulticast status code (see <a href="#RFC3315-22.13" class="auto internal xref">Section 21.13</a>)
         have been obsoleted and hence clients should no longer send messages
         to a server's unicast address nor receive the UseMulticast status code.
         However, a server that previously supported the Server Unicast option
-        and is upgraded to not support it, may continue to receive
+        and is upgraded to not support it, MAY continue to receive
         unicast messages if it previously sent the client the Server Unicast
         option. But this causes no harm and the client will eventually switch
         back to sending multicast messages (such as after the lease's rebinding time
@@ -6565,12 +6565,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-21.4-1">The Identity Association for Non-temporary Addresses (IA_NA)
         option is used to carry an IA_NA, the parameters associated with the
         IA_NA, and the non-temporary addresses associated with the IA_NA.<a href="#section-21.4-1" class="pilcrow">¶</a></p>
-<p id="section-21.4-2">Addresses appearing in an IA_NA option are not temporary addresses
-        (see <a href="#RFC3315-22.5" class="auto internal xref">Section 21.5</a>).<a href="#section-21.4-2" class="pilcrow">¶</a></p>
-<p id="section-21.4-3">The format of the IA_NA option is:<a href="#section-21.4-3" class="pilcrow">¶</a></p>
+<p id="section-21.4-2">A client that needs a short-term / special purpose address can use
+        a new IA_NA binding to request an address and release it when
+        finished with it.<a href="#section-21.4-2" class="pilcrow">¶</a></p>
+<p id="section-21.4-3">Note: Addresses appearing in an IA_NA option are not temporary addresses
+        (see <a href="#RFC3315-22.5" class="auto internal xref">Section 21.5</a>).<a href="#section-21.4-3" class="pilcrow">¶</a></p>
+<p id="section-21.4-4">The format of the IA_NA option is:<a href="#section-21.4-4" class="pilcrow">¶</a></p>
 <span id="name-identity-association-for-non"></span><div id="FigOption3">
 <figure id="figure-15">
-          <div class="alignLeft art-text artwork" id="section-21.4-4.1">
+          <div class="alignLeft art-text artwork" id="section-21.4-5.1">
 <pre>
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -6593,78 +6596,78 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-identity-association-for-non" class="selfRef">Identity Association for Non-temporary Addresses Option Format</a>
           </figcaption></figure>
 </div>
-<span class="break"></span><dl class="dlParallel" id="section-21.4-5">
-          <dt id="section-21.4-5.1">   option-code</dt>
-          <dd style="margin-left: 12.0em" id="section-21.4-5.2">OPTION_IA_NA (3).<a href="#section-21.4-5.2" class="pilcrow">¶</a>
+<span class="break"></span><dl class="dlParallel" id="section-21.4-6">
+          <dt id="section-21.4-6.1">   option-code</dt>
+          <dd style="margin-left: 12.0em" id="section-21.4-6.2">OPTION_IA_NA (3).<a href="#section-21.4-6.2" class="pilcrow">¶</a>
 </dd>
           <dd class="break"></dd>
-<dt id="section-21.4-5.3">   option-len</dt>
-          <dd style="margin-left: 12.0em" id="section-21.4-5.4">12 + length of IA_NA-options
-            field.<a href="#section-21.4-5.4" class="pilcrow">¶</a>
+<dt id="section-21.4-6.3">   option-len</dt>
+          <dd style="margin-left: 12.0em" id="section-21.4-6.4">12 + length of IA_NA-options
+            field.<a href="#section-21.4-6.4" class="pilcrow">¶</a>
 </dd>
           <dd class="break"></dd>
-<dt id="section-21.4-5.5">   IAID</dt>
-          <dd style="margin-left: 12.0em" id="section-21.4-5.6">The unique identifier for this IA_NA; the
+<dt id="section-21.4-6.5">   IAID</dt>
+          <dd style="margin-left: 12.0em" id="section-21.4-6.6">The unique identifier for this IA_NA; the
             IAID must be unique among the identifiers for all of this client's
             IA_NAs. The number space for IA_NA IAIDs is separate from the
             number space for other IA option types (i.e., IA_PD).
-            A 4‑octet field containing an unsigned integer.<a href="#section-21.4-5.6" class="pilcrow">¶</a>
+            A 4‑octet field containing an unsigned integer.<a href="#section-21.4-6.6" class="pilcrow">¶</a>
 </dd>
           <dd class="break"></dd>
-<dt id="section-21.4-5.7">   T1</dt>
-          <dd style="margin-left: 12.0em" id="section-21.4-5.8">The time interval after which the client should contact the
+<dt id="section-21.4-6.7">   T1</dt>
+          <dd style="margin-left: 12.0em" id="section-21.4-6.8">The time interval after which the client should contact the
             server from which the addresses in the IA_NA were obtained to
             extend the lifetimes of the addresses assigned to the IA_NA; T1 is
             a time duration relative to the current time expressed in units of
-            seconds. A 4‑octet field containing an unsigned integer.<a href="#section-21.4-5.8" class="pilcrow">¶</a>
+            seconds. A 4‑octet field containing an unsigned integer.<a href="#section-21.4-6.8" class="pilcrow">¶</a>
 </dd>
           <dd class="break"></dd>
-<dt id="section-21.4-5.9">   T2</dt>
-          <dd style="margin-left: 12.0em" id="section-21.4-5.10">The time interval after which the client should contact any
+<dt id="section-21.4-6.9">   T2</dt>
+          <dd style="margin-left: 12.0em" id="section-21.4-6.10">The time interval after which the client should contact any
             available server to extend the lifetimes of the addresses assigned
             to the IA_NA; T2 is a time duration relative to the current time
             expressed in units of seconds. A 4‑octet field containing
-            an unsigned integer.<a href="#section-21.4-5.10" class="pilcrow">¶</a>
+            an unsigned integer.<a href="#section-21.4-6.10" class="pilcrow">¶</a>
 </dd>
           <dd class="break"></dd>
-<dt id="section-21.4-5.11">   IA_NA-options</dt>
-          <dd style="margin-left: 12.0em" id="section-21.4-5.12">Options associated with this
+<dt id="section-21.4-6.11">   IA_NA-options</dt>
+          <dd style="margin-left: 12.0em" id="section-21.4-6.12">Options associated with this
             IA_NA. A variable-length field (12 octets less than the
-            value in the option-len field).<a href="#section-21.4-5.12" class="pilcrow">¶</a>
+            value in the option-len field).<a href="#section-21.4-6.12" class="pilcrow">¶</a>
 </dd>
         <dd class="break"></dd>
 </dl>
-<p id="section-21.4-6">The IA_NA-options field encapsulates those options that are
+<p id="section-21.4-7">The IA_NA-options field encapsulates those options that are
         specific to this IA_NA. For example, all of the IA Address options
         (see <a href="#RFC3315-22.6" class="auto internal xref">Section 21.6</a>)
         carrying the addresses associated with this IA_NA are in the
-        IA_NA-options field.<a href="#section-21.4-6" class="pilcrow">¶</a></p>
-<p id="section-21.4-7">Each IA_NA carries one "set" of non-temporary addresses;
+        IA_NA-options field.<a href="#section-21.4-7" class="pilcrow">¶</a></p>
+<p id="section-21.4-8">Each IA_NA carries one "set" of non-temporary addresses;
         it is up to the server policy to determine how many addresses are
         assigned, but typically at most one address is assigned from each
-        prefix assigned to the link to which the client is attached.<a href="#section-21.4-7" class="pilcrow">¶</a></p>
-<p id="section-21.4-8">An IA_NA option may only appear in the options area of a DHCP
+        prefix assigned to the link to which the client is attached.<a href="#section-21.4-8" class="pilcrow">¶</a></p>
+<p id="section-21.4-9">An IA_NA option may only appear in the options area of a DHCP
         message. A DHCP message may contain multiple IA_NA options (though
-        each must have a unique IAID).<a href="#section-21.4-8" class="pilcrow">¶</a></p>
-<p id="section-21.4-9">The status of any operations involving this IA_NA is indicated in a
+        each must have a unique IAID).<a href="#section-21.4-9" class="pilcrow">¶</a></p>
+<p id="section-21.4-10">The status of any operations involving this IA_NA is indicated in a
         Status Code option (see <a href="#RFC3315-22.13" class="auto internal xref">Section 21.13</a>)
-        in the IA_NA-options field.<a href="#section-21.4-9" class="pilcrow">¶</a></p>
-<p id="section-21.4-10">Note that an IA_NA has no explicit "lifetime" or "lease length" of
+        in the IA_NA-options field.<a href="#section-21.4-10" class="pilcrow">¶</a></p>
+<p id="section-21.4-11">Note that an IA_NA has no explicit "lifetime" or "lease length" of
         its own. When the valid lifetimes of all of the addresses in an IA_NA
         have expired, the IA_NA can be considered as having expired. T1 and T2
         are included to give servers explicit control over when a client
-        recontacts the server about a specific IA_NA.<a href="#section-21.4-10" class="pilcrow">¶</a></p>
-<p id="section-21.4-11">In a message sent by a client to a server, the T1 and T2 fields
+        recontacts the server about a specific IA_NA.<a href="#section-21.4-11" class="pilcrow">¶</a></p>
+<p id="section-21.4-12">In a message sent by a client to a server, the T1 and T2 fields
         SHOULD be set to 0. The server MUST ignore any values in these fields
-        in messages received from a client.<a href="#section-21.4-11" class="pilcrow">¶</a></p>
-<p id="section-21.4-12">In a message sent by a server to a client, the client MUST use the
+        in messages received from a client.<a href="#section-21.4-12" class="pilcrow">¶</a></p>
+<p id="section-21.4-13">In a message sent by a server to a client, the client MUST use the
         values in the T1 and T2 fields for the T1 and T2 times, unless
         values in those fields are 0. The values in the T1 and T2 fields
         are the number of seconds until T1 and T2 and are calculated since
-        reception of the message.<a href="#section-21.4-12" class="pilcrow">¶</a></p>
-<p id="section-21.4-13">As per <a href="#RFC3315-5.6" class="auto internal xref">Section 7.7</a>, the value 0xffffffff is
-        taken to mean "infinity" and should be used carefully.<a href="#section-21.4-13" class="pilcrow">¶</a></p>
-<p id="section-21.4-14">The server selects the T1 and T2 values to allow the client to
+        reception of the message.<a href="#section-21.4-13" class="pilcrow">¶</a></p>
+<p id="section-21.4-14">As per <a href="#RFC3315-5.6" class="auto internal xref">Section 7.7</a>, the value 0xffffffff is
+        taken to mean "infinity" and should be used carefully.<a href="#section-21.4-14" class="pilcrow">¶</a></p>
+<p id="section-21.4-15">The server selects the T1 and T2 values to allow the client to
         extend the lifetimes of any addresses in the IA_NA before the
         lifetimes expire, even if the server is unavailable for some short
         period of time. Recommended values for T1 and T2 are 0.5 and 0.8 times
@@ -6674,11 +6677,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
         are also 0xffffffff. If the time at which the addresses in an IA_NA
         are to be renewed is to be left to the discretion of the client, the
         server sets the T1 and T2 values to 0. The client MUST follow the
-        rules defined in <a href="#t1-t2-0" class="auto internal xref">Section 14.2</a>.<a href="#section-21.4-14" class="pilcrow">¶</a></p>
-<p id="section-21.4-15">If a client receives an IA_NA with T1 greater than T2 and both T1
+        rules defined in <a href="#t1-t2-0" class="auto internal xref">Section 14.2</a>.<a href="#section-21.4-15" class="pilcrow">¶</a></p>
+<p id="section-21.4-16">If a client receives an IA_NA with T1 greater than T2 and both T1
         and T2 are greater than 0, the client discards the IA_NA option and
         processes the remainder of the message as though the server had not
-        included the invalid IA_NA option.<a href="#section-21.4-15" class="pilcrow">¶</a></p>
+        included the invalid IA_NA option.<a href="#section-21.4-16" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="RFC3315-22.5">
@@ -8795,7 +8798,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="break"></dd>
 <dt id="RFC8947">[RFC8947]</dt>
         <dd>
-<span class="refAuthor">Volz, B.</span>, <span class="refAuthor">Mrugalski, T.</span>, and <span class="refAuthor">C. Bernardos</span>, <span class="refTitle">"Link-Layer Address Assignment Mechanism for DHCPv6"</span>, <span class="seriesInfo">RFC 8947</span>, <span class="seriesInfo">DOI 10.17487/RFC8947</span>, <time datetime="2020-12" class="refDate">December 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8947">https://www.rfc-editor.org/info/rfc8947</a>&gt;</span>. </dd>
+<span class="refAuthor">Volz, B.</span>, <span class="refAuthor">Mrugalski, T.</span>, and <span class="refAuthor">CJ. Bernardos</span>, <span class="refTitle">"Link-Layer Address Assignment Mechanism for DHCPv6"</span>, <span class="seriesInfo">RFC 8947</span>, <span class="seriesInfo">DOI 10.17487/RFC8947</span>, <time datetime="2020-12" class="refDate">December 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8947">https://www.rfc-editor.org/info/rfc8947</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8981">[RFC8981]</dt>
         <dd>
@@ -8859,8 +8862,12 @@ clients, relay agents, and servers as these mechanisms were "optional".<a href="
 </dl>
 </li>
         <li id="appendix-A-2.2">The following errata for RFC 8415 were incorporated:
-Erratum IDs 6159 and 6183. Note that Erratum ID 6269 was no longer
-applicable after the Server Unicast Option was obsoleted.<a href="#appendix-A-2.2" class="pilcrow">¶</a>
+Erratum IDs 6159 and 6183.
+Note that Erratum ID 6269 was no longer
+applicable after the Server Unicast Option was obsoleted.
+Note that erratum 6159 is also no longer applicable now that temporary
+addresses have been obsoleted.  Indeed, the section (6.5) that erratum
+6159 corrects has been deleted.<a href="#appendix-A-2.2" class="pilcrow">¶</a>
 </li>
         <li id="appendix-A-2.3">A reference to RFC 7943 was added to <a href="#addr-assign-ia-na" class="auto internal xref">Section 13.1</a> as
 it documents a method that might be used to generate addresses and was
