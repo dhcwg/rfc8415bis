@@ -1840,7 +1840,7 @@ Table of Contents
    client-initiated message exchanges described in Section 18.  If a
    DHCP client fails to receive an expected response from a server, the
    client must retransmit its message according to the retransmission
-   strategy described in this section.
+   strategy described below.
 
    Note that the procedure described in this section is slightly
    modified when used with the Solicit message.  The modified procedure
