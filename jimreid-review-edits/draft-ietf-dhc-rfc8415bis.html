@@ -2337,10 +2337,19 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-stateless-dhcp">
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-stateless-dhcp" class="section-name selfRef">Stateless DHCP</a>
         </h3>
-<p id="section-6.1-1">Stateless DHCP <span>[<a href="#RFC3736" class="cite xref">RFC3736</a>]</span> is used when DHCP is
+<p id="section-6.1-1">Stateless DHCP <span>[<a href="#RFC3736" class="cite xref">RFC3736</a>]</span> can be
+        used
+        to obtain host configuration
+        parameters such as a list of NTP or DNS recursive name servers.
+        DHCP leases are not involved in these transactions.
+        Stateless DHCP can be used at any time, typically when a node
+        initially boots.
+        when DHCP is
         not used for obtaining a lease but a node (DHCP client) desires one
         or more DHCP "other configuration" parameters, such as a list of DNS
-        recursive name servers or DNS domain search lists <span>[<a href="#RFC3646" class="cite xref">RFC3646</a>]</span>. Stateless DHCP may be used when a node initially
+        recursive name servers or DNS domain search lists <span>[<a href="#RFC3646" class="cite xref">RFC3646</a>]</span>.
+
+        Stateless DHCP may be used when a node initially
         boots or at any time the software on the node requires some missing or
         expired configuration information that is available via DHCP.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 <p id="section-6.1-2">This is the simplest and most basic operation for DHCP and requires
