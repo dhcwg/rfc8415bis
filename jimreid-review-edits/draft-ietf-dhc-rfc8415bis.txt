@@ -795,10 +795,8 @@ Table of Contents
    Stateless DHCP [RFC3736] can be used to obtain host configuration
    parameters such as a list of NTP or DNS recursive name servers.  DHCP
    leases are not involved in these transactions.  Stateless DHCP can be
-   used at any time, typically when a node initially boots.
-
-   Stateless DHCP may be used when a node initially boots or at any time
-   the software on the node requires some missing or expired
+   used at any time, typically when a node initially boots, or at any
+   time the software on the node requires some missing or expired
    configuration information that is available via DHCP.
 
    This is the simplest and most basic operation for DHCP and requires a
