@@ -89,7 +89,7 @@
         <email>tim@qacafe.com</email>
       </address>
     </author>
-    <date year="2024"/>
+    <date year="2025"/>
     <keyword>DHCPv6</keyword>
     <keyword>IPv6</keyword>
     <keyword>DHCP</keyword>
@@ -505,7 +505,7 @@
      addresses determined through other mechanisms for transmitting and
      receiving DHCP messages.</t>
       <t>A DHCP client sends messages using a reserved, link-scoped
-     multicast destination address so that the client need not be
+     multicast destination address (ALL_DHCP_Relay_Agenda_and_service - ff02::1:2) so that the client need not be
      configured with the address or addresses of DHCP servers.</t>
       <t>To allow a DHCP client to send a message to a DHCP server that is
      not attached to the same link, a DHCP relay agent on the client's link
@@ -606,12 +606,16 @@
       protocol extension.</t>
       <section anchor="OpModes-Stateless" numbered="true" toc="default">
         <name>Stateless DHCP</name>
-        <t>Stateless DHCP <xref target="RFC3736" format="default"/> is used when DHCP is
-        not used for obtaining a lease but a node (DHCP client) desires one
-        or more DHCP "other configuration" parameters, such as a list of DNS
-        recursive name servers or DNS domain search lists <xref target="RFC3646" format="default"/>. Stateless DHCP may be used when a node initially
-        boots or at any time the software on the node requires some missing or
-        expired configuration information that is available via DHCP.</t>
+        <t>Stateless DHCP <xref target="RFC3736" format="default"/> can be
+        used
+        to obtain host configuration
+        parameters such as a list of NTP or DNS recursive name servers.
+        DHCP leases are not involved in these transactions.
+        Stateless DHCP can be used at any time, typically when a node
+        initially boots, or at any time the software on the node requires
+        some missing or expired configuration information that is available
+        via DHCP.
+        </t>
         <t>This is the simplest and most basic operation for DHCP and requires
         a client (and a server) to support only two messages --
         Information‑request and Reply. Note that DHCP servers and
@@ -627,12 +631,12 @@
         impractical, e.g., because of network policy, additional requirements
         such as dynamic updates to the DNS, or client-specific requirements.</t>
         <t>The model of operation for non-temporary address assignment is as
-        follows. The server is provided with prefixes from which it may
+        follows. The DHCPv6 server is provided with prefixes from which it may
         allocate addresses to clients, as well as any related network topology
         information as to which prefixes are present on which links. A client
-        requests a non-temporary address to be assigned by the server. The
-        server allocates an address or addresses appropriate for the link on
-        which the client is connected. The server returns the allocated
+        requests a non-temporary address to be assigned by the DHCPv6 server. The
+        DHCPv6 server allocates an address or addresses appropriate for the link on
+        which the client is connected. The DHCPv6 server returns the allocated
         address or addresses to the client.</t>
         <t>Each address has associated preferred and valid lifetimes, which
         constitute an agreement about the length of time over which the
@@ -669,7 +673,7 @@
         server is a router (hence the use of "delegating router"), DHCP
         prefix delegation itself does not require that the client forward
         IP packets not addressed to itself and thus does not require
-        that the client (or server) be a router as defined in
+        that the client (or DHCPv6 server) be a router as defined in
         <xref target="RFC8200" format="default"/>. Also, in many cases (such as tethering
         or hosting virtual machines), hosts are already forwarding IP
         packets and thus are operating as routers as defined in
@@ -822,7 +826,8 @@
       by DHCP.</t>
       <section anchor="mutlicastAddr" numbered="true" toc="default">
         <name>Multicast Addresses</name>
-        <t>DHCP makes use of the following multicast addresses:</t>
+        <t><xref target="RFC3315" /> registered the following multicast
+addresses, and this specification is now authoritative for:</t>
         <dl newline="true" spacing="normal">
           <dt>All_DHCP_Relay_Agents_and_Servers (ff02::1:2)</dt>
           <dd>A link-scoped multicast address used by a client to
@@ -960,7 +965,7 @@
       </section>
       <section anchor="RFC3315-5.5" numbered="true" toc="default">
         <name>Transmission and Retransmission Parameters</name>
-        <t>This section presents a table of values used to describe the
+        <t>This table of values used to describe the
         message transmission behavior of clients and servers. Some of
         the values are adjusted by a randomization factor and backoffs
         (see <xref target="RFC3315-14" format="default"/>). Transmissions may also
@@ -1270,9 +1275,10 @@
       <name>Representation and Use of Domain Names</name>
       <t>So that domain names may be encoded uniformly, a domain name or a
       list of domain names is encoded using the technique described in
-      Section 3.1 of <xref target="RFC1035" format="default"/>. A domain name, or list of
-      domain names, in DHCP MUST NOT be stored in compressed form as
-      described in Section 4.1.4 of <xref target="RFC1035" format="default"/>.</t>
+      Section 3.1 of <xref target="RFC1035" format="default"/>.
+      The message compression scheme in Section 4.1.4 of <xref
+      target="RFC1035" format="default"/> MUST NOT be used.
+      </t>
     </section>
     <section anchor="RFC3315-9" numbered="true" toc="default">
       <name>DHCP Unique Identifier (DUID)</name>
@@ -1664,16 +1670,19 @@
       this option is not supplied.</t>
       <section anchor="rate-limit" numbered="true" toc="default">
         <name>Rate Limiting</name>
-        <t>In order to avoid prolonged message bursts that may be caused by
-        possible logic loops, a DHCP client MUST limit the rate of DHCP
-        messages it transmits or retransmits. One example is that a client obtains an
-        address or delegated prefix but does not like the response, so it
-        reverts back to the Solicit
-        procedure, discovers the same (sole) server, requests an address or delegated prefix, and
-        gets the same address or delegated prefix as before (as the server has this previously
-        requested lease assigned to this client). This loop can repeat infinitely if
+        <t>
+          A DHCPv6 client MUST limit the rate of DHCP messages it
+          transmits or retransmits.
+          This will minimise the impact of prolonged message bursts or loops,
+          for example when a client rejects a server's response, repeats the
+          request and gets the same server response which again gets rejected
+          by the client.
+          </t>
+
+          <t> This loop can repeat infinitely if
         there is not a quit/stop mechanism. Therefore, a client must not
-        initiate transmissions too frequently.</t>
+        initiate transmissions too frequently.
+      </t>
         <t>A recommended method for implementing the rate-limiting function is
         a token bucket (see Appendix A of <xref target="RFC3290" format="default"/>), limiting the average rate of transmission to a certain
         number in a certain time interval. This method of bounding burstiness also
@@ -1713,8 +1722,8 @@
       <t>DHCP clients are responsible for reliable delivery of messages in the
       client-initiated message exchanges described in <xref target="configuration-exchange" format="default"/>. If a DHCP client fails to
       receive an expected response from a server, the client must retransmit
-      its message according to the retransmission strategy described
-      in this section.</t>
+      its message according to the retransmission strategy described below.</t>
+
       <t>Note that the procedure described in this section is slightly
       modified when used with the Solicit message. The modified procedure is
       described in <xref target="solicit-create-transmit" format="default"/>.</t>
