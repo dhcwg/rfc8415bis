@@ -613,12 +613,8 @@
         DHCP leases are not involved in these transactions.
         Stateless DHCP can be used at any time, typically when a node
         initially boots.
-        when DHCP is
-        not used for obtaining a lease but a node (DHCP client) desires one
-        or more DHCP "other configuration" parameters, such as a list of DNS
-        recursive name servers or DNS domain search lists <xref
-        target="RFC3646" format="default"/>.
-
+        </t>
+        <t>
         Stateless DHCP may be used when a node initially
         boots or at any time the software on the node requires some missing or
         expired configuration information that is available via DHCP.</t>
