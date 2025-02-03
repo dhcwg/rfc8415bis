@@ -606,10 +606,20 @@
       protocol extension.</t>
       <section anchor="OpModes-Stateless" numbered="true" toc="default">
         <name>Stateless DHCP</name>
-        <t>Stateless DHCP <xref target="RFC3736" format="default"/> is used when DHCP is
+        <t>Stateless DHCP <xref target="RFC3736" format="default"/> can be
+        used
+        to obtain host configuration
+        parameters such as a list of NTP or DNS recursive name servers.
+        DHCP leases are not involved in these transactions.
+        Stateless DHCP can be used at any time, typically when a node
+        initially boots.
+        when DHCP is
         not used for obtaining a lease but a node (DHCP client) desires one
         or more DHCP "other configuration" parameters, such as a list of DNS
-        recursive name servers or DNS domain search lists <xref target="RFC3646" format="default"/>. Stateless DHCP may be used when a node initially
+        recursive name servers or DNS domain search lists <xref
+        target="RFC3646" format="default"/>.
+
+        Stateless DHCP may be used when a node initially
         boots or at any time the software on the node requires some missing or
         expired configuration information that is available via DHCP.</t>
         <t>This is the simplest and most basic operation for DHCP and requires
