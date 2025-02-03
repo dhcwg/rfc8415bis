@@ -2371,12 +2371,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
         impractical, e.g., because of network policy, additional requirements
         such as dynamic updates to the DNS, or client-specific requirements.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.2-2">The model of operation for non-temporary address assignment is as
-        follows. The server is provided with prefixes from which it may
+        follows. The DHCPv6 server is provided with prefixes from which it may
         allocate addresses to clients, as well as any related network topology
         information as to which prefixes are present on which links. A client
-        requests a non-temporary address to be assigned by the server. The
-        server allocates an address or addresses appropriate for the link on
-        which the client is connected. The server returns the allocated
+        requests a non-temporary address to be assigned by the DHCPv6 server. The
+        DHCPv6 server allocates an address or addresses appropriate for the link on
+        which the client is connected. The DHCPv6 server returns the allocated
         address or addresses to the client.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
 <p id="section-6.2-3">Each address has associated preferred and valid lifetimes, which
         constitute an agreement about the length of time over which the
@@ -2417,7 +2417,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         server is a router (hence the use of "delegating router"), DHCP
         prefix delegation itself does not require that the client forward
         IP packets not addressed to itself and thus does not require
-        that the client (or server) be a router as defined in
+        that the client (or DHCPv6 server) be a router as defined in
         <span>[<a href="#RFC8200" class="cite xref">RFC8200</a>]</span>. Also, in many cases (such as tethering
         or hosting virtual machines), hosts are already forwarding IP
         packets and thus are operating as routers as defined in
