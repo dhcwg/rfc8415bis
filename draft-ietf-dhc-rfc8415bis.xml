@@ -612,12 +612,10 @@
         parameters such as a list of NTP or DNS recursive name servers.
         DHCP leases are not involved in these transactions.
         Stateless DHCP can be used at any time, typically when a node
-        initially boots.
+        initially boots, or at any time the software on the node requires
+        some missing or expired configuration information that is available
+        via DHCP.
         </t>
-        <t>
-        Stateless DHCP may be used when a node initially
-        boots or at any time the software on the node requires some missing or
-        expired configuration information that is available via DHCP.</t>
         <t>This is the simplest and most basic operation for DHCP and requires
         a client (and a server) to support only two messages --
         Information‑request and Reply. Note that DHCP servers and
