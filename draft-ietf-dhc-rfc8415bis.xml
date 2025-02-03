@@ -1728,8 +1728,8 @@ addresses, and this specification is now authoritative for:</t>
       <t>DHCP clients are responsible for reliable delivery of messages in the
       client-initiated message exchanges described in <xref target="configuration-exchange" format="default"/>. If a DHCP client fails to
       receive an expected response from a server, the client must retransmit
-      its message according to the retransmission strategy described
-      in this section.</t>
+      its message according to the retransmission strategy described below.</t>
+
       <t>Note that the procedure described in this section is slightly
       modified when used with the Solicit message. The modified procedure is
       described in <xref target="solicit-create-transmit" format="default"/>.</t>
