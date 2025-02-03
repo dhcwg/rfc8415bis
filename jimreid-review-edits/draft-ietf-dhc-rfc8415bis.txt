@@ -1168,11 +1168,10 @@ Table of Contents
 
 7.6.  Transmission and Retransmission Parameters
 
-   This section presents a table of values used to describe the message
-   transmission behavior of clients and servers.  Some of the values are
-   adjusted by a randomization factor and backoffs (see Section 15).
-   Transmissions may also be influenced by rate limiting (see
-   Section 14.1).
+   This table of values used to describe the message transmission
+   behavior of clients and servers.  Some of the values are adjusted by
+   a randomization factor and backoffs (see Section 15).  Transmissions
+   may also be influenced by rate limiting (see Section 14.1).
 
        +=================+============+============================+
        | Parameter       | Default    | Description                |
