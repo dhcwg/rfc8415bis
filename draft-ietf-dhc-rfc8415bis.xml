@@ -971,7 +971,7 @@ addresses, and this specification is now authoritative for:</t>
       </section>
       <section anchor="RFC3315-5.5" numbered="true" toc="default">
         <name>Transmission and Retransmission Parameters</name>
-        <t>This section presents a table of values used to describe the
+        <t>This table of values used to describe the
         message transmission behavior of clients and servers. Some of
         the values are adjusted by a randomization factor and backoffs
         (see <xref target="RFC3315-14" format="default"/>). Transmissions may also
