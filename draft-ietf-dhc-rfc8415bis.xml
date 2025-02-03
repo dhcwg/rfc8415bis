@@ -832,7 +832,8 @@
       by DHCP.</t>
       <section anchor="mutlicastAddr" numbered="true" toc="default">
         <name>Multicast Addresses</name>
-        <t>DHCP makes use of the following multicast addresses:</t>
+        <t><xref target="RFC3315" /> registered the following multicast
+addresses, and this specification is now authoritative for:</t>
         <dl newline="true" spacing="normal">
           <dt>All_DHCP_Relay_Agents_and_Servers (ff02::1:2)</dt>
           <dd>A link-scoped multicast address used by a client to
