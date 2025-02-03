@@ -1786,16 +1786,15 @@ Table of Contents
 
 14.1.  Rate Limiting
 
-   In order to avoid prolonged message bursts that may be caused by
-   possible logic loops, a DHCP client MUST limit the rate of DHCP
-   messages it transmits or retransmits.  One example is that a client
-   obtains an address or delegated prefix but does not like the
-   response, so it reverts back to the Solicit procedure, discovers the
-   same (sole) server, requests an address or delegated prefix, and gets
-   the same address or delegated prefix as before (as the server has
-   this previously requested lease assigned to this client).  This loop
-   can repeat infinitely if there is not a quit/stop mechanism.
-   Therefore, a client must not initiate transmissions too frequently.
+   A DHCPv6 client MUST limit the rate of DHCP messages it transmits or
+   retransmits.  This will minimise the impact of prolonged message
+   bursts or loops, for example when a client rejects a server's
+   response, repeats the request and gets the same server response which
+   again gets rejected by the client.
+
+   This loop can repeat infinitely if there is not a quit/stop
+   mechanism.  Therefore, a client must not initiate transmissions too
+   frequently.
 
    A recommended method for implementing the rate-limiting function is a
    token bucket (see Appendix A of [RFC3290]), limiting the average rate

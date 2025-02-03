@@ -3618,26 +3618,26 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
         <h3 id="name-rate-limiting">
 <a href="#section-14.1" class="section-number selfRef">14.1. </a><a href="#name-rate-limiting" class="section-name selfRef">Rate Limiting</a>
         </h3>
-<p id="section-14.1-1">In order to avoid prolonged message bursts that may be caused by
-        possible logic loops, a DHCP client MUST limit the rate of DHCP
-        messages it transmits or retransmits. One example is that a client obtains an
-        address or delegated prefix but does not like the response, so it
-        reverts back to the Solicit
-        procedure, discovers the same (sole) server, requests an address or delegated prefix, and
-        gets the same address or delegated prefix as before (as the server has this previously
-        requested lease assigned to this client). This loop can repeat infinitely if
+<p id="section-14.1-1">
+          A DHCPv6 client MUST limit the rate of DHCP messages it
+          transmits or retransmits.
+          This will minimise the impact of prolonged message bursts or loops,
+          for example when a client rejects a server's response, repeats the
+          request and gets the same server response which again gets rejected
+          by the client.<a href="#section-14.1-1" class="pilcrow">¶</a></p>
+<p id="section-14.1-2"> This loop can repeat infinitely if
         there is not a quit/stop mechanism. Therefore, a client must not
-        initiate transmissions too frequently.<a href="#section-14.1-1" class="pilcrow">¶</a></p>
-<p id="section-14.1-2">A recommended method for implementing the rate-limiting function is
+        initiate transmissions too frequently.<a href="#section-14.1-2" class="pilcrow">¶</a></p>
+<p id="section-14.1-3">A recommended method for implementing the rate-limiting function is
         a token bucket (see Appendix A of <span>[<a href="#RFC3290" class="cite xref">RFC3290</a>]</span>), limiting the average rate of transmission to a certain
         number in a certain time interval. This method of bounding burstiness also
-        guarantees that the long-term transmission rate will not be exceeded.<a href="#section-14.1-2" class="pilcrow">¶</a></p>
-<p id="section-14.1-3">A transmission rate limit SHOULD be configurable. A possible
-        default could be 20 packets in 20 seconds.<a href="#section-14.1-3" class="pilcrow">¶</a></p>
-<p id="section-14.1-4">For a device that has multiple interfaces, the limit MUST be
-        enforced on a per-interface basis.<a href="#section-14.1-4" class="pilcrow">¶</a></p>
-<p id="section-14.1-5">Rate limiting of forwarded DHCP messages and server-side messages
-        is out of scope for this specification.<a href="#section-14.1-5" class="pilcrow">¶</a></p>
+        guarantees that the long-term transmission rate will not be exceeded.<a href="#section-14.1-3" class="pilcrow">¶</a></p>
+<p id="section-14.1-4">A transmission rate limit SHOULD be configurable. A possible
+        default could be 20 packets in 20 seconds.<a href="#section-14.1-4" class="pilcrow">¶</a></p>
+<p id="section-14.1-5">For a device that has multiple interfaces, the limit MUST be
+        enforced on a per-interface basis.<a href="#section-14.1-5" class="pilcrow">¶</a></p>
+<p id="section-14.1-6">Rate limiting of forwarded DHCP messages and server-side messages
+        is out of scope for this specification.<a href="#section-14.1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="t1-t2-0">
