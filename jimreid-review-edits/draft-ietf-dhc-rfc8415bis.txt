@@ -1016,7 +1016,7 @@ Table of Contents
 
 7.1.  Multicast Addresses
 
-   [RFC3315] registered following multicast addresses, and this
+   [RFC3315] registered the following multicast addresses, and this
    specification is now authoritative for:
 
    All_DHCP_Relay_Agents_and_Servers (ff02::1:2)
