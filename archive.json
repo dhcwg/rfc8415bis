@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-02T01:45:52.637685+00:00",
+  "timestamp": "2025-02-04T01:42:10.593435+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -80,6 +80,70 @@
           "updatedAt": "2023-03-10T13:28:05Z"
         }
       ]
+    },
+    {
+      "number": 16,
+      "id": "I_kwDOFL5NeM6oghup",
+      "title": "rework/dis-ambiguate section 16",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/16",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "\n````\n    jr> Section 16: I'm even more fed up with introductory text which starts\n    jr> \"This section...\"\n\n    jr> The text in Section 16 is confusing and ambiguous. It first says\n    jr> messages containing unknown options can be discarded. Then it says\n    jr> they can't. It's not clear what unknown options \"should be ignored as\n    jr> if they were not present\" means in practice. Why not just say\n    jr> clients, relay agents, and servers MUST NOT discard messages\n    jr> containing unknown options or interfere with the content of those\n    jr> unknown options?\n```",
+      "createdAt": "2025-02-03T10:26:05Z",
+      "updatedAt": "2025-02-03T10:26:05Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 17,
+      "id": "I_kwDOFL5NeM6ogizU",
+      "title": "write sections that start \"this section\"",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/17",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "````\n    jr> Section 20: Now I'm getting annoyed by introductory text which starts\n    jr> \"This section...\". Please make this go away.\n\n````\n",
+      "createdAt": "2025-02-03T10:27:52Z",
+      "updatedAt": "2025-02-03T10:28:10Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 18,
+      "id": "I_kwDOFL5NeM6ogjkZ",
+      "title": "remove/track down apparent duplication between section 7 and section 18",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/18",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "\n````\n    jr> Section 18: The para beginning \"A DHCP client\" seems to be discussing\n    jr> Stateless DHCP but uses different RFC references to those in Section\n    jr> 7. These need to be aligned. There seems to be unnecessary\n    jr> duplication here. There seems to be unnecessary duplication here. :-)\n\n\n````\n",
+      "createdAt": "2025-02-03T10:29:08Z",
+      "updatedAt": "2025-02-03T10:29:08Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 19,
+      "id": "I_kwDOFL5NeM6ogk4J",
+      "title": "should we keep RKAP, and if so, are we keeping HMAC-MD5",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/19",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "\n````\n    jr> Section 20.4.2. Is it wise to insist on HMAC-MD5? See RFC6151.\n````\n",
+      "createdAt": "2025-02-03T10:31:28Z",
+      "updatedAt": "2025-02-03T10:31:28Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -1279,24 +1343,26 @@
       "id": "PR_kwDOFL5NeM6GXL-b",
       "title": "suggested: edits from Dale Worley",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/14",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Edits from GENART review\r\n",
       "createdAt": "2024-12-28T18:05:42Z",
-      "updatedAt": "2025-01-26T14:44:20Z",
+      "updatedAt": "2025-02-02T19:42:33Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "18d3e8fec775bf569bccb06b1a9a5d7cafaf2f42",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "worley-review-edits",
       "headRefOid": "20ed651050959f6ffa90974d1838538729890f1f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-02-02T19:42:32Z",
+      "mergedAt": "2025-02-02T19:42:32Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "26d56ea9d08dfab72435d8aab378f3338e762dde"
+      },
       "comments": [
         {
           "author": "bevolz",
@@ -1307,6 +1373,121 @@
         }
       ],
       "reviews": []
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDOFL5NeM6Jz7Or",
+      "title": "Jimreid review edits",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/15",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "edits to deal with Jim Reid directorate review.\r\n",
+      "createdAt": "2025-02-03T08:48:42Z",
+      "updatedAt": "2025-02-03T13:57:50Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "26d56ea9d08dfab72435d8aab378f3338e762dde",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "jimreid-review-edits",
+      "headRefOid": "6291789b5e73dcfc30b7a9cdadfbaadf0aaa8003",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Pushed two sentences merged.\n",
+          "createdAt": "2025-02-03T13:57:49Z",
+          "updatedAt": "2025-02-03T13:57:49Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM6aWtkX",
+          "commit": {
+            "abbreviatedOid": "78f20ac"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-03T11:37:04Z",
+          "updatedAt": "2025-02-03T11:37:04Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "The new text (looks good btw) sounds like a shorter, better worded explanation.\r\n\r\nSomething is wrong here, though. The text at \"when DHCP is ...\" looks like leftover.\r\n\r\nI think the following text can be removed, as it's already covered by the new paragraph:\r\n\r\n> when DHCP is not used for obtaining a lease but a node (DHCP client) desires one or more DHCP \"other configuration\" parameters, such as a list of DNS recursive name servers or DNS domain search lists [[RFC3646](file:///home/thomson/ietf/rfc8415bis/draft-ietf-dhc-rfc8415bis.html#RFC3646)]. Stateless DHCP may be used when a node initially boots\"\r\n\r\nExcept maybe this part which is useful and can be used in the new paragraph above:\r\n\r\n> or at any time the software on the node requires some missing or expired configuration information that is available via DHCP.\r\n\r\nI'm indifferent whether references are needed here. It's an introductory type of text, so the simpler the better. But I'm also very much OK if others prefer to keep the references.",
+              "createdAt": "2025-02-03T11:37:04Z",
+              "updatedAt": "2025-02-03T11:37:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6aXb19",
+          "commit": {
+            "abbreviatedOid": "78f20ac"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-03T12:58:11Z",
+          "updatedAt": "2025-02-03T12:58:11Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "The bug is that \"when\" -> \"When\", the lines go with the next sentence.",
+              "createdAt": "2025-02-03T12:58:11Z",
+              "updatedAt": "2025-02-03T12:58:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6aXfIA",
+          "commit": {
+            "abbreviatedOid": "78f20ac"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-03T13:01:35Z",
+          "updatedAt": "2025-02-03T13:01:35Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "New commit removes that paragraph.",
+              "createdAt": "2025-02-03T13:01:35Z",
+              "updatedAt": "2025-02-03T13:01:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6aXkUZ",
+          "commit": {
+            "abbreviatedOid": "78f20ac"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-03T13:11:01Z",
+          "updatedAt": "2025-02-03T13:11:02Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "Better, but there's still opportunity to make it briefer.\r\n\r\n> Stateless DHCP can be used at any time, typically when a node initially boots. \r\n\r\n> Stateless DHCP may be used when a node initially boots or at any time the software on the node requires some missing or expired configuration information that is available via DHCP.\r\n\r\nThose two sentences overlap. How about merging them together:\r\n\r\n> Stateless DHCP can be used at any time, typically when a node initially boots, or at any time the software on the node requires some missing or expired configuration information that is available via DHCP.",
+              "createdAt": "2025-02-03T13:11:01Z",
+              "updatedAt": "2025-02-03T13:11:02Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
