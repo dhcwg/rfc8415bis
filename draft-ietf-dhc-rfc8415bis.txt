@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 5 August 2024                                     M. Richardson
+Expires: 4 September 2025                                  M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                         2 February 2024
+                                                            3 March 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,11 +48,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 August 2024.
+   This Internet-Draft will expire on 4 September 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -526,13 +526,13 @@ Table of Contents
                              and servers, so a relay agent may send DHCP
                              messages to another relay agent.
 
-   DHCP server               Also referred to as "server".  A node that
-                             responds to requests from clients.  It may
-                             or may not be on the same link as the
-                             client(s).  Depending on its capabilities,
-                             if it supports prefix delegation it may
-                             also feature the functionality of a
-                             delegating router.
+   DHCP server               This document condenses this term to
+                             "server".  A node that responds to requests
+                             from clients.  It may or may not be on the
+                             same link as the client(s).  Depending on
+                             its capabilities, if it supports prefix
+                             delegation it may also feature the
+                             functionality of a delegating router.
 
    DUID                      A DHCP Unique Identifier for a DHCP
                              participant.  Each DHCP client and server
@@ -681,8 +681,9 @@ Table of Contents
    receiving DHCP messages.
 
    A DHCP client sends messages using a reserved, link-scoped multicast
-   destination address so that the client need not be configured with
-   the address or addresses of DHCP servers.
+   destination address (ALL_DHCP_Relay_Agenda_and_service - ff02::1:2)
+   so that the client need not be configured with the address or
+   addresses of DHCP servers.
 
    To allow a DHCP client to send a message to a DHCP server that is not
    attached to the same link, a DHCP relay agent on the client's link
@@ -791,11 +792,7 @@ Table of Contents
 
 6.1.  Stateless DHCP
 
-   Stateless DHCP [RFC3736] is used when DHCP is not used for obtaining
-   a lease but a node (DHCP client) desires one or more DHCP "other
-   configuration" parameters, such as a list of DNS recursive name
-   servers or DNS domain search lists [RFC3646].  Stateless DHCP may be
-   used when a node initially boots or at any time the software on the
+   Stateless DHCP [RFC3736] can be used at any time, typically when a
    node requires some missing or expired configuration information that
    is available via DHCP.
 
@@ -1011,7 +1008,8 @@ Table of Contents
 
 7.1.  Multicast Addresses
 
-   DHCP makes use of the following multicast addresses:
+   [RFC3315] registered the following multicast addresses, and this
+   specification is now authoritative for:
 
    All_DHCP_Relay_Agents_and_Servers (ff02::1:2)
       A link-scoped multicast address used by a client to communicate
@@ -1162,11 +1160,10 @@ Table of Contents
 
 7.6.  Transmission and Retransmission Parameters
 
-   This section presents a table of values used to describe the message
-   transmission behavior of clients and servers.  Some of the values are
-   adjusted by a randomization factor and backoffs (see Section 15).
-   Transmissions may also be influenced by rate limiting (see
-   Section 14.1).
+   This table of values used to describe the message transmission
+   behavior of clients and servers.  Some of the values are adjusted by
+   a randomization factor and backoffs (see Section 15).  Transmissions
+   may also be influenced by rate limiting (see Section 14.1).
 
        +=================+============+============================+
        | Parameter       | Default    | Description                |
@@ -1395,9 +1392,8 @@ Table of Contents
 
    So that domain names may be encoded uniformly, a domain name or a
    list of domain names is encoded using the technique described in
-   Section 3.1 of [RFC1035].  A domain name, or list of domain names, in
-   DHCP MUST NOT be stored in compressed form as described in
-   Section 4.1.4 of [RFC1035].
+   Section 3.1 of [RFC1035].  The message compression scheme in
+   Section 4.1.4 of [RFC1035] MUST NOT be used.
 
 11.  DHCP Unique Identifier (DUID)
 
@@ -1782,16 +1778,15 @@ Table of Contents
 
 14.1.  Rate Limiting
 
-   In order to avoid prolonged message bursts that may be caused by
-   possible logic loops, a DHCP client MUST limit the rate of DHCP
-   messages it transmits or retransmits.  One example is that a client
-   obtains an address or delegated prefix but does not like the
-   response, so it reverts back to the Solicit procedure, discovers the
-   same (sole) server, requests an address or delegated prefix, and gets
-   the same address or delegated prefix as before (as the server has
-   this previously requested lease assigned to this client).  This loop
-   can repeat infinitely if there is not a quit/stop mechanism.
-   Therefore, a client must not initiate transmissions too frequently.
+   A DHCPv6 client MUST limit the rate of DHCP messages it transmits or
+   retransmits.  This will minimise the impact of prolonged message
+   bursts or loops, for example when a client rejects a server's
+   response, repeats the request and gets the same server response which
+   again gets rejected by the client.
+
+   This loop can repeat infinitely if there is not a quit/stop
+   mechanism.  Therefore, a client must not initiate transmissions too
+   frequently.
 
    A recommended method for implementing the rate-limiting function is a
    token bucket (see Appendix A of [RFC3290]), limiting the average rate
@@ -1837,7 +1832,7 @@ Table of Contents
    client-initiated message exchanges described in Section 18.  If a
    DHCP client fails to receive an expected response from a server, the
    client must retransmit its message according to the retransmission
-   strategy described in this section.
+   strategy described below.
 
    Note that the procedure described in this section is slightly
    modified when used with the Solicit message.  The modified procedure

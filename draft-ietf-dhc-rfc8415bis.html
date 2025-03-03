@@ -23,14 +23,14 @@
       server unicast capability (the Server Unicast option and UseMulticast
       status code). 
     " name="description">
-<meta content="xml2rfc 3.25.0" name="generator">
+<meta content="xml2rfc 3.28.0" name="generator">
 <meta content="DHCPv6" name="keyword">
 <meta content="IPv6" name="keyword">
 <meta content="DHCP" name="keyword">
 <meta content="draft-ietf-dhc-rfc8415bis-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.25.0
-    Python 3.12.8
+  xml2rfc 3.28.0
+    Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
@@ -451,7 +451,7 @@ dl {
     margin-bottom: 0;
   }
 }
-dl > dt {
+dl:not(.dlNewline) > dt {
   float: left;
   margin-right: 2ch;
   min-width: 8ch;
@@ -1060,11 +1060,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">DHCP for IPv6</td>
-<td class="right">February 2024</td>
+<td class="right">March 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mrugalski, et al.</td>
-<td class="center">Expires 5 August 2024</td>
+<td class="center">Expires 4 September 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1080,12 +1080,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc8415" class="eref">8415</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-02-02" class="published">2 February 2024</time>
+<time datetime="2025-03-03" class="published">3 March 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-08-05">5 August 2024</time></dd>
+<dd class="expires"><time datetime="2025-09-04">4 September 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1145,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 5 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 4 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1154,7 +1154,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2024 IETF Trust and the persons identified as the
+            Copyright (c) 2025 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -2045,7 +2045,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
           <dd class="break"></dd>
 <dt id="section-4.2-2.19">DHCP server</dt>
-          <dd style="margin-left: 13.0em" id="section-4.2-2.20">Also referred to as "server".
+          <dd style="margin-left: 13.0em" id="section-4.2-2.20">This document condenses this term to "server".
             A node that responds to requests from clients.  It may
             or may not be on the same link as the client(s).
             Depending on its capabilities, if it supports prefix delegation
@@ -2220,7 +2220,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
      addresses determined through other mechanisms for transmitting and
      receiving DHCP messages.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <p id="section-5-2">A DHCP client sends messages using a reserved, link-scoped
-     multicast destination address so that the client need not be
+     multicast destination address (ALL_DHCP_Relay_Agenda_and_service - ff02::1:2) so that the client need not be
      configured with the address or addresses of DHCP servers.<a href="#section-5-2" class="pilcrow">¶</a></p>
 <p id="section-5-3">To allow a DHCP client to send a message to a DHCP server that is
      not attached to the same link, a DHCP relay agent on the client's link
@@ -2337,12 +2337,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-stateless-dhcp">
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-stateless-dhcp" class="section-name selfRef">Stateless DHCP</a>
         </h3>
-<p id="section-6.1-1">Stateless DHCP <span>[<a href="#RFC3736" class="cite xref">RFC3736</a>]</span> is used when DHCP is
-        not used for obtaining a lease but a node (DHCP client) desires one
-        or more DHCP "other configuration" parameters, such as a list of DNS
-        recursive name servers or DNS domain search lists <span>[<a href="#RFC3646" class="cite xref">RFC3646</a>]</span>. Stateless DHCP may be used when a node initially
-        boots or at any time the software on the node requires some missing or
-        expired configuration information that is available via DHCP.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-1">Stateless DHCP <span>[<a href="#RFC3736" class="cite xref">RFC3736</a>]</span> can be
+        used at any time, typically when a node requires
+        some missing or expired configuration information that is available
+        via DHCP.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 <p id="section-6.1-2">This is the simplest and most basic operation for DHCP and requires
         a client (and a server) to support only two messages --
         Information‑request and Reply. Note that DHCP servers and
@@ -2580,7 +2578,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-multicast-addresses">
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-multicast-addresses" class="section-name selfRef">Multicast Addresses</a>
         </h3>
-<p id="section-7.1-1">DHCP makes use of the following multicast addresses:<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-1"><span>[<a href="#RFC3315" class="cite xref">RFC3315</a>]</span> registered the following multicast
+addresses, and this specification is now authoritative for:<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlNewline" id="section-7.1-2">
           <dt id="section-7.1-2.1">All_DHCP_Relay_Agents_and_Servers (ff02::1:2)</dt>
           <dd style="margin-left: 1.5em" id="section-7.1-2.2">A link-scoped multicast address used by a client to
@@ -2764,7 +2763,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-transmission-and-retransmis">
 <a href="#section-7.6" class="section-number selfRef">7.6. </a><a href="#name-transmission-and-retransmis" class="section-name selfRef">Transmission and Retransmission Parameters</a>
         </h3>
-<p id="section-7.6-1">This section presents a table of values used to describe the
+<p id="section-7.6-1">This table of values used to describe the
         message transmission behavior of clients and servers. Some of
         the values are adjusted by a randomization factor and backoffs
         (see <a href="#RFC3315-14" class="auto internal xref">Section 15</a>). Transmissions may also
@@ -3136,9 +3135,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
       </h2>
 <p id="section-10-1">So that domain names may be encoded uniformly, a domain name or a
       list of domain names is encoded using the technique described in
-      Section 3.1 of <span>[<a href="#RFC1035" class="cite xref">RFC1035</a>]</span>. A domain name, or list of
-      domain names, in DHCP MUST NOT be stored in compressed form as
-      described in Section 4.1.4 of <span>[<a href="#RFC1035" class="cite xref">RFC1035</a>]</span>.<a href="#section-10-1" class="pilcrow">¶</a></p>
+      Section 3.1 of <span>[<a href="#RFC1035" class="cite xref">RFC1035</a>]</span>.
+      The message compression scheme in Section 4.1.4 of <span>[<a href="#RFC1035" class="cite xref">RFC1035</a>]</span> MUST NOT be used.<a href="#section-10-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="RFC3315-9">
@@ -3609,26 +3607,26 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-rate-limiting">
 <a href="#section-14.1" class="section-number selfRef">14.1. </a><a href="#name-rate-limiting" class="section-name selfRef">Rate Limiting</a>
         </h3>
-<p id="section-14.1-1">In order to avoid prolonged message bursts that may be caused by
-        possible logic loops, a DHCP client MUST limit the rate of DHCP
-        messages it transmits or retransmits. One example is that a client obtains an
-        address or delegated prefix but does not like the response, so it
-        reverts back to the Solicit
-        procedure, discovers the same (sole) server, requests an address or delegated prefix, and
-        gets the same address or delegated prefix as before (as the server has this previously
-        requested lease assigned to this client). This loop can repeat infinitely if
+<p id="section-14.1-1">
+          A DHCPv6 client MUST limit the rate of DHCP messages it
+          transmits or retransmits.
+          This will minimise the impact of prolonged message bursts or loops,
+          for example when a client rejects a server's response, repeats the
+          request and gets the same server response which again gets rejected
+          by the client.<a href="#section-14.1-1" class="pilcrow">¶</a></p>
+<p id="section-14.1-2"> This loop can repeat infinitely if
         there is not a quit/stop mechanism. Therefore, a client must not
-        initiate transmissions too frequently.<a href="#section-14.1-1" class="pilcrow">¶</a></p>
-<p id="section-14.1-2">A recommended method for implementing the rate-limiting function is
+        initiate transmissions too frequently.<a href="#section-14.1-2" class="pilcrow">¶</a></p>
+<p id="section-14.1-3">A recommended method for implementing the rate-limiting function is
         a token bucket (see Appendix A of <span>[<a href="#RFC3290" class="cite xref">RFC3290</a>]</span>), limiting the average rate of transmission to a certain
         number in a certain time interval. This method of bounding burstiness also
-        guarantees that the long-term transmission rate will not be exceeded.<a href="#section-14.1-2" class="pilcrow">¶</a></p>
-<p id="section-14.1-3">A transmission rate limit SHOULD be configurable. A possible
-        default could be 20 packets in 20 seconds.<a href="#section-14.1-3" class="pilcrow">¶</a></p>
-<p id="section-14.1-4">For a device that has multiple interfaces, the limit MUST be
-        enforced on a per-interface basis.<a href="#section-14.1-4" class="pilcrow">¶</a></p>
-<p id="section-14.1-5">Rate limiting of forwarded DHCP messages and server-side messages
-        is out of scope for this specification.<a href="#section-14.1-5" class="pilcrow">¶</a></p>
+        guarantees that the long-term transmission rate will not be exceeded.<a href="#section-14.1-3" class="pilcrow">¶</a></p>
+<p id="section-14.1-4">A transmission rate limit SHOULD be configurable. A possible
+        default could be 20 packets in 20 seconds.<a href="#section-14.1-4" class="pilcrow">¶</a></p>
+<p id="section-14.1-5">For a device that has multiple interfaces, the limit MUST be
+        enforced on a per-interface basis.<a href="#section-14.1-5" class="pilcrow">¶</a></p>
+<p id="section-14.1-6">Rate limiting of forwarded DHCP messages and server-side messages
+        is out of scope for this specification.<a href="#section-14.1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="t1-t2-0">
@@ -3668,8 +3666,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-15-1">DHCP clients are responsible for reliable delivery of messages in the
       client-initiated message exchanges described in <a href="#configuration-exchange" class="auto internal xref">Section 18</a>. If a DHCP client fails to
       receive an expected response from a server, the client must retransmit
-      its message according to the retransmission strategy described
-      in this section.<a href="#section-15-1" class="pilcrow">¶</a></p>
+      its message according to the retransmission strategy described below.<a href="#section-15-1" class="pilcrow">¶</a></p>
 <p id="section-15-2">Note that the procedure described in this section is slightly
       modified when used with the Solicit message. The modified procedure is
       described in <a href="#solicit-create-transmit" class="auto internal xref">Section 18.2.1</a>.<a href="#section-15-2" class="pilcrow">¶</a></p>
