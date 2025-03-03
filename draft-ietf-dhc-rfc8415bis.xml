@@ -377,7 +377,7 @@
             servers, so a relay agent may send DHCP messages to another
             relay agent.</dd>
           <dt>DHCP server</dt>
-          <dd>Also referred to as "server".
+          <dd>This document condenses this term to "server".
             A node that responds to requests from clients.  It may
             or may not be on the same link as the client(s).
             Depending on its capabilities, if it supports prefix delegation
