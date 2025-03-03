@@ -23,14 +23,14 @@
       server unicast capability (the Server Unicast option and UseMulticast
       status code). 
     " name="description">
-<meta content="xml2rfc 3.26.0" name="generator">
+<meta content="xml2rfc 3.28.0" name="generator">
 <meta content="DHCPv6" name="keyword">
 <meta content="IPv6" name="keyword">
 <meta content="DHCP" name="keyword">
 <meta content="draft-ietf-dhc-rfc8415bis-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.26.0
-    Python 3.12.8
+  xml2rfc 3.28.0
+    Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
@@ -451,7 +451,7 @@ dl {
     margin-bottom: 0;
   }
 }
-dl > dt {
+dl:not(.dlNewline) > dt {
   float: left;
   margin-right: 2ch;
   min-width: 8ch;
@@ -1060,11 +1060,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">DHCP for IPv6</td>
-<td class="right">February 2025</td>
+<td class="right">March 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mrugalski, et al.</td>
-<td class="center">Expires 7 August 2025</td>
+<td class="center">Expires 4 September 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1080,12 +1080,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc8415" class="eref">8415</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-03" class="published">3 February 2025</time>
+<time datetime="2025-03-03" class="published">3 March 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-07">7 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-09-04">4 September 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1145,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 4 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2045,7 +2045,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
           <dd class="break"></dd>
 <dt id="section-4.2-2.19">DHCP server</dt>
-          <dd style="margin-left: 13.0em" id="section-4.2-2.20">Also referred to as "server".
+          <dd style="margin-left: 13.0em" id="section-4.2-2.20">This document condenses this term to "server".
             A node that responds to requests from clients.  It may
             or may not be on the same link as the client(s).
             Depending on its capabilities, if it supports prefix delegation
@@ -2365,12 +2365,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
         impractical, e.g., because of network policy, additional requirements
         such as dynamic updates to the DNS, or client-specific requirements.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.2-2">The model of operation for non-temporary address assignment is as
-        follows. The DHCPv6 server is provided with prefixes from which it may
+        follows. The server is provided with prefixes from which it may
         allocate addresses to clients, as well as any related network topology
         information as to which prefixes are present on which links. A client
-        requests a non-temporary address to be assigned by the DHCPv6 server. The
-        DHCPv6 server allocates an address or addresses appropriate for the link on
-        which the client is connected. The DHCPv6 server returns the allocated
+        requests a non-temporary address to be assigned by the server. The
+        server allocates an address or addresses appropriate for the link on
+        which the client is connected. The server returns the allocated
         address or addresses to the client.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
 <p id="section-6.2-3">Each address has associated preferred and valid lifetimes, which
         constitute an agreement about the length of time over which the
@@ -2411,7 +2411,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         server is a router (hence the use of "delegating router"), DHCP
         prefix delegation itself does not require that the client forward
         IP packets not addressed to itself and thus does not require
-        that the client (or DHCPv6 server) be a router as defined in
+        that the client (or server) be a router as defined in
         <span>[<a href="#RFC8200" class="cite xref">RFC8200</a>]</span>. Also, in many cases (such as tethering
         or hosting virtual machines), hosts are already forwarding IP
         packets and thus are operating as routers as defined in
