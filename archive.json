@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-02T01:52:19.451238+00:00",
+  "timestamp": "2025-03-04T01:48:50.262777+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1379,24 +1379,26 @@
       "id": "PR_kwDOFL5NeM6Jz7Or",
       "title": "Jimreid review edits",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/15",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "edits to deal with Jim Reid directorate review.\r\n",
       "createdAt": "2025-02-03T08:48:42Z",
-      "updatedAt": "2025-02-03T13:57:50Z",
+      "updatedAt": "2025-03-03T16:53:12Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "26d56ea9d08dfab72435d8aab378f3338e762dde",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "jimreid-review-edits",
-      "headRefOid": "6291789b5e73dcfc30b7a9cdadfbaadf0aaa8003",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "e957314c762071e00e3b5888e4fc4847e1250d4b",
+      "closedAt": "2025-03-03T16:53:08Z",
+      "mergedAt": "2025-03-03T16:53:08Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "4ec2db1a6444c79f04bd5db3816a498cdecf2b15"
+      },
       "comments": [
         {
           "author": "mcr",
@@ -1484,6 +1486,26 @@
               "body": "Better, but there's still opportunity to make it briefer.\r\n\r\n> Stateless DHCP can be used at any time, typically when a node initially boots. \r\n\r\n> Stateless DHCP may be used when a node initially boots or at any time the software on the node requires some missing or expired configuration information that is available via DHCP.\r\n\r\nThose two sentences overlap. How about merging them together:\r\n\r\n> Stateless DHCP can be used at any time, typically when a node initially boots, or at any time the software on the node requires some missing or expired configuration information that is available via DHCP.",
               "createdAt": "2025-02-03T13:11:01Z",
               "updatedAt": "2025-02-03T13:11:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6eO4BK",
+          "commit": {
+            "abbreviatedOid": "78f20ac"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-03T16:52:57Z",
+          "updatedAt": "2025-03-03T16:52:57Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "fixed in e957314",
+              "createdAt": "2025-03-03T16:52:57Z",
+              "updatedAt": "2025-03-03T16:52:57Z"
             }
           ]
         }
