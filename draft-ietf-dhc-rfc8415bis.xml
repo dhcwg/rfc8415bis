@@ -960,7 +960,7 @@ addresses, and this specification is now authoritative for:</t>
       </section>
       <section anchor="RFC3315-5.5" numbered="true" toc="default">
         <name>Transmission and Retransmission Parameters</name>
-        <t>This table of values used to describe the
+        <t>The table of values (<xref target="Trans-Parameters-Table" />) is used to describe the
         message transmission behavior of clients and servers. Some of
         the values are adjusted by a randomization factor and backoffs
         (see <xref target="RFC3315-14" format="default"/>). Transmissions may also
@@ -6662,8 +6662,8 @@ clients, relay agents, and servers as these mechanisms were "optional".
           </dl>
         </li>
         <li>The following errata for RFC 8415 were incorporated:
-Erratum IDs 6159 and 6183.
-Note that Erratum ID 6269 was no longer
+erratum IDs 6159, 6269 and 6183.
+Note that erratum ID 6269 was no longer
 applicable after the Server Unicast Option was obsoleted.
 Note that erratum 6159 is also no longer applicable now that temporary
 addresses have been obsoleted.  Indeed, the section (6.5) that erratum
