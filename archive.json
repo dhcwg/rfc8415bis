@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-11T01:49:41.302125+00:00",
+  "timestamp": "2025-03-13T01:50:20.446456+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1516,24 +1516,26 @@
       "id": "PR_kwDOFL5NeM6N0Olc",
       "title": "fix sentence, and cite table",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/20",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "AD review comments",
       "createdAt": "2025-03-07T19:17:17Z",
-      "updatedAt": "2025-03-08T01:02:13Z",
+      "updatedAt": "2025-03-11T13:11:19Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "4ec2db1a6444c79f04bd5db3816a498cdecf2b15",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "ad-review-comments-two",
       "headRefOid": "65801fc885ab0cac06a166f79ca1a56fb223807a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-03-11T13:11:16Z",
+      "mergedAt": "2025-03-11T13:11:16Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "d95693445b385d024caeab82d7374698b8dcda48"
+      },
       "comments": [
         {
           "author": "bevolz",
