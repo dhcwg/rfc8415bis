@@ -5955,6 +5955,7 @@ addresses, and this specification is now authoritative for:</t>
             <date/>
           </front>
         </reference>
+        <?rfc include="reference.RFC.5612.xml" ?>
         <reference anchor="IANA-RESERVED-IID" target="https://www.iana.org/assignments/ipv6-interface-ids">
           <front>
             <title>Reserved IPv6 Interface Identifiers</title>
