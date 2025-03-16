@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 12 September 2025                                 M. Richardson
+Expires: 17 September 2025                                 M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                           11 March 2025
+                                                           16 March 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 September 2025.
+   This Internet-Draft will expire on 17 September 2025.
 
 Copyright Notice
 
@@ -1564,7 +1564,7 @@ Table of Contents
    An example DUID of this type might look like this:
 
       +---+---+---+---+---+---+---+---+
-      | 0 | 2 | 0 | 0 | 0 |  9| 12|192|
+      | 0 | 2 | 0 | 0 |126|217| 12|192|
       +---+---+---+---+---+---+---+---+
       |132|211| 3 | 0 | 9 | 18|
       +---+---+---+---+---+---+
@@ -1572,7 +1572,8 @@ Table of Contents
                          Figure 6: DUID-EN Example
 
    This example includes the 2-octet type of 2 and the Enterprise Number
-   (9), followed by 8 octets of identifier data (0x0CC084D303000912).
+   (32473) (from [RFC5612]), followed by 8 octets of identifier data
+   (0x0CC084D303000912).
 
 11.4.  DUID Based on Link-Layer Address (DUID-LL)
 
@@ -6218,6 +6219,10 @@ Table of Contents
    [RFC5453]  Krishnan, S., "Reserved IPv6 Interface Identifiers",
               RFC 5453, DOI 10.17487/RFC5453, February 2009,
               <https://www.rfc-editor.org/info/rfc5453>.
+
+   [RFC5612]  Eronen, P. and D. Harrington, "Enterprise Number for
+              Documentation Use", RFC 5612, DOI 10.17487/RFC5612, August
+              2009, <https://www.rfc-editor.org/info/rfc5612>.
 
    [RFC5905]  Mills, D., Martin, J., Ed., Burbank, J., and W. Kasch,
               "Network Time Protocol Version 4: Protocol and Algorithms
