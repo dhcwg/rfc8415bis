@@ -1457,7 +1457,7 @@ addresses, and this specification is now authoritative for:</t>
           ]]></artwork>
         </figure>
         <t>This example includes the 2-octet type of 2 and the Enterprise
-        Number (32473), followed by 8 octets of identifier data
+        Number (32473) (from <xref target="RFC5612"/>), followed by 8 octets of identifier data
         (0x0CC084D303000912).</t>
       </section>
       <section numbered="true" toc="default">
