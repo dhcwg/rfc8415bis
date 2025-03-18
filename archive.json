@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-16T01:55:57.610536+00:00",
+  "timestamp": "2025-03-18T01:50:45.476910+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -109,9 +109,24 @@
       "labels": [],
       "body": "````\n    jr> Section 20: Now I'm getting annoyed by introductory text which starts\n    jr> \"This section...\". Please make this go away.\n\n````\n",
       "createdAt": "2025-02-03T10:27:52Z",
-      "updatedAt": "2025-02-03T10:28:10Z",
+      "updatedAt": "2025-03-16T08:07:16Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "IMHO this is a personal preference. Some find in useful. It's useless for others.\n\nThis is a large doc and typically people don't read it entirely, just pick specific sections. So the intro text is somewhat useful for this kind of reading style.",
+          "createdAt": "2025-03-16T07:11:34Z",
+          "updatedAt": "2025-03-16T07:11:34Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This work has been through 2 RFCs already (3315 and 8415) so I think making these non technical changes is useless and, as Tomek says, personal preferences. If this was a concern, I am sure the RFC editor would have changed it long ago \u2026 but if they feel it is appropriate today make those changes, they can do so later.Let\u2019s focus on making sure the document is technically accurate and avoid stylistic changes which will be different for many.- Bernie (from iPad)On Mar 16, 2025, at 8:11\u202fAM, Tomek Mrugalski ***@***.***> wrote:\ufeff\r\n  IMHO this is a personal preference. Some find in useful. It's useless for others.\r\nThis is a large doc and typically people don't read it entirely, just pick specific sections. So the intro text is somewhat useful for this kind of reading style.\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you are subscribed to this thread.Message ID: ***@***.***>\r\n\r\n\r\n\r\ntomaszmrugalski left a comment (dhcwg/rfc8415bis#17)\r\nIMHO this is a personal preference. Some find in useful. It's useless for others.\r\nThis is a large doc and typically people don't read it entirely, just pick specific sections. So the intro text is somewhat useful for this kind of reading style.\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you are subscribed to this thread.Message ID: ***@***.***>",
+          "createdAt": "2025-03-16T08:07:15Z",
+          "updatedAt": "2025-03-16T08:07:15Z"
+        }
+      ]
     },
     {
       "number": 18,
@@ -134,16 +149,24 @@
       "id": "I_kwDOFL5NeM6ogk4J",
       "title": "should we keep RKAP, and if so, are we keeping HMAC-MD5",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/19",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "\n````\n    jr> Section 20.4.2. Is it wise to insist on HMAC-MD5? See RFC6151.\n````\n",
       "createdAt": "2025-02-03T10:31:28Z",
-      "updatedAt": "2025-02-03T10:31:28Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-03-16T05:34:19Z",
+      "closedAt": "2025-03-16T05:34:17Z",
+      "comments": [
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Sorry, HMAC-MD5 is the only usable digest in RKAP. If we deprecated it, we'd have to come up with a new digest (HMAC-SHA256 probably). This would have to be implemented, go through interop, probably go back to another WGLC etc.\n\nThe whole process would be stalled for a year or more.\n\nSo WONTFIX in this I-D, but this looks like a worthy material for a new I-D, though.\n\n",
+          "createdAt": "2025-03-16T05:34:17Z",
+          "updatedAt": "2025-03-16T05:34:17Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -1552,24 +1575,26 @@
       "id": "PR_kwDOFL5NeM6Ow9dN",
       "title": "Avoid using enterprise-id 9 (assigned to Cisco)",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/21",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "tomaszmrugalski",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "There was [an old thread on DHC](https://mailarchive.ietf.org/arch/msg/dhcwg/7D6nEiSY4ya2JO4u5e9lGKu4Fsw/), as reported by t petch that we should avoid using 9 and use 32473, an example enterprise-id as mandated by RFC5612.\r\n\r\nAnd that's exactly what this PR does.",
       "createdAt": "2025-03-15T09:39:14Z",
-      "updatedAt": "2025-03-15T23:34:38Z",
+      "updatedAt": "2025-03-16T05:07:44Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "d95693445b385d024caeab82d7374698b8dcda48",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "duid-en-fix",
-      "headRefOid": "5511d6d74cfcfbec83ce690609351e69ef1e9c11",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "1b6082ca75f5683e7fcb1cf9dfafe823687c5f55",
+      "closedAt": "2025-03-16T05:07:09Z",
+      "mergedAt": "2025-03-16T05:07:09Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "a83809e0e84f8ed50575c09aaca529df5f604e1c"
+      },
       "comments": [
         {
           "author": "mcr",
@@ -1610,6 +1635,26 @@
               "body": "```suggestion\r\n        Number (32473) (from <xref target=\"RFC5612\"/>), followed by 8\u00a0octets of identifier data\r\n```",
               "createdAt": "2025-03-15T23:23:51Z",
               "updatedAt": "2025-03-15T23:33:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6gP3PL",
+          "commit": {
+            "abbreviatedOid": "5511d6d"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-16T05:07:01Z",
+          "updatedAt": "2025-03-16T05:07:02Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "LGTM",
+              "createdAt": "2025-03-16T05:07:02Z",
+              "updatedAt": "2025-03-16T05:07:02Z"
             }
           ]
         }
