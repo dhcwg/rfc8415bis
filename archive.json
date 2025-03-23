@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-20T01:50:04.723382+00:00",
+  "timestamp": "2025-03-23T01:57:12.837165+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1659,6 +1659,32 @@
           ]
         }
       ]
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOFL5NeM6PZMQu",
+      "title": "-09 editorials",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/22",
+      "state": "OPEN",
+      "author": "tomaszmrugalski",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "When reviewing changes, I've spotted one typo:\r\n\r\n - ALL_DHCP_Relay_Agenda_and_service => ALL_DHCP_Relay_Agents_and_service\r\n\r\nLet's keep this MR open for now in case more minor stuff needs fixing. Once we feel it's ready for merge (e.g. because we need to do -10 or for other reasons), we can turn draft PR into PR and merge.",
+      "createdAt": "2025-03-20T04:53:06Z",
+      "updatedAt": "2025-03-20T04:53:06Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "781abb946776a7849886bfaa0c71dee32e516da0",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "editorials",
+      "headRefOid": "15aa98ca56a29991e5300aa9b9096eb260366ab9",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
