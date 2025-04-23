@@ -121,14 +121,14 @@
       options. DHCPv6 can be extended through the definition of new options
       to carry configuration information not specified in this document.</t>
       <t>DHCPv6 also provides a mechanism for automated delegation of
-      IPv6 prefixes using DHCPv6. Through this mechanism, a delegating router
+      IPv6 prefixes. Through this mechanism, a delegating router
       can delegate prefixes to requesting routers. Use of this mechanism is
       specified as part of <xref target="RFC7084" format="default"/> and by <xref target="TR-187" format="default"/>.</t>
       <t>DHCP can also be used just to provide other configuration options
       (i.e., no addresses or prefixes). That implies that the
       server does not have to track any state; thus, this mode is called
       "stateless DHCPv6". Mechanisms necessary to support stateless DHCPv6 are
-      much smaller than mechanisms needed to support stateful DHCPv6.</t>
+      much simpler than mechanisms needed to support stateful DHCPv6.</t>
       <t>The remainder of this introduction summarizes the relationship to the
       previous DHCPv6 standards (see <xref target="previous-dhcp6" format="default"/>) and
       clarifies the stance with regard to DHCPv4 (see <xref target="dhcpv4" format="default"/>).
@@ -501,7 +501,7 @@
       <name>Client/Server Exchanges</name>
       <t>Clients and servers exchange DHCP messages using UDP
      (see <xref target="RFC0768" format="default"/> and BCP 145 <xref target="RFC8085" format="default"/>).
-     The client uses a link-local address or
+     The client uses a link-local source address or
      addresses determined through other mechanisms for transmitting and
      receiving DHCP messages.</t>
       <t>A DHCP client sends messages using a reserved, link-scoped
@@ -626,14 +626,16 @@
         impractical, e.g., because of network policy, additional requirements
         such as dynamic updates to the DNS, or client-specific requirements.</t>
         <t>The model of operation for non-temporary address assignment is as
-        follows. The server is provided with prefixes from which it may
-        allocate addresses to clients, as well as any related network topology
+        follows: The server is provided with prefixes from which it may
+        assign addresses to clients, as well as any related network topology
         information as to which prefixes are present on which links. A client
         requests a non-temporary address to be assigned by the server. The
         server allocates an address or addresses appropriate for the link on
         which the client is connected. The server returns the allocated
         address or addresses to the client.</t>
-        <t>Each address has associated preferred and valid lifetimes, which
+        <t>Each address assigned by DHCPv6 has an associated valid lifetimes
+        (the T1 value)
+        which
         constitute an agreement about the length of time over which the
         client is allowed to use the address. A client can request an
         extension of the lifetimes on an address and is required to terminate
@@ -788,7 +790,8 @@
         <t>DHCP allows a client to receive multiple addresses.
         During typical operation, a client sends one instance
         of an IA_NA option and the server assigns at most one address from
-        each prefix assigned to the link to which the client is attached. In
+        each prefix assigned to the link to which the client is attached.
+        In
         particular, the server can be configured to serve addresses out
         of multiple prefixes for a given link. This is useful in cases
         such as when a network renumbering event is in progress. In a typical
@@ -797,6 +800,7 @@
         <t>A client can explicitly request multiple addresses by sending
         multiple IA_NA options. A client can send multiple
         IA_NA options in its initial transmissions.
+        (<xref target="RFC7934" format="default" />)
         Alternatively, it can send an extra Request message
         with additional new IA_NA options (or include them
         in a Renew message).</t>
@@ -2559,7 +2563,8 @@ addresses, and this specification is now authoritative for:</t>
           <name>Creation and Transmission of Information-request Messages</name>
           <t>The client uses an Information-request message to obtain
           configuration information without having addresses and/or delegated
-          prefixes assigned to it.</t>
+          prefixes assigned to it without using DHCPv6 to request addresses
+          or prefixes.</t>
           <t>The client sets the "msg-type" field to INFORMATION-REQUEST. The
           client generates a transaction ID and inserts this value in the
           "transaction-id" field.</t>
@@ -3735,7 +3740,10 @@ addresses, and this specification is now authoritative for:</t>
           <t>This address will be used by the server to determine the link
           from which the client should be assigned leases and other
           configuration information.</t>
-          <t>The hop-count value in the Relay-forward message is set to 0.</t>
+          <t>The hop-count value in the Relay-forward message is set to
+          0.</t>
+          <t>The relay SHOULD insert a Client Link-Layer option as described
+          in <xref target="RFC7969" format="default"/>.</t>
           <t>If the relay agent cannot use the address in the link-address
           field to identify the interface through which the response to the
           client will be relayed, the relay agent MUST include an Interface-Id
@@ -5552,7 +5560,7 @@ addresses, and this specification is now authoritative for:</t>
         the most popular OS on desktops and laptops. The server version of Windows provides DHCPv6 server implementation. Proprietary.</li>
     </ul>
 
-    <t>The DHCPv6 support is also mandated by some third parts specs. For example, all cable modems conformant to
+    <t>The DHCPv6 support is also mandated by some third party specs. For example, all cable modems conformant to
     DOCSIS3.0 or later must support DHCPv6 client functionality.</t>
 
     <t>There are many large scale deployments that use DHCPv6. One of them is Comcast's Xfinity. Authors are
@@ -5923,6 +5931,7 @@ addresses, and this specification is now authoritative for:</t>
           <seriesInfo name="RFC" value="8213"/>
           <seriesInfo name="DOI" value="10.17487/RFC8213"/>
         </reference>
+        <?rfc include="reference.RFC.7934.xml" ?>
         <reference anchor="RFC8415" target="https://www.rfc-editor.org/info/rfc8415" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8415.xml">
           <front>
             <title>Dynamic Host Configuration Protocol for IPv6 (DHCPv6)</title>
