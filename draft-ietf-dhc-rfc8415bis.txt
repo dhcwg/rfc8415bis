@@ -2209,8 +2209,9 @@ Table of Contents
    addresses or delegated prefixes to it can obtain configuration
    information such as a list of available DNS servers [RFC3646] or NTP
    servers [RFC5908] through a single message and reply exchange with a
-   DHCP server.  To obtain configuration information, the client first
-   sends an Information-request message (see Section 18.2.6) to the
+   DHCP server.  (As originally described in [RFC3736]).  To obtain
+   configuration information, the client first sends an Information-
+   request message (see Section 18.2.6) to the
    All_DHCP_Relay_Agents_and_Servers multicast address.  Servers respond
    with a Reply message containing the configuration information for the
    client (see Section 18.3.6).
