@@ -633,7 +633,7 @@
         server allocates an address or addresses appropriate for the link on
         which the client is connected. The server returns the allocated
         address or addresses to the client.</t>
-        <t>Each address has associated preferred and valid lifetimes ( see <xref target="RFC3315-10.1" /xref>), which
+        <t>Each address has associated preferred and valid lifetimes (see <xref target="RFC3315-10.1" format="default" />), which
         constitute an agreement about the length of time over which the
         client is allowed to use the address. A client can request an
         extension of the lifetimes on an address and is required to terminate
