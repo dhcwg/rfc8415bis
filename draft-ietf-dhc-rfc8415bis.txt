@@ -6104,12 +6104,6 @@ Table of Contents
               DOI 10.17487/RFC8213, August 2017,
               <https://www.rfc-editor.org/info/rfc8213>.
 
-   [RFC8415]  Mrugalski, T., Siodelski, M., Volz, B., Yourtchenko, A.,
-              Richardson, M., Jiang, S., Lemon, T., and T. Winters,
-              "Dynamic Host Configuration Protocol for IPv6 (DHCPv6)",
-              RFC 8415, DOI 10.17487/RFC8415, November 2018,
-              <https://www.rfc-editor.org/info/rfc8415>.
-
 26.2.  Informative References
 
    [IANA-HARDWARE-TYPES]
@@ -6348,6 +6342,12 @@ Table of Contents
    [RFC8168]  Li, T., Liu, C., and Y. Cui, "DHCPv6 Prefix-Length Hint
               Issues", RFC 8168, DOI 10.17487/RFC8168, May 2017,
               <https://www.rfc-editor.org/info/rfc8168>.
+
+   [RFC8415]  Mrugalski, T., Siodelski, M., Volz, B., Yourtchenko, A.,
+              Richardson, M., Jiang, S., Lemon, T., and T. Winters,
+              "Dynamic Host Configuration Protocol for IPv6 (DHCPv6)",
+              RFC 8415, DOI 10.17487/RFC8415, November 2018,
+              <https://www.rfc-editor.org/info/rfc8415>.
 
    [RFC8947]  Volz, B., Mrugalski, T., and CJ. Bernardos, "Link-Layer
               Address Assignment Mechanism for DHCPv6", RFC 8947,
