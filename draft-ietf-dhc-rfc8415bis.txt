@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 25 October 2025                                   M. Richardson
+Expires: 27 October 2025                                   M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                           23 April 2025
+                                                           25 April 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 October 2025.
+   This Internet-Draft will expire on 27 October 2025.
 
 Copyright Notice
 
@@ -253,15 +253,15 @@ Table of Contents
    document.
 
    DHCPv6 also provides a mechanism for automated delegation of IPv6
-   prefixes using DHCPv6.  Through this mechanism, a delegating router
-   can delegate prefixes to requesting routers.  Use of this mechanism
-   is specified as part of [RFC7084] and by [TR-187].
+   prefixes.  Through this mechanism, a delegating router can delegate
+   prefixes to requesting routers.  Use of this mechanism is specified
+   as part of [RFC7084] and by [TR-187].
 
    DHCP can also be used just to provide other configuration options
    (i.e., no addresses or prefixes).  That implies that the server does
    not have to track any state; thus, this mode is called "stateless
    DHCPv6".  Mechanisms necessary to support stateless DHCPv6 are much
-   smaller than mechanisms needed to support stateful DHCPv6.
+   simpler than mechanisms needed to support stateful DHCPv6.
 
    The remainder of this introduction summarizes the relationship to the
    previous DHCPv6 standards (see Section 1.1) and clarifies the stance
@@ -676,8 +676,8 @@ Table of Contents
 5.  Client/Server Exchanges
 
    Clients and servers exchange DHCP messages using UDP (see [RFC0768]
-   and BCP 145 [RFC8085]).  The client uses a link-local address or
-   addresses determined through other mechanisms for transmitting and
+   and BCP 145 [RFC8085]).  The client uses a link-local source address
+   or addresses determined through other mechanisms for transmitting and
    receiving DHCP messages.
 
    A DHCP client sends messages using a reserved, link-scoped multicast
@@ -812,19 +812,20 @@ Table of Contents
    or client-specific requirements.
 
    The model of operation for non-temporary address assignment is as
-   follows.  The server is provided with prefixes from which it may
-   allocate addresses to clients, as well as any related network
-   topology information as to which prefixes are present on which links.
-   A client requests a non-temporary address to be assigned by the
-   server.  The server allocates an address or addresses appropriate for
-   the link on which the client is connected.  The server returns the
-   allocated address or addresses to the client.
+   follows: The server is provided with prefixes from which it may
+   assign addresses to clients, as well as any related network topology
+   information as to which prefixes are present on which links.  A
+   client requests a non-temporary address to be assigned by the server.
+   The server allocates an address or addresses appropriate for the link
+   on which the client is connected.  The server returns the allocated
+   address or addresses to the client.
 
-   Each address has associated preferred and valid lifetimes, which
-   constitute an agreement about the length of time over which the
-   client is allowed to use the address.  A client can request an
-   extension of the lifetimes on an address and is required to terminate
-   the use of an address if the valid lifetime of the address expires.
+   Each address has associated preferred and valid lifetimes (see
+   Section 12.1), which constitute an agreement about the length of time
+   over which the client is allowed to use the address.  A client can
+   request an extension of the lifetimes on an address and is required
+   to terminate the use of an address if the valid lifetime of the
+   address expires.
 
    Typically, clients request other configuration parameters, such as
    the DNS name server addresses and domain search lists, when
@@ -982,9 +983,9 @@ Table of Contents
 
    A client can explicitly request multiple addresses by sending
    multiple IA_NA options.  A client can send multiple IA_NA options in
-   its initial transmissions.  Alternatively, it can send an extra
-   Request message with additional new IA_NA options (or include them in
-   a Renew message).
+   its initial transmissions ([RFC7934]).  Alternatively, it can send an
+   extra Request message with additional new IA_NA options (or include
+   them in a Renew message).
 
    The same principle also applies to prefix delegation.  In principle,
    DHCP allows a client to request new prefixes to be delegated by
@@ -2734,7 +2735,8 @@ Table of Contents
 
    The client uses an Information-request message to obtain
    configuration information without having addresses and/or delegated
-   prefixes assigned to it.
+   prefixes assigned to it without using DHCPv6 to request addresses or
+   prefixes.
 
    The client sets the "msg-type" field to INFORMATION-REQUEST.  The
    client generates a transaction ID and inserts this value in the
@@ -3966,6 +3968,9 @@ Table of Contents
    information.
 
    The hop-count value in the Relay-forward message is set to 0.
+
+   The relay SHOULD insert a Client Link-Layer option as described in
+   [RFC6939].
 
    If the relay agent cannot use the address in the link-address field
    to identify the interface through which the response to the client
@@ -5814,7 +5819,7 @@ Table of Contents
       desktops and laptops.  The server version of Windows provides
       DHCPv6 server implementation.  Proprietary.
 
-   The DHCPv6 support is also mandated by some third parts specs.  For
+   The DHCPv6 support is also mandated by some third party specs.  For
    example, all cable modems conformant to DOCSIS3.0 or later must
    support DHCPv6 client functionality.
 
@@ -6074,6 +6079,11 @@ Table of Contents
               S. Krishnan, "Guidelines for Creating New DHCPv6 Options",
               BCP 187, RFC 7227, DOI 10.17487/RFC7227, May 2014,
               <https://www.rfc-editor.org/info/rfc7227>.
+
+   [RFC7934]  Colitti, L., Cerf, V., Cheshire, S., and D. Schinazi,
+              "Host Address Availability Recommendations", BCP 204,
+              RFC 7934, DOI 10.17487/RFC7934, July 2016,
+              <https://www.rfc-editor.org/info/rfc7934>.
 
    [RFC8085]  Eggert, L., Fairhurst, G., and G. Shepherd, "UDP Usage
               Guidelines", BCP 145, RFC 8085, DOI 10.17487/RFC8085,

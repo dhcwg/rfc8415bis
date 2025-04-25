@@ -1064,7 +1064,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mrugalski, et al.</td>
-<td class="center">Expires 25 October 2025</td>
+<td class="center">Expires 27 October 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1080,12 +1080,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc8415" class="eref">8415</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-04-23" class="published">23 April 2025</time>
+<time datetime="2025-04-25" class="published">25 April 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-10-25">25 October 2025</time></dd>
+<dd class="expires"><time datetime="2025-10-27">27 October 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1145,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 25 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 27 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1703,14 +1703,14 @@ svg :is([fill="white"], [fill^="#fff"]) {
       options. DHCPv6 can be extended through the definition of new options
       to carry configuration information not specified in this document.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">DHCPv6 also provides a mechanism for automated delegation of
-      IPv6 prefixes using DHCPv6. Through this mechanism, a delegating router
+      IPv6 prefixes. Through this mechanism, a delegating router
       can delegate prefixes to requesting routers. Use of this mechanism is
       specified as part of <span>[<a href="#RFC7084" class="cite xref">RFC7084</a>]</span> and by <span>[<a href="#TR-187" class="cite xref">TR-187</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">DHCP can also be used just to provide other configuration options
       (i.e., no addresses or prefixes). That implies that the
       server does not have to track any state; thus, this mode is called
       "stateless DHCPv6". Mechanisms necessary to support stateless DHCPv6 are
-      much smaller than mechanisms needed to support stateful DHCPv6.<a href="#section-1-4" class="pilcrow">¶</a></p>
+      much simpler than mechanisms needed to support stateful DHCPv6.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-1-5">The remainder of this introduction summarizes the relationship to the
       previous DHCPv6 standards (see <a href="#previous-dhcp6" class="auto internal xref">Section 1.1</a>) and
       clarifies the stance with regard to DHCPv4 (see <a href="#dhcpv4" class="auto internal xref">Section 1.2</a>).
@@ -2216,7 +2216,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       </h2>
 <p id="section-5-1">Clients and servers exchange DHCP messages using UDP
      (see <span>[<a href="#RFC0768" class="cite xref">RFC0768</a>]</span> and BCP 145 <span>[<a href="#RFC8085" class="cite xref">RFC8085</a>]</span>).
-     The client uses a link-local address or
+     The client uses a link-local source address or
      addresses determined through other mechanisms for transmitting and
      receiving DHCP messages.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <p id="section-5-2">A DHCP client sends messages using a reserved, link-scoped
@@ -2360,14 +2360,14 @@ svg :is([fill="white"], [fill^="#fff"]) {
         impractical, e.g., because of network policy, additional requirements
         such as dynamic updates to the DNS, or client-specific requirements.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.2-2">The model of operation for non-temporary address assignment is as
-        follows. The server is provided with prefixes from which it may
-        allocate addresses to clients, as well as any related network topology
+        follows: The server is provided with prefixes from which it may
+        assign addresses to clients, as well as any related network topology
         information as to which prefixes are present on which links. A client
         requests a non-temporary address to be assigned by the server. The
         server allocates an address or addresses appropriate for the link on
         which the client is connected. The server returns the allocated
         address or addresses to the client.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
-<p id="section-6.2-3">Each address has associated preferred and valid lifetimes, which
+<p id="section-6.2-3">Each address has associated preferred and valid lifetimes (see <a href="#RFC3315-10.1" class="auto internal xref">Section 12.1</a>), which
         constitute an agreement about the length of time over which the
         client is allowed to use the address. A client can request an
         extension of the lifetimes on an address and is required to terminate
@@ -2537,7 +2537,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-6.5-1">DHCP allows a client to receive multiple addresses.
         During typical operation, a client sends one instance
         of an IA_NA option and the server assigns at most one address from
-        each prefix assigned to the link to which the client is attached. In
+        each prefix assigned to the link to which the client is attached.
+        In
         particular, the server can be configured to serve addresses out
         of multiple prefixes for a given link. This is useful in cases
         such as when a network renumbering event is in progress. In a typical
@@ -2545,7 +2546,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
         option (see <a href="#RFC3315-22.4" class="auto internal xref">Section 21.4</a>).<a href="#section-6.5-1" class="pilcrow">¶</a></p>
 <p id="section-6.5-2">A client can explicitly request multiple addresses by sending
         multiple IA_NA options. A client can send multiple
-        IA_NA options in its initial transmissions.
+        IA_NA options in its initial transmissions
+        (<span>[<a href="#RFC7934" class="cite xref">RFC7934</a>]</span>).
         Alternatively, it can send an extra Request message
         with additional new IA_NA options (or include them
         in a Renew message).<a href="#section-6.5-2" class="pilcrow">¶</a></p>
@@ -4680,7 +4682,8 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
           </h4>
 <p id="section-18.2.6-1">The client uses an Information-request message to obtain
           configuration information without having addresses and/or delegated
-          prefixes assigned to it.<a href="#section-18.2.6-1" class="pilcrow">¶</a></p>
+          prefixes assigned to it without using DHCPv6 to request addresses
+          or prefixes.<a href="#section-18.2.6-1" class="pilcrow">¶</a></p>
 <p id="section-18.2.6-2">The client sets the "msg-type" field to INFORMATION-REQUEST. The
           client generates a transaction ID and inserts this value in the
           "transaction-id" field.<a href="#section-18.2.6-2" class="pilcrow">¶</a></p>
@@ -6003,8 +6006,11 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
 <p id="section-19.1.1-2">This address will be used by the server to determine the link
           from which the client should be assigned leases and other
           configuration information.<a href="#section-19.1.1-2" class="pilcrow">¶</a></p>
-<p id="section-19.1.1-3">The hop-count value in the Relay-forward message is set to 0.<a href="#section-19.1.1-3" class="pilcrow">¶</a></p>
-<p id="section-19.1.1-4">If the relay agent cannot use the address in the link-address
+<p id="section-19.1.1-3">The hop-count value in the Relay-forward message is set to
+          0.<a href="#section-19.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-19.1.1-4">The relay SHOULD insert a Client Link-Layer option as described
+          in <span>[<a href="#RFC6939" class="cite xref">RFC6939</a>]</span>.<a href="#section-19.1.1-4" class="pilcrow">¶</a></p>
+<p id="section-19.1.1-5">If the relay agent cannot use the address in the link-address
           field to identify the interface through which the response to the
           client will be relayed, the relay agent MUST include an Interface-Id
           option (see <a href="#RFC3315-22.18" class="auto internal xref">Section 21.18</a>) in the
@@ -6012,7 +6018,7 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
           option in its Relay-reply message. The relay agent sets the
           link-address field as described earlier in this subsection,
           regardless of whether the relay agent includes an Interface-Id
-          option in the Relay-forward message.<a href="#section-19.1.1-4" class="pilcrow">¶</a></p>
+          option in the Relay-forward message.<a href="#section-19.1.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="relaying-from-relay-agent">
@@ -8322,7 +8328,7 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
         the most popular OS on desktops and laptops. The server version of Windows provides DHCPv6 server implementation. Proprietary.<a href="#section-22-6.21" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="section-22-7">The DHCPv6 support is also mandated by some third parts specs. For example, all cable modems conformant to
+<p id="section-22-7">The DHCPv6 support is also mandated by some third party specs. For example, all cable modems conformant to
     DOCSIS3.0 or later must support DHCPv6 client functionality.<a href="#section-22-7" class="pilcrow">¶</a></p>
 <p id="section-22-8">There are many large scale deployments that use DHCPv6. One of them is Comcast's Xfinity. Authors are
     aware of many other large scale country wide deployments, but due to signed Non-Disclosure Agreements cannot
@@ -8565,6 +8571,10 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
 <dt id="RFC7227">[RFC7227]</dt>
         <dd>
 <span class="refAuthor">Hankins, D.</span>, <span class="refAuthor">Mrugalski, T.</span>, <span class="refAuthor">Siodelski, M.</span>, <span class="refAuthor">Jiang, S.</span>, and <span class="refAuthor">S. Krishnan</span>, <span class="refTitle">"Guidelines for Creating New DHCPv6 Options"</span>, <span class="seriesInfo">BCP 187</span>, <span class="seriesInfo">RFC 7227</span>, <span class="seriesInfo">DOI 10.17487/RFC7227</span>, <time datetime="2014-05" class="refDate">May 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7227">https://www.rfc-editor.org/info/rfc7227</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7934">[RFC7934]</dt>
+        <dd>
+<span class="refAuthor">Colitti, L.</span>, <span class="refAuthor">Cerf, V.</span>, <span class="refAuthor">Cheshire, S.</span>, and <span class="refAuthor">D. Schinazi</span>, <span class="refTitle">"Host Address Availability Recommendations"</span>, <span class="seriesInfo">BCP 204</span>, <span class="seriesInfo">RFC 7934</span>, <span class="seriesInfo">DOI 10.17487/RFC7934</span>, <time datetime="2016-07" class="refDate">July 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7934">https://www.rfc-editor.org/info/rfc7934</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8085">[RFC8085]</dt>
         <dd>
