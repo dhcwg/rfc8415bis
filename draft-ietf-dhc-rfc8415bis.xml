@@ -633,9 +633,7 @@
         server allocates an address or addresses appropriate for the link on
         which the client is connected. The server returns the allocated
         address or addresses to the client.</t>
-        <t>Each address assigned by DHCPv6 has an associated valid lifetimes
-        (the T1 value)
-        which
+        <t>Each address has associated preferred and valid lifetimes ( see <xref target="RFC3315-10.1" /xref>), which
         constitute an agreement about the length of time over which the
         client is allowed to use the address. A client can request an
         extension of the lifetimes on an address and is required to terminate
@@ -799,8 +797,8 @@
         option (see <xref target="RFC3315-22.4" format="default"/>).</t>
         <t>A client can explicitly request multiple addresses by sending
         multiple IA_NA options. A client can send multiple
-        IA_NA options in its initial transmissions.
-        (<xref target="RFC7934" format="default" />)
+        IA_NA options in its initial transmissions
+        (<xref target="RFC7934" format="default" />).
         Alternatively, it can send an extra Request message
         with additional new IA_NA options (or include them
         in a Renew message).</t>
@@ -3743,7 +3741,7 @@ addresses, and this specification is now authoritative for:</t>
           <t>The hop-count value in the Relay-forward message is set to
           0.</t>
           <t>The relay SHOULD insert a Client Link-Layer option as described
-          in <xref target="RFC7969" format="default"/>.</t>
+          in <xref target="RFC6939" format="default"/>.</t>
           <t>If the relay agent cannot use the address in the link-address
           field to identify the interface through which the response to the
           client will be relayed, the relay agent MUST include an Interface-Id
