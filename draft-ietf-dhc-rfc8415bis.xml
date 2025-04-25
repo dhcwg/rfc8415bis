@@ -2059,7 +2059,9 @@ addresses, and this specification is now authoritative for:</t>
       <t>A DHCP client that does not need to have a DHCP server assign
       IP addresses or delegated prefixes to it can obtain configuration
       information such as a list of available DNS servers <xref target="RFC3646" format="default"/> or NTP servers <xref target="RFC5908" format="default"/> through a
-      single message and reply exchange with a DHCP server.  To obtain
+      single message and reply exchange with a DHCP server.
+      (As originally described in <xref target="RFC3736" format="default" />).
+      To obtain
       configuration information, the client first sends an Information-request
       message (see <xref target="RFC3315-18.1.5" format="default"/>) to the
       All_DHCP_Relay_Agents_and_Servers multicast address.  Servers respond
