@@ -583,7 +583,9 @@
         <t>A server that has previously communicated with a client and negotiated
           for the client to listen for Reconfigure messages may send the client
           a Reconfigure message to initiate the client to update its configuration
-          by sending an Information-request, Renew, or Rebind message. The client then
+          by sending an Information-request, Renew, or Rebind message.
+          Reconfigure messages are authenticated as per <xref target="reconfigure-protocol" format="default"/>.
+          The client then
           performs the two-message exchange as described earlier. This can be used to
           expedite configuration changes to a client, such as the need to renumber
           a network (see <xref target="RFC6879" format="default"/>).
