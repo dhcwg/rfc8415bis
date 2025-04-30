@@ -5729,11 +5729,15 @@ addresses, and this specification is now authoritative for:</t>
       <t>IANA is requested to mark the IA_TA (option code 4) and
       UNICAST (option code 12) in the Option Codes table at
       &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt; as
-      obsolete.</t>
+      obsolete
+      by adding the word "(OBSOLETE)" to the description of the entry.
+      </t>
       <t>IANA is requested to mark the UseMulticast (status code 5) in
       the Status Codes table at
       &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt; as
-      obsolete.</t>
+      obsolete
+      by adding the word "(OBSOLETE)" to the description of that entry.
+      </t>
       <t>IANA is requested to update other references to <xref target="RFC8415" format="default"/>
       with references to this document at:
       </t>
