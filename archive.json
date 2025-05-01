@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-27T02:02:11.006003+00:00",
+  "timestamp": "2025-05-01T02:06:37.475615+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -819,6 +819,22 @@
       "body": "# Section 21.7\n\nCURRENT:\n   A client MUST include an Option Request option in a Solicit, Request,\n   Renew, Rebind, or Information-request message to inform the server\n   about options the client wants the server to send to the client.  For\n   certain message types, some option codes MUST be included in the\n   Option Request option; see [IANA-OPTION-DETAILS] for details.\n\nGlad to see that the table was replaced with the pointer to the IANA registry.\nCan we add a sentence to say that registry is the authoritative reference for\nthe up-to-date options?\n\n\n",
       "createdAt": "2025-04-25T15:16:16Z",
       "updatedAt": "2025-04-25T15:16:16Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 53,
+      "id": "I_kwDOFL5NeM60wc_K",
+      "title": "Roman Danyliw - Need to ask IANA to add status columns",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/53",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "** Section 25.\n IANA is requested to mark the IA_TA (option code 4) and UNICAST\n  (option code 12) in the Option Codes table at\n  <https://www.iana.org/assignments/dhcpv6-parameters> as obsolete.\n\n  IANA is requested to mark the UseMulticast (status code 5) in the\n  Status Codes table at <https://www.iana.org/assignments/\n  dhcpv6-parameters> as obsolete.\n\nHow does one mark something as obsolete in a registry which does not have an explicit status column?\n",
+      "createdAt": "2025-04-30T21:44:55Z",
+      "updatedAt": "2025-04-30T21:44:55Z",
       "closedAt": null,
       "comments": []
     }
@@ -2527,6 +2543,40 @@
         "oid": "68d367e26979c4c1a9872f870b2570e8834bd232"
       },
       "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 54,
+      "id": "PR_kwDOFL5NeM6UlUCL",
+      "title": "clarify IANA considerations",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/54",
+      "state": "OPEN",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "close #53 \r\n\r\nas per: https://mailarchive.ietf.org/arch/msg/dhcwg/MmH8OEo_udSoAetx7GM3jAkceoc/",
+      "createdAt": "2025-04-30T23:01:52Z",
+      "updatedAt": "2025-04-30T23:23:21Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "5b46a0983f649d3788d543309f7319aa8828934c",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "fix-iana-obsolete",
+      "headRefOid": "76f8d5477d6f2ec2422d63da3eddd9e64ab68305",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Ok, we could do it this way. Alternatively we could direct IANA to add the status column and add obsolete for these items in those rows in the new columns?",
+          "createdAt": "2025-04-30T23:23:20Z",
+          "updatedAt": "2025-04-30T23:23:20Z"
+        }
+      ],
       "reviews": []
     }
   ]
