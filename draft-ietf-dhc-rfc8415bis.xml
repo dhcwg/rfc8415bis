@@ -5726,13 +5726,16 @@ addresses, and this specification is now authoritative for:</t>
       to update all references to <xref target="RFC8415" format="default"/> to this
       document at
       &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt;.</t>
-      <t>IANA is requested to change the DHCPv6-Parameters Option Code registry to include a new column "Status",
-      and to mark the IA_TA (option code 4) and UNICAST (option code 12) in the Option Codes table at
+      <t>
+        IANA is requested to add a new column "Status" to all other
+        registries on the DHCPv6 parameters page.
+      </t>
+      <t> IANA is requested, in the DHCPv6-Parameters Option Code registry to
+      mark the IA_TA (option code 4) and UNICAST (option code 12) in the Option Codes table at
       &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt; as
       obsolete.
       </t>
-      <t>IANA is requested to change the DHCPv6-Parameters Status Code registry to include a new column "Status",
-      and mark the the UseMulticast (status code 5) in as obsolete.
+      <t>IANA is requested to mark the the UseMulticast (status code 5) in as obsolete.
       </t>
       <t>IANA is requested to update other references to <xref target="RFC8415" format="default"/>
       with references to this document at:
@@ -5743,10 +5746,6 @@ addresses, and this specification is now authoritative for:</t>
         <li>https://www.iana.org/assignments/ipv6-multicast-addresses (two entries)</li>
         <li>https://www.iana.org/assignments/service-names-port-numbers (two entries; UDP ports 546 and 547)</li>
       </ul>
-      <t>
-        Finally, IANA is requested to add a new column "Status" to all other
-        registries on the DHCPv6 parameters page, leaving them all blank.
-      </t>
     </section>
   </middle>
   <back>
