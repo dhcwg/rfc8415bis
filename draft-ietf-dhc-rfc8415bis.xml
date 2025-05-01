@@ -5735,7 +5735,7 @@ addresses, and this specification is now authoritative for:</t>
       &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt; as
       obsolete.
       </t>
-      <t>IANA is requested to mark the the UseMulticast (status code 5) in as obsolete.
+      <t>IANA is requested to mark the UseMulticast (status code 5) as obsolete.
       </t>
       <t>IANA is requested to update other references to <xref target="RFC8415" format="default"/>
       with references to this document at:
