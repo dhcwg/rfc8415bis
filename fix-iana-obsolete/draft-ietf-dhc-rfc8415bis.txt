@@ -6021,7 +6021,7 @@ Table of Contents
    Option Codes table at <https://www.iana.org/assignments/
    dhcpv6-parameters> as obsolete.
 
-   IANA is requested to mark the the UseMulticast (status code 5) in as
+   IANA is requested to mark the UseMulticast (status code 5) as
    obsolete.
 
    IANA is requested to update other references to [RFC8415] with
