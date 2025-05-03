@@ -505,7 +505,7 @@
      addresses determined through other mechanisms for transmitting and
      receiving DHCP messages.</t>
       <t>A DHCP client sends messages using a reserved, link-scoped
-     multicast destination address (ALL_DHCP_Relay_Agents_and_service - ff02::1:2) so that the client need not be
+     multicast destination address (ALL_DHCP_Relay_Agents_and_Servers - ff02::1:2) so that the client need not be
      configured with the address or addresses of DHCP servers.</t>
       <t>To allow a DHCP client to send a message to a DHCP server that is
      not attached to the same link, a DHCP relay agent on the client's link
