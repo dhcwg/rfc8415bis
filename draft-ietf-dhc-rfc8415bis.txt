@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 27 October 2025                                   M. Richardson
+Expires: 4 November 2025                                   M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                           25 April 2025
+                                                              3 May 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 October 2025.
+   This Internet-Draft will expire on 4 November 2025.
 
 Copyright Notice
 
@@ -681,7 +681,7 @@ Table of Contents
    receiving DHCP messages.
 
    A DHCP client sends messages using a reserved, link-scoped multicast
-   destination address (ALL_DHCP_Relay_Agents_and_service - ff02::1:2)
+   destination address (ALL_DHCP_Relay_Agents_and_Servers - ff02::1:2)
    so that the client need not be configured with the address or
    addresses of DHCP servers.
 
