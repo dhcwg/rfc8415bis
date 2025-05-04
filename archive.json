@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-01T02:06:37.475615+00:00",
+  "timestamp": "2025-05-04T02:07:21.224364+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -786,9 +786,38 @@
       "labels": [],
       "body": "# Section 7.2\n\nCURRENT:\n   Clients, servers, and relay agents MAY send DHCP messages from any\n   UDP (source) port they are allowed to use, including their designated\n   destination ports.  Nevertheless, regardless of the source port used,\n   DHCP messages MUST be sent to ports specified above (e.g., clients\n   sending to port 547).\n\nWhat is meant by \"designated destination ports\"? What is a \"designated\ndestination port\" for a server?\n\nPlease reword.\n\nThe same wording is used in other parts of the spec. Please update those as\nwell. Thanks.\n\n",
       "createdAt": "2025-04-25T15:15:19Z",
-      "updatedAt": "2025-04-25T15:15:19Z",
+      "updatedAt": "2025-05-01T21:48:12Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Maybe we replace \u201ctheir designated destination ports\u201d with \u201cport 546 (for clients) or 547 (for servers and relays)\u201d. \n\nThe original issue from Tomoyuki Sahara had suggested:\n\n     Clients are RECOMMENDED to send DHCP messages from\n     UDP port 546. Servers and relay agents are RECOMMENDED\n     to send DHCP messages from UDP port 547 (unless relay\n     agent includes Relay Source Port Option for DHCP6\n     [RFC8357]).\n\nI wonder if we put details of this in 7.2 (UDP Ports) and just refer to that section instead of providing details elsewhere (i.e., where designated destination ports used). Also, we make it clear as to the destination ports used too. And, added more normative language. So, 7.2 could be:\n\n\u2014-\n\n7.2.  UDP Ports\n\n   Clients MUST listen for DHCP messages on UDP port 546.\n   Servers and relay agents MUST listen for DHCP messages on\n   UDP port 547.\n\n   Therefore, clients MUST send DHCP messages to UDP\n   destination port  547. Servers and relay agents MUST send\n   DHCP messages to UDP destination port 546.\n\n   It is RECOMMENDED for clients to send messages from UDP\n   source port 546, and servers and relay agents from UDP\n   source port 547. However, clients, servers, and relay agents\n   MAY send DHCP messages from any UDP source port they\n   are allowed to use.\n\n   Please note that the Relay Source Port Option [RFC8357]\n   changes some of these rules for servers and relays agents.\n\n\u2014-\n\nWe\u2019d then add the reference for RFC8357.\n\nSection 1.1 text of:\n\n   It also clarifies that clients, servers, and relay agents can\n   send DHCP messages from any UDP (source) port they are\n   allowed to use including their designated destination ports.\n\nWould change to:\n\n   It also clarifies the UDP ports used by clients, servers, and\n   relays agents (Section 7.2).\n\nAppendix A text of:\n\n   4.  Clarified that clients, servers, and relay agents can send DHCP\n       messages from any UDP (source) port they are allowed to use\n       including their designated destination ports.\n\nWould change to:\n\n   4.  Clarified the UDP source and destination ports that clients,\n        servers, and relay agents use (Section 7.2).\n\n",
+          "createdAt": "2025-05-01T14:01:39Z",
+          "updatedAt": "2025-05-01T14:06:32Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "\r\nBernie Volz ***@***.***> wrote:\r\n    > Maybe we replace \u201ctheir designated destination ports\u201d with \u201cport 546\r\n    > (for clients) or 547 (for servers and relays)\u201d.\r\n\r\nSounds good.  Wil you turn this into a PR?\r\n\r\n\r\n",
+          "createdAt": "2025-05-01T15:34:36Z",
+          "updatedAt": "2025-05-01T15:34:36Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I created\u00a0https://github.com/bevolz/rfc8415bis/pull/1\u00a0\u2026 for some reason was unable to assign anyone (but myself).Also, had to change text as it wasn\u2019t correct for servers and relays. Please review carefully!- Bernie (from iPad)On May 1, 2025, at 11:34\u202fAM, Michael Richardson ***@***.***> wrote:\ufeff\r\nmcr left a comment (dhcwg/rfc8415bis#50)\r\n\r\n<br>\r\nBernie Volz ***@***.***&gt; wrote:\r\n<br>\r\n    &gt; Maybe we replace \u201ctheir designated destination ports\u201d with \u201cport 546\r\n<br>\r\n    &gt; (for clients) or 547 (for servers and relays)\u201d.\r\n<br>\r\n\r\n<br>\r\nSounds good.  Wil you turn this into a PR?\r\n<br>\r\n\r\n<br>\r\n\r\n<br>\r\n\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you commented.Message ID: ***@***.***>",
+          "createdAt": "2025-05-01T16:51:02Z",
+          "updatedAt": "2025-05-01T16:51:02Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "See https://github.com/dhcwg/rfc8415bis/pull/55 for proposed changes.",
+          "createdAt": "2025-05-01T21:48:11Z",
+          "updatedAt": "2025-05-01T21:48:11Z"
+        }
+      ]
     },
     {
       "number": 51,
@@ -837,6 +866,37 @@
       "updatedAt": "2025-04-30T21:44:55Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 56,
+      "id": "I_kwDOFL5NeM61CmK1",
+      "title": "AD Review - ALL_DHCP_Relay_Agenda_and_service",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/56",
+      "state": "CLOSED",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "### S5\n\n* \"s/ALL_DHCP_Relay_Agenda_and_service/All_DHCP_Relay_Agents_and_Servers/\"\n\n agenda -> agents\n service -> servers\n\n based on IANA's \"IPv6 Multicast Address Space Registry\", and also elsewhere\n in this document.\n",
+      "createdAt": "2025-05-03T11:35:16Z",
+      "updatedAt": "2025-05-03T23:05:16Z",
+      "closedAt": "2025-05-03T23:05:08Z",
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We already fixed Agenda, but missed the service!",
+          "createdAt": "2025-05-03T11:37:03Z",
+          "updatedAt": "2025-05-03T11:37:03Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "fixed in 6edad75",
+          "createdAt": "2025-05-03T23:05:15Z",
+          "updatedAt": "2025-05-03T23:05:15Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -2557,13 +2617,13 @@
       "labels": [],
       "body": "close #53 \r\n\r\nas per: https://mailarchive.ietf.org/arch/msg/dhcwg/MmH8OEo_udSoAetx7GM3jAkceoc/",
       "createdAt": "2025-04-30T23:01:52Z",
-      "updatedAt": "2025-04-30T23:23:21Z",
+      "updatedAt": "2025-05-01T20:18:40Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "5b46a0983f649d3788d543309f7319aa8828934c",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "fix-iana-obsolete",
-      "headRefOid": "76f8d5477d6f2ec2422d63da3eddd9e64ab68305",
+      "headRefOid": "2274a11bfe103cf3e082dd659361fc17538fffc5",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -2575,9 +2635,96 @@
           "body": "Ok, we could do it this way. Alternatively we could direct IANA to add the status column and add obsolete for these items in those rows in the new columns?",
           "createdAt": "2025-04-30T23:23:20Z",
           "updatedAt": "2025-04-30T23:23:20Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Ok, we could do it this way. Alternatively we could direct IANA to add the status column and add obsolete for these items in those rows in the new columns?\r\n\r\nMore text, but we can certainly do that.\r\n",
+          "createdAt": "2025-05-01T17:29:34Z",
+          "updatedAt": "2025-05-01T17:29:34Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> > Ok, we could do it this way. Alternatively we could direct IANA to add the status column and add obsolete for these items in those rows in the new columns?\r\n> \r\n> More text, but we can certainly do that.\r\n\r\nIt wasn't as hard as I thought.  Do you like this?\r\n",
+          "createdAt": "2025-05-01T17:34:34Z",
+          "updatedAt": "2025-05-01T17:34:34Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> i wonder why not just move order so\r\n\r\nokay, changed order for you.",
+          "createdAt": "2025-05-01T20:18:39Z",
+          "updatedAt": "2025-05-01T20:18:39Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM6nhAer",
+          "commit": {
+            "abbreviatedOid": "2d91afa"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "i wonder why not just move order so\r\n\r\n        Finally, IANA is requested to add a new column \"Status\" to all other\r\n        registries on the DHCPv6 parameters page, leaving them all blank.\r\n\r\nIs first? IANA is requested to add a new column \"Status\" to all registries on the DHCPv6 parameters page, leaving all except those mentioned below as blank.\r\n\r\nFor:\r\n\u2026 UseMulticast (status code 5) in as obsolete.\r\n\r\nThe in either needs the link or should be removed.",
+          "createdAt": "2025-05-01T18:48:29Z",
+          "updatedAt": "2025-05-01T18:48:29Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 55,
+      "id": "PR_kwDOFL5NeM6UsCcS",
+      "title": "Address issue 50 (ports)",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/55",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mcr",
+        "tomaszmrugalski",
+        "twintersunh"
+      ],
+      "labels": [],
+      "body": "Address ad-review: what are designated ports by being more explicit as to the source and destination ports that MUST or SHOULD be used.",
+      "createdAt": "2025-05-01T21:28:53Z",
+      "updatedAt": "2025-05-02T00:54:33Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "5b46a0983f649d3788d543309f7319aa8828934c",
+      "headRepository": "bevolz/rfc8415bis",
+      "headRefName": "main",
+      "headRefOid": "920df81448617d2776c2d7a1215cbc4eec0e9800",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "close #50 ",
+          "createdAt": "2025-05-02T00:54:32Z",
+          "updatedAt": "2025-05-02T00:54:32Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM6njGZg",
+          "commit": {
+            "abbreviatedOid": "920df81"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-02T00:54:17Z",
+          "updatedAt": "2025-05-02T00:54:17Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
