@@ -5703,7 +5703,7 @@ addresses, and this specification is now authoritative for:</t>
       </section>
 
       <section anchor="security-mitigation" numbered="true" toc="default">
-      <name>Mitigations to consider</name>
+      <name>Mitigations to Consider</name>
 
       <t>Various network environments also offer levels of security if deployed
       as described below.</t>
