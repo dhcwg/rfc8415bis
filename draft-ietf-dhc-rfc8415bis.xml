@@ -5595,17 +5595,33 @@ addresses, and this specification is now authoritative for:</t>
     <section anchor="security" numbered="true" toc="default">
       <name>Security Considerations</name>
       <t>This section discusses security considerations that are not related
-      to privacy. See <xref target="privacy" format="default"/> for a discussion dedicated to
-      privacy.</t>
+      to privacy. See <xref target="privacy" format="default"/> for a discussion
+      dedicated to privacy.</t>
+
       <t>The threat to DHCP is inherently an insider threat (assuming a
       properly configured network where DHCP ports are blocked on the
       perimeter gateways of the enterprise). Regardless of the gateway
       configuration, however, the potential attacks by insiders and
       outsiders are the same.</t>
+
       <t>DHCP lacks end-to-end encryption between clients and servers; thus,
       hijacking, tampering, and eavesdropping attacks are all possible
       as a result. Some network environments (discussed below) can be
       secured through various means to minimize these attacks.</t>
+
+      <t>The threat common to both the client and the server is the
+      "resource-exhaustion" DoS attack. These attacks typically involve the
+      exhaustion of available assigned addresses or delegatable prefixes, or
+      the exhaustion of CPU or network bandwidth, and are present any time
+      there is a shared resource.  Some forms of these exhaustion attacks
+      can be partially mitigated by appropriate server policy, e.g., limiting
+      the maximum number of leases any one client can get, limiting the number
+      of leases one client can decline, and limiting number of messages a
+      single client can transmit of a period of time.</t>
+
+      <section anchor="security-client" numbered="true" toc="default">
+      <name>Client Security Considerations</name>
+
       <t>One attack specific to a DHCP client is the establishment of a
       malicious server with the intent of providing incorrect configuration
       information to the client.  The motivation for doing so may be to mount
@@ -5625,6 +5641,51 @@ addresses, and this specification is now authoritative for:</t>
       <t>Another threat to DHCP clients originates from mistakenly or
       accidentally configured DHCP servers that answer DHCP client requests
       with unintentionally incorrect configuration parameters.</t>
+
+      <t>If a client implementation supports Reconfigure mechanism, also see
+      <xref target="security-rkap"/> below.</t>
+
+      </section>
+
+      <section anchor="security-server" numbered="true" toc="default">
+      <name>Server Security Considerations</name>
+
+      <t>The threat specific to a DHCP server is an invalid client masquerading
+      as a valid client.  The motivation for this may be for theft of service,
+      or to circumvent auditing for any number of nefarious purposes.</t>
+
+      <t>The messages exchanged between relay agents and servers may be used to
+      mount a man-in-the-middle or DoS attack. Communication
+      between a server and a relay agent, and communication between relay
+      agents, can be authenticated and encrypted through the use of IPsec, as
+      described in <xref target="RFC8213" format="default"/>.</t>
+
+      <t>However, the use of manually configured pre-shared keys for IPsec
+      between relay agents and servers does not defend against replayed DHCP
+      messages.  Replayed messages can represent a DoS attack through
+      exhaustion of processing resources but not through misconfiguration or
+      exhaustion of other resources such as assignable addresses and
+      delegatable prefixes.</t>
+
+      <t>If a server implementation supports Reconfigure mechanism, also see
+      <xref target="security-rkap"/> below.</t>
+
+      </section>
+
+      <section anchor="security-rkap" numbered="true" toc="default">
+      <name>Reconfigure Security Considerations</name>
+      <t>RKAP, described in <xref target="reconfigure-protocol" format="default"/>,
+      provides protection against the
+      use of a Reconfigure message by a malicious DHCP server to mount a DoS
+      or man-in-the-middle attack on a client.  This protocol can be
+      compromised by an attacker that can intercept the initial message in
+      which the DHCP server sends the key as plain text to the client.</t>
+
+      <t>Because of the opportunity for attack through the Reconfigure message,
+      a DHCP client MUST discard any Reconfigure message that does not include
+      authentication or that does not pass the validation process for the
+      authentication protocol.</t>
+
       <t>A DHCP client may also be subject to attack through the receipt of a
       Reconfigure message from a malicious server that causes the client to
       obtain incorrect configuration information from that server.  Note that
@@ -5638,39 +5699,12 @@ addresses, and this specification is now authoritative for:</t>
       mount a Reconfigure attack on a client.  The use of transaction IDs that
       are cryptographically sound and cannot easily be predicted will also
       reduce the probability that such an attack will be successful.</t>
-      <t>Because of the opportunity for attack through the Reconfigure message,
-      a DHCP client MUST discard any Reconfigure message that does not include
-      authentication or that does not pass the validation process for the
-      authentication protocol.</t>
-      <t>RKAP, described in
-      <xref target="reconfigure-protocol" format="default"/>, provides protection against the
-      use of a Reconfigure message by a malicious DHCP server to mount a DoS
-      or man-in-the-middle attack on a client.  This protocol can be
-      compromised by an attacker that can intercept the initial message in
-      which the DHCP server sends the key "in plain text" to the client.</t>
-      <t>Many of these attacks by rogue servers can be mitigated by making use
-      of the mechanisms described in <xref target="RFC7610" format="default"/> and <xref target="RFC7513" format="default"/>.</t>
-      <t>The threat specific to a DHCP server is an invalid client masquerading
-      as a valid client.  The motivation for this may be for theft of service,
-      or to circumvent auditing for any number of nefarious purposes.</t>
-      <t>The threat common to both the client and the server is the
-      "resource-exhaustion" DoS attack. These attacks typically involve the
-      exhaustion of available assigned addresses or delegatable prefixes, or
-      the exhaustion of CPU or network bandwidth, and are present any time
-      there is a shared resource.  Some forms of these exhaustion attacks
-      can be partially mitigated by appropriate server policy, e.g., limiting
-      the maximum number of leases any one client can get.</t>
-      <t>The messages exchanged between relay agents and servers may be used to
-      mount a man-in-the-middle or DoS attack. Communication
-      between a server and a relay agent, and communication between relay
-      agents, can be authenticated and encrypted through the use of IPsec, as
-      described in <xref target="RFC8213" format="default"/>.</t>
-      <t>However, the use of manually configured pre-shared keys for IPsec
-      between relay agents and servers does not defend against replayed DHCP
-      messages.  Replayed messages can represent a DoS attack through
-      exhaustion of processing resources but not through misconfiguration or
-      exhaustion of other resources such as assignable addresses and
-      delegatable prefixes.</t>
+
+      </section>
+
+      <section anchor="security-mitigation" numbered="true" toc="default">
+      <name>Mitigations to consider</name>
+
       <t>Various network environments also offer levels of security if deployed
       as described below.</t>
       <ul spacing="normal">
@@ -5704,6 +5738,12 @@ addresses, and this specification is now authoritative for:</t>
       disallowing direct client-to-client communication on these networks or
       using <xref target="RFC7610" format="default"/> and <xref target="RFC7513" format="default"/>.</li>
       </ul>
+
+      <t>Many of the attacks by rogue servers can be mitigated by making use
+      of the mechanisms described in <xref target="RFC7610" format="default"/>
+      and <xref target="RFC7513" format="default"/>.</t>
+
+      </section>
     </section>
     <section anchor="privacy" numbered="true" toc="default">
       <name>Privacy Considerations</name>
