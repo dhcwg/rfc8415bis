@@ -228,7 +228,7 @@ Table of Contents
      23.1.  Client Security Considerations
      23.2.  Server Security Considerations
      23.3.  Reconfigure Security Considerations
-     23.4.  Mitigations to consider
+     23.4.  Mitigations to Consider
    24. Privacy Considerations
    25. IANA Considerations
    26. References
@@ -5957,7 +5957,7 @@ Table of Contents
    predicted will also reduce the probability that such an attack will
    be successful.
 
-23.4.  Mitigations to consider
+23.4.  Mitigations to Consider
 
    Various network environments also offer levels of security if
    deployed as described below.
