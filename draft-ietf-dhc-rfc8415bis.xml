@@ -120,7 +120,7 @@
       server and other configuration information; this data is carried in
       options. DHCPv6 can be extended through the definition of new options
       to carry configuration information not specified in this document.</t>
-      <t>DHCPv6 also provides a mechanism for automated delegation of
+      <t>DHCPv6 also supports a mechanism for automated delegation of
       IPv6 prefixes. Through this mechanism, a delegating router
       can delegate prefixes to requesting routers. Use of this mechanism is
       specified as part of <xref target="RFC7084" format="default"/> and by <xref target="TR-187" format="default"/>.</t>
@@ -427,7 +427,7 @@
           <dt>IA_TA</dt>
           <dd>Identity Association for Temporary Addresses:
             an IA that carries temporary addresses (see <xref target="RFC8981" format="default"/>). This
-            option is obsolete. See <xref target="RFC8415" format="default"/>
+            option is obsoleted by this document. See <xref target="RFC8415" format="default"/>
             for details.</dd>
           <dt>lease</dt>
           <dd>A contract by which the server grants the use
@@ -4305,7 +4305,7 @@ addresses, and this specification is now authoritative for:</t>
       <section anchor="RFC3315-22.5" numbered="true" toc="default">
         <name>Identity Association for Temporary Addresses Option</name>
         <t>The Identity Association for Temporary Addresses (IA_TA) option
-        is obsolete. Please refer to <xref target="RFC8415" format="default"/> for historical
+        is obsoleted. Please refer to <xref target="RFC8415" format="default"/> for historical
         information on this option.</t>
         <t>The client SHOULD NOT send this option. The server SHOULD NOT send this
         option. When the server receives IA_TA option, the option SHOULD be
