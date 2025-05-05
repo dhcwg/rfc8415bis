@@ -252,7 +252,7 @@ Table of Contents
    options to carry configuration information not specified in this
    document.
 
-   DHCPv6 also provides a mechanism for automated delegation of IPv6
+   DHCPv6 also supports a mechanism for automated delegation of IPv6
    prefixes.  Through this mechanism, a delegating router can delegate
    prefixes to requesting routers.  Use of this mechanism is specified
    as part of [RFC7084] and by [TR-187].
@@ -588,7 +588,8 @@ Table of Contents
    IA_TA                     Identity Association for Temporary
                              Addresses: an IA that carries temporary
                              addresses (see [RFC8981]).  This option is
-                             obsolete.  See [RFC8415] for details.
+                             obsoleted by this document.  See [RFC8415]
+                             for details.
 
    lease                     A contract by which the server grants the
                              use of an address or delegated prefix to
@@ -4531,7 +4532,7 @@ Table of Contents
 21.5.  Identity Association for Temporary Addresses Option
 
    The Identity Association for Temporary Addresses (IA_TA) option is
-   obsolete.  Please refer to [RFC8415] for historical information on
+   obsoleted.  Please refer to [RFC8415] for historical information on
    this option.
 
    The client SHOULD NOT send this option.  The server SHOULD NOT send
