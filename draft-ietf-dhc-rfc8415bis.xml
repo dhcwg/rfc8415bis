@@ -818,6 +818,23 @@
         <t>For more information on how the server distinguishes between
         IA option instances, see <xref target="RFC3315-10" format="default"/>.</t>
       </section>
+      <section anchor="use-case-addr-registration" numbered="true" toc="default">
+        <name>Registering Self-generated Addresses</name>
+        <t>The <xref target="RFC9686" format="default"/> introduced a method for
+        devices to register their self-generated or statically configured addresses
+        in the DHCPv6 servers. The general idea is that devices would notify the
+        server about addresses that they are using, so that the server can perform
+        certain administrative tasks, such as update DNS, perform appropriate logging,
+        update routing tables, firewalls or any other tasks, as required by local policy.</t>
+
+        <t>The major difference between other use cases and this is that the address
+        selection is not done by the DHCP server, but by the device itself. The most
+        of the lifecycle remains the same in priciple: a lease is created by the server,
+        and the client performs periodic actions to get the lease renewed, and eventually
+        the lease can expire. However, this mechanism uses different message types
+        (ADDR-REG-INFORM and ADDR-REG-REPLY) and has different source address requirements,
+        as defined in <xref target="RFC9686" format="default"/>.</t>
+      </section>
     </section>
     <section anchor="dhcp-constants" numbered="true" toc="default">
       <name>DHCP Constants</name>
@@ -6649,6 +6666,7 @@ addresses, and this specification is now authoritative for:</t>
         </reference>
         <?rfc include="reference.RFC.8987.xml" ?>
         <?rfc include="reference.RFC.9096.xml" ?>
+        <?rfc include="reference.RFC.9686.xml" ?>
         <reference anchor="TR-187" target="https://www.broadband-forum.org/technical/download/TR-187_Issue-2.pdf">
           <front>
             <title>TR-187 - IPv6 for PPP Broadband Access</title>
