@@ -1064,7 +1064,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mrugalski, et al.</td>
-<td class="center">Expires 4 November 2025</td>
+<td class="center">Expires 6 November 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1080,12 +1080,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc8415" class="eref">8415</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-05-03" class="published">3 May 2025</time>
+<time datetime="2025-05-05" class="published">5 May 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-11-04">4 November 2025</time></dd>
+<dd class="expires"><time datetime="2025-11-06">6 November 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1145,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 4 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 6 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1761,8 +1761,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
         been widely implemented - the assignment of temporary addresses
         using the IA_TA option and allowing clients to unicast some messages
         directly to the server if the server sent the Server Unicast option
-        to a client in an early exchange. It also clarifies that clients, servers, and relay agents
-        can send DHCP messages from any UDP (source) port they are allowed to use including their designated destination ports.
+        to a client in an early exchange. It also clarifies the UDP ports used
+        by clients, servers, and relay agents (<a href="#udp-ports" class="auto internal xref">Section 7.2</a>).
         For a complete list of changes made to <span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span>
         see <a href="#ChangeSummary" class="auto internal xref">Appendix A</a>.<a href="#section-1.1-4" class="pilcrow">¶</a></p>
 </section>
@@ -2606,17 +2606,31 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
 </dl>
 </section>
 </div>
+<div id="udp-ports">
 <section id="section-7.2">
         <h3 id="name-udp-ports">
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-udp-ports" class="section-name selfRef">UDP Ports</a>
         </h3>
-<p id="section-7.2-1">Clients listen for DHCP messages on UDP port 546. Servers and relay
-        agents listen for DHCP messages on UDP port 547.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
-<p id="section-7.2-2">Clients, servers, and relay agents MAY send DHCP messages from any UDP
-        (source) port they are allowed to use, including their designated destination
-        ports. Nevertheless, regardless of the source port used, DHCP messages MUST
-        be sent to ports specified above (e.g., clients sending to port 547).<a href="#section-7.2-2" class="pilcrow">¶</a></p>
+<p id="section-7.2-1">Clients MUST listen for DHCP messages on UDP port 546.
+        Servers and relay agents MUST listen for DHCP messages on
+        UDP port 547.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.2-2">Therefore, clients MUST send DHCP messages to UDP
+        destination port 547. Servers MUST send
+        Relay-reply messages to UDP destination port 547
+        and client messages to UDP destination port 546.
+        Relay agents MUST send Relay-forward and Relay-reply
+        messages to UDP destination port 547 and client messages
+        to UDP destination port 546.<a href="#section-7.2-2" class="pilcrow">¶</a></p>
+<p id="section-7.2-3">It is RECOMMENDED for clients to send messages from UDP
+        source port 546, and servers and relay agents from UDP
+        source port 547. However, clients, servers, and relay agents
+        MAY send DHCP messages from any UDP source port they
+        are allowed to use.<a href="#section-7.2-3" class="pilcrow">¶</a></p>
+<p id="section-7.2-4">Please note that the Relay Source Port Option
+        <span>[<a href="#RFC8357" class="cite xref">RFC8357</a>]</span>
+        changes some of these rules for servers and relays agents.<a href="#section-7.2-4" class="pilcrow">¶</a></p>
 </section>
+</div>
 <div id="RFC3315-5.3">
 <section id="section-7.3">
         <h3 id="name-dhcp-message-types">
@@ -8807,6 +8821,10 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
         <dd>
 <span class="refAuthor">Li, T.</span>, <span class="refAuthor">Liu, C.</span>, and <span class="refAuthor">Y. Cui</span>, <span class="refTitle">"DHCPv6 Prefix-Length Hint Issues"</span>, <span class="seriesInfo">RFC 8168</span>, <span class="seriesInfo">DOI 10.17487/RFC8168</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8168">https://www.rfc-editor.org/info/rfc8168</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC8357">[RFC8357]</dt>
+        <dd>
+<span class="refAuthor">Shen, N.</span> and <span class="refAuthor">E. Chen</span>, <span class="refTitle">"Generalized UDP Source Port for DHCP Relay"</span>, <span class="seriesInfo">RFC 8357</span>, <span class="seriesInfo">DOI 10.17487/RFC8357</span>, <time datetime="2018-03" class="refDate">March 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8357">https://www.rfc-editor.org/info/rfc8357</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8415">[RFC8415]</dt>
         <dd>
 <span class="refAuthor">Mrugalski, T.</span>, <span class="refAuthor">Siodelski, M.</span>, <span class="refAuthor">Volz, B.</span>, <span class="refAuthor">Yourtchenko, A.</span>, <span class="refAuthor">Richardson, M.</span>, <span class="refAuthor">Jiang, S.</span>, <span class="refAuthor">Lemon, T.</span>, and <span class="refAuthor">T. Winters</span>, <span class="refTitle">"Dynamic Host Configuration Protocol for IPv6 (DHCPv6)"</span>, <span class="seriesInfo">RFC 8415</span>, <span class="seriesInfo">DOI 10.17487/RFC8415</span>, <time datetime="2018-11" class="refDate">November 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8415">https://www.rfc-editor.org/info/rfc8415</a>&gt;</span>. </dd>
@@ -8888,7 +8906,8 @@ addresses have been obsoleted.  Indeed, the section (6.5) that erratum
 it documents a method that might be used to generate addresses and was
 inadvertently missed when compiling RFC 8415.<a href="#appendix-A-2.3" class="pilcrow">¶</a>
 </li>
-        <li id="appendix-A-2.4">Clarified that clients, servers, and relay agents can send DHCP messages from any UDP (source) port they are allowed to use including their designated destination ports.<a href="#appendix-A-2.4" class="pilcrow">¶</a>
+        <li id="appendix-A-2.4">Clarified the UDP ports used by clients, servers, and
+        relay agents (<a href="#udp-ports" class="auto internal xref">Section 7.2</a>).<a href="#appendix-A-2.4" class="pilcrow">¶</a>
 </li>
       </ol>
 </section>

@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 4 November 2025                                   M. Richardson
+Expires: 6 November 2025                                   M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                              3 May 2025
+                                                              5 May 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 November 2025.
+   This Internet-Draft will expire on 6 November 2025.
 
 Copyright Notice
 
@@ -303,10 +303,9 @@ Table of Contents
    the assignment of temporary addresses using the IA_TA option and
    allowing clients to unicast some messages directly to the server if
    the server sent the Server Unicast option to a client in an early
-   exchange.  It also clarifies that clients, servers, and relay agents
-   can send DHCP messages from any UDP (source) port they are allowed to
-   use including their designated destination ports.  For a complete
-   list of changes made to [RFC8415] see Appendix A.
+   exchange.  It also clarifies the UDP ports used by clients, servers,
+   and relay agents (Section 7.2).  For a complete list of changes made
+   to [RFC8415] see Appendix A.
 
 1.2.  Relationship to DHCPv4
 
@@ -1029,14 +1028,22 @@ Table of Contents
 
 7.2.  UDP Ports
 
-   Clients listen for DHCP messages on UDP port 546.  Servers and relay
-   agents listen for DHCP messages on UDP port 547.
+   Clients MUST listen for DHCP messages on UDP port 546.  Servers and
+   relay agents MUST listen for DHCP messages on UDP port 547.
 
-   Clients, servers, and relay agents MAY send DHCP messages from any
-   UDP (source) port they are allowed to use, including their designated
-   destination ports.  Nevertheless, regardless of the source port used,
-   DHCP messages MUST be sent to ports specified above (e.g., clients
-   sending to port 547).
+   Therefore, clients MUST send DHCP messages to UDP destination port
+   547.  Servers MUST send Relay-reply messages to UDP destination port
+   547 and client messages to UDP destination port 546.  Relay agents
+   MUST send Relay-forward and Relay-reply messages to UDP destination
+   port 547 and client messages to UDP destination port 546.
+
+   It is RECOMMENDED for clients to send messages from UDP source port
+   546, and servers and relay agents from UDP source port 547.  However,
+   clients, servers, and relay agents MAY send DHCP messages from any
+   UDP source port they are allowed to use.
+
+   Please note that the Relay Source Port Option [RFC8357] changes some
+   of these rules for servers and relays agents.
 
 7.3.  DHCP Message Types
 
@@ -6343,6 +6350,10 @@ Table of Contents
               Issues", RFC 8168, DOI 10.17487/RFC8168, May 2017,
               <https://www.rfc-editor.org/info/rfc8168>.
 
+   [RFC8357]  Shen, N. and E. Chen, "Generalized UDP Source Port for
+              DHCP Relay", RFC 8357, DOI 10.17487/RFC8357, March 2018,
+              <https://www.rfc-editor.org/info/rfc8357>.
+
    [RFC8415]  Mrugalski, T., Siodelski, M., Volz, B., Yourtchenko, A.,
               Richardson, M., Jiang, S., Lemon, T., and T. Winters,
               "Dynamic Host Configuration Protocol for IPv6 (DHCPv6)",
@@ -6413,9 +6424,8 @@ Appendix A.  Summary of Changes
        a method that might be used to generate addresses and was
        inadvertently missed when compiling RFC 8415.
 
-   4.  Clarified that clients, servers, and relay agents can send DHCP
-       messages from any UDP (source) port they are allowed to use
-       including their designated destination ports.
+   4.  Clarified the UDP ports used by clients, servers, and relay
+       agents (Section 7.2).
 
 Appendix B.  Appearance of Options in Message Types
 
