@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 6 November 2025                                   M. Richardson
+Expires: 7 November 2025                                   M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                              5 May 2025
+                                                              6 May 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 November 2025.
+   This Internet-Draft will expire on 7 November 2025.
 
 Copyright Notice
 
@@ -225,6 +225,10 @@ Table of Contents
      21.25. INF_MAX_RT Option
    22. Implementation status
    23. Security Considerations
+     23.1.  Client Security Considerations
+     23.2.  Server Security Considerations
+     23.3.  Reconfigure Security Considerations
+     23.4.  Mitigations to Consider
    24. Privacy Considerations
    25. IANA Considerations
    26. References
@@ -5866,6 +5870,18 @@ Table of Contents
    result.  Some network environments (discussed below) can be secured
    through various means to minimize these attacks.
 
+   The threat common to both the client and the server is the "resource-
+   exhaustion" DoS attack.  These attacks typically involve the
+   exhaustion of available assigned addresses or delegatable prefixes,
+   or the exhaustion of CPU or network bandwidth, and are present any
+   time there is a shared resource.  Some forms of these exhaustion
+   attacks can be partially mitigated by appropriate server policy,
+   e.g., limiting the maximum number of leases any one client can get,
+   limiting the number of leases one client can decline, and limiting
+   number of messages a single client can transmit of a period of time.
+
+23.1.  Client Security Considerations
+
    One attack specific to a DHCP client is the establishment of a
    malicious server with the intent of providing incorrect configuration
    information to the client.  The motivation for doing so may be to
@@ -5888,6 +5904,45 @@ Table of Contents
    accidentally configured DHCP servers that answer DHCP client requests
    with unintentionally incorrect configuration parameters.
 
+   If a client implementation supports Reconfigure mechanism, also see
+   Section 23.3 below.
+
+23.2.  Server Security Considerations
+
+   The threat specific to a DHCP server is an invalid client
+   masquerading as a valid client.  The motivation for this may be for
+   theft of service, or to circumvent auditing for any number of
+   nefarious purposes.
+
+   The messages exchanged between relay agents and servers may be used
+   to mount a man-in-the-middle or DoS attack.  Communication between a
+   server and a relay agent, and communication between relay agents, can
+   be authenticated and encrypted through the use of IPsec, as described
+   in [RFC8213].
+
+   However, the use of manually configured pre-shared keys for IPsec
+   between relay agents and servers does not defend against replayed
+   DHCP messages.  Replayed messages can represent a DoS attack through
+   exhaustion of processing resources but not through misconfiguration
+   or exhaustion of other resources such as assignable addresses and
+   delegatable prefixes.
+
+   If a server implementation supports Reconfigure mechanism, also see
+   Section 23.3 below.
+
+23.3.  Reconfigure Security Considerations
+
+   RKAP, described in Section 20.4, provides protection against the use
+   of a Reconfigure message by a malicious DHCP server to mount a DoS or
+   man-in-the-middle attack on a client.  This protocol can be
+   compromised by an attacker that can intercept the initial message in
+   which the DHCP server sends the key as plain text to the client.
+
+   Because of the opportunity for attack through the Reconfigure
+   message, a DHCP client MUST discard any Reconfigure message that does
+   not include authentication or that does not pass the validation
+   process for the authentication protocol.
+
    A DHCP client may also be subject to attack through the receipt of a
    Reconfigure message from a malicious server that causes the client to
    obtain incorrect configuration information from that server.  Note
@@ -5903,45 +5958,7 @@ Table of Contents
    predicted will also reduce the probability that such an attack will
    be successful.
 
-   Because of the opportunity for attack through the Reconfigure
-   message, a DHCP client MUST discard any Reconfigure message that does
-   not include authentication or that does not pass the validation
-   process for the authentication protocol.
-
-   RKAP, described in Section 20.4, provides protection against the use
-   of a Reconfigure message by a malicious DHCP server to mount a DoS or
-   man-in-the-middle attack on a client.  This protocol can be
-   compromised by an attacker that can intercept the initial message in
-   which the DHCP server sends the key "in plain text" to the client.
-
-   Many of these attacks by rogue servers can be mitigated by making use
-   of the mechanisms described in [RFC7610] and [RFC7513].
-
-   The threat specific to a DHCP server is an invalid client
-   masquerading as a valid client.  The motivation for this may be for
-   theft of service, or to circumvent auditing for any number of
-   nefarious purposes.
-
-   The threat common to both the client and the server is the "resource-
-   exhaustion" DoS attack.  These attacks typically involve the
-   exhaustion of available assigned addresses or delegatable prefixes,
-   or the exhaustion of CPU or network bandwidth, and are present any
-   time there is a shared resource.  Some forms of these exhaustion
-   attacks can be partially mitigated by appropriate server policy,
-   e.g., limiting the maximum number of leases any one client can get.
-
-   The messages exchanged between relay agents and servers may be used
-   to mount a man-in-the-middle or DoS attack.  Communication between a
-   server and a relay agent, and communication between relay agents, can
-   be authenticated and encrypted through the use of IPsec, as described
-   in [RFC8213].
-
-   However, the use of manually configured pre-shared keys for IPsec
-   between relay agents and servers does not defend against replayed
-   DHCP messages.  Replayed messages can represent a DoS attack through
-   exhaustion of processing resources but not through misconfiguration
-   or exhaustion of other resources such as assignable addresses and
-   delegatable prefixes.
+23.4.  Mitigations to Consider
 
    Various network environments also offer levels of security if
    deployed as described below.
@@ -5979,6 +5996,9 @@ Table of Contents
       a premature reconfiguration, but this is relatively easily
       prevented by disallowing direct client-to-client communication on
       these networks or using [RFC7610] and [RFC7513].
+
+   Many of the attacks by rogue servers can be mitigated by making use
+   of the mechanisms described in [RFC7610] and [RFC7513].
 
 24.  Privacy Considerations
 
