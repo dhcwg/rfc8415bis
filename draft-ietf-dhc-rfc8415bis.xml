@@ -4447,11 +4447,9 @@ addresses, and this specification is now authoritative for:</t>
         <t>A client MUST include an Option Request option in a Solicit,
         Request, Renew, Rebind, or Information-request message to
         inform the server about options the client wants the server to send to
-        the client. For certain message types, some option codes MUST be
-        included in the Option Request option; see
-        <xref target="IANA-OPTION-DETAILS" format="default"/> for details.</t>
+        the client.</t>
         <t>The Option Request option MUST NOT include the
-        following options:</t>
+        following option codes:</t>
         <ul spacing="normal">
           <li>Client Identifier (see <xref target="RFC3315-22.2" format="default"/>)</li>
           <li>Server Identifier (see <xref target="RFC3315-22.3" format="default"/>)</li>
@@ -4474,16 +4472,20 @@ addresses, and this specification is now authoritative for:</t>
           <li>Reconfigure Message (see <xref target="RFC3315-22.19" format="default"/>)</li>
           <li>Reconfigure Accept (see <xref target="RFC3315-22.20" format="default"/>)</li>
         </ul>
-        <t>Other top-level options MUST appear in the Option Request
-        option or they will not be sent by the server. Only top-level options
-        MAY appear in the Option Request option. Options encapsulated in a
+        <t>Other top-level option codes MUST appear in the Option Request
+        option or they will not be sent by the server. Only top-level option codes
+        MAY appear in the Option Request option. Option codes encapsulated in a
         container option SHOULD NOT appear in an Option Request option; see
         <xref target="RFC7598" format="default"/> for an example of container options. However,
         options MAY be defined that specify exceptions to this restriction on
-        including encapsulated options in an Option Request option. For
+        including encapsulated option codes in an Option Request option. For
         example, the Option Request option MAY be used to signal support for a
         feature even when that option is encapsulated, as in the case of the
         Prefix Exclude option <xref target="RFC6603" format="default"/>. See <xref target="IANA-OPTION-DETAILS" format="default"/>.
+        </t>
+        <t>
+        See <xref target="IANA-OPTION-DETAILS" format="default"/>
+        for the authoritative list of which option codes are required, permitted or forbidden.
         </t>
       </section>
       <section anchor="RFC3315-22.8" numbered="true" toc="default">
