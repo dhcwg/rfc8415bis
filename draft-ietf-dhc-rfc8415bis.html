@@ -1187,13 +1187,16 @@ svg :is([fill="white"], [fill^="#fff"]) {
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+            <p id="section-toc.1-1.1.1"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-relationship-to-previous-dh" class="internal xref">Relationship to Previous DHCPv6 Standards</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
                 <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-relationship-to-dhcpv4" class="internal xref">Relationship to DHCPv4</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.3">
+                <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="auto internal xref">1.3</a>.  <a href="#name-topics-out-of-scope" class="internal xref">Topics out of scope</a></p>
 </li>
             </ul>
 </li>
@@ -1245,6 +1248,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.5">
                 <p id="section-toc.1-1.6.2.5.1"><a href="#section-6.5" class="auto internal xref">6.5</a>.  <a href="#name-multiple-addresses-and-pref" class="internal xref">Multiple Addresses and Prefixes</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.6">
+                <p id="section-toc.1-1.6.2.6.1"><a href="#section-6.6" class="auto internal xref">6.6</a>.  <a href="#name-registering-self-generated-" class="internal xref">Registering Self-generated Addresses</a></p>
 </li>
             </ul>
 </li>
@@ -1804,6 +1810,18 @@ svg :is([fill="white"], [fill^="#fff"]) {
         a good overview of the issues at hand.<a href="#section-1.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="out-of-scope">
+<section id="section-1.3">
+        <h3 id="name-topics-out-of-scope">
+<a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-topics-out-of-scope" class="section-name selfRef">Topics out of scope</a>
+        </h3>
+<p id="section-1.3-1">This document defines the DHCPv6 protocol behavior. The server policy, such as
+        what options assign to which clients, which subnets or pools of resources to use,
+        which clients' requests should be denied etc. are out of scope for this document.<a href="#section-1.3-1" class="pilcrow">¶</a></p>
+<p id="section-1.3-2">Server configuration, operation and management are also out of scope. One
+        possible way to manage a DHCPv6 server is proposed in <span>[<a href="#RFC9243" class="cite xref">RFC9243</a>]</span>.<a href="#section-1.3-2" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="requirements">
@@ -1860,7 +1878,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
       and communicate with DHCP servers or relay agents on its link.<a href="#section-3-4" class="pilcrow">¶</a></p>
 <p id="section-3-5"><span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span> specifies procedures by which a node may
       autoconfigure addresses based on Router Advertisements <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and the use of a valid lifetime to support
-      renumbering of addresses on the Internet. Compatibility with stateless
+      renumbering of addresses on the Internet. The topic of renumbering is
+      discussed in <span>[<a href="#RFC9096" class="cite xref">RFC9096</a>]</span>. Compatibility with stateless
       address autoconfiguration is a design requirement of DHCP.<a href="#section-3-5" class="pilcrow">¶</a></p>
 <p id="section-3-6">IPv6 Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> is the
       node discovery protocol in IPv6 that replaces and enhances functions of
@@ -2327,7 +2346,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
           The client then
           performs the two-message exchange as described earlier. This can be used to
           expedite configuration changes to a client, such as the need to renumber
-          a network (see <span>[<a href="#RFC6879" class="cite xref">RFC6879</a>]</span>).<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+          a network (see <span>[<a href="#RFC6879" class="cite xref">RFC6879</a>]</span> and <span>[<a href="#RFC9096" class="cite xref">RFC9096</a>]</span>).<a href="#section-5.3-1" class="pilcrow">¶</a></p>
 </section>
 </section>
 </div>
@@ -2580,6 +2599,26 @@ svg :is([fill="white"], [fill^="#fff"]) {
         out of scope for this document.<a href="#section-6.5-4" class="pilcrow">¶</a></p>
 <p id="section-6.5-5">For more information on how the server distinguishes between
         IA option instances, see <a href="#RFC3315-10" class="auto internal xref">Section 12</a>.<a href="#section-6.5-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="use-case-addr-registration">
+<section id="section-6.6">
+        <h3 id="name-registering-self-generated-">
+<a href="#section-6.6" class="section-number selfRef">6.6. </a><a href="#name-registering-self-generated-" class="section-name selfRef">Registering Self-generated Addresses</a>
+        </h3>
+<p id="section-6.6-1">The <span>[<a href="#RFC9686" class="cite xref">RFC9686</a>]</span> introduced a method for
+        devices to register their self-generated or statically configured addresses
+        in the DHCPv6 servers. The general idea is that devices would notify the
+        server about addresses that they are using, so that the server can perform
+        certain administrative tasks, such as update DNS, perform appropriate logging,
+        update routing tables, firewalls or any other tasks, as required by local policy.<a href="#section-6.6-1" class="pilcrow">¶</a></p>
+<p id="section-6.6-2">The major difference between other use cases and this is that the address
+        selection is not done by the DHCP server, but by the device itself. The most
+        of the lifecycle remains the same in priciple: a lease is created by the server,
+        and the client performs periodic actions to get the lease renewed, and eventually
+        the lease can expire. However, this mechanism uses different message types
+        (ADDR-REG-INFORM and ADDR-REG-REPLY) and has different source address requirements,
+        as defined in <span>[<a href="#RFC9686" class="cite xref">RFC9686</a>]</span>.<a href="#section-6.6-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -8901,6 +8940,14 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
 <dt id="RFC9096">[RFC9096]</dt>
         <dd>
 <span class="refAuthor">Gont, F.</span>, <span class="refAuthor">Žorž, J.</span>, <span class="refAuthor">Patterson, R.</span>, and <span class="refAuthor">B. Volz</span>, <span class="refTitle">"Improving the Reaction of Customer Edge Routers to IPv6 Renumbering Events"</span>, <span class="seriesInfo">BCP 234</span>, <span class="seriesInfo">RFC 9096</span>, <span class="seriesInfo">DOI 10.17487/RFC9096</span>, <time datetime="2021-08" class="refDate">August 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9096">https://www.rfc-editor.org/info/rfc9096</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9243">[RFC9243]</dt>
+        <dd>
+<span class="refAuthor">Farrer, I., Ed.</span>, <span class="refTitle">"A YANG Data Model for DHCPv6 Configuration"</span>, <span class="seriesInfo">RFC 9243</span>, <span class="seriesInfo">DOI 10.17487/RFC9243</span>, <time datetime="2022-06" class="refDate">June 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9243">https://www.rfc-editor.org/info/rfc9243</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9686">[RFC9686]</dt>
+        <dd>
+<span class="refAuthor">Kumari, W.</span>, <span class="refAuthor">Krishnan, S.</span>, <span class="refAuthor">Asati, R.</span>, <span class="refAuthor">Colitti, L.</span>, <span class="refAuthor">Linkova, J.</span>, and <span class="refAuthor">S. Jiang</span>, <span class="refTitle">"Registering Self-Generated IPv6 Addresses Using DHCPv6"</span>, <span class="seriesInfo">RFC 9686</span>, <span class="seriesInfo">DOI 10.17487/RFC9686</span>, <time datetime="2024-12" class="refDate">December 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9686">https://www.rfc-editor.org/info/rfc9686</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="TR-187">[TR-187]</dt>
       <dd>
