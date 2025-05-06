@@ -5779,14 +5779,24 @@ addresses, and this specification is now authoritative for:</t>
       to update all references to <xref target="RFC8415" format="default"/> to this
       document at
       &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt;.</t>
-      <t>IANA is requested to mark the IA_TA (option code 4) and
-      UNICAST (option code 12) in the Option Codes table at
-      &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt; as
-      obsolete.</t>
-      <t>IANA is requested to mark the UseMulticast (status code 5) in
-      the Status Codes table at
-      &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt; as
-      obsolete.</t>
+      <t>
+        IANA is requested to add a new column "Status" to all
+        registries on the DHCPv6 parameters page at
+        &lt;https://www.iana.org/assignments/dhcpv6-parameters&gt;
+        and leave each entry blank except as indicated below:
+      </t>
+      <ul spacing="normal">
+        <li>
+          In the Option Code registry, set the "Status" column value
+          to "Obsolete" for the IA_TA (option code 4) and UNICAST
+          (option code 12) rows.
+        </li>
+        <li>
+          In the Status Codes registry, set the "Status" column value
+          to "Obsolete" for the UseMulticast (status code 5) row.
+        </li>
+      </ul>
+
       <t>IANA is requested to update other references to <xref target="RFC8415" format="default"/>
       with references to this document at:
       </t>
