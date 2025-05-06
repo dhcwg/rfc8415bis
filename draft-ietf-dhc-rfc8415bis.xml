@@ -194,6 +194,14 @@
         together. While <xref target="RFC4477" format="default"/> is a bit dated, it provides
         a good overview of the issues at hand.</t>
       </section>
+      <section anchor="out-of-scope" numbered="true" toc="default">
+        <name>Topics out of scope</name>
+        <t>This document defines the DHCPv6 protocol behavior. The server policy, such as
+        what options assign to which clients, which subnets or pools of resources to use,
+        which clients' requests should be denied etc. are out of scope for this document.</t>
+        <t>Server configuration, operation and management are also out of scope. One
+        possible way to manage a DHCPv6 server is proposed in <xref target="RFC9243" format="default"/>.</t>
+      </section>
     </section>
     <section anchor="requirements" numbered="true" toc="default">
       <name>Requirements</name>
@@ -6666,6 +6674,7 @@ addresses, and this specification is now authoritative for:</t>
         </reference>
         <?rfc include="reference.RFC.8987.xml" ?>
         <?rfc include="reference.RFC.9096.xml" ?>
+        <?rfc include="reference.RFC.9243.xml" ?>
         <?rfc include="reference.RFC.9686.xml" ?>
         <reference anchor="TR-187" target="https://www.broadband-forum.org/technical/download/TR-187_Issue-2.pdf">
           <front>
