@@ -4459,8 +4459,7 @@ addresses, and this specification is now authoritative for:</t>
         </t>
         <t>
         See <xref target="IANA-OPTION-DETAILS" format="default"/>
-        for the authoritative list of which option codes that MUST,
-        MUST NOT, and MAY be included.
+        for the authoritative list of which option codes are required, permitted or forbidden.
         </t>
       </section>
       <section anchor="RFC3315-22.8" numbered="true" toc="default">
