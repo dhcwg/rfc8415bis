@@ -247,7 +247,8 @@
       and communicate with DHCP servers or relay agents on its link.</t>
       <t><xref target="RFC4862" format="default"/> specifies procedures by which a node may
       autoconfigure addresses based on Router Advertisements <xref target="RFC4861" format="default"/> and the use of a valid lifetime to support
-      renumbering of addresses on the Internet. Compatibility with stateless
+      renumbering of addresses on the Internet. The topic of renumbering is
+      discussed in <xref target="RFC9096" format="default"/>. Compatibility with stateless
       address autoconfiguration is a design requirement of DHCP.</t>
       <t>IPv6 Neighbor Discovery <xref target="RFC4861" format="default"/> is the
       node discovery protocol in IPv6 that replaces and enhances functions of
@@ -596,7 +597,7 @@
           The client then
           performs the two-message exchange as described earlier. This can be used to
           expedite configuration changes to a client, such as the need to renumber
-          a network (see <xref target="RFC6879" format="default"/>).
+          a network (see <xref target="RFC6879" format="default"/> and <xref target="RFC9096" format="default"/>).
         </t>
       </section>
     </section>
