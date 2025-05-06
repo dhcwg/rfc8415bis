@@ -528,7 +528,8 @@
         configuration information such as a
         list of available DNS servers <xref target="RFC3646" format="default"/> or
         NTP servers <xref target="RFC5908" format="default"/> through a single message and
-        reply exchange with a DHCP server. To obtain other configuration
+        reply exchange with a DHCP server (as originally described in
+        <xref target="RFC3736" format="default" />). To obtain other configuration
         information, the client first sends an Information-request message to
         the All_DHCP_Relay_Agents_and_Servers multicast address. Servers
         respond with a Reply message containing the other configuration
@@ -711,9 +712,9 @@
         a subnet from a delegated prefix to one of its interfaces and begin
         sending Router Advertisements for the prefix on that link.
         </li>
-        <li>
+        </ul>
         <t>Each prefix has an associated preferred lifetime and
-        valid lifetime, which constitute an agreement about the length of time
+        valid lifetime (see <xref target="RFC3315-10.2" format="default" />), which constitute an agreement about the length of time
         over which the client is allowed to use the prefix. A client
         can request an extension of the lifetimes on a delegated prefix and is
         required to terminate the use of a delegated prefix if the valid
@@ -825,10 +826,10 @@
         such as when a network renumbering event is in progress. In a typical
         deployment, the server will grant one address for each IA_NA
         option (see <xref target="RFC3315-22.4" format="default"/>).</t>
-        <t>A client can explicitly request multiple addresses by sending
+        <t>To meet the recommendations of <xref target="RFC7934" format="default" />,
+        A client can explicitly request multiple addresses by sending
         multiple IA_NA options. A client can send multiple
-        IA_NA options in its initial transmissions
-        (<xref target="RFC7934" format="default" />).
+        IA_NA options in its initial transmissions.
         Alternatively, it can send an extra Request message
         with additional new IA_NA options (or include them
         in a Renew message).</t>
@@ -848,17 +849,16 @@
       </section>
       <section anchor="use-case-addr-registration" numbered="true" toc="default">
         <name>Registering Self-generated Addresses</name>
-        <t>The <xref target="RFC9686" format="default"/> introduced a method for
+        <t><xref target="RFC9686" format="default"/> introduced a method for
         devices to register their self-generated or statically configured addresses
         in the DHCPv6 servers. The general idea is that devices would notify the
-        server about addresses that they are using, so that the server can perform
-        certain administrative tasks, such as update DNS, perform appropriate logging,
-        update routing tables, firewalls or any other tasks, as required by local policy.</t>
+        server about addresses that they are using, so that the server can log
+        or record these addresses as required by local policy.</t>
 
         <t>The major difference between other use cases and this is that the address
         selection is not done by the DHCP server, but by the device itself. The most
         of the lifecycle remains the same in priciple: a lease is created by the server,
-        and the client performs periodic actions to get the lease renewed, and eventually
+        and the device performs periodic actions to get the lease renewed, and eventually
         the lease can expire. However, this mechanism uses different message types
         (ADDR-REG-INFORM and ADDR-REG-REPLY) and has different source address requirements,
         as defined in <xref target="RFC9686" format="default"/>.</t>
@@ -2121,8 +2121,8 @@ addresses, and this specification is now authoritative for:</t>
       <t>A DHCP client that does not need to have a DHCP server assign
       IP addresses or delegated prefixes to it can obtain configuration
       information such as a list of available DNS servers <xref target="RFC3646" format="default"/> or NTP servers <xref target="RFC5908" format="default"/> through a
-      single message and reply exchange with a DHCP server.
-      (As originally described in <xref target="RFC3736" format="default" />).
+      single message and reply exchange with a DHCP server
+      (as originally described in <xref target="RFC3736" format="default" />).
       To obtain
       configuration information, the client first sends an Information-request
       message (see <xref target="RFC3315-18.1.5" format="default"/>) to the
@@ -2622,9 +2622,8 @@ addresses, and this specification is now authoritative for:</t>
         <section anchor="RFC3315-18.1.5" numbered="true" toc="default">
           <name>Creation and Transmission of Information-request Messages</name>
           <t>The client uses an Information-request message to obtain
-          configuration information without having addresses and/or delegated
-          prefixes assigned to it without using DHCPv6 to request addresses
-          or prefixes.</t>
+          configuration information without requesting addresses and/or delegated
+          prefixes to be assigned.</t>
           <t>The client sets the "msg-type" field to INFORMATION-REQUEST. The
           client generates a transaction ID and inserts this value in the
           "transaction-id" field.</t>
@@ -5689,7 +5688,7 @@ addresses, and this specification is now authoritative for:</t>
       accidentally configured DHCP servers that answer DHCP client requests
       with unintentionally incorrect configuration parameters.</t>
 
-      <t>If a client implementation supports Reconfigure mechanism, also see
+      <t>If a client implementation supports the reconfigure mechanism, also see
       <xref target="security-rkap"/> below.</t>
 
       </section>
@@ -5714,7 +5713,7 @@ addresses, and this specification is now authoritative for:</t>
       exhaustion of other resources such as assignable addresses and
       delegatable prefixes.</t>
 
-      <t>If a server implementation supports Reconfigure mechanism, also see
+      <t>If a server implementation supports the reconfigure mechanism, also see
       <xref target="security-rkap"/> below.</t>
 
       </section>
@@ -6781,6 +6780,8 @@ inadvertently missed when compiling RFC 8415.
 </li>
         <li>Clarified the UDP ports used by clients, servers, and
         relay agents (<xref target="udp-ports" format="default"/>).</li>
+        <li>Several additional RFCs have been referenced and editorial
+        and reviews comments incorporated.”?</li>
       </ol>
     </section>
     <section anchor="RFC3315-A" numbered="true" toc="default">
