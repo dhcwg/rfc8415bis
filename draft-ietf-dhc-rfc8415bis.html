@@ -1196,7 +1196,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-relationship-to-dhcpv4" class="internal xref">Relationship to DHCPv4</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.3">
-                <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="auto internal xref">1.3</a>.  <a href="#name-topics-out-of-scope" class="internal xref">Topics out of scope</a></p>
+                <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="auto internal xref">1.3</a>.  <a href="#name-topics-out-of-scope" class="internal xref">Topics Out of Scope</a></p>
 </li>
             </ul>
 </li>
@@ -1667,7 +1667,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.23.2.3.1"><a href="#section-23.3" class="auto internal xref">23.3</a>.  <a href="#name-reconfigure-security-consid" class="internal xref">Reconfigure Security Considerations</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.23.2.4">
-                <p id="section-toc.1-1.23.2.4.1"><a href="#section-23.4" class="auto internal xref">23.4</a>.  <a href="#name-mitigations-to-consider" class="internal xref">Mitigations to Consider</a></p>
+                <p id="section-toc.1-1.23.2.4.1"><a href="#section-23.4" class="auto internal xref">23.4</a>.  <a href="#name-mitigation-considerations" class="internal xref">Mitigation Considerations</a></p>
 </li>
             </ul>
 </li>
@@ -1813,7 +1813,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div id="out-of-scope">
 <section id="section-1.3">
         <h3 id="name-topics-out-of-scope">
-<a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-topics-out-of-scope" class="section-name selfRef">Topics out of scope</a>
+<a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-topics-out-of-scope" class="section-name selfRef">Topics Out of Scope</a>
         </h3>
 <p id="section-1.3-1">This document defines the DHCPv6 protocol behavior. The server policy, such as
         what options assign to which clients, which subnets or pools of resources to use,
@@ -1878,8 +1878,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       and communicate with DHCP servers or relay agents on its link.<a href="#section-3-4" class="pilcrow">¶</a></p>
 <p id="section-3-5"><span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span> specifies procedures by which a node may
       autoconfigure addresses based on Router Advertisements <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and the use of a valid lifetime to support
-      renumbering of addresses on the Internet. The topic of renumbering is
-      discussed in <span>[<a href="#RFC9096" class="cite xref">RFC9096</a>]</span>. Compatibility with stateless
+      renumbering of addresses on the Internet. Compatibility with stateless
       address autoconfiguration is a design requirement of DHCP.<a href="#section-3-5" class="pilcrow">¶</a></p>
 <p id="section-3-6">IPv6 Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> is the
       node discovery protocol in IPv6 that replaces and enhances functions of
@@ -2271,7 +2270,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
         configuration information such as a
         list of available DNS servers <span>[<a href="#RFC3646" class="cite xref">RFC3646</a>]</span> or
         NTP servers <span>[<a href="#RFC5908" class="cite xref">RFC5908</a>]</span> through a single message and
-        reply exchange with a DHCP server. To obtain other configuration
+        reply exchange with a DHCP server (as originally described in
+        <span>[<a href="#RFC3736" class="cite xref">RFC3736</a>]</span>). To obtain other configuration
         information, the client first sends an Information-request message to
         the All_DHCP_Relay_Agents_and_Servers multicast address. Servers
         respond with a Reply message containing the other configuration
@@ -2395,25 +2395,31 @@ svg :is([fill="white"], [fill^="#fff"]) {
         impractical, e.g., because of network policy, additional requirements
         such as dynamic updates to the DNS, or client-specific requirements.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.2-2">The model of operation for non-temporary address assignment is as
-        follows: The server is provided with prefixes from which it may
+        follows:<a href="#section-6.2-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.2-3.1">The server is provided with prefixes from which it may
         assign addresses to clients, as well as any related network topology
-        information as to which prefixes are present on which links. A client
-        requests a non-temporary address to be assigned by the server. The
+        information as to which prefixes are present on which links.<a href="#section-6.2-3.1" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-6.2-3.2">A client requests a non-temporary address to be assigned by the server. The
         server allocates an address or addresses appropriate for the link on
-        which the client is connected. The server returns the allocated
-        address or addresses to the client.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
-<p id="section-6.2-3">Each address has associated preferred and valid lifetimes (see <a href="#RFC3315-10.1" class="auto internal xref">Section 12.1</a>), which
+        which the client is connected.<a href="#section-6.2-3.2" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-6.2-3.3">The server returns the allocated address or addresses to the client.<a href="#section-6.2-3.3" class="pilcrow">¶</a>
+</li>
+        </ul>
+<p id="section-6.2-4">Each address has associated preferred and valid lifetimes (see <a href="#RFC3315-10.1" class="auto internal xref">Section 12.1</a>), which
         constitute an agreement about the length of time over which the
         client is allowed to use the address. A client can request an
         extension of the lifetimes on an address and is required to terminate
         the use of an address if the valid lifetime of the address
-        expires.<a href="#section-6.2-3" class="pilcrow">¶</a></p>
-<p id="section-6.2-4">Typically, clients request other configuration parameters, such as
+        expires.<a href="#section-6.2-4" class="pilcrow">¶</a></p>
+<p id="section-6.2-5">Typically, clients request other configuration parameters, such as
         the DNS name server addresses and domain search lists, when requesting
-        addresses.<a href="#section-6.2-4" class="pilcrow">¶</a></p>
-<p id="section-6.2-5">Clients can also request more than one address or set of addresses
+        addresses.<a href="#section-6.2-5" class="pilcrow">¶</a></p>
+<p id="section-6.2-6">Clients can also request more than one address or set of addresses
         (see Sections <a href="#multiple-addrs" class="auto internal xref">6.5</a>
-        and <a href="#RFC3315-10" class="auto internal xref">12</a>).<a href="#section-6.2-5" class="pilcrow">¶</a></p>
+        and <a href="#RFC3315-10" class="auto internal xref">12</a>).<a href="#section-6.2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="OpModes-PD">
@@ -2448,26 +2454,36 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <span>[<a href="#RFC8200" class="cite xref">RFC8200</a>]</span>. Therefore, this document mostly replaces
         "requesting router" with "client" and "delegating router" with
         "server".<a href="#section-6.3-3" class="pilcrow">¶</a></p>
-<p id="section-6.3-4">The model of operation for prefix delegation is as follows. A
+<p id="section-6.3-4">The model of operation for prefix delegation is as follows:<a href="#section-6.3-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3-5.1">The
         server is provisioned with prefixes to be delegated to
-        clients. A client requests prefix(es) from the
-        server, as described in <a href="#configuration-exchange" class="auto internal xref">Section 18</a>. The server chooses
+        clients.<a href="#section-6.3-5.1" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-6.3-5.2">A client requests prefix(es) from the
+        server, as described in <a href="#configuration-exchange" class="auto internal xref">Section 18</a>.<a href="#section-6.3-5.2" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-6.3-5.3">The server chooses
         prefix(es) for delegation and responds with prefix(es) to the
-        client. The client is then responsible for the
+        client.<a href="#section-6.3-5.3" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-6.3-5.4">The client is then responsible for the
         delegated prefix(es). For example, the client might assign
         a subnet from a delegated prefix to one of its interfaces and begin
-        sending Router Advertisements for the prefix on that link.<a href="#section-6.3-4" class="pilcrow">¶</a></p>
-<p id="section-6.3-5">Each prefix has an associated preferred lifetime and
-        valid lifetime, which constitute an agreement about the length of time
+        sending Router Advertisements for the prefix on that link.<a href="#section-6.3-5.4" class="pilcrow">¶</a>
+</li>
+        </ul>
+<p id="section-6.3-6">Each prefix has an associated preferred lifetime and
+        valid lifetime (see <a href="#RFC3315-10.2" class="auto internal xref">Section 12.2</a>), which constitute an agreement about the length of time
         over which the client is allowed to use the prefix. A client
         can request an extension of the lifetimes on a delegated prefix and is
         required to terminate the use of a delegated prefix if the valid
-        lifetime of the prefix expires.<a href="#section-6.3-5" class="pilcrow">¶</a></p>
-<p id="section-6.3-6"><a href="#FigISPNetwork" class="auto internal xref">Figure 1</a> illustrates a network
-        architecture in which prefix delegation could be used.<a href="#section-6.3-6" class="pilcrow">¶</a></p>
+        lifetime of the prefix expires.<a href="#section-6.3-6" class="pilcrow">¶</a></p>
+<p id="section-6.3-7"><a href="#FigISPNetwork" class="auto internal xref">Figure 1</a> illustrates a network
+        architecture in which prefix delegation could be used.<a href="#section-6.3-7" class="pilcrow">¶</a></p>
 <span id="name-prefix-delegation-network"></span><div id="FigISPNetwork">
 <figure id="figure-1">
-          <div class="alignLeft art-ascii-art art-text artwork" id="section-6.3-7.1">
+          <div class="alignLeft art-ascii-art art-text artwork" id="section-6.3-8.1">
 <pre>
 
                    ______________________         \
@@ -2502,7 +2518,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-prefix-delegation-network" class="selfRef">Prefix Delegation Network</a>
           </figcaption></figure>
 </div>
-<p id="section-6.3-8">In this example, the server (delegating router) is configured with a set of
+<p id="section-6.3-9">In this example, the server (delegating router) is configured with a set of
         prefixes to be used for assignment to customers at the time of each
         customer's first connection to the ISP service. The prefix delegation
         process begins when the client (requesting router) requests configuration
@@ -2511,21 +2527,21 @@ svg :is([fill="white"], [fill^="#fff"]) {
         the server receives the request, it selects an available
         prefix or prefixes for delegation to the client. The
         server then returns the prefix or prefixes to the
-        client.<a href="#section-6.3-8" class="pilcrow">¶</a></p>
-<p id="section-6.3-9">The client subnets the delegated prefix and assigns the
+        client.<a href="#section-6.3-9" class="pilcrow">¶</a></p>
+<p id="section-6.3-10">The client subnets the delegated prefix and assigns the
         longer prefixes to links in the subscriber's network. In a typical
         scenario based on the network shown in <a href="#FigISPNetwork" class="auto internal xref">Figure 1</a>, the client subnets a single
         delegated /48 prefix into /64 prefixes and assigns one /64 prefix to
-        each of the links in the subscriber network.<a href="#section-6.3-9" class="pilcrow">¶</a></p>
-<p id="section-6.3-10">The prefix delegation options can be used in conjunction with other
+        each of the links in the subscriber network.<a href="#section-6.3-10" class="pilcrow">¶</a></p>
+<p id="section-6.3-11">The prefix delegation options can be used in conjunction with other
         DHCP options carrying other configuration information to the
         client. The client may, in turn, provide DHCP
         service to nodes attached to the internal network. For example, the
         client may obtain the addresses of DNS and NTP servers from
         the ISP server and then pass that configuration
         information on to the subscriber hosts through a DHCP server in the
-        client (requesting router).<a href="#section-6.3-10" class="pilcrow">¶</a></p>
-<p id="section-6.3-11">If the client uses a delegated prefix to configure addresses on
+        client (requesting router).<a href="#section-6.3-11" class="pilcrow">¶</a></p>
+<p id="section-6.3-12">If the client uses a delegated prefix to configure addresses on
        interfaces on itself or other nodes behind it, the preferred and
        valid lifetimes of those addresses MUST be no longer than the
        remaining preferred and valid lifetimes, respectively, for the
@@ -2533,8 +2549,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
        prefix or a prefix derived from it is advertised for stateless
        address autoconfiguration <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>, the advertised
        preferred and valid lifetimes MUST NOT exceed the corresponding
-       remaining lifetimes of the delegated prefix.<a href="#section-6.3-11" class="pilcrow">¶</a></p>
-<p id="section-6.3-12">
+       remaining lifetimes of the delegated prefix.<a href="#section-6.3-12" class="pilcrow">¶</a></p>
+<p id="section-6.3-13">
          A client that has delegated any of the address space received through
          DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant
          delegated prefix while any of the address space is outstanding.
@@ -2542,13 +2558,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
          Best Current Practice.
          That includes addresses leased out by DHCPv6 (IA_NA), prefixes delegated
          via DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router
-         Advertisements.<a href="#section-6.3-12" class="pilcrow">¶</a></p>
-<p id="section-6.3-13">
+         Advertisements.<a href="#section-6.3-13" class="pilcrow">¶</a></p>
+<p id="section-6.3-14">
          <span>[<a href="#RFC9096" class="cite xref">RFC9096</a>]</span> section 3.3 further
          provides more guidance on coordination of lifetimes between WAN
-         (DHCPv6-PD client) and LAN (DHCPv6-PD server) sides.<a href="#section-6.3-13" class="pilcrow">¶</a></p>
-<p id="section-6.3-14">Several problems related to Prefix Delegation and Relay Agents and a set of
-       requirements to address them are defined in <span>[<a href="#RFC8987" class="cite xref">RFC8987</a>]</span>.<a href="#section-6.3-14" class="pilcrow">¶</a></p>
+         (DHCPv6-PD client) and LAN (DHCPv6-PD server) sides.<a href="#section-6.3-14" class="pilcrow">¶</a></p>
+<p id="section-6.3-15">Several problems related to Prefix Delegation and Relay Agents and a set of
+       requirements to address them are defined in <span>[<a href="#RFC8987" class="cite xref">RFC8987</a>]</span>.<a href="#section-6.3-15" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="OpModes-CPE">
@@ -2557,7 +2573,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-dhcp-for-customer-edge-rout" class="section-name selfRef">DHCP for Customer Edge Routers</a>
         </h3>
 <p id="section-6.4-1">The DHCP requirements and network architecture for Customer Edge
-        Routers are described in <span>[<a href="#RFC7084" class="cite xref">RFC7084</a>]</span>. This model of
+        Routers are described in <span>[<a href="#RFC7084" class="cite xref">RFC7084</a>]</span>,
+        with improvements for renumbering described in
+        <span>[<a href="#RFC9096" class="cite xref">RFC9096</a>]</span>. This model of
         operation combines address assignment (see <a href="#OpModes-NA" class="auto internal xref">Section 6.2</a>) and prefix delegation (see <a href="#OpModes-PD" class="auto internal xref">Section 6.3</a>). In general, this model assumes that a
         single set of transactions between the client and server will assign
         or extend the client's non-temporary addresses and delegated
@@ -2579,10 +2597,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
         such as when a network renumbering event is in progress. In a typical
         deployment, the server will grant one address for each IA_NA
         option (see <a href="#RFC3315-22.4" class="auto internal xref">Section 21.4</a>).<a href="#section-6.5-1" class="pilcrow">¶</a></p>
-<p id="section-6.5-2">A client can explicitly request multiple addresses by sending
+<p id="section-6.5-2">To meet the recommendations of <span>[<a href="#RFC7934" class="cite xref">RFC7934</a>]</span>,
+        A client can explicitly request multiple addresses by sending
         multiple IA_NA options. A client can send multiple
-        IA_NA options in its initial transmissions
-        (<span>[<a href="#RFC7934" class="cite xref">RFC7934</a>]</span>).
+        IA_NA options in its initial transmissions.
         Alternatively, it can send an extra Request message
         with additional new IA_NA options (or include them
         in a Renew message).<a href="#section-6.5-2" class="pilcrow">¶</a></p>
@@ -2606,16 +2624,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-registering-self-generated-">
 <a href="#section-6.6" class="section-number selfRef">6.6. </a><a href="#name-registering-self-generated-" class="section-name selfRef">Registering Self-generated Addresses</a>
         </h3>
-<p id="section-6.6-1">The <span>[<a href="#RFC9686" class="cite xref">RFC9686</a>]</span> introduced a method for
+<p id="section-6.6-1"><span>[<a href="#RFC9686" class="cite xref">RFC9686</a>]</span> introduced a method for
         devices to register their self-generated or statically configured addresses
         in the DHCPv6 servers. The general idea is that devices would notify the
-        server about addresses that they are using, so that the server can perform
-        certain administrative tasks, such as update DNS, perform appropriate logging,
-        update routing tables, firewalls or any other tasks, as required by local policy.<a href="#section-6.6-1" class="pilcrow">¶</a></p>
+        server about addresses that they are using, so that the server can log
+        or record these addresses as required by local policy.<a href="#section-6.6-1" class="pilcrow">¶</a></p>
 <p id="section-6.6-2">The major difference between other use cases and this is that the address
         selection is not done by the DHCP server, but by the device itself. The most
         of the lifecycle remains the same in priciple: a lease is created by the server,
-        and the client performs periodic actions to get the lease renewed, and eventually
+        and the device performs periodic actions to get the lease renewed, and eventually
         the lease can expire. However, this mechanism uses different message types
         (ADDR-REG-INFORM and ADDR-REG-REPLY) and has different source address requirements,
         as defined in <span>[<a href="#RFC9686" class="cite xref">RFC9686</a>]</span>.<a href="#section-6.6-2" class="pilcrow">¶</a></p>
@@ -4172,8 +4189,8 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
 <p id="section-18-4">A DHCP client that does not need to have a DHCP server assign
       IP addresses or delegated prefixes to it can obtain configuration
       information such as a list of available DNS servers <span>[<a href="#RFC3646" class="cite xref">RFC3646</a>]</span> or NTP servers <span>[<a href="#RFC5908" class="cite xref">RFC5908</a>]</span> through a
-      single message and reply exchange with a DHCP server.
-      (As originally described in <span>[<a href="#RFC3736" class="cite xref">RFC3736</a>]</span>).
+      single message and reply exchange with a DHCP server
+      (as originally described in <span>[<a href="#RFC3736" class="cite xref">RFC3736</a>]</span>).
       To obtain
       configuration information, the client first sends an Information-request
       message (see <a href="#RFC3315-18.1.5" class="auto internal xref">Section 18.2.6</a>) to the
@@ -4752,9 +4769,8 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
 <a href="#section-18.2.6" class="section-number selfRef">18.2.6. </a><a href="#name-creation-and-transmission-of-i" class="section-name selfRef">Creation and Transmission of Information-request Messages</a>
           </h4>
 <p id="section-18.2.6-1">The client uses an Information-request message to obtain
-          configuration information without having addresses and/or delegated
-          prefixes assigned to it without using DHCPv6 to request addresses
-          or prefixes.<a href="#section-18.2.6-1" class="pilcrow">¶</a></p>
+          configuration information without requesting addresses and/or delegated
+          prefixes to be assigned.<a href="#section-18.2.6-1" class="pilcrow">¶</a></p>
 <p id="section-18.2.6-2">The client sets the "msg-type" field to INFORMATION-REQUEST. The
           client generates a transaction ID and inserts this value in the
           "transaction-id" field.<a href="#section-18.2.6-2" class="pilcrow">¶</a></p>
@@ -8463,7 +8479,7 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
 <p id="section-23.1-3">Another threat to DHCP clients originates from mistakenly or
       accidentally configured DHCP servers that answer DHCP client requests
       with unintentionally incorrect configuration parameters.<a href="#section-23.1-3" class="pilcrow">¶</a></p>
-<p id="section-23.1-4">If a client implementation supports Reconfigure mechanism, also see
+<p id="section-23.1-4">If a client implementation supports the reconfigure mechanism, also see
       <a href="#security-rkap" class="auto internal xref">Section 23.3</a> below.<a href="#section-23.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -8486,7 +8502,7 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
       exhaustion of processing resources but not through misconfiguration or
       exhaustion of other resources such as assignable addresses and
       delegatable prefixes.<a href="#section-23.2-3" class="pilcrow">¶</a></p>
-<p id="section-23.2-4">If a server implementation supports Reconfigure mechanism, also see
+<p id="section-23.2-4">If a server implementation supports the reconfigure mechanism, also see
       <a href="#security-rkap" class="auto internal xref">Section 23.3</a> below.<a href="#section-23.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -8522,8 +8538,8 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
 </div>
 <div id="security-mitigation">
 <section id="section-23.4">
-        <h3 id="name-mitigations-to-consider">
-<a href="#section-23.4" class="section-number selfRef">23.4. </a><a href="#name-mitigations-to-consider" class="section-name selfRef">Mitigations to Consider</a>
+        <h3 id="name-mitigation-considerations">
+<a href="#section-23.4" class="section-number selfRef">23.4. </a><a href="#name-mitigation-considerations" class="section-name selfRef">Mitigation Considerations</a>
         </h3>
 <p id="section-23.4-1">Various network environments also offer levels of security if deployed
       as described below.<a href="#section-23.4-1" class="pilcrow">¶</a></p>
@@ -9013,6 +9029,9 @@ inadvertently missed when compiling RFC 8415.<a href="#appendix-A-2.3" class="p
 </li>
         <li id="appendix-A-2.4">Clarified the UDP ports used by clients, servers, and
         relay agents (<a href="#udp-ports" class="auto internal xref">Section 7.2</a>).<a href="#appendix-A-2.4" class="pilcrow">¶</a>
+</li>
+        <li id="appendix-A-2.5">Several additional RFCs have been referenced and editorial
+        and reviews comments incorporated.<a href="#appendix-A-2.5" class="pilcrow">¶</a>
 </li>
       </ol>
 </section>
