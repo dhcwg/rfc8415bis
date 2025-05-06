@@ -195,7 +195,7 @@
         a good overview of the issues at hand.</t>
       </section>
       <section anchor="out-of-scope" numbered="true" toc="default">
-        <name>Topics out of scope</name>
+        <name>Topics Out of Scope</name>
         <t>This document defines the DHCPv6 protocol behavior. The server policy, such as
         what options assign to which clients, which subnets or pools of resources to use,
         which clients' requests should be denied etc. are out of scope for this document.</t>
@@ -247,8 +247,7 @@
       and communicate with DHCP servers or relay agents on its link.</t>
       <t><xref target="RFC4862" format="default"/> specifies procedures by which a node may
       autoconfigure addresses based on Router Advertisements <xref target="RFC4861" format="default"/> and the use of a valid lifetime to support
-      renumbering of addresses on the Internet. The topic of renumbering is
-      discussed in <xref target="RFC9096" format="default"/>. Compatibility with stateless
+      renumbering of addresses on the Internet. Compatibility with stateless
       address autoconfiguration is a design requirement of DHCP.</t>
       <t>IPv6 Neighbor Discovery <xref target="RFC4861" format="default"/> is the
       node discovery protocol in IPv6 that replaces and enhances functions of
@@ -637,13 +636,20 @@
         impractical, e.g., because of network policy, additional requirements
         such as dynamic updates to the DNS, or client-specific requirements.</t>
         <t>The model of operation for non-temporary address assignment is as
-        follows: The server is provided with prefixes from which it may
+        follows:
+        </t>
+        <ul spacing="normal">
+        <li>The server is provided with prefixes from which it may
         assign addresses to clients, as well as any related network topology
-        information as to which prefixes are present on which links. A client
-        requests a non-temporary address to be assigned by the server. The
+        information as to which prefixes are present on which links.
+        </li>
+        <li>A client requests a non-temporary address to be assigned by the server. The
         server allocates an address or addresses appropriate for the link on
-        which the client is connected. The server returns the allocated
-        address or addresses to the client.</t>
+        which the client is connected.
+        </li>
+        <li>The server returns the allocated address or addresses to the client.
+        </li>
+        </ul>
         <t>Each address has associated preferred and valid lifetimes (see <xref target="RFC3315-10.1" format="default" />), which
         constitute an agreement about the length of time over which the
         client is allowed to use the address. A client can request an
@@ -686,15 +692,26 @@
         <xref target="RFC8200" format="default"/>. Therefore, this document mostly replaces
         "requesting router" with "client" and "delegating router" with
         "server".</t>
-        <t>The model of operation for prefix delegation is as follows. A
+        <t>The model of operation for prefix delegation is as follows:
+        </t>
+        <ul spacing="normal">
+        <li>The
         server is provisioned with prefixes to be delegated to
-        clients. A client requests prefix(es) from the
-        server, as described in <xref target="configuration-exchange" format="default"/>. The server chooses
+        clients.
+        </li>
+        <li>A client requests prefix(es) from the
+        server, as described in <xref target="configuration-exchange" format="default"/>.
+        </li>
+        <li>The server chooses
         prefix(es) for delegation and responds with prefix(es) to the
-        client. The client is then responsible for the
+        client.
+        </li>
+        <li>The client is then responsible for the
         delegated prefix(es). For example, the client might assign
         a subnet from a delegated prefix to one of its interfaces and begin
-        sending Router Advertisements for the prefix on that link.</t>
+        sending Router Advertisements for the prefix on that link.
+        </li>
+        <li>
         <t>Each prefix has an associated preferred lifetime and
         valid lifetime, which constitute an agreement about the length of time
         over which the client is allowed to use the prefix. A client
@@ -788,7 +805,9 @@
       <section anchor="OpModes-CPE" numbered="true" toc="default">
         <name>DHCP for Customer Edge Routers</name>
         <t>The DHCP requirements and network architecture for Customer Edge
-        Routers are described in <xref target="RFC7084" format="default"/>. This model of
+        Routers are described in <xref target="RFC7084" format="default"/>,
+        with improvements for renumbering described in
+        <xref target="RFC9096" format="default"/>. This model of
         operation combines address assignment (see <xref target="OpModes-NA" format="default"/>) and prefix delegation (see <xref target="OpModes-PD" format="default"/>). In general, this model assumes that a
         single set of transactions between the client and server will assign
         or extend the client's non-temporary addresses and delegated
@@ -5731,7 +5750,7 @@ addresses, and this specification is now authoritative for:</t>
       </section>
 
       <section anchor="security-mitigation" numbered="true" toc="default">
-      <name>Mitigations to Consider</name>
+      <name>Mitigations Considerations</name>
 
       <t>Various network environments also offer levels of security if deployed
       as described below.</t>
