@@ -6781,7 +6781,7 @@ inadvertently missed when compiling RFC 8415.
         <li>Clarified the UDP ports used by clients, servers, and
         relay agents (<xref target="udp-ports" format="default"/>).</li>
         <li>Several additional RFCs have been referenced and editorial
-        and reviews comments incorporated.”?</li>
+        and reviews comments incorporated.</li>
       </ol>
     </section>
     <section anchor="RFC3315-A" numbered="true" toc="default">
