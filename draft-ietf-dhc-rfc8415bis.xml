@@ -194,6 +194,14 @@
         together. While <xref target="RFC4477" format="default"/> is a bit dated, it provides
         a good overview of the issues at hand.</t>
       </section>
+      <section anchor="out-of-scope" numbered="true" toc="default">
+        <name>Topics out of scope</name>
+        <t>This document defines the DHCPv6 protocol behavior. The server policy, such as
+        what options assign to which clients, which subnets or pools of resources to use,
+        which clients' requests should be denied etc. are out of scope for this document.</t>
+        <t>Server configuration, operation and management are also out of scope. One
+        possible way to manage a DHCPv6 server is proposed in <xref target="RFC9243" format="default"/>.</t>
+      </section>
     </section>
     <section anchor="requirements" numbered="true" toc="default">
       <name>Requirements</name>
@@ -239,7 +247,8 @@
       and communicate with DHCP servers or relay agents on its link.</t>
       <t><xref target="RFC4862" format="default"/> specifies procedures by which a node may
       autoconfigure addresses based on Router Advertisements <xref target="RFC4861" format="default"/> and the use of a valid lifetime to support
-      renumbering of addresses on the Internet. Compatibility with stateless
+      renumbering of addresses on the Internet. The topic of renumbering is
+      discussed in <xref target="RFC9096" format="default"/>. Compatibility with stateless
       address autoconfiguration is a design requirement of DHCP.</t>
       <t>IPv6 Neighbor Discovery <xref target="RFC4861" format="default"/> is the
       node discovery protocol in IPv6 that replaces and enhances functions of
@@ -588,7 +597,7 @@
           The client then
           performs the two-message exchange as described earlier. This can be used to
           expedite configuration changes to a client, such as the need to renumber
-          a network (see <xref target="RFC6879" format="default"/>).
+          a network (see <xref target="RFC6879" format="default"/> and <xref target="RFC9096" format="default"/>).
         </t>
       </section>
     </section>
@@ -817,6 +826,23 @@
         out of scope for this document.</t>
         <t>For more information on how the server distinguishes between
         IA option instances, see <xref target="RFC3315-10" format="default"/>.</t>
+      </section>
+      <section anchor="use-case-addr-registration" numbered="true" toc="default">
+        <name>Registering Self-generated Addresses</name>
+        <t>The <xref target="RFC9686" format="default"/> introduced a method for
+        devices to register their self-generated or statically configured addresses
+        in the DHCPv6 servers. The general idea is that devices would notify the
+        server about addresses that they are using, so that the server can perform
+        certain administrative tasks, such as update DNS, perform appropriate logging,
+        update routing tables, firewalls or any other tasks, as required by local policy.</t>
+
+        <t>The major difference between other use cases and this is that the address
+        selection is not done by the DHCP server, but by the device itself. The most
+        of the lifecycle remains the same in priciple: a lease is created by the server,
+        and the client performs periodic actions to get the lease renewed, and eventually
+        the lease can expire. However, this mechanism uses different message types
+        (ADDR-REG-INFORM and ADDR-REG-REPLY) and has different source address requirements,
+        as defined in <xref target="RFC9686" format="default"/>.</t>
       </section>
     </section>
     <section anchor="dhcp-constants" numbered="true" toc="default">
@@ -6659,6 +6685,8 @@ addresses, and this specification is now authoritative for:</t>
         </reference>
         <?rfc include="reference.RFC.8987.xml" ?>
         <?rfc include="reference.RFC.9096.xml" ?>
+        <?rfc include="reference.RFC.9243.xml" ?>
+        <?rfc include="reference.RFC.9686.xml" ?>
         <reference anchor="TR-187" target="https://www.broadband-forum.org/technical/download/TR-187_Issue-2.pdf">
           <front>
             <title>TR-187 - IPv6 for PPP Broadband Access</title>
