@@ -195,7 +195,7 @@
         a good overview of the issues at hand.</t>
       </section>
       <section anchor="out-of-scope" numbered="true" toc="default">
-        <name>Topics out of scope</name>
+        <name>Topics Out of Scope</name>
         <t>This document defines the DHCPv6 protocol behavior. The server policy, such as
         what options assign to which clients, which subnets or pools of resources to use,
         which clients' requests should be denied etc. are out of scope for this document.</t>
@@ -247,8 +247,7 @@
       and communicate with DHCP servers or relay agents on its link.</t>
       <t><xref target="RFC4862" format="default"/> specifies procedures by which a node may
       autoconfigure addresses based on Router Advertisements <xref target="RFC4861" format="default"/> and the use of a valid lifetime to support
-      renumbering of addresses on the Internet. The topic of renumbering is
-      discussed in <xref target="RFC9096" format="default"/>. Compatibility with stateless
+      renumbering of addresses on the Internet. Compatibility with stateless
       address autoconfiguration is a design requirement of DHCP.</t>
       <t>IPv6 Neighbor Discovery <xref target="RFC4861" format="default"/> is the
       node discovery protocol in IPv6 that replaces and enhances functions of
@@ -529,7 +528,8 @@
         configuration information such as a
         list of available DNS servers <xref target="RFC3646" format="default"/> or
         NTP servers <xref target="RFC5908" format="default"/> through a single message and
-        reply exchange with a DHCP server. To obtain other configuration
+        reply exchange with a DHCP server (as originally described in
+        <xref target="RFC3736" format="default" />). To obtain other configuration
         information, the client first sends an Information-request message to
         the All_DHCP_Relay_Agents_and_Servers multicast address. Servers
         respond with a Reply message containing the other configuration
@@ -637,13 +637,20 @@
         impractical, e.g., because of network policy, additional requirements
         such as dynamic updates to the DNS, or client-specific requirements.</t>
         <t>The model of operation for non-temporary address assignment is as
-        follows: The server is provided with prefixes from which it may
+        follows:
+        </t>
+        <ul spacing="normal">
+        <li>The server is provided with prefixes from which it may
         assign addresses to clients, as well as any related network topology
-        information as to which prefixes are present on which links. A client
-        requests a non-temporary address to be assigned by the server. The
+        information as to which prefixes are present on which links.
+        </li>
+        <li>A client requests a non-temporary address to be assigned by the server. The
         server allocates an address or addresses appropriate for the link on
-        which the client is connected. The server returns the allocated
-        address or addresses to the client.</t>
+        which the client is connected.
+        </li>
+        <li>The server returns the allocated address or addresses to the client.
+        </li>
+        </ul>
         <t>Each address has associated preferred and valid lifetimes (see <xref target="RFC3315-10.1" format="default" />), which
         constitute an agreement about the length of time over which the
         client is allowed to use the address. A client can request an
@@ -686,17 +693,28 @@
         <xref target="RFC8200" format="default"/>. Therefore, this document mostly replaces
         "requesting router" with "client" and "delegating router" with
         "server".</t>
-        <t>The model of operation for prefix delegation is as follows. A
+        <t>The model of operation for prefix delegation is as follows:
+        </t>
+        <ul spacing="normal">
+        <li>The
         server is provisioned with prefixes to be delegated to
-        clients. A client requests prefix(es) from the
-        server, as described in <xref target="configuration-exchange" format="default"/>. The server chooses
+        clients.
+        </li>
+        <li>A client requests prefix(es) from the
+        server, as described in <xref target="configuration-exchange" format="default"/>.
+        </li>
+        <li>The server chooses
         prefix(es) for delegation and responds with prefix(es) to the
-        client. The client is then responsible for the
+        client.
+        </li>
+        <li>The client is then responsible for the
         delegated prefix(es). For example, the client might assign
         a subnet from a delegated prefix to one of its interfaces and begin
-        sending Router Advertisements for the prefix on that link.</t>
+        sending Router Advertisements for the prefix on that link.
+        </li>
+        </ul>
         <t>Each prefix has an associated preferred lifetime and
-        valid lifetime, which constitute an agreement about the length of time
+        valid lifetime (see <xref target="RFC3315-10.2" format="default" />), which constitute an agreement about the length of time
         over which the client is allowed to use the prefix. A client
         can request an extension of the lifetimes on a delegated prefix and is
         required to terminate the use of a delegated prefix if the valid
@@ -788,7 +806,9 @@
       <section anchor="OpModes-CPE" numbered="true" toc="default">
         <name>DHCP for Customer Edge Routers</name>
         <t>The DHCP requirements and network architecture for Customer Edge
-        Routers are described in <xref target="RFC7084" format="default"/>. This model of
+        Routers are described in <xref target="RFC7084" format="default"/>,
+        with improvements for renumbering described in
+        <xref target="RFC9096" format="default"/>. This model of
         operation combines address assignment (see <xref target="OpModes-NA" format="default"/>) and prefix delegation (see <xref target="OpModes-PD" format="default"/>). In general, this model assumes that a
         single set of transactions between the client and server will assign
         or extend the client's non-temporary addresses and delegated
@@ -806,10 +826,10 @@
         such as when a network renumbering event is in progress. In a typical
         deployment, the server will grant one address for each IA_NA
         option (see <xref target="RFC3315-22.4" format="default"/>).</t>
-        <t>A client can explicitly request multiple addresses by sending
+        <t>To meet the recommendations of <xref target="RFC7934" format="default" />,
+        A client can explicitly request multiple addresses by sending
         multiple IA_NA options. A client can send multiple
-        IA_NA options in its initial transmissions
-        (<xref target="RFC7934" format="default" />).
+        IA_NA options in its initial transmissions.
         Alternatively, it can send an extra Request message
         with additional new IA_NA options (or include them
         in a Renew message).</t>
@@ -829,17 +849,16 @@
       </section>
       <section anchor="use-case-addr-registration" numbered="true" toc="default">
         <name>Registering Self-generated Addresses</name>
-        <t>The <xref target="RFC9686" format="default"/> introduced a method for
+        <t><xref target="RFC9686" format="default"/> introduced a method for
         devices to register their self-generated or statically configured addresses
         in the DHCPv6 servers. The general idea is that devices would notify the
-        server about addresses that they are using, so that the server can perform
-        certain administrative tasks, such as update DNS, perform appropriate logging,
-        update routing tables, firewalls or any other tasks, as required by local policy.</t>
+        server about addresses that they are using, so that the server can log
+        or record these addresses as required by local policy.</t>
 
         <t>The major difference between other use cases and this is that the address
         selection is not done by the DHCP server, but by the device itself. The most
         of the lifecycle remains the same in priciple: a lease is created by the server,
-        and the client performs periodic actions to get the lease renewed, and eventually
+        and the device performs periodic actions to get the lease renewed, and eventually
         the lease can expire. However, this mechanism uses different message types
         (ADDR-REG-INFORM and ADDR-REG-REPLY) and has different source address requirements,
         as defined in <xref target="RFC9686" format="default"/>.</t>
@@ -2102,8 +2121,8 @@ addresses, and this specification is now authoritative for:</t>
       <t>A DHCP client that does not need to have a DHCP server assign
       IP addresses or delegated prefixes to it can obtain configuration
       information such as a list of available DNS servers <xref target="RFC3646" format="default"/> or NTP servers <xref target="RFC5908" format="default"/> through a
-      single message and reply exchange with a DHCP server.
-      (As originally described in <xref target="RFC3736" format="default" />).
+      single message and reply exchange with a DHCP server
+      (as originally described in <xref target="RFC3736" format="default" />).
       To obtain
       configuration information, the client first sends an Information-request
       message (see <xref target="RFC3315-18.1.5" format="default"/>) to the
@@ -2603,9 +2622,8 @@ addresses, and this specification is now authoritative for:</t>
         <section anchor="RFC3315-18.1.5" numbered="true" toc="default">
           <name>Creation and Transmission of Information-request Messages</name>
           <t>The client uses an Information-request message to obtain
-          configuration information without having addresses and/or delegated
-          prefixes assigned to it without using DHCPv6 to request addresses
-          or prefixes.</t>
+          configuration information without requesting addresses and/or delegated
+          prefixes to be assigned.</t>
           <t>The client sets the "msg-type" field to INFORMATION-REQUEST. The
           client generates a transaction ID and inserts this value in the
           "transaction-id" field.</t>
@@ -5670,7 +5688,7 @@ addresses, and this specification is now authoritative for:</t>
       accidentally configured DHCP servers that answer DHCP client requests
       with unintentionally incorrect configuration parameters.</t>
 
-      <t>If a client implementation supports Reconfigure mechanism, also see
+      <t>If a client implementation supports the reconfigure mechanism, also see
       <xref target="security-rkap"/> below.</t>
 
       </section>
@@ -5695,7 +5713,7 @@ addresses, and this specification is now authoritative for:</t>
       exhaustion of other resources such as assignable addresses and
       delegatable prefixes.</t>
 
-      <t>If a server implementation supports Reconfigure mechanism, also see
+      <t>If a server implementation supports the reconfigure mechanism, also see
       <xref target="security-rkap"/> below.</t>
 
       </section>
@@ -5731,7 +5749,7 @@ addresses, and this specification is now authoritative for:</t>
       </section>
 
       <section anchor="security-mitigation" numbered="true" toc="default">
-      <name>Mitigations to Consider</name>
+      <name>Mitigation Considerations</name>
 
       <t>Various network environments also offer levels of security if deployed
       as described below.</t>
@@ -6762,6 +6780,8 @@ inadvertently missed when compiling RFC 8415.
 </li>
         <li>Clarified the UDP ports used by clients, servers, and
         relay agents (<xref target="udp-ports" format="default"/>).</li>
+        <li>Several additional RFCs have been referenced and editorial
+        and reviews comments incorporated.</li>
       </ol>
     </section>
     <section anchor="RFC3315-A" numbered="true" toc="default">
