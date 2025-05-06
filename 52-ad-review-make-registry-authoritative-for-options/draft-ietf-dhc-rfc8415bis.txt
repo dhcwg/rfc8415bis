@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 6 November 2025                                   M. Richardson
+Expires: 7 November 2025                                   M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                              5 May 2025
+                                                              6 May 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 November 2025.
+   This Internet-Draft will expire on 7 November 2025.
 
 Copyright Notice
 
@@ -4705,7 +4705,7 @@ Table of Contents
    the Prefix Exclude option [RFC6603].  See [IANA-OPTION-DETAILS].
 
    See [IANA-OPTION-DETAILS] for the authoritative list of which option
-   codes that MUST, MUST NOT, and MAY be included.
+   codes are required, permitted or forbidden.
 
 21.8.  Preference Option
 
