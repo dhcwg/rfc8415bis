@@ -4686,11 +4686,10 @@ Table of Contents
 
    A client MUST include an Option Request option in a Solicit, Request,
    Renew, Rebind, or Information-request message to inform the server
-   about options the client wants the server to send to the client.  For
-   certain message types, some option codes MUST be included in the
-   Option Request option; see [IANA-OPTION-DETAILS] for details.
+   about options the client wants the server to send to the client.
 
-   The Option Request option MUST NOT include the following options:
+   The Option Request option MUST NOT include the following option
+   codes:
 
    *  Client Identifier (see Section 21.2)
 
@@ -4732,16 +4731,19 @@ Table of Contents
 
    *  Reconfigure Accept (see Section 21.20)
 
-   Other top-level options MUST appear in the Option Request option or
-   they will not be sent by the server.  Only top-level options MAY
-   appear in the Option Request option.  Options encapsulated in a
-   container option SHOULD NOT appear in an Option Request option; see
-   [RFC7598] for an example of container options.  However, options MAY
-   be defined that specify exceptions to this restriction on including
-   encapsulated options in an Option Request option.  For example, the
-   Option Request option MAY be used to signal support for a feature
-   even when that option is encapsulated, as in the case of the Prefix
-   Exclude option [RFC6603].  See [IANA-OPTION-DETAILS].
+   Other top-level option codes MUST appear in the Option Request option
+   or they will not be sent by the server.  Only top-level option codes
+   MAY appear in the Option Request option.  Option codes encapsulated
+   in a container option SHOULD NOT appear in an Option Request option;
+   see [RFC7598] for an example of container options.  However, options
+   MAY be defined that specify exceptions to this restriction on
+   including encapsulated option codes in an Option Request option.  For
+   example, the Option Request option MAY be used to signal support for
+   a feature even when that option is encapsulated, as in the case of
+   the Prefix Exclude option [RFC6603].  See [IANA-OPTION-DETAILS].
+
+   See [IANA-OPTION-DETAILS] for the authoritative list of which option
+   codes are required, permitted or forbidden.
 
 21.8.  Preference Option
 
