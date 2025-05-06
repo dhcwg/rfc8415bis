@@ -386,8 +386,9 @@ Table of Contents
    [RFC4862] specifies procedures by which a node may autoconfigure
    addresses based on Router Advertisements [RFC4861] and the use of a
    valid lifetime to support renumbering of addresses on the Internet.
-   Compatibility with stateless address autoconfiguration is a design
-   requirement of DHCP.
+   The topic of renumbering is discussed in [RFC9096].  Compatibility
+   with stateless address autoconfiguration is a design requirement of
+   DHCP.
 
    IPv6 Neighbor Discovery [RFC4861] is the node discovery protocol in
    IPv6 that replaces and enhances functions of ARP [RFC0826].  To
@@ -786,7 +787,8 @@ Table of Contents
    message.  Reconfigure messages are authenticated as per Section 20.4.
    The client then performs the two-message exchange as described
    earlier.  This can be used to expedite configuration changes to a
-   client, such as the need to renumber a network (see [RFC6879]).
+   client, such as the need to renumber a network (see [RFC6879] and
+   [RFC9096]).
 
 6.  Operational Models
 
