@@ -6506,7 +6506,7 @@ Appendix A.  Summary of Changes
        agents (Section 7.2).
 
    5.  Several additional RFCs have been referenced and editorial and
-       reviews comments incorporated.”?
+       reviews comments incorporated.
 
 Appendix B.  Appearance of Options in Message Types
 
