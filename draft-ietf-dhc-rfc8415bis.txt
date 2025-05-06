@@ -6041,13 +6041,17 @@ Table of Contents
    IANA is requested to update all references to [RFC8415] to this
    document at <https://www.iana.org/assignments/dhcpv6-parameters>.
 
-   IANA is requested to mark the IA_TA (option code 4) and UNICAST
-   (option code 12) in the Option Codes table at
-   <https://www.iana.org/assignments/dhcpv6-parameters> as obsolete.
+   IANA is requested to add a new column "Status" to all registries on
+   the DHCPv6 parameters page at <https://www.iana.org/assignments/
+   dhcpv6-parameters> and leave each entry blank except as indicated
+   below:
 
-   IANA is requested to mark the UseMulticast (status code 5) in the
-   Status Codes table at <https://www.iana.org/assignments/
-   dhcpv6-parameters> as obsolete.
+   *  In the Option Code registry, set the "Status" column value to
+      "Obsolete" for the IA_TA (option code 4) and UNICAST (option code
+      12) rows.
+
+   *  In the Status Codes registry, set the "Status" column value to
+      "Obsolete" for the UseMulticast (status code 5) row.
 
    IANA is requested to update other references to [RFC8415] with
    references to this document at:
