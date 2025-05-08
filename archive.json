@@ -1,27 +1,17 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-06T01:58:55.545958+00:00",
+  "timestamp": "2025-05-08T02:00:32.152715+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
-      "name": "bug",
-      "description": "Something isn't working",
-      "color": "d73a4a"
-    },
-    {
-      "name": "documentation",
-      "description": "Improvements or additions to documentation",
+      "name": "ad-review",
+      "description": "Issues related to AD review",
       "color": "0075ca"
     },
     {
       "name": "duplicate",
       "description": "This issue or pull request already exists",
       "color": "cfd3d7"
-    },
-    {
-      "name": "enhancement",
-      "description": "New feature or request",
-      "color": "a2eeef"
     },
     {
       "name": "good first issue",
@@ -34,9 +24,19 @@
       "color": "008672"
     },
     {
+      "name": "int-dir review",
+      "description": "Issues related to int directorate",
+      "color": "a2eeef"
+    },
+    {
       "name": "invalid",
       "description": "This doesn't seem right",
       "color": "e4e669"
+    },
+    {
+      "name": "ops-review",
+      "description": "Issues related to ops-review",
+      "color": "d73a4a"
     },
     {
       "name": "question",
@@ -95,7 +95,7 @@
       ],
       "body": "\n````\n    jr> Section 16: I'm even more fed up with introductory text which starts\n    jr> \"This section...\"\n\n    jr> The text in Section 16 is confusing and ambiguous. It first says\n    jr> messages containing unknown options can be discarded. Then it says\n    jr> they can't. It's not clear what unknown options \"should be ignored as\n    jr> if they were not present\" means in practice. Why not just say\n    jr> clients, relay agents, and servers MUST NOT discard messages\n    jr> containing unknown options or interfere with the content of those\n    jr> unknown options?\n```",
       "createdAt": "2025-02-03T10:26:05Z",
-      "updatedAt": "2025-04-25T00:28:46Z",
+      "updatedAt": "2025-05-06T19:49:21Z",
       "closedAt": "2025-04-25T00:28:45Z",
       "comments": []
     },
@@ -113,7 +113,7 @@
       ],
       "body": "````\n    jr> Section 20: Now I'm getting annoyed by introductory text which starts\n    jr> \"This section...\". Please make this go away.\n\n````\n",
       "createdAt": "2025-02-03T10:27:52Z",
-      "updatedAt": "2025-04-25T00:29:09Z",
+      "updatedAt": "2025-05-06T19:49:21Z",
       "closedAt": "2025-04-25T00:29:09Z",
       "comments": [
         {
@@ -144,7 +144,7 @@
       "labels": [],
       "body": "\n````\n    jr> Section 18: The para beginning \"A DHCP client\" seems to be discussing\n    jr> Stateless DHCP but uses different RFC references to those in Section\n    jr> 7. These need to be aligned. There seems to be unnecessary\n    jr> duplication here. There seems to be unnecessary duplication here. :-)\n\n\n````\n",
       "createdAt": "2025-02-03T10:29:08Z",
-      "updatedAt": "2025-04-25T00:38:25Z",
+      "updatedAt": "2025-05-06T19:49:22Z",
       "closedAt": "2025-04-25T00:38:11Z",
       "comments": [
         {
@@ -168,7 +168,7 @@
       "labels": [],
       "body": "\n````\n    jr> Section 20.4.2. Is it wise to insist on HMAC-MD5? See RFC6151.\n````\n",
       "createdAt": "2025-02-03T10:31:28Z",
-      "updatedAt": "2025-03-16T05:34:19Z",
+      "updatedAt": "2025-05-06T19:49:22Z",
       "closedAt": "2025-03-16T05:34:17Z",
       "comments": [
         {
@@ -190,11 +190,12 @@
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [
+        "ops-review",
         "wontfix"
       ],
       "body": "Is there any need to keep the references to IA_TA in the document? There could\njust be a note in the introduction that it was removed and then make no mention\nof it through the rest of the document.  It doesn\u2019t even need to be in the\nterminology.\n\n",
       "createdAt": "2025-04-23T14:52:15Z",
-      "updatedAt": "2025-04-25T00:40:24Z",
+      "updatedAt": "2025-05-06T19:49:22Z",
       "closedAt": "2025-04-25T00:40:23Z",
       "comments": [
         {
@@ -223,11 +224,12 @@
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [
+        "ops-review",
         "wontfix"
       ],
       "body": "There is inconsistency between sections 16 and 18 on validation and the\ndefinitions, e.g., in 16.2 and 18.2.1. There\u2019s quite a few like this - is\nsection 16 really needed?  Either update it if keeping it or just remove?\n\n",
       "createdAt": "2025-04-23T14:52:40Z",
-      "updatedAt": "2025-04-25T00:41:53Z",
+      "updatedAt": "2025-05-06T19:49:23Z",
       "closedAt": "2025-04-25T00:41:53Z",
       "comments": [
         {
@@ -256,11 +258,12 @@
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [
+        "ops-review",
         "wontfix"
       ],
       "body": "The document could better clarify the use of IA/PD and requesting other\nconfiguration information. In some places it\u2019s implied doing one means you\ndon\u2019t do the other, but my understanding is as per 18.2.2 and 18.3.2 that a\nclient and server can include IA and other configuration information in a\nRequest and Reply.\n\n",
       "createdAt": "2025-04-23T14:53:02Z",
-      "updatedAt": "2025-04-25T00:44:39Z",
+      "updatedAt": "2025-05-06T19:49:36Z",
       "closedAt": "2025-04-25T00:44:38Z",
       "comments": [
         {
@@ -288,10 +291,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "There are a few places where it\u2019s implied that reconfigure messages are not\nauthenticated, or at least the text makes no mention of it, but 18.3.11 is very\nclear about the requirement - that should be stated earlier.\n\nLikewise the difference between the use of RENEW/T1 and REBIND/T2 could be made\nclearer early on.\n\n",
       "createdAt": "2025-04-23T14:53:27Z",
-      "updatedAt": "2025-04-25T00:51:52Z",
+      "updatedAt": "2025-05-06T19:49:36Z",
       "closedAt": "2025-04-25T00:51:52Z",
       "comments": [
         {
@@ -312,10 +317,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "There are quite a few examples of important principles that are somewhat\n\"buried\" in the document but could be emphasised perhaps in a separate early\nsection.\n\nThere\u2019s a lot of implied MUSTs; the writing style needs to be consistent,\ncurrently it is not.  I have reported many of them below but probably missed a\nfew given the size of this document.\n\n\nSection 18.2.12\n\nPara 3 - \u201cThe client includes\u201d - implied MUST\n\n\nSection 18.3.7\n\nLast para - \u201cA server MAY\u201d ?\n(This is also another useful bit of information mentioned only here)\n\nSection 18.3.9\n\nPara 1 - implied MUST - \u201cThe server MUST include\u201d\n\n\nSection 18.2.6\n\nPara 1 - maybe say \u201cwithout using DHPCv6 to request addresses or prefixes\u201d?\n\nPara 6 - another example of an implied MUST\u2026 \u201cthe client MUST include\u201d.  Also\nhere section 16.12 says the DUIDs MUST match but I don\u2019t see that stated here?\n\nSection 18.2.7\n\nPara 3 - another implied MUST\n\nSection 18.2.8\n\nPara 1 - or by itself? Possible?\n\nPara 4 - implied MUST.\n",
       "createdAt": "2025-04-23T14:55:21Z",
-      "updatedAt": "2025-05-05T13:07:04Z",
+      "updatedAt": "2025-05-06T19:49:36Z",
       "closedAt": "2025-05-05T13:07:03Z",
       "comments": [
         {
@@ -351,11 +358,12 @@
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [
+        "ops-review",
         "wontfix"
       ],
       "body": "It would be handy to have a list of the specific state that a client and a\nserver may maintain; this could also help reinforce the security text on\nattacks on state.\n\n",
       "createdAt": "2025-04-23T14:56:30Z",
-      "updatedAt": "2025-04-25T00:55:39Z",
+      "updatedAt": "2025-05-06T19:49:37Z",
       "closedAt": "2025-04-25T00:55:38Z",
       "comments": [
         {
@@ -372,17 +380,18 @@
       "id": "I_kwDOFL5NeM6zqvB-",
       "title": "ops-review: do we need to reference some new documents",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/29",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [
+        "ops-review",
         "wontfix"
       ],
       "body": "What of the new RFCs published since this -bis was worked on?  I see the latest\nreference is RFC 9096 but it would seem good to include pointers to RFC 9243\nand RFC 9686 in this document.\n\nThe omission of RFC 9243 does highlight there\u2019s nothing in the document about\nmanagement of DHCPv6 servers, relays or clients.  Perhaps a short section could\nbe added that points to this RFC?\n\nRFC 9686 could perhaps be a model of use for DHCPv6 for section 6?  You can use\nthis self-registration scheme without using DHCPv6 to provide addresses or\nprefixes.\n\nThere is also the very good work on a \u201cprefix per host\u201d using DHCP-PD for hosts\n- we should include a pointer to RFC 9663 here and cite it?  Perhaps in Section\n6 on operational models?\n\nRFC 9686: Registering Self-Generated IPv6 Addresses Using DHCPv6\nRFC 9096: Improving the Reaction of Customer Edge Routers to IPv6 Renumbering Events\nRFC 9243: A YANG Data Model for DHCPv6 Configuration\n",
       "createdAt": "2025-04-23T14:58:09Z",
-      "updatedAt": "2025-05-05T13:12:41Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-06T19:49:37Z",
+      "closedAt": "2025-05-06T10:57:58Z",
       "comments": [
         {
           "author": "mcr",
@@ -411,6 +420,13 @@
           "body": "I think we should add all of them as informative references. I'm not sure why this was closed as `wontfix`. Opened #57.",
           "createdAt": "2025-05-05T12:51:32Z",
           "updatedAt": "2025-05-05T12:51:32Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed in #57 - added 9686, (9096 was already added by some earlier PR), 9243.",
+          "createdAt": "2025-05-06T10:57:58Z",
+          "updatedAt": "2025-05-06T10:57:58Z"
         }
       ]
     },
@@ -424,11 +440,12 @@
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [
+        "ops-review",
         "wontfix"
       ],
       "body": "Citing RFC7084 - is there anything in draft-winters-v6ops-rfc7084bis-03 we need\nto consider in this document?  I had a quick scan and couldn\u2019t see anything,\nbut TimW as an author of both docs may wish to double check.\n\n",
       "createdAt": "2025-04-23T14:58:57Z",
-      "updatedAt": "2025-04-25T00:59:16Z",
+      "updatedAt": "2025-05-06T19:49:37Z",
       "closedAt": "2025-04-25T00:59:15Z",
       "comments": [
         {
@@ -449,10 +466,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Section 1.2\n\nMaybe note here that DHCPv4 is needed to run IPv6-Mostly as per\ndraft-ietf-v6ops-6mops, which I think is nailed on to be an RFC before long.\n\n",
       "createdAt": "2025-04-23T15:00:47Z",
-      "updatedAt": "2025-05-05T13:08:29Z",
+      "updatedAt": "2025-05-06T19:49:37Z",
       "closedAt": "2025-05-05T13:08:28Z",
       "comments": [
         {
@@ -480,10 +499,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Section 16\n\nAs above, do we really need this section?  If so it needs to be 100% consistent\nwith the later definitions in Section 18 and possibly elsewhere.\n\nAn example is the Elapsed Time Option, referred to in many places in Section\n18, e.g., in 18.2.1, that\u2019s not mentioned in section 16.",
       "createdAt": "2025-04-23T16:04:53Z",
-      "updatedAt": "2025-05-05T13:16:07Z",
+      "updatedAt": "2025-05-06T19:49:38Z",
       "closedAt": "2025-05-05T13:16:06Z",
       "comments": [
         {
@@ -511,10 +532,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Section 1\n\nPara 3, delete \u201cusing DHCPv6\u201d.\n\nPara 4 - \u201cmuch smaller\u201d - not sure \u201csmaller\u201d is the right word.\n\nSection 5\n\nPara 1 - insert \u201csource\u201d to read \u201clink-local source address\u201d\n\nSection 6.2\n\nPara 2 - is that \u201callocate\u201d or \u201cassign\u201d?  It\u2019s presumably for use, and later\non, e.g., in 18.2.6 we say \u201cassign\u201d.\n\nPara 3 - I don\u2019t think preferred or valid lifetimes have been defined or cited\nbefore this point.  I see it explained in 12.1 via a pointer to RFC 4862, but\nthat\u2019s way after this first use.\n\nSection 6.5\n\nCan we point to RFC 7934 here as extra rationale for multiple addresses /\nprefixes being provided?\n\nSection 18.2.6\n\nPara 1 - maybe say \u201cwithout using DHPCv6 to request addresses or prefixes\u201d?\n\n\nSection 19\n\nCould be handy to have RFC 6939 mentioned in here?\n\n\nSection 22\n\n\u201cthird parts\u201d -> \u201cthird party\u201d\n\nAppendix A\n\nSomehow I feel these aren\u2019t all the changes?\n\n\n\n",
       "createdAt": "2025-04-23T16:05:26Z",
-      "updatedAt": "2025-04-25T00:23:01Z",
+      "updatedAt": "2025-05-06T19:49:38Z",
       "closedAt": "2025-04-25T00:23:01Z",
       "comments": []
     },
@@ -523,17 +546,19 @@
       "id": "I_kwDOFL5NeM6zrjfX",
       "title": "ops-review: RFC9096 reference maybe",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/34",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
         "twintersunh"
       ],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "In looking at these more closely, I think it makes good sense to add (informative) reference to 9096 as it updates 7084 which is already an informative reference and as 9096 updates it (and was published after 8415). Basically, reference both 7084 and 9096 in sections 1, 6.3, and 6.4.",
       "createdAt": "2025-04-23T16:07:35Z",
-      "updatedAt": "2025-05-05T13:10:34Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-06T19:49:38Z",
+      "closedAt": "2025-05-06T10:58:15Z",
       "comments": [
         {
           "author": "twintersunh",
@@ -541,6 +566,13 @@
           "body": "Update to add 9096 whenever it makes sense.",
           "createdAt": "2025-05-05T13:10:33Z",
           "updatedAt": "2025-05-05T13:10:33Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Added in #57.",
+          "createdAt": "2025-05-06T10:58:15Z",
+          "updatedAt": "2025-05-06T10:58:15Z"
         }
       ]
     },
@@ -553,10 +585,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Section 15\n\nIt talks of RAND for RT here being -0.1 to 0.1, but later in 18.2.1 it says the\nfirst RT must have RAND > 0.  Maybe sync these bits more clearly?\n\n\nText from section 15:\n     Each of the computations of a new RT includes a randomization factor\n    (RAND), which is a random number chosen with a uniform distribution\n    between -0.1 and +0.1.  The randomization factor is included to\n    minimize synchronization of messages transmitted by DHCP clients.\n\n\nText from section 18:\n   The first Solicit message from the client on the interface SHOULD be\n   delayed by a random amount of time between 0 and SOL_MAX_DELAY.  This\n\n\n(suggest: wontfix, because *first* Solicit message can't be delayed by a negative amount, while a renew can be)\n",
       "createdAt": "2025-04-23T16:17:30Z",
-      "updatedAt": "2025-05-05T13:17:54Z",
+      "updatedAt": "2025-05-06T19:49:39Z",
       "closedAt": "2025-05-05T13:17:53Z",
       "comments": [
         {
@@ -577,10 +611,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Section 16.10\n\nWhy the text on \u201cif the client did not include a Client Identifier\u201d when 18.2.2\nsays it MUST include one? Should it then not discard the request?\n\n===\n\nsection 16.10 is about server replies to any messages, I think.\nsection 18.2.2. is about client sending *Request* messages, but there are other kinds of messages, so I think that some messages do not require a Client ID?\n",
       "createdAt": "2025-04-23T16:20:37Z",
-      "updatedAt": "2025-05-05T13:20:43Z",
+      "updatedAt": "2025-05-06T19:49:39Z",
       "closedAt": "2025-05-05T13:20:43Z",
       "comments": [
         {
@@ -604,17 +640,19 @@
       "id": "I_kwDOFL5NeM6zruD2",
       "title": "ops-review: do reconfigure messages *require* authentication?",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/37",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
         "tomaszmrugalski"
       ],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Section 16.11\n\nAuthentication is mentioned here, but to date in the document nothing has said\nthis is required - that is only said later in Section 18.3.11.",
       "createdAt": "2025-04-23T16:21:53Z",
-      "updatedAt": "2025-05-05T17:55:14Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-06T19:49:39Z",
+      "closedAt": "2025-05-06T10:25:15Z",
       "comments": [
         {
           "author": "mcr",
@@ -683,10 +721,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Figure 9\n\nPerhaps add where client and server identifier options are added.\n",
       "createdAt": "2025-04-23T16:22:54Z",
-      "updatedAt": "2025-05-05T13:24:28Z",
+      "updatedAt": "2025-05-06T19:49:39Z",
       "closedAt": "2025-05-05T13:24:27Z",
       "comments": [
         {
@@ -723,10 +763,12 @@
       "assignees": [
         "bevolz"
       ],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Section 18.2.10\n\nPara 6 here is a really important principle about what to do if a subsequent\nReply omits something included in a previous Reply.  This should be stated\nclearly earlier?",
       "createdAt": "2025-04-23T16:24:58Z",
-      "updatedAt": "2025-05-05T15:42:30Z",
+      "updatedAt": "2025-05-06T19:44:52Z",
       "closedAt": null,
       "comments": [
         {
@@ -756,10 +798,12 @@
       "assignees": [
         "bevolz"
       ],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Section 18.2.10.1\n\nAnother important principle in here about what a client must do when restarting\nthe server discovery process.\n",
       "createdAt": "2025-04-23T16:25:31Z",
-      "updatedAt": "2025-05-05T21:55:04Z",
+      "updatedAt": "2025-05-06T19:44:52Z",
       "closedAt": null,
       "comments": [
         {
@@ -801,10 +845,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Section 18.3.6\n\nLast para - is that really desirable behaviour?\n\n\n   If the Information-request message received from the client did not\n   include a Client Identifier option, the server SHOULD respond with a\n   Reply message containing any configuration parameters that are not\n   determined by the client's identity.  If the server chooses not to\n   respond, the client may continue to retransmit the\n   Information-request message indefinitely.\n",
       "createdAt": "2025-04-23T16:28:05Z",
-      "updatedAt": "2025-05-05T13:41:08Z",
+      "updatedAt": "2025-05-06T19:49:40Z",
       "closedAt": "2025-05-05T13:41:07Z",
       "comments": [
         {
@@ -839,10 +885,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Section 18.3.8\n\nPara 2- so would a LOT of such declines be a DoS attack on the server?\n\n   The client has found any addresses in the Decline messages to be\n   already in use on its link.  Therefore, the server SHOULD mark the\n   addresses declined by the client so that those addresses are not\n   assigned to other clients and MAY choose to make a notification that\n   addresses were declined.  Local policy on the server determines when\n   the addresses identified in a Decline message may be made available\n   for assignment.\n",
       "createdAt": "2025-04-23T16:28:51Z",
-      "updatedAt": "2025-05-05T13:44:36Z",
+      "updatedAt": "2025-05-06T19:49:40Z",
       "closedAt": "2025-05-05T13:44:35Z",
       "comments": [
         {
@@ -870,10 +918,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Section 19.3\n\nAny MTU issues here, or is the message always small even with the extra options\nchained this way?",
       "createdAt": "2025-04-23T16:32:41Z",
-      "updatedAt": "2025-05-05T13:48:10Z",
+      "updatedAt": "2025-05-06T19:49:40Z",
       "closedAt": "2025-05-05T13:48:09Z",
       "comments": [
         {
@@ -890,17 +940,19 @@
       "id": "I_kwDOFL5NeM6zr247",
       "title": "ops-review: split up section 23",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/44",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
         "tomaszmrugalski"
       ],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Section 23\n\nThis is quite meandering over topics - can we get 3 or 4 subsections with the\nkey issues and the text for these into those subsections?\n",
       "createdAt": "2025-04-23T16:33:38Z",
-      "updatedAt": "2025-05-05T17:53:46Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-06T19:49:40Z",
+      "closedAt": "2025-05-06T10:25:15Z",
       "comments": [
         {
           "author": "tomaszmrugalski",
@@ -920,10 +972,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ops-review"
+      ],
       "body": "Appendix B\n\n\u201cinformational\u201d and may differ to the main text - still worth keeping?",
       "createdAt": "2025-04-23T16:34:18Z",
-      "updatedAt": "2025-05-05T14:08:32Z",
+      "updatedAt": "2025-05-06T19:49:41Z",
       "closedAt": "2025-05-05T14:08:32Z",
       "comments": [
         {
@@ -946,10 +1000,12 @@
       "assignees": [
         "tomaszmrugalski"
       ],
-      "labels": [],
+      "labels": [
+        "ad-review"
+      ],
       "body": "# Section 1\n\nOLD:\n   DHCPv6 also provides a mechanism for automated delegation of IPv6\n   prefixes using DHCPv6.\n\nNEW:\n   DHCPv6 also supports a mechanism for automated delegation of IPv6\n   prefixes.\n\n# Section 4.2\n\nOLD:\n   IA_TA                     Identity Association for Temporary\n                             Addresses: an IA that carries temporary\n                             addresses (see [RFC8981]).  This option is\n                             obsolete.\n\nNEW:\n   IA_TA                     Identity Association for Temporary\n                             Addresses: an IA that carries temporary\n                             addresses (see [RFC8981]). This option is\n                             obsoleted by this document.\n\n\n# Section 21.5\n\nOLD:\n   The Identity Association for Temporary Addresses (IA_TA) option is\n   obsolete.\n\nNEW:\n   The Identity Association for Temporary Addresses (IA_TA) option is\n   obsoleted.\n\n",
       "createdAt": "2025-04-25T15:14:38Z",
-      "updatedAt": "2025-05-05T17:56:10Z",
+      "updatedAt": "2025-05-06T19:49:41Z",
       "closedAt": "2025-05-05T17:56:09Z",
       "comments": [
         {
@@ -977,10 +1033,12 @@
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ad-review"
+      ],
       "body": "# Section 7.2\n\nCURRENT:\n   Clients, servers, and relay agents MAY send DHCP messages from any\n   UDP (source) port they are allowed to use, including their designated\n   destination ports.  Nevertheless, regardless of the source port used,\n   DHCP messages MUST be sent to ports specified above (e.g., clients\n   sending to port 547).\n\nWhat is meant by \"designated destination ports\"? What is a \"designated\ndestination port\" for a server?\n\nPlease reword.\n\nThe same wording is used in other parts of the spec. Please update those as\nwell. Thanks.\n\n",
       "createdAt": "2025-04-25T15:15:19Z",
-      "updatedAt": "2025-05-05T12:22:09Z",
+      "updatedAt": "2025-05-06T19:49:41Z",
       "closedAt": "2025-05-05T12:22:08Z",
       "comments": [
         {
@@ -1025,17 +1083,20 @@
       "id": "I_kwDOFL5NeM60Bu5C",
       "title": "ad-review: implementation status to wiki",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/51",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
-        "tomaszmrugalski"
+        "bevolz",
+        "twintersunh"
       ],
-      "labels": [],
+      "labels": [
+        "ad-review"
+      ],
       "body": "# Section 22: Implementation Status\n\nIf this is not done yet, please consider having the implem details in a public\npage (wiki) and add the link as \"related_implementations\" under \"Additional\nresources\" in the datatracker.\n\n\n",
       "createdAt": "2025-04-25T15:15:50Z",
-      "updatedAt": "2025-05-05T13:55:50Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-07T09:31:29Z",
+      "closedAt": "2025-05-07T09:31:29Z",
       "comments": [
         {
           "author": "tomaszmrugalski",
@@ -1043,6 +1104,20 @@
           "body": "I can copy the contents to wiki, so the list survives after RFC and be more accessible to other contributors. Wiki seems like a fine place for this.",
           "createdAt": "2025-05-05T13:55:39Z",
           "updatedAt": "2025-05-05T13:55:39Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Implementation status is now on wiki: https://github.com/dhcwg/rfc8415bis/wiki/Implementation-Status\n\nThe last step asked is up to you, @bevolz, @twintersunh. I think only chairs can add additional resources on datatracker.",
+          "createdAt": "2025-05-06T11:12:15Z",
+          "updatedAt": "2025-05-06T11:12:15Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Added to document on datatracker.",
+          "createdAt": "2025-05-06T11:30:36Z",
+          "updatedAt": "2025-05-07T09:31:16Z"
         }
       ]
     },
@@ -1051,15 +1126,17 @@
       "id": "I_kwDOFL5NeM60BvG-",
       "title": "ad-review: make registry authoritative for options",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/52",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ad-review"
+      ],
       "body": "# Section 21.7\n\nCURRENT:\n   A client MUST include an Option Request option in a Solicit, Request,\n   Renew, Rebind, or Information-request message to inform the server\n   about options the client wants the server to send to the client.  For\n   certain message types, some option codes MUST be included in the\n   Option Request option; see [IANA-OPTION-DETAILS] for details.\n\nGlad to see that the table was replaced with the pointer to the IANA registry.\nCan we add a sentence to say that registry is the authoritative reference for\nthe up-to-date options?\n\n\n",
       "createdAt": "2025-04-25T15:16:16Z",
-      "updatedAt": "2025-05-05T14:06:17Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-06T19:49:41Z",
+      "closedAt": "2025-05-06T11:15:15Z",
       "comments": [
         {
           "author": "tomaszmrugalski",
@@ -1075,15 +1152,17 @@
       "id": "I_kwDOFL5NeM60wc_K",
       "title": "Roman Danyliw - Need to ask IANA to add status columns",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/53",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ad-review"
+      ],
       "body": "** Section 25.\n IANA is requested to mark the IA_TA (option code 4) and UNICAST\n  (option code 12) in the Option Codes table at\n  <https://www.iana.org/assignments/dhcpv6-parameters> as obsolete.\n\n  IANA is requested to mark the UseMulticast (status code 5) in the\n  Status Codes table at <https://www.iana.org/assignments/\n  dhcpv6-parameters> as obsolete.\n\nHow does one mark something as obsolete in a registry which does not have an explicit status column?\n",
       "createdAt": "2025-04-30T21:44:55Z",
-      "updatedAt": "2025-05-05T15:05:14Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-07T09:25:53Z",
+      "closedAt": "2025-05-06T10:40:10Z",
       "comments": [
         {
           "author": "bevolz",
@@ -1103,10 +1182,12 @@
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ad-review"
+      ],
       "body": "### S5\n\n* \"s/ALL_DHCP_Relay_Agenda_and_service/All_DHCP_Relay_Agents_and_Servers/\"\n\n agenda -> agents\n service -> servers\n\n based on IANA's \"IPv6 Multicast Address Space Registry\", and also elsewhere\n in this document.\n",
       "createdAt": "2025-05-03T11:35:16Z",
-      "updatedAt": "2025-05-03T23:05:16Z",
+      "updatedAt": "2025-05-06T19:49:42Z",
       "closedAt": "2025-05-03T23:05:08Z",
       "comments": [
         {
@@ -1134,12 +1215,22 @@
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "int-dir review"
+      ],
       "body": "Section 18.2.2\n  *  Initiate the server discovery process described in Section 18.\n\nI'm not sure if \"Section 18\" is an appropriate reference to \"server discoveryprocess\". I've checked RFC3315, and found that it referred to \"section 17\", whose title is \"DHCP Server Solicitation\". Maybe a better equivalent of this in this draft is Section 18.2.1?\n\nSection 18.2.10.3 has the same issue in its reference to \"Section 18\". (And there may be some more).",
       "createdAt": "2025-05-06T01:03:57Z",
-      "updatedAt": "2025-05-06T01:04:27Z",
+      "updatedAt": "2025-05-06T19:45:38Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Maybe reference 18.2? 18.2.1 may be too specific?\n\nAlso, I suspect that there are more places where we just refer to 18. which could have similar issues.\n",
+          "createdAt": "2025-05-06T14:12:56Z",
+          "updatedAt": "2025-05-06T14:12:56Z"
+        }
+      ]
     },
     {
       "number": 62,
@@ -1150,12 +1241,22 @@
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "int-dir review"
+      ],
       "body": "Section 18.2.4\n  A client MUST also initiate a Renew/Reply message exchange before\n  time T1 if the client's link-local address used in previous\n  interactions with the server is no longer valid and it is willing to\n  receive Reconfigure messages.\n\nIt's not very clear to me why link-local address is specifically mentioned here. Perhaps it's because the client could receive a Reconfigure message to that link-local address. But, if so, doesn't a non link-local address have the same issue (even if it would be rare to use a non LL address for DHCP message exchanges to/from a client)? Perhaps we should say something like \"if the client's address used as the destination address in previous messages from the server is no longer valid\"?",
       "createdAt": "2025-05-06T01:05:47Z",
-      "updatedAt": "2025-05-06T01:05:47Z",
+      "updatedAt": "2025-05-06T19:45:38Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The reason is that this updates the server with the new link-local address (either directly or via the Relay-Forward data).\n\nDo we need to explain that?\n\nMaybe:\n\nA client MUST also initiate a Renew/Reply message exchange before\ntime T1 if the client's link-local address used in previous\ninteractions with the server is no longer valid and it is willing to\nreceive Reconfigure messages. This updates the server's information\nso it is able to continue to communicate with the client (either\ndirectly or via Relay-Reply's).",
+          "createdAt": "2025-05-06T14:05:00Z",
+          "updatedAt": "2025-05-06T14:05:00Z"
+        }
+      ]
     },
     {
       "number": 63,
@@ -1166,12 +1267,22 @@
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "int-dir review"
+      ],
       "body": "Section 18.2.5\n  The message exchange is terminated when the valid lifetimes of all\n  leases across all IAs have expired, at which time the client uses the\n  Solicit message to locate a new DHCP server and sends a Request\n  for the expired IAs to the new server.  If the terminated Rebind\n  exchange was initiated as a result of receiving a Reconfigure\n  message, the client ignores and discards the Reconfigure message.\n\nI don't understand the second sentence: what's \"the\" Reconfigure message? If it the one that triggered REBIND, it was already processed, so \"ignores and discard\" don't make sense. Perhaps it should be similar to 18.2.4, which states \"ignores and discards any additional Reconfigure messages it may receive\"?",
       "createdAt": "2025-05-06T01:07:35Z",
-      "updatedAt": "2025-05-06T01:07:35Z",
+      "updatedAt": "2025-05-06T19:45:39Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The client continues to process things normally as if the Reconfigure hadn't been received. Perhaps we just say:\n\nIf the terminated Rebind exchange was initiated as a result of receiving a Reconfigure message, the client terminates the reconfigure process and resumes as if the Reconfigure message had not been received.",
+          "createdAt": "2025-05-06T14:09:44Z",
+          "updatedAt": "2025-05-06T14:09:44Z"
+        }
+      ]
     },
     {
       "number": 64,
@@ -1182,10 +1293,130 @@
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "int-dir review"
+      ],
       "body": "Section 18.3.10\n  If the original message was received directly by the server, the\n  server unicasts the Advertise or Reply message directly to the client\n  using the address in the source address field from the IP datagram in\n  which the original message was received.  The Advertise or Reply\n  message MUST be unicast through the interface on which the original\n  message was received.\n\nThis may be pedantic, but I think limiting the outgoing interface is too strict. I guess the intent is to ensure that the Reply is sent back to the link to which ALL_DHCP_Relay_Agenda_and_service belongs (which makes sense). Since Section 17 seems to be aware of the case where two interfaces belong to the same link, I think we can also be flexible here, e.g., replacing \"interface\" with \"link\".",
       "createdAt": "2025-05-06T01:08:45Z",
-      "updatedAt": "2025-05-06T01:08:45Z",
+      "updatedAt": "2025-05-06T19:45:39Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We use \"through the interface\" at least 4 times (searched on that string, though doesn't search across line wraps). So, there are multiple places which might need this change. Doing a similar search for \"through the link\" has 0 hits.\n\nLikely the use of interface and link are confused in more places. So maybe this is a bigger issue and maybe best to leave be?\n",
+          "createdAt": "2025-05-06T14:02:23Z",
+          "updatedAt": "2025-05-06T14:02:23Z"
+        }
+      ]
+    },
+    {
+      "number": 65,
+      "id": "I_kwDOFL5NeM61XWuy",
+      "title": "Pre-10 release review comments (Bernie)",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/65",
+      "state": "CLOSED",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Title of section 1.3 doesn\u2019t follow capitalization rules, should be \u201cTopics Out of Scope\u201d.\n\nTitle of section 23.4 might better be \u201cMitigation Considerations\u201d to match other 23.x sections?\n\nIn section 3, the sentence \u201cThe topic of renumbering is discussed in [RFC9096].\u201d was added. I don\u2019t think this is appropriate here as this a background section which discussed IPv6 concepts. I think deleting this is best. We already have text in section 6.3 which provides multiple references to this RFC, so I don\u2019t think we need more text? If you want some, maybe adding the following in 6.4 to replace the first sentence is one choice: \u201cThe DHCP requirements and network architecture for Customer Edge Routers are described in [RFC7084], with improvements for renumbering described in [RFC9096].\u201d\n\nBTW: There\u2019s a further reference to 9096 in 5.3 related to Reconfigure. So likely we have this covered very well, even without adding the above to 6.4?\n\nIn 6.2, we had:\n\n   The model of operation for non-temporary address assignment is as\n   follows.  The server\u2026\n\nThis was changed to:\n\n   The model of operation for non-temporary address assignment is as\n   follows: The server\u2026\n\nBut in 6.3, a similar change was not made \u2026 we should be consistent.\n\nHowever, I also think the change isn\u2019t really good as the next sentence doesn\u2019t describe the full model \u2026 it is in really the remaining sentences. To fix this, it might be good to add an enumerated list which is each of the sentences that follows \u201cfollows:\u201d.\n\nPlease take a look and let\u2019s discuss best fix.\n\nIn Section 6.2, reference to 12.1 was added for lifetimes, similar change was not made (reference to 12.2) in section 6.3. Should be done - Each prefix has an associated\u2026 (see Section 12.2).\n\nIn Section 6.5, a reference to 7934 was added and I think it is in a bad place.\n\n   A client can explicitly request multiple addresses by sending\n   multiple IA_NA options.  A client can send multiple IA_NA options in\n   its initial transmissions ([RFC7934]).  Alternatively, it can send an\n   extra Request message with additional new IA_NA options (or include\n   them in a Renew message).\n\nHow about:\n\n   To meet the recommendations of [RFC7934] for multiple addresses,\n   a client can explicitly request multiple addresses by sending\n   multiple IA_NA options.  A client can send multiple IA_NA options in\n   its initial transmissions.  Alternatively, it can send an extra\n   Request message with additional new IA_NA options (or include them in\n   a Renew message).\n\nIn new 6.6 section, \u201cThe [RFC9686]\u201d is odd. Remove the? And I still hate that there is text about updating DNS, routing tables\u2026 none of this is mentioned in that document. We MUST remove this!!! \n\nI think we just say \u201cso that the server can log or record these addresses\u201d. Please!!\n\nIn section 5.1 and 18 we basically have similar text:\n\n   A DHCP client that does not need to have a DHCP server assign IP\n   addresses or delegated prefixes to it can obtain configuration\n   information such as a list of available DNS servers [RFC3646] or NTP\n   servers [RFC5908] through a single message and reply exchange with a\n   DHCP server.  To obtain \n\nIn 18,  \u201c(As originally described in [RFC3736]).\u201d was added. Perhaps thus should be in 5.1 (too)? And wouldn\u2019t it be better not to have this be a standalone sentence but part of the first (as originally described\u2026).\n\nIn 18.2.6, something went bad with edit? First paragraph:\n\n   The client uses an Information-request message to obtain\n   configuration information without having addresses and/or delegated\n   prefixes assigned to it without using DHCPv6 to request addreses or\n   prefixes.\n\nHuh? I\u2019m not even sure what intent of this change was. Original sentence seemed clear?\n\nIn new 23.1 section, last paragraph, add the and lowercase R in Reconfigure: \u201c\u2026support the reconfigure mechanism\u201d (3 other places use lowercase). Similar fix in 23.2, last paragraph.\n\nFinally, we haven\u2019t kept up Appendix A with summary of changes. Perhaps we want to add a catch-all \u2026 \u201c5. Several additional RFCs have been referenced and editorial changes from various reviews have been incorporated.\u201d?\n",
+      "createdAt": "2025-05-06T13:10:05Z",
+      "updatedAt": "2025-05-07T08:42:53Z",
+      "closedAt": "2025-05-06T16:26:59Z",
+      "comments": [
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'm OK with any changes (on top of mine or reverting them or whatever). Stuck in meetings, so pls do whatever you feel is right.",
+          "createdAt": "2025-05-06T14:04:47Z",
+          "updatedAt": "2025-05-06T14:04:47Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I\u2019d prefer we get this version correct and wait a bit longer for proper reviews before we publish.There may also be an argument that at this late date, better to wait until after IESG meeting on May 8 to update? They may be annoyed to get an update so close to meeting and having to review the changes?- Bernie (from iPad)On May 6, 2025, at 10:05\u202fAM, Tomek Mrugalski ***@***.***> wrote:\ufeff\r\ntomaszmrugalski left a comment (dhcwg/rfc8415bis#65)\r\nI'm OK with any changes (on top of mine or reverting them or whatever). Stuck in meetings, so pls do whatever you feel is right.\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you authored the thread.Message ID: ***@***.***>",
+          "createdAt": "2025-05-06T14:15:47Z",
+          "updatedAt": "2025-05-06T14:15:47Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Bernie Volz ***@***.***> wrote:\n    > They may be annoyed to get an update so close to meeting and having to\n    > review the changes?\n\nDepends upon the AD.\nSome like instant gratification.\nSome prefer one diff for everything.  You can't please everyone.\nMost are satisfied if there is a PR addressing their concerns.\n\n",
+          "createdAt": "2025-05-07T08:42:52Z",
+          "updatedAt": "2025-05-07T08:42:52Z"
+        }
+      ]
+    },
+    {
+      "number": 67,
+      "id": "I_kwDOFL5NeM61l2Ci",
+      "title": "ops-review: auth required in 18.2.11",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/67",
+      "state": "OPEN",
+      "author": "tomaszmrugalski",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "ops-review"
+      ],
+      "body": "Comment from Tim Chown:\n\n> Section 18.2.11\n> \n> No mention of the requirement to authenticate the message?\n",
+      "createdAt": "2025-05-07T16:52:52Z",
+      "updatedAt": "2025-05-07T16:52:52Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 68,
+      "id": "I_kwDOFL5NeM61mNNh",
+      "title": "ops-review: missed several requirement keywords in 18.2.* and 18.3.*",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/68",
+      "state": "OPEN",
+      "author": "tomaszmrugalski",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "ops-review"
+      ],
+      "body": "Seems we missed some (many \ud83d\ude12) comments about 18.2 and its sections, before publishing -10.\n\nSection 18.2.6\n\n> Para 6 - another example of an implied MUST\u2026 \u201cthe client MUST include\u201d.  Also\n> here section 16.12 says the DUIDs MUST match but I don\u2019t see that stated here?\n\nSection 18.2.7\n> \n> Para 3 - another implied MUST\n\nSection 18.2.8\n> Para 4 - implied MUST.\n\nSection 18.2.12\n> \n> Para 3 - \u201cThe client includes\u201d - implied MUST\n\nSection 18.3.9\n> \n> Para 1 - implied MUST - \u201cThe server MUST include\u201d\n\n",
+      "createdAt": "2025-05-07T17:30:06Z",
+      "updatedAt": "2025-05-07T17:47:22Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 69,
+      "id": "I_kwDOFL5NeM61oULy",
+      "title": "Mike Bishop\u2019s comments",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/69",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "ad-review"
+      ],
+      "body": "1.1: RFCs are immutable; \"For a complete list of changes made to [[RFC8415](https://datatracker.ietf.org/doc/rfc8415/)] see Appendix A.\" => \"For a complete list of differences from [[RFC8415](https://datatracker.ietf.org/doc/rfc8415/)], see Appendix A.\"\n\n7.6: \"This table of values used to describe the message transmission behavior of clients and servers.\" => \"This table of values is used to describe the message transmission behavior of clients and servers.\" (Otherwise it invites the question what it describes now!)\n\nNote\n7.6 was already fixed in -10.",
+      "createdAt": "2025-05-07T21:51:09Z",
+      "updatedAt": "2025-05-07T21:51:09Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 70,
+      "id": "I_kwDOFL5NeM61oY3G",
+      "title": "Ketan Talaulikar minor fixes comments",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/70",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "ad-review"
+      ],
+      "body": "Note: Line numbers refer to -09 draft.\n\nThis is the minor nits. Leaving removing older references / text and any remaining comments to another issue.\n\n17\tAbstract\n\n19\t   This document describes the Dynamic Host Configuration Protocol for\n20\t   IPv6 (DHCPv6): an extensible mechanism for configuring nodes with\n\n<minor> perhaps ... s/describes/specifies ?\n\n\n683\t   A DHCP client sends messages using a reserved, link-scoped multicast\n684\t   destination address (ALL_DHCP_Relay_Agenda_and_service - ff02::1:2)\n\n<minor> How about s/client sends messages/client sends all messages/ ... to \nbetter express the change and its intent?\n\n\n948\t   A client that has delegated any of the address space received through\n949\t   DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant\n950\t   delegated prefix while any of the address space is outstanding.\n951\t   [[RFC9096](https://datatracker.ietf.org/doc/rfc9096/)] section WPD-9 makes this Best Current Practice.  That\n\n<minor> I didn't find a section WPD-9 in [RFC9096](https://datatracker.ietf.org/doc/rfc9096/). Is it section 3.1? If so,\nplease rephrase. If still using WPD-9, please expand that acronym.\n\nNote: WPD-9 is a requirement in section 3 and more fully discussed in section 3.1. Likely we should change section to requirement?\n\n\n\n",
+      "createdAt": "2025-05-07T22:05:02Z",
+      "updatedAt": "2025-05-07T22:05:02Z",
       "closedAt": null,
       "comments": []
     }
@@ -2603,7 +2834,7 @@
       "labels": [],
       "body": "There was [an old thread on DHC](https://mailarchive.ietf.org/arch/msg/dhcwg/7D6nEiSY4ya2JO4u5e9lGKu4Fsw/), as reported by t petch that we should avoid using 9 and use 32473, an example enterprise-id as mandated by RFC5612.\r\n\r\nAnd that's exactly what this PR does.",
       "createdAt": "2025-03-15T09:39:14Z",
-      "updatedAt": "2025-03-16T05:07:44Z",
+      "updatedAt": "2025-05-06T19:51:10Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "d95693445b385d024caeab82d7374698b8dcda48",
@@ -2693,7 +2924,7 @@
       "labels": [],
       "body": "When reviewing changes, I've spotted one typo:\r\n\r\n - ALL_DHCP_Relay_Agenda_and_service => ALL_DHCP_Relay_Agents_and_service\r\n\r\nLet's keep this MR open for now in case more minor stuff needs fixing. Once we feel it's ready for merge (e.g. because we need to do -10 or for other reasons), we can turn draft PR into PR and merge.",
       "createdAt": "2025-03-20T04:53:06Z",
-      "updatedAt": "2025-04-23T16:37:34Z",
+      "updatedAt": "2025-05-06T19:51:10Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "781abb946776a7849886bfaa0c71dee32e516da0",
@@ -2721,7 +2952,7 @@
       "labels": [],
       "body": "close #33.\r\n",
       "createdAt": "2025-04-23T16:35:58Z",
-      "updatedAt": "2025-04-25T00:23:00Z",
+      "updatedAt": "2025-05-06T19:51:10Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "781abb946776a7849886bfaa0c71dee32e516da0",
@@ -2852,7 +3083,7 @@
       "labels": [],
       "body": "close #18",
       "createdAt": "2025-04-25T00:37:48Z",
-      "updatedAt": "2025-04-25T00:38:10Z",
+      "updatedAt": "2025-05-06T19:51:11Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "ade12f9d6612daaebf0d366b0b9e577a4c7593ad",
@@ -2880,7 +3111,7 @@
       "labels": [],
       "body": "close #26 ",
       "createdAt": "2025-04-25T00:50:43Z",
-      "updatedAt": "2025-04-25T00:51:52Z",
+      "updatedAt": "2025-05-06T19:51:11Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "78f6b8f5482e5be777457c634812abb10c597108",
@@ -2901,24 +3132,26 @@
       "id": "PR_kwDOFL5NeM6UlUCL",
       "title": "clarify IANA considerations",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/54",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "close #53 \r\n\r\nas per: https://mailarchive.ietf.org/arch/msg/dhcwg/MmH8OEo_udSoAetx7GM3jAkceoc/",
       "createdAt": "2025-04-30T23:01:52Z",
-      "updatedAt": "2025-05-05T14:44:22Z",
+      "updatedAt": "2025-05-06T19:51:12Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "5b46a0983f649d3788d543309f7319aa8828934c",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "fix-iana-obsolete",
-      "headRefOid": "2274a11bfe103cf3e082dd659361fc17538fffc5",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "5811f695fc04fe69cf19c115e25a4a49ec254606",
+      "closedAt": "2025-05-06T10:40:09Z",
+      "mergedAt": "2025-05-06T10:40:09Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "d3a8ff4b2983c0b12637b182aeec6895635b5c15"
+      },
       "comments": [
         {
           "author": "bevolz",
@@ -2982,6 +3215,26 @@
               "updatedAt": "2025-05-05T15:06:58Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6n8-yx",
+          "commit": {
+            "abbreviatedOid": "2274a11"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-06T10:38:50Z",
+          "updatedAt": "2025-05-06T10:38:50Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "okay, done.  Bernie there is a \"suggestion\" mechanism in github, which we can teach you :-)",
+              "createdAt": "2025-05-06T10:38:50Z",
+              "updatedAt": "2025-05-06T10:38:51Z"
+            }
+          ]
         }
       ]
     },
@@ -3001,7 +3254,7 @@
       "labels": [],
       "body": "Address ad-review: what are designated ports by being more explicit as to the source and destination ports that MUST or SHOULD be used.",
       "createdAt": "2025-05-01T21:28:53Z",
-      "updatedAt": "2025-05-05T12:20:02Z",
+      "updatedAt": "2025-05-06T19:51:12Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "5b46a0983f649d3788d543309f7319aa8828934c",
@@ -3064,24 +3317,26 @@
       "id": "PR_kwDOFL5NeM6U7qv9",
       "title": "References to new RFCs",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/57",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "tomaszmrugalski",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "Added:\r\n\r\n- [x] Section 6.5 explaining use-case for address registration, added reference to RFC9686\r\n- [ ] RFC 9243: YANG models for DHCPv6\r\n- [ ] RFC 9096: CE routers and renumbering\r\n- [ ] RFC 9663: PD-per-host\r\n\r\nRelated issue: #29 ",
+      "body": "Added:\r\n\r\n- [x] Section 6.5 explaining use-case for address registration, added reference to RFC9686\r\n- [x] RFC 9243: YANG models for DHCPv6\r\n- [x] RFC 9096: CE routers and renumbering\r\n- [ ] ~~RFC 9663: PD-per-host~~\r\n\r\nRelated issue: #29 ",
       "createdAt": "2025-05-05T12:49:55Z",
-      "updatedAt": "2025-05-05T18:19:42Z",
+      "updatedAt": "2025-05-06T19:51:12Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
-      "baseRefOid": "91b2f0f1d9294efc807a3d7d3d5286d9e7f7a1b4",
+      "baseRefOid": "d3a8ff4b2983c0b12637b182aeec6895635b5c15",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "new-rfcs-references",
-      "headRefOid": "6d3165fd494784dc66ccf2bdb938897047596116",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "5e6f6aaeb0d44fd5e56c4bb87580e2c3fd6868b9",
+      "closedAt": "2025-05-06T10:56:00Z",
+      "mergedAt": "2025-05-06T10:56:00Z",
+      "mergedBy": "tomaszmrugalski",
+      "mergeCommit": {
+        "oid": "ec0f3fe2e02ffc0ba6e963fd79d31c529deec199"
+      },
       "comments": [
         {
           "author": "tomaszmrugalski",
@@ -3089,6 +3344,20 @@
           "body": "It's unclear if we wanted to add the other RFCs. For sure, @twintersunh and @bevolz and me discussed we don't want to reference to any I-Ds, but don't remember what the conclusion for the other RFCs was.\r\n\r\nBernie is coauthor of RFC9096, so I fully trust his judgement on this.\r\n\r\nPersonally, I think it would be OK to include 9243 (YANG models), but it would require adding a short section. Something like this:\r\n\r\n```\r\n1.3 Topics out of scope\r\n\r\nThis document defines the DHCPv6 protocol behavior. The server policy, such as \r\nwhat options assign to which clients, which subnets or pools of resources to use,\r\nwhich clients' requests should be denied etc. are out of scope for this document.\r\n\r\nServer configuration, operation and management are also out of scope. One\r\npossible way to manage a DHCPv6 server is proposed in RFC9243.\r\n```\r\n\r\nNo opinion about RFC9663, although I feel it doesn't hurt to add yet another informative reference. This RFC will be a one stop for all DHCPv6-related stuff.",
           "createdAt": "2025-05-05T18:19:41Z",
           "updatedAt": "2025-05-05T18:19:41Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I do not object to 9096 either.  I think the other two things are too new, but the proposed 1.3 text is fine with me.\r\n\r\n",
+          "createdAt": "2025-05-06T10:33:54Z",
+          "updatedAt": "2025-05-06T10:33:54Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I see 9096 was already added, presumably by one of earlier PRs.\r\n\r\nIMHO this is ready for merge.",
+          "createdAt": "2025-05-06T10:52:26Z",
+          "updatedAt": "2025-05-06T10:52:26Z"
         }
       ],
       "reviews": []
@@ -3098,7 +3367,7 @@
       "id": "PR_kwDOFL5NeM6U9C5Y",
       "title": "ad-review: make registry authoritative for options #52",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/58",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -3109,17 +3378,19 @@
       "labels": [],
       "body": "ad-review: make registry authoritative for options #52",
       "createdAt": "2025-05-05T15:02:35Z",
-      "updatedAt": "2025-05-05T17:35:01Z",
+      "updatedAt": "2025-05-06T19:51:13Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "91b2f0f1d9294efc807a3d7d3d5286d9e7f7a1b4",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "52-ad-review-make-registry-authoritative-for-options",
-      "headRefOid": "44b156d5cec3e2ef24a1e3a5ab3005a435176eb3",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "01526e6e0a890c07a31ebbeaba3f7056e013d5b3",
+      "closedAt": "2025-05-06T11:15:14Z",
+      "mergedAt": "2025-05-06T11:15:14Z",
+      "mergedBy": "tomaszmrugalski",
+      "mergeCommit": {
+        "oid": "6b11c71a0fad748335117871ff7c35c688558378"
+      },
       "comments": [],
       "reviews": [
         {
@@ -3141,6 +3412,59 @@
               "updatedAt": "2025-05-05T17:35:01Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6n83Ro",
+          "commit": {
+            "abbreviatedOid": "44b156d"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-06T10:29:52Z",
+          "updatedAt": "2025-05-06T10:29:53Z",
+          "comments": [
+            {
+              "originalPosition": 36,
+              "body": "```suggestion\r\n        for the authoritative list of which option codes are required, permitted or forbidden.\r\n```",
+              "createdAt": "2025-05-06T10:29:53Z",
+              "updatedAt": "2025-05-06T10:31:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6n9KVg",
+          "commit": {
+            "abbreviatedOid": "01526e6"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-06T10:54:40Z",
+          "updatedAt": "2025-05-06T10:54:40Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "Michael had a good suggestion so I added it to this PR.",
+              "createdAt": "2025-05-06T10:54:40Z",
+              "updatedAt": "2025-05-06T10:54:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6n9WaC",
+          "commit": {
+            "abbreviatedOid": "01526e6"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "With Michael's update applied, this looks good to me. Let's merge it!",
+          "createdAt": "2025-05-06T11:14:57Z",
+          "updatedAt": "2025-05-06T11:14:57Z",
+          "comments": []
         }
       ]
     },
@@ -3156,7 +3480,7 @@
       "labels": [],
       "body": "These changes address #49. Since they're minor and non-controversial, I think we should merge them asap.",
       "createdAt": "2025-05-05T15:51:24Z",
-      "updatedAt": "2025-05-05T17:55:47Z",
+      "updatedAt": "2025-05-06T19:51:13Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "91b2f0f1d9294efc807a3d7d3d5286d9e7f7a1b4",
@@ -3191,24 +3515,26 @@
       "id": "PR_kwDOFL5NeM6U-dT9",
       "title": "Security considerations update (addresses #37, #44)",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/60",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "tomaszmrugalski",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Split into 4 sections:\r\n\r\n23. Contains generic stuff 23.1 Client-specific\r\n23.2 Server-specific\r\n23.3 RKAP\r\n\r\nThe split of RKAP into separate section is important, because it emphasizes answers to some of the concerns raised in #37. The answers where mostly there, but probably easy to miss.\r\n\r\nCloses #37.\r\nCloses #44.",
       "createdAt": "2025-05-05T17:53:15Z",
-      "updatedAt": "2025-05-05T18:23:10Z",
+      "updatedAt": "2025-05-06T19:51:13Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "91b2f0f1d9294efc807a3d7d3d5286d9e7f7a1b4",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "sec-considerations-update",
       "headRefOid": "fae63fb6aa976f205f5d05951fa4f8a16f79b2d8",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-05-06T10:25:14Z",
+      "mergedAt": "2025-05-06T10:25:14Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "c8a439ab37d55efd9d999eafae6a8ffa9262e5f2"
+      },
       "comments": [],
       "reviews": [
         {
@@ -3230,6 +3556,100 @@
               "updatedAt": "2025-05-05T18:08:38Z"
             }
           ]
+        }
+      ]
+    },
+    {
+      "number": 66,
+      "id": "PR_kwDOFL5NeM6VHKFL",
+      "title": "65 pre 10 release review comments bernie",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/66",
+      "state": "MERGED",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mcr",
+        "tomaszmrugalski",
+        "twintersunh"
+      ],
+      "labels": [],
+      "body": "Applied the comments per my email/and in the issues list.",
+      "createdAt": "2025-05-06T13:45:16Z",
+      "updatedAt": "2025-05-06T19:51:14Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "6b11c71a0fad748335117871ff7c35c688558378",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "65-pre-10-release-review-comments-bernie",
+      "headRefOid": "919a235de92f5ff34b3efc0f98c8842c80faa19c",
+      "closedAt": "2025-05-06T16:26:58Z",
+      "mergedAt": "2025-05-06T16:26:58Z",
+      "mergedBy": "twintersunh",
+      "mergeCommit": {
+        "oid": "730effffb56ab419bbb36b0976f8104488277567"
+      },
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Tomek ... there was a lot that was implied for 9686 but it was never put into the draft/RFC because it was controversial and caused earlier attempts at the work to fail. So, adding more than what is said in RFC9686 into a FULL Standard document is not appropriate.\r\n\r\nIf you can find those words in 9686 that I rejected, then please do and we can reopen the issue to update this draft.",
+          "createdAt": "2025-05-06T15:55:58Z",
+          "updatedAt": "2025-05-06T15:55:58Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM6n_M7S",
+          "commit": {
+            "abbreviatedOid": "f0b59dd"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-06T13:48:02Z",
+          "updatedAt": "2025-05-06T13:48:03Z",
+          "comments": [
+            {
+              "originalPosition": 192,
+              "body": "```suggestion\r\n        and reviews comments incorporated.</li>\r\n```",
+              "createdAt": "2025-05-06T13:48:02Z",
+              "updatedAt": "2025-05-06T13:48:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6n_Ng1",
+          "commit": {
+            "abbreviatedOid": "73096e6"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-06T13:48:45Z",
+          "updatedAt": "2025-05-06T13:48:46Z",
+          "comments": [
+            {
+              "originalPosition": 183,
+              "body": "```suggestion\r\n      <name>Mitigation Considerations</name>\r\n```",
+              "createdAt": "2025-05-06T13:48:46Z",
+              "updatedAt": "2025-05-06T13:48:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6oAgII",
+          "commit": {
+            "abbreviatedOid": "919a235"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "It seems Bernie and I have slightly different perspective what the server can do after ADDRESS-REG-REQUEST is received, but that's OK. Now is not a good time to have lengthy debates about it. Either way, it's important the new use case is now documented with a pointer to 9686 in place.\r\n\r\nThis PR is ready for merge in my opinion.",
+          "createdAt": "2025-05-06T15:22:43Z",
+          "updatedAt": "2025-05-06T15:22:43Z",
+          "comments": []
         }
       ]
     }
