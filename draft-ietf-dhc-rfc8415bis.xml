@@ -172,8 +172,8 @@
         directly to the server if the server sent the Server Unicast option
         to a client in an early exchange. It also clarifies the UDP ports used
         by clients, servers, and relay agents (<xref target="udp-ports" format="default"/>).
-        For a complete list of changes made to <xref target="RFC8415" format="default"/>
-        see <xref target="ChangeSummary" format="default"/>.</t>
+        See <xref target="ChangeSummary" format="default"/> for a list of differences
+        from <xref target="RFC8415" format="default"/>.</t>
       </section>
       <section anchor="dhcpv4" numbered="true" toc="default">
         <name>Relationship to DHCPv4</name>
