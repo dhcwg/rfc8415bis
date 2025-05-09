@@ -4130,8 +4130,8 @@ addresses, and this specification is now authoritative for:</t>
       DHCP messages. Every option shares a common base format, as described in
       <xref target="RFC3315-22.1" format="default"/>. All values in options are
       represented in network byte order.</t>
-      <t>This document specifies the DHCP options defined as part of the base
-      DHCP specification. Other options may be defined in the future in
+      <t>This document specifies the DHCP options defined as part of this base
+      DHCP specification. Other options have been or may be defined in the future in
       separate documents. See <xref target="RFC7227" format="default"/> for guidelines regarding
       the definition of new options.
       See <xref target="iana" format="default"/> for additional information about the
