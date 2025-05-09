@@ -121,9 +121,11 @@
       options. DHCPv6 can be extended through the definition of new options
       to carry configuration information not specified in this document.</t>
       <t>DHCPv6 also supports a mechanism for automated delegation of
-      IPv6 prefixes. Through this mechanism, a delegating router
-      can delegate prefixes to requesting routers. Use of this mechanism is
-      specified as part of <xref target="RFC7084" format="default"/> and by <xref target="TR-187" format="default"/>.</t>
+      IPv6 prefixes. Through this mechanism, a server
+      can delegate prefixes to clients. Use of this mechanism is
+      specified as part of <xref target="RFC7084" format="default"/> and by <xref target="TR-187" format="default"/>.
+      Note that these documents use "requesting router" for what this
+      document uses client and "delegating router" for server.</t>
       <t>DHCP can also be used just to provide other configuration options
       (i.e., no addresses or prefixes). That implies that the
       server does not have to track any state; thus, this mode is called
@@ -140,27 +142,6 @@
       operation in detail.</t>
       <section anchor="previous-dhcp6" numbered="true" toc="default">
         <name>Relationship to Previous DHCPv6 Standards</name>
-        <t>The initial specification of DHCPv6 was defined in <xref target="RFC3315" format="default"/>, and a number of follow-up documents were
-        published over the years:</t>
-        <ul spacing="normal">
-          <li>
-            <xref target="RFC3633" format="default"/> ("IPv6 Prefix Options for Dynamic Host
-        Configuration Protocol (DHCP) version 6")</li>
-          <li>
-            <xref target="RFC3736" format="default"/> ("Stateless Dynamic Host Configuration
-        Protocol (DHCP) Service for IPv6")</li>
-          <li>
-            <xref target="RFC4242" format="default"/> ("Information Refresh Time Option for
-        Dynamic Host Configuration Protocol for IPv6 (DHCPv6)")</li>
-          <li>
-            <xref target="RFC7083" format="default"/> ("Modification to Default Values of
-        SOL_MAX_RT and INF_MAX_RT")</li>
-          <li>
-            <xref target="RFC7283" format="default"/> ("Handling Unknown DHCPv6 Messages")</li>
-          <li>
-            <xref target="RFC7550" format="default"/> ("Issues and Recommendations with Multiple
-        Stateful DHCPv6 Options")</li>
-        </ul>
         <t><xref target="RFC8415" format="default"/> provided a unified, corrected, and cleaned-up
         definition of DHCPv6 that also covered all applicable errata filed
         against older RFCs. It also obsoleted a small number of mechanisms:
@@ -175,32 +156,24 @@
         For a complete list of changes made to <xref target="RFC8415" format="default"/>
         see <xref target="ChangeSummary" format="default"/>.</t>
       </section>
-      <section anchor="dhcpv4" numbered="true" toc="default">
-        <name>Relationship to DHCPv4</name>
-        <t>The operational models and relevant configuration information for
-        DHCPv4 <xref target="RFC2131" format="default"/> <xref target="RFC2132" format="default"/> and
-        DHCPv6 are sufficiently different that integration between the two
-        services is not included in this document. <xref target="RFC3315" format="default"/> suggested that future work might be to extend
-        DHCPv6 to carry IPv4 address and configuration information. However,
-        the current consensus of the IETF is that DHCPv4 should be used rather
+      <section anchor="out-of-scope" numbered="true" toc="default">
+        <name>Topics Out of Scope</name>
+        <t>This document specifies the DHCPv6 protocol behavior. The server policy, such as
+        what options assign to which clients, which subnets or pools of resources to use,
+        which clients' requests should be denied etc. are out of scope for this document.</t>
+        <t>Server configuration, operation and management are also out of scope. One
+        possible way to manage a DHCPv6 server is proposed in <xref target="RFC9243" format="default"/>.</t>
+        <t>Merging DHCPv4 and DHCPv6 configuration is out of scope for
+        this document. <xref target="RFC4477" format="default"/> discusses some issues
+        and possible strategies for running DHCPv4 and DHCPv6 services
+        together. While <xref target="RFC4477" format="default"/> is a bit dated, it provides
+        a good overview of the issues at hand.
+        The current consensus of the IETF is that DHCPv4 should be used rather
         than DHCPv6 when conveying IPv4 configuration information to nodes.
         For IPv6-only networks, <xref target="RFC7341" format="default"/> describes a
         transport mechanism to carry DHCPv4 messages using the DHCPv6 protocol
         for the dynamic provisioning of IPv4 address and configuration
         information.</t>
-        <t>Merging DHCPv4 and DHCPv6 configuration is out of scope for
-        this document. <xref target="RFC4477" format="default"/> discusses some issues
-        and possible strategies for running DHCPv4 and DHCPv6 services
-        together. While <xref target="RFC4477" format="default"/> is a bit dated, it provides
-        a good overview of the issues at hand.</t>
-      </section>
-      <section anchor="out-of-scope" numbered="true" toc="default">
-        <name>Topics Out of Scope</name>
-        <t>This document defines the DHCPv6 protocol behavior. The server policy, such as
-        what options assign to which clients, which subnets or pools of resources to use,
-        which clients' requests should be denied etc. are out of scope for this document.</t>
-        <t>Server configuration, operation and management are also out of scope. One
-        possible way to manage a DHCPv6 server is proposed in <xref target="RFC9243" format="default"/>.</t>
       </section>
     </section>
     <section anchor="requirements" numbered="true" toc="default">
@@ -219,41 +192,6 @@
       implementation is not required to have them in the exact form described
       here, as long as its external behavior is consistent with that described
       in this document.</t>
-    </section>
-    <section anchor="background" numbered="true" toc="default">
-      <name>Background</name>
-      <t><xref target="RFC8200" format="default"/> ("Internet Protocol, Version 6 (IPv6)
-      Specification") provides the base architecture and design of IPv6. In
-      addition to <xref target="RFC8200" format="default"/>, related work in IPv6 that an
-      implementer would be best served to study includes</t>
-      <ul spacing="normal">
-        <li>
-          <xref target="RFC4291" format="default"/> ("IP Version 6 Addressing Architecture")</li>
-        <li>
-          <xref target="RFC4862" format="default"/> ("IPv6 Stateless Address Autoconfiguration")</li>
-        <li>
-          <xref target="RFC4861" format="default"/> ("Neighbor Discovery for IP version 6
-      (IPv6)")</li>
-      </ul>
-      <t>These specifications enable DHCP to build upon the
-      IPv6 work to provide robust stateful autoconfiguration.</t>
-      <t><xref target="RFC4291" format="default"/> defines the address scope that can be used
-      in an IPv6 implementation and also provides various configuration
-      architecture guidelines for network designers of the IPv6 address
-      space. Two advantages of IPv6 are that support for multicast is required
-      and nodes can create link‑local addresses during initialization. The
-      availability of these features means that a client can use its
-      link‑local address and a well-known multicast address to discover
-      and communicate with DHCP servers or relay agents on its link.</t>
-      <t><xref target="RFC4862" format="default"/> specifies procedures by which a node may
-      autoconfigure addresses based on Router Advertisements <xref target="RFC4861" format="default"/> and the use of a valid lifetime to support
-      renumbering of addresses on the Internet. Compatibility with stateless
-      address autoconfiguration is a design requirement of DHCP.</t>
-      <t>IPv6 Neighbor Discovery <xref target="RFC4861" format="default"/> is the
-      node discovery protocol in IPv6 that replaces and enhances functions of
-      ARP <xref target="RFC0826" format="default"/>. To understand IPv6 and stateless address
-      autoconfiguration, it is strongly recommended that implementers
-      understand IPv6 Neighbor Discovery.</t>
     </section>
     <section anchor="terminology" numbered="true" toc="default">
       <name>Terminology</name>
@@ -358,12 +296,6 @@
             options (for example, the IA_NA option
             (see <xref target="RFC3315-22.4" format="default"/>) may contain IA Address options
             (see <xref target="RFC3315-22.6" format="default"/>)).</dd>
-          <dt>delegating router</dt>
-          <dd>The router that acts as a DHCP
-            server and responds to requests for delegated prefixes. This
-            document primarily uses the term "DHCP server" or "server" when
-            discussing the "delegating router" functionality of prefix
-            delegation (see <xref target="intro-and-overview" format="default"/>).</dd>
           <dt>DHCP</dt>
           <dd>Dynamic Host Configuration Protocol for IPv6.
             The terms "DHCPv4" and "DHCPv6" are used only in contexts where it
@@ -371,9 +303,7 @@
           <dt>DHCP client</dt>
           <dd>Also referred to as "client".
             A node that initiates requests on a link to obtain
-            configuration parameters from one or more DHCP servers.
-            The node may act as a requesting router (see below)
-            if it supports prefix delegation.</dd>
+            configuration parameters from one or more DHCP servers.</dd>
           <dt>DHCP domain</dt>
           <dd>A set of links managed by DHCP and
             operated by a single administrative entity.</dd>
@@ -387,9 +317,7 @@
           <dt>DHCP server</dt>
           <dd>This document condenses this term to "server".
             A node that responds to requests from clients.  It may
-            or may not be on the same link as the client(s).
-            Depending on its capabilities, if it supports prefix delegation
-            it may also feature the functionality of a delegating router.</dd>
+            or may not be on the same link as the client(s).</dd>
           <dt>DUID</dt>
           <dd>A DHCP Unique Identifier for a DHCP
             participant. Each DHCP client and server has exactly one DUID. See
@@ -453,12 +381,6 @@
           <dt>relaying</dt>
           <dd>A DHCP relay agent relays DHCP messages
             between DHCP participants.</dd>
-          <dt>requesting router</dt>
-          <dd>The router that acts as a DHCP
-            client and is requesting prefix(es) to be assigned. This document
-            primarily uses the term "DHCP client" or "client" when
-            discussing the "requesting router" functionality of prefix
-            delegation (see <xref target="intro-and-overview" format="default"/>).</dd>
           <dt>retransmission</dt>
           <dd>Another attempt to send the same
             DHCP message by a client or server, as a result of not
@@ -528,8 +450,7 @@
         configuration information such as a
         list of available DNS servers <xref target="RFC3646" format="default"/> or
         NTP servers <xref target="RFC5908" format="default"/> through a single message and
-        reply exchange with a DHCP server (as originally described in
-        <xref target="RFC3736" format="default" />). To obtain other configuration
+        reply exchange with a DHCP server. To obtain other configuration
         information, the client first sends an Information-request message to
         the All_DHCP_Relay_Agents_and_Servers multicast address. Servers
         respond with a Reply message containing the other configuration
@@ -617,7 +538,7 @@
       protocol extension.</t>
       <section anchor="OpModes-Stateless" numbered="true" toc="default">
         <name>Stateless DHCP</name>
-        <t>Stateless DHCP <xref target="RFC3736" format="default"/> can be
+        <t>Stateless DHCP can be
         used at any time, typically when a node requires
         some missing or expired configuration information that is available
         via DHCP.
@@ -666,33 +587,25 @@
       </section>
       <section anchor="OpModes-PD" numbered="true" toc="default">
         <name>DHCP for Prefix Delegation</name>
-        <t>The prefix delegation mechanism, originally described in <xref target="RFC3633" format="default"/>, is another stateful mode of operation and
+        <t>The prefix delegation mechanism is another stateful mode of operation and
         was originally intended for simple delegation of prefixes from a
-        delegating router (DHCP server) to requesting routers (DHCP
-        clients). It is appropriate for situations in which the delegating
-        router (1) does not have knowledge about the topology of the
-        networks to which the requesting router is attached and
-        (2) does not require other information aside from the identity of
-        the requesting router to choose a prefix for delegation.
+        DHCP server to DHCP cients (typically routers).
+        It is appropriate for situations in which the client
+        (1) does not have knowledge about the topology of the
+        networks to which it is attached and
+        (2) does not require other information to choose a prefix for delegation.
         This mechanism is appropriate for use by an ISP to
         delegate a prefix to a subscriber, where the delegated prefix would
         possibly be subnetted and assigned to the links within the
         subscriber's network. <xref target="RFC7084" format="default"/> and
         <xref target="RFC7368" format="default"/> describe such use in detail.</t>
-        <t>The design of this prefix delegation mechanism meets the
-        requirements for prefix delegation in <xref target="RFC3769" format="default"/>.</t>
-        <t>While <xref target="RFC3633" format="default"/> assumes that the DHCP client
-        is a router (hence the use of "requesting router") and that the DHCP
-        server is a router (hence the use of "delegating router"), DHCP
-        prefix delegation itself does not require that the client forward
+        <t>DHCP prefix delegation itself does not require that the client forward
         IP packets not addressed to itself and thus does not require
         that the client (or server) be a router as defined in
         <xref target="RFC8200" format="default"/>. Also, in many cases (such as tethering
         or hosting virtual machines), hosts are already forwarding IP
         packets and thus are operating as routers as defined in
-        <xref target="RFC8200" format="default"/>. Therefore, this document mostly replaces
-        "requesting router" with "client" and "delegating router" with
-        "server".</t>
+        <xref target="RFC8200" format="default"/>.</t>
         <t>The model of operation for prefix delegation is as follows:
         </t>
         <ul spacing="normal">
@@ -733,18 +646,15 @@
                      +-------+-------+               |
                      |  Aggregation  |               | ISP
                      |    device     |               | network
-                     |  (delegating  |               |
-                     |    router)    |               |
                      +-------+-------+               |
                              |                      /
                              |Network link to      /
                              |subscriber premises /
                              |
-                      +------+------+             \
-                      |     CPE     |              \
-                      | (requesting |               \
-                      |   router)   |                |
-                      +----+---+----+                |
+                      +-------+-------+           \
+                      |      CPE      |            \
+                      | (dhcp client) |             \
+                      +----+---+------+              |
                            |   |                     | Subscriber
     ---+-------------+-----+   +-----+------         | network
        |             |               |               |
@@ -753,12 +663,13 @@
   |    PC    | |    PC    |     |    PC    |       /
   +----------+ +----------+     +----------+      /]]></artwork>
         </figure>
-        <t>In this example, the server (delegating router) is configured with a set of
+        <t>In this example, the server (in the ISP core network or integrated
+        inb the aggregation device) is configured with a set of
         prefixes to be used for assignment to customers at the time of each
         customer's first connection to the ISP service. The prefix delegation
-        process begins when the client (requesting router) requests configuration
+        process begins when the CPE (client) requests configuration
         information through DHCP. The DHCP messages from the client
-        are received by the server in the aggregation device. When
+        are received by the server via the aggregation device. When
         the server receives the request, it selects an available
         prefix or prefixes for delegation to the client. The
         server then returns the prefix or prefixes to the
@@ -775,7 +686,7 @@
         client may obtain the addresses of DNS and NTP servers from
         the ISP server and then pass that configuration
         information on to the subscriber hosts through a DHCP server in the
-        client (requesting router).</t>
+        client.</t>
         <t>If the client uses a delegated prefix to configure addresses on
        interfaces on itself or other nodes behind it, the preferred and
        valid lifetimes of those addresses MUST be no longer than the
@@ -870,8 +781,7 @@
       by DHCP.</t>
       <section anchor="mutlicastAddr" numbered="true" toc="default">
         <name>Multicast Addresses</name>
-        <t><xref target="RFC3315" /> registered the following multicast
-addresses, and this specification is now authoritative for:</t>
+        <t>The following multicast addresses are used by DHCPv6:</t>
         <dl newline="true" spacing="normal">
           <dt>All_DHCP_Relay_Agents_and_Servers (ff02::1:2)</dt>
           <dd>A link-scoped multicast address used by a client to
@@ -2121,8 +2031,7 @@ addresses, and this specification is now authoritative for:</t>
       <t>A DHCP client that does not need to have a DHCP server assign
       IP addresses or delegated prefixes to it can obtain configuration
       information such as a list of available DNS servers <xref target="RFC3646" format="default"/> or NTP servers <xref target="RFC5908" format="default"/> through a
-      single message and reply exchange with a DHCP server
-      (as originally described in <xref target="RFC3736" format="default" />).
+      single message and reply exchange with a DHCP server.
       To obtain
       configuration information, the client first sends an Information-request
       message (see <xref target="RFC3315-18.1.5" format="default"/>) to the
@@ -2229,8 +2138,7 @@ addresses, and this specification is now authoritative for:</t>
         <t>This document assumes that a client SHOULD use a single transaction
       for all of the IA options required on an interface; this simplifies
       the client implementation and reduces the potential number of
-      transactions required (for the background on this design
-      choice, refer to Section 4 of <xref target="RFC7550" format="default"/>). To facilitate
+      transactions required. To facilitate
       a client's use of a single transaction for all IA options, servers
       MUST return the same T1/T2 values for all IA options in a Reply
       (see Sections <xref target="RFC3315-18.2.1" format="counter"/>,
@@ -3771,8 +3679,8 @@ addresses, and this specification is now authoritative for:</t>
         <t>A relay agent relays both messages from clients and Relay-forward
         messages from other relay agents. When a relay agent receives
         a Relay-forward message, a recognized message type for which it is
-        not the intended target, or an unrecognized message type
-        <xref target="RFC7283" format="default"/>, it constructs a new Relay-forward message. The
+        not the intended target, or an unrecognized message type,
+        it constructs a new Relay-forward message. The
         relay agent copies the source address from the header of the IP
         datagram in which the message was received into the peer-address field
         of the Relay-forward message. The relay agent copies the received DHCP
@@ -4614,9 +4522,7 @@ addresses, and this specification is now authoritative for:</t>
         <name>Authentication Option</name>
         <t>The Authentication option carries authentication information to
         authenticate the identity and contents of DHCP messages. The use of
-        the Authentication option is described in <xref target="RFC3315-21" format="default"/>. The delayed authentication protocol,
-        defined in <xref target="RFC3315" format="default"/>, was obsoleted by
-        <xref target="RFC8415" format="default"/>.
+        the Authentication option is described in <xref target="RFC3315-21" format="default"/>.
         The format of the Authentication option is:</t>
         <figure anchor="FigOption11">
           <name>Authentication Option Format</name>
@@ -4721,7 +4627,7 @@ addresses, and this specification is now authoritative for:</t>
         message and/or in the "options" field of another option. If the Status
         Code option does not appear in a message in which the option could
         appear, the status of the message is assumed to be Success.</t>
-        <t>The status-code values previously defined by <xref target="RFC3315" format="default"/> and <xref target="RFC3633" format="default"/> are:</t>
+        <t>The status-code values are:</t>
         <table anchor="Status-Code-Table" align="center">
           <name>Status Code Definitions</name>
           <thead>
@@ -6084,44 +5990,6 @@ addresses, and this specification is now authoritative for:</t>
             <date/>
           </front>
         </reference>
-        <reference anchor="RFC0826" target="https://www.rfc-editor.org/info/rfc826" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.0826.xml">
-          <front>
-            <title>An Ethernet Address Resolution Protocol: Or Converting Network Protocol Addresses to 48.bit Ethernet Address for Transmission on Ethernet Hardware</title>
-            <author fullname="D. Plummer" initials="D." surname="Plummer"/>
-            <date month="November" year="1982"/>
-            <abstract>
-              <t>The purpose of this RFC is to present a method of Converting Protocol Addresses (e.g., IP addresses) to Local Network Addresses (e.g., Ethernet addresses).  This is an issue of general concern in the ARPA Internet Community at this time.  The method proposed here is presented for your consideration and comment.  This is not the specification of an Internet Standard.</t>
-            </abstract>
-          </front>
-          <seriesInfo name="STD" value="37"/>
-          <seriesInfo name="RFC" value="826"/>
-          <seriesInfo name="DOI" value="10.17487/RFC0826"/>
-        </reference>
-        <reference anchor="RFC2131" target="https://www.rfc-editor.org/info/rfc2131" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2131.xml">
-          <front>
-            <title>Dynamic Host Configuration Protocol</title>
-            <author fullname="R. Droms" initials="R." surname="Droms"/>
-            <date month="March" year="1997"/>
-            <abstract>
-              <t>The Dynamic Host Configuration Protocol (DHCP) provides a framework for passing configuration information to hosts on a TCPIP network.  DHCP is based on the Bootstrap Protocol (BOOTP), adding the capability of automatic allocation of reusable network addresses and additional configuration options. [STANDARDS-TRACK]</t>
-            </abstract>
-          </front>
-          <seriesInfo name="RFC" value="2131"/>
-          <seriesInfo name="DOI" value="10.17487/RFC2131"/>
-        </reference>
-        <reference anchor="RFC2132" target="https://www.rfc-editor.org/info/rfc2132" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2132.xml">
-          <front>
-            <title>DHCP Options and BOOTP Vendor Extensions</title>
-            <author fullname="S. Alexander" initials="S." surname="Alexander"/>
-            <author fullname="R. Droms" initials="R." surname="Droms"/>
-            <date month="March" year="1997"/>
-            <abstract>
-              <t>This document specifies the current set of DHCP options.  Future options will be specified in separate RFCs.  The current list of valid options is also available in ftp://ftp.isi.edu/in-notes/iana/assignments. [STANDARDS-TRACK]</t>
-            </abstract>
-          </front>
-          <seriesInfo name="RFC" value="2132"/>
-          <seriesInfo name="DOI" value="10.17487/RFC2132"/>
-        </reference>
         <reference anchor="RFC2464" target="https://www.rfc-editor.org/info/rfc2464" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2464.xml">
           <front>
             <title>Transmission of IPv6 Packets over Ethernet Networks</title>
@@ -6176,33 +6044,6 @@ addresses, and this specification is now authoritative for:</t>
           <seriesInfo name="RFC" value="3629"/>
           <seriesInfo name="DOI" value="10.17487/RFC3629"/>
         </reference>
-        <reference anchor="RFC3315" target="https://www.rfc-editor.org/info/rfc3315" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3315.xml">
-          <front>
-            <title>Dynamic Host Configuration Protocol for IPv6 (DHCPv6)</title>
-            <author fullname="R. Droms" initials="R." role="editor" surname="Droms"/>
-            <author fullname="J. Bound" initials="J." surname="Bound"/>
-            <author fullname="B. Volz" initials="B." surname="Volz"/>
-            <author fullname="T. Lemon" initials="T." surname="Lemon"/>
-            <author fullname="C. Perkins" initials="C." surname="Perkins"/>
-            <author fullname="M. Carney" initials="M." surname="Carney"/>
-            <date month="July" year="2003"/>
-          </front>
-          <seriesInfo name="RFC" value="3315"/>
-          <seriesInfo name="DOI" value="10.17487/RFC3315"/>
-        </reference>
-        <reference anchor="RFC3633" target="https://www.rfc-editor.org/info/rfc3633" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3633.xml">
-          <front>
-            <title>IPv6 Prefix Options for Dynamic Host Configuration Protocol (DHCP) version 6</title>
-            <author fullname="O. Troan" initials="O." surname="Troan"/>
-            <author fullname="R. Droms" initials="R." surname="Droms"/>
-            <date month="December" year="2003"/>
-            <abstract>
-              <t>The Prefix Delegation options provide a mechanism for automated delegation of IPv6 prefixes using the Dynamic Host Configuration Protocol (DHCP).  This mechanism is intended for delegating a long-lived prefix from a delegating router to a requesting router, across an administrative boundary, where the delegating router does not require knowledge about the topology of the links in the network to which the prefixes will be assigned.</t>
-            </abstract>
-          </front>
-          <seriesInfo name="RFC" value="3633"/>
-          <seriesInfo name="DOI" value="10.17487/RFC3633"/>
-        </reference>
         <reference anchor="RFC3646" target="https://www.rfc-editor.org/info/rfc3646" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3646.xml">
           <front>
             <title>DNS Configuration options for Dynamic Host Configuration Protocol for IPv6 (DHCPv6)</title>
@@ -6214,31 +6055,6 @@ addresses, and this specification is now authoritative for:</t>
           </front>
           <seriesInfo name="RFC" value="3646"/>
           <seriesInfo name="DOI" value="10.17487/RFC3646"/>
-        </reference>
-        <reference anchor="RFC3736" target="https://www.rfc-editor.org/info/rfc3736" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3736.xml">
-          <front>
-            <title>Stateless Dynamic Host Configuration Protocol (DHCP) Service for IPv6</title>
-            <author fullname="R. Droms" initials="R." surname="Droms"/>
-            <date month="April" year="2004"/>
-            <abstract>
-              <t>Stateless Dynamic Host Configuration Protocol service for IPv6 (DHCPv6) is used by nodes to obtain configuration information, such as the addresses of DNS recursive name servers, that does not require the maintenance of any dynamic state for individual clients.  A node that uses stateless DHCP must have obtained its IPv6 addresses through some other mechanism, typically stateless address autoconfiguration.  This document explains which parts of RFC 3315 must be implemented in each of the different kinds of DHCP agents so that agent can support stateless DHCP. [STANDARDS-TRACK]</t>
-            </abstract>
-          </front>
-          <seriesInfo name="RFC" value="3736"/>
-          <seriesInfo name="DOI" value="10.17487/RFC3736"/>
-        </reference>
-        <reference anchor="RFC3769" target="https://www.rfc-editor.org/info/rfc3769" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3769.xml">
-          <front>
-            <title>Requirements for IPv6 Prefix Delegation</title>
-            <author fullname="S. Miyakawa" initials="S." surname="Miyakawa"/>
-            <author fullname="R. Droms" initials="R." surname="Droms"/>
-            <date month="June" year="2004"/>
-            <abstract>
-              <t>This document describes requirements for how IPv6 address prefixes should be delegated to an IPv6 subscriber's network (or "site").  This memo provides information for the Internet community.</t>
-            </abstract>
-          </front>
-          <seriesInfo name="RFC" value="3769"/>
-          <seriesInfo name="DOI" value="10.17487/RFC3769"/>
         </reference>
         <reference anchor="RFC5908" target="https://www.rfc-editor.org/info/rfc5908" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.5908.xml">
           <front>
@@ -6265,20 +6081,6 @@ addresses, and this specification is now authoritative for:</t>
           </front>
           <seriesInfo name="RFC" value="4193"/>
           <seriesInfo name="DOI" value="10.17487/RFC4193"/>
-        </reference>
-        <reference anchor="RFC4242" target="https://www.rfc-editor.org/info/rfc4242" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.4242.xml">
-          <front>
-            <title>Information Refresh Time Option for Dynamic Host Configuration Protocol for IPv6 (DHCPv6)</title>
-            <author fullname="S. Venaas" initials="S." surname="Venaas"/>
-            <author fullname="T. Chown" initials="T." surname="Chown"/>
-            <author fullname="B. Volz" initials="B." surname="Volz"/>
-            <date month="November" year="2005"/>
-            <abstract>
-              <t>This document describes a Dynamic Host Configuration Protocol for IPv6 (DHCPv6) option for specifying an upper bound for how long a client should wait before refreshing information retrieved from DHCPv6.  It is used with stateless DHCPv6 as there are no addresses or other entities with lifetimes that can tell the client when to contact the DHCPv6 server to refresh its configuration. [STANDARDS-TRACK]</t>
-            </abstract>
-          </front>
-          <seriesInfo name="RFC" value="4242"/>
-          <seriesInfo name="DOI" value="10.17487/RFC4242"/>
         </reference>
         <reference anchor="RFC4477" target="https://www.rfc-editor.org/info/rfc4477" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.4477.xml">
           <front>
@@ -6436,18 +6238,6 @@ addresses, and this specification is now authoritative for:</t>
           <seriesInfo name="RFC" value="6939"/>
           <seriesInfo name="DOI" value="10.17487/RFC6939"/>
         </reference>
-        <reference anchor="RFC7083" target="https://www.rfc-editor.org/info/rfc7083" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.7083.xml">
-          <front>
-            <title>Modification to Default Values of SOL_MAX_RT and INF_MAX_RT</title>
-            <author fullname="R. Droms" initials="R." surname="Droms"/>
-            <date month="November" year="2013"/>
-            <abstract>
-              <t>This document updates RFC 3315 by redefining the default values for SOL_MAX_RT and INF_MAX_RT and defining options through which a DHCPv6 server can override the client's default value for SOL_MAX_RT and INF_MAX_RT with new values.</t>
-            </abstract>
-          </front>
-          <seriesInfo name="RFC" value="7083"/>
-          <seriesInfo name="DOI" value="10.17487/RFC7083"/>
-        </reference>
         <reference anchor="RFC7084" target="https://www.rfc-editor.org/info/rfc7084" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.7084.xml">
           <front>
             <title>Basic Requirements for IPv6 Customer Edge Routers</title>
@@ -6475,20 +6265,6 @@ addresses, and this specification is now authoritative for:</t>
           </front>
           <seriesInfo name="RFC" value="7136"/>
           <seriesInfo name="DOI" value="10.17487/RFC7136"/>
-        </reference>
-        <reference anchor="RFC7283" target="https://www.rfc-editor.org/info/rfc7283" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.7283.xml">
-          <front>
-            <title>Handling Unknown DHCPv6 Messages</title>
-            <author fullname="Y. Cui" initials="Y." surname="Cui"/>
-            <author fullname="Q. Sun" initials="Q." surname="Sun"/>
-            <author fullname="T. Lemon" initials="T." surname="Lemon"/>
-            <date month="July" year="2014"/>
-            <abstract>
-              <t>DHCPv6 is not specific about handling messages with unknown types.  This memo describes the problems associated with receiving DHCPv6 messages with unknown types, and defines how a DHCPv6 server, client, or relay agent should behave when receiving unknown DHCPv6 messages.  This document also provides advice for authors of future documents that define new messages to be sent from DHCP servers to DHCP relay agents.  This document updates RFC 3315.</t>
-            </abstract>
-          </front>
-          <seriesInfo name="RFC" value="7283"/>
-          <seriesInfo name="DOI" value="10.17487/RFC7283"/>
         </reference>
         <reference anchor="RFC7341" target="https://www.rfc-editor.org/info/rfc7341" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.7341.xml">
           <front>
@@ -6536,20 +6312,6 @@ addresses, and this specification is now authoritative for:</t>
           </front>
           <seriesInfo name="RFC" value="7513"/>
           <seriesInfo name="DOI" value="10.17487/RFC7513"/>
-        </reference>
-        <reference anchor="RFC7550" target="https://www.rfc-editor.org/info/rfc7550" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.7550.xml">
-          <front>
-            <title>Issues and Recommendations with Multiple Stateful DHCPv6 Options</title>
-            <author fullname="O. Troan" initials="O." surname="Troan"/>
-            <author fullname="B. Volz" initials="B." surname="Volz"/>
-            <author fullname="M. Siodelski" initials="M." surname="Siodelski"/>
-            <date month="May" year="2015"/>
-            <abstract>
-              <t>The Dynamic Host Configuration Protocol for IPv6 (DHCPv6) specification defined two stateful options, IA_NA and IA_TA, but did not anticipate the development of additional stateful options.  DHCPv6 Prefix Delegation added the IA_PD option, which is stateful.  Applications that use IA_NA and IA_PD together have revealed issues that need to be addressed.  This document updates RFCs 3315 and 3633 to address these issues.</t>
-            </abstract>
-          </front>
-          <seriesInfo name="RFC" value="7550"/>
-          <seriesInfo name="DOI" value="10.17487/RFC7550"/>
         </reference>
         <reference anchor="RFC7598" target="https://www.rfc-editor.org/info/rfc7598" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.7598.xml">
           <front>
