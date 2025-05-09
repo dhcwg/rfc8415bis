@@ -4352,11 +4352,12 @@ Table of Contents
    described in Section 21.1.  All values in options are represented in
    network byte order.
 
-   This document specifies the DHCP options defined as part of the base
-   DHCP specification.  Other options may be defined in the future in
-   separate documents.  See [RFC7227] for guidelines regarding the
-   definition of new options.  See Section 25 for additional information
-   about the DHCPv6 "Option Codes" registry maintained by IANA.
+   This document specifies the DHCP options defined as part of this base
+   DHCP specification.  Other options have been or may be defined in the
+   future in separate documents.  See [RFC7227] for guidelines regarding
+   the definition of new options.  See Section 25 for additional
+   information about the DHCPv6 "Option Codes" registry maintained by
+   IANA.
 
    Unless otherwise noted, each option may appear only in the options
    area of a DHCP message and may appear only once.  If an option does
