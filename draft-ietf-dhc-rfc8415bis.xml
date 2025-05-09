@@ -150,11 +150,11 @@
       <section anchor="out-of-scope" numbered="true" toc="default">
         <name>Topics Out of Scope</name>
         <t>This document specifies the DHCPv6 protocol behavior. The server policy, such as
-        what options assign to which clients, which subnets or pools of resources to use,
+        what options to assign to which clients, which subnets or pools of resources to use,
         which clients' requests should be denied etc. are out of scope for this document.</t>
         <t>Server configuration, operation and management are also out of scope. One
         possible way to manage a DHCPv6 server is proposed in <xref target="RFC9243" format="default"/>.</t>
-        <t>Merging DHCPv4 <xref target="RFC2131" format="default"> and DHCPv6 configuration is out of scope for
+        <t>Merging DHCPv4 <xref target="RFC2131" format="default"/> and DHCPv6 configuration is out of scope for
         this document. <xref target="RFC4477" format="default"/> discusses some issues
         and possible strategies for running DHCPv4 and DHCPv6 services
         together. While <xref target="RFC4477" format="default"/> is a bit dated, it provides
@@ -590,6 +590,8 @@
         possibly be subnetted and assigned to the links within the
         subscriber's network. <xref target="RFC7084" format="default"/> and
         <xref target="RFC7368" format="default"/> describe such use in detail.</t>
+        <t>The design of this prefix delegation mechanism meets the requirements
+        for prefix delegation in <xref target="RFC3769" format="default"/>.</t>
         <t>DHCP prefix delegation itself does not require that the client forward
         IP packets not addressed to itself and thus does not require
         that the client (or server) be a router as defined in
@@ -655,10 +657,10 @@
   +----------+ +----------+     +----------+      /]]></artwork>
         </figure>
         <t>In this example, the server (in the ISP core network or integrated
-        inb the aggregation device) is configured with a set of
+        in the aggregation device) is configured with a set of
         prefixes to be used for assignment to customers at the time of each
         customer's first connection to the ISP service. The prefix delegation
-        process begins when the CPE (client) requests configuration
+        process begins when the client (CPE) requests configuration
         information through DHCP. The DHCP messages from the client
         are received by the server via the aggregation device. When
         the server receives the request, it selects an available
@@ -6048,6 +6050,7 @@
           <seriesInfo name="RFC" value="3646"/>
           <seriesInfo name="DOI" value="10.17487/RFC3646"/>
         </reference>
+        <?rfc include="reference.RFC.3769.xml" ?>
         <reference anchor="RFC5908" target="https://www.rfc-editor.org/info/rfc5908" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.5908.xml">
           <front>
             <title>Network Time Protocol (NTP) Server Option for DHCPv6</title>
@@ -6645,16 +6648,19 @@ INF_MAX_RT         *
     <section numbered="false" toc="default">
       <name>Acknowledgments</name>
       <t>This document is merely a refinement of earlier work as described
-      in RFC 8415 and by the authors of that document.
+      in RFC 8415.
       </t>
       <t>A number of additional people have contributed to identifying issues
       with RFC 8415, including Fernando Gont, Felix Hamme, Rene Engel, Esko Dijk,
       Jen Linkova, Tomoyuki Sahara, and Ted Lemon.
       </t>
-      <t>We also thank the DHC working group for their review of this updated
+      <t>We thank the thorough and thoughtful reviews during the IETF
+      process, especially Mohamed Boucadair, Tim Chown, Roman Danyliw,
+      Tatuya Jinmei, Jim Read, Katan Talaulikar, Eric Vyncke, Dave Worley. We
+      also thank the DHC working group members for their reviews of this updated
       document.
       </t>
-      <t>Also, special thanks to Suresh Krishnan for shepherding this document
+      <t>And, special thanks to Suresh Krishnan for shepherding this document
       through the IETF process.
       </t>
     </section>
