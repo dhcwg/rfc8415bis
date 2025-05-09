@@ -766,7 +766,7 @@ Table of Contents
 
    The prefix delegation mechanism is another stateful mode of operation
    and was originally intended for simple delegation of prefixes from a
-   DHCP server to DHCP cients (typically routers).  It is appropriate
+   DHCP server to DHCP clients (typically routers).  It is appropriate
    for situations in which the client (1) does not have knowledge about
    the topology of the networks to which it is attached and (2) does not
    require other information to choose a prefix for delegation.  This
@@ -826,7 +826,7 @@ Table of Contents
                                 |
                          +-------+-------+           \
                          |      CPE      |            \
-                         | (dhcp client) |             \
+                         | (DHCP client) |             \
                          +----+---+------+              |
                               |   |                     | Subscriber
        ---+-------------+-----+   +-----+------         | network
@@ -939,7 +939,7 @@ Table of Contents
 
    The major difference between other use cases and this is that the
    address selection is not done by the DHCP server, but by the device
-   itself.  The most of the lifecycle remains the same in priciple: a
+   itself.  The most of the lifecycle remains the same in principle: a
    lease is created by the server, and the device performs periodic
    actions to get the lease renewed, and eventually the lease can
    expire.  However, this mechanism uses different message types (ADDR-
@@ -5711,8 +5711,8 @@ Table of Contents
       "Configuring Server/Relay/client/PD client" on the left panel.
 
    *  iOS (Apple): Client implementation running on Apple portable
-      devices (iPhones, iPads, etc.).  Proprietary.  The implentation is
-      widely used.
+      devices (iPhones, iPads, etc.).  Proprietary.  The implementation
+      is widely used.
 
    *  IOS (Cisco): Server, relay, and client implementation that runs on
       Cisco routers, switches and other networking hardware.
@@ -5783,7 +5783,7 @@ Table of Contents
    While the original IPv6 Ready Logo testing involved the original
    DHCPv6 specifications (primarily RFC3315, RFC3633), the large number
    of tested and certified implementations supports the breadth and
-   depth of DHCPv6 impementations available and deployed in the
+   depth of DHCPv6 implementations available and deployed in the
    marketplace over the years that confirm the protocol specifications
    are up to Internet Standard.  See
    https://www.ipv6ready.org/db/index.php/public/
@@ -6469,10 +6469,10 @@ Acknowledgments
    with RFC 8415, including Fernando Gont, Felix Hamme, Rene Engel, Esko
    Dijk, Jen Linkova, Tomoyuki Sahara, and Ted Lemon.
 
-   We thank the thorough and thoughtful reviews during the IETF process,
-   especially Mohamed Boucadair, Tim Chown, Roman Danyliw, Tatuya
-   Jinmei, Jim Read, Katan Talaulikar, Eric Vyncke, Dave Worley.  We
-   also thank the DHC working group members for their reviews of this
+   We thank the thorough and thoughtful reviewers during the IETF
+   process, especially Mohamed Boucadair, Tim Chown, Roman Danyliw,
+   Tatuya Jinmei, Jim Read, Katan Talaulikar, Eric Vyncke, Dave Worley.
+   We also thank the DHC working group members for their reviews of this
    updated document.
 
    And, special thanks to Suresh Krishnan for shepherding this document
