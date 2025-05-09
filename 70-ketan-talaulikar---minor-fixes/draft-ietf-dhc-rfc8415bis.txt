@@ -310,8 +310,8 @@ Table of Contents
    allowing clients to unicast some messages directly to the server if
    the server sent the Server Unicast option to a client in an early
    exchange.  It also clarifies the UDP ports used by clients, servers,
-   and relay agents (Section 7.2).  For a complete list of changes made
-   to [RFC8415] see Appendix A.
+   and relay agents (Section 7.2).  See Appendix A for a list of
+   differences from [RFC8415].
 
 1.2.  Relationship to DHCPv4
 
