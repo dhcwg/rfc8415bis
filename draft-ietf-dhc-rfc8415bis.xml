@@ -131,15 +131,6 @@
       server does not have to track any state; thus, this mode is called
       "stateless DHCPv6". Mechanisms necessary to support stateless DHCPv6 are
       much simpler than mechanisms needed to support stateful DHCPv6.</t>
-      <t>The remainder of this introduction summarizes the relationship to the
-      previous DHCPv6 standards (see <xref target="previous-dhcp6" format="default"/>) and
-      clarifies the stance with regard to DHCPv4 (see <xref target="dhcpv4" format="default"/>).
-      <xref target="Client-Server-Exchanges" format="default"/> describes the message exchange
-      mechanisms to illustrate DHCP operation rather than provide an exhaustive
-      list of all possible interactions, and <xref target="OpModes" format="default"/>
-      provides an overview of common operational models.
-      <xref target="configuration-exchange" format="default"/> explains client and server
-      operation in detail.</t>
       <section anchor="previous-dhcp6" numbered="true" toc="default">
         <name>Relationship to Previous DHCPv6 Standards</name>
         <t><xref target="RFC8415" format="default"/> provided a unified, corrected, and cleaned-up
@@ -163,7 +154,7 @@
         which clients' requests should be denied etc. are out of scope for this document.</t>
         <t>Server configuration, operation and management are also out of scope. One
         possible way to manage a DHCPv6 server is proposed in <xref target="RFC9243" format="default"/>.</t>
-        <t>Merging DHCPv4 and DHCPv6 configuration is out of scope for
+        <t>Merging DHCPv4 <xref target="RFC2131" format="default"> and DHCPv6 configuration is out of scope for
         this document. <xref target="RFC4477" format="default"/> discusses some issues
         and possible strategies for running DHCPv4 and DHCPv6 services
         together. While <xref target="RFC4477" format="default"/> is a bit dated, it provides
@@ -5990,6 +5981,7 @@
             <date/>
           </front>
         </reference>
+        <?rfc include="reference.RFC.2131.xml" ?>
         <reference anchor="RFC2464" target="https://www.rfc-editor.org/info/rfc2464" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2464.xml">
           <front>
             <title>Transmission of IPv6 Packets over Ethernet Networks</title>
