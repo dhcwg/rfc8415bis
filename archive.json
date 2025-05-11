@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-08T02:00:32.152715+00:00",
+  "timestamp": "2025-05-11T02:05:25.798050+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1398,14 +1398,22 @@
       ],
       "body": "1.1: RFCs are immutable; \"For a complete list of changes made to [[RFC8415](https://datatracker.ietf.org/doc/rfc8415/)] see Appendix A.\" => \"For a complete list of differences from [[RFC8415](https://datatracker.ietf.org/doc/rfc8415/)], see Appendix A.\"\n\n7.6: \"This table of values used to describe the message transmission behavior of clients and servers.\" => \"This table of values is used to describe the message transmission behavior of clients and servers.\" (Otherwise it invites the question what it describes now!)\n\nNote\n7.6 was already fixed in -10.",
       "createdAt": "2025-05-07T21:51:09Z",
-      "updatedAt": "2025-05-07T21:51:09Z",
+      "updatedAt": "2025-05-09T13:42:39Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Incorporated this with Ketan's minor edits pull request #76.",
+          "createdAt": "2025-05-09T13:42:26Z",
+          "updatedAt": "2025-05-09T13:42:37Z"
+        }
+      ]
     },
     {
       "number": 70,
       "id": "I_kwDOFL5NeM61oY3G",
-      "title": "Ketan Talaulikar minor fixes comments",
+      "title": "Ketan Talaulikar - minor fixes",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/70",
       "state": "OPEN",
       "author": "bevolz",
@@ -1416,9 +1424,160 @@
       ],
       "body": "Note: Line numbers refer to -09 draft.\n\nThis is the minor nits. Leaving removing older references / text and any remaining comments to another issue.\n\n17\tAbstract\n\n19\t   This document describes the Dynamic Host Configuration Protocol for\n20\t   IPv6 (DHCPv6): an extensible mechanism for configuring nodes with\n\n<minor> perhaps ... s/describes/specifies ?\n\n\n683\t   A DHCP client sends messages using a reserved, link-scoped multicast\n684\t   destination address (ALL_DHCP_Relay_Agenda_and_service - ff02::1:2)\n\n<minor> How about s/client sends messages/client sends all messages/ ... to \nbetter express the change and its intent?\n\n\n948\t   A client that has delegated any of the address space received through\n949\t   DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant\n950\t   delegated prefix while any of the address space is outstanding.\n951\t   [[RFC9096](https://datatracker.ietf.org/doc/rfc9096/)] section WPD-9 makes this Best Current Practice.  That\n\n<minor> I didn't find a section WPD-9 in [RFC9096](https://datatracker.ietf.org/doc/rfc9096/). Is it section 3.1? If so,\nplease rephrase. If still using WPD-9, please expand that acronym.\n\nNote: WPD-9 is a requirement in section 3 and more fully discussed in section 3.1. Likely we should change section to requirement?\n\n\n\n",
       "createdAt": "2025-05-07T22:05:02Z",
-      "updatedAt": "2025-05-07T22:05:02Z",
+      "updatedAt": "2025-05-08T20:49:48Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 71,
+      "id": "I_kwDOFL5NeM61ywSt",
+      "title": "Ketan Talaulikar - remove material & references to pre-8415 RFCs",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/71",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "ad-review"
+      ],
+      "body": "These set of comments are about removing references to RFCs incorporated and obsoleted by 8415 and removing background material. Line numbers reference -09 draft.\n\n274\t1.1.  Relationship to Previous DHCPv6 Standards\n\n276\t   The initial specification of DHCPv6 was defined in [[RFC3315](https://datatracker.ietf.org/doc/rfc3315/)], and a\n277\t   number of follow-up documents were published over the years:\n\n<major> I see that this document is trying to carry forward history prior\nto [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) about DHCPv6 specifications. I find this concerning since it asks\nthe reader to go back to those old and obsoleted documents when reading this\nbrand new RFC. My concern is that it has the potential to at worst confuse and\nat best waste time of someone trying to implement DHCPv6 afresh. Especially, \ngiven that this is moving to Internet Standard, I would like to discuss if\nthere are any problems in removing all references to the obsoleted documents\nother than [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) itself.\n\nThe reader could be pointed to [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) section 1.1 for history (just as done \nfor IA_TA).\n\n\n311\t1.2.  Relationship to DHCPv4\n\n313\t   The operational models and relevant configuration information for\n314\t   DHCPv4 [[RFC2131](https://datatracker.ietf.org/doc/rfc2131/)] [[RFC2132](https://datatracker.ietf.org/doc/rfc2132/)] and DHCPv6 are sufficiently different that\n315\t   integration between the two services is not included in this\n316\t   document.  [[RFC3315](https://datatracker.ietf.org/doc/rfc3315/)] suggested that future work might be to extend\n317\t   DHCPv6 to carry IPv4 address and configuration information.  However,\n318\t   the current consensus of the IETF is that DHCPv4 should be used\n319\t   rather than DHCPv6 when conveying IPv4 configuration information to\n\n<major> The above text may be harmful to new implementations of DHCPv6. If the\nWG has taken the decision to not use it for IPv4, then isn't now the\ntime to clarify this aspect before this moves to Internet Standard? If I were\nimplementing DHCPv6 currently, would I design and write code expecting that at\nsome point, my implementation would need to support IPv4 as well? Or, can\nthe spec provide definitive clarity to implementors on such aspects and not\ncarry forward these uncertainties?\n\n\n793\t6.1.  Stateless DHCP\n\n795\t   Stateless DHCP [[RFC3736](https://datatracker.ietf.org/doc/rfc3736/)] can be used at any time, typically when a\n796\t   node requires some missing or expired configuration information that\n797\t   is available via DHCP.\n\n<major> [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) obsoleted [RFC3736](https://datatracker.ietf.org/doc/rfc3736/). This document obsoletes [RFC8415](https://datatracker.ietf.org/doc/rfc8415/). Why do we \nstill need to reference [RFC3736](https://datatracker.ietf.org/doc/rfc3736/) for this term. Perhaps we should have a forward \nreference to section 6.1 of this document instead? Please see similar comments\nfor a few other references to obsoleted RFCs.\n\n\n836\t6.3.  DHCP for Prefix Delegation\n\n838\t   The prefix delegation mechanism, originally described in [[RFC3633](https://datatracker.ietf.org/doc/rfc3633/)],\n\n<major> Isn't the reference to [RFC3633](https://datatracker.ietf.org/doc/rfc3633/) that has been obsoleted to the 2nd\ndegree avoidable?\n\n\n1009\t7.1.  Multicast Addresses\n\n1011\t   [[RFC3315](https://datatracker.ietf.org/doc/rfc3315/)] registered the following multicast addresses, and this\n1012\t   specification is now authoritative for:\n\n<major> The reference to [RFC3315](https://datatracker.ietf.org/doc/rfc3315/) is outdated and incorrect. The IANA registry\npoints to [RFC8415](https://datatracker.ietf.org/doc/rfc8415/). What does it mean \"now authoritative for\"? That was perhaps\nappropriate for [RFC8415](https://datatracker.ietf.org/doc/rfc8415/), but seems very odd for this document.\n\n\n2316\t18.1.  A Single Exchange for Multiple IA Options\n\n2318\t   This document assumes that a client SHOULD use a single transaction\n2319\t   for all of the IA options required on an interface; this simplifies\n2320\t   the client implementation and reduces the potential number of\n2321\t   transactions required (for the background on this design choice,\n2322\t   refer to Section 4 of [[RFC7550](https://datatracker.ietf.org/doc/rfc7550/)]).  To facilitate a client's use of a\n\n<major> Isn't the reference to [RFC7550](https://datatracker.ietf.org/doc/rfc7550/) that has been obsoleted to the 2nd\ndegree avoidable?\n\n\n3933\t19.1.  Relaying a Client Message or a Relay-forward Message\n\n3935\t   A relay agent relays both messages from clients and Relay-forward\n3936\t   messages from other relay agents.  When a relay agent receives a\n3937\t   Relay-forward message, a recognized message type for which it is not\n3938\t   the intended target, or an unrecognized message type [[RFC7283](https://datatracker.ietf.org/doc/rfc7283/)], it\n\n<major> Isn't the reference to [RFC7283](https://datatracker.ietf.org/doc/rfc7283/) that has been obsoleted to the 2nd\ndegree avoidable?\n\n\n4790\t21.11.  Authentication Option\n\n4792\t   The Authentication option carries authentication information to\n4793\t   authenticate the identity and contents of DHCP messages.  The use of\n4794\t   the Authentication option is described in Section 20.  The delayed\n4795\t   authentication protocol, defined in [[RFC3315](https://datatracker.ietf.org/doc/rfc3315/)], was obsoleted by\n4796\t   [[RFC8415](https://datatracker.ietf.org/doc/rfc8415/)].  The format of the Authentication option is:\n\n<major> If this is something that was already obsoleted by [RFC8415](https://datatracker.ietf.org/doc/rfc8415/), why is it\neven present in this document",
+      "createdAt": "2025-05-08T20:08:36Z",
+      "updatedAt": "2025-05-09T17:05:32Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think we can remove references to 3315, 3736, 3633, 7550, 7283, 7083, and 4242. Lots of text changes (mostly dropping references).\n\nAnd, drop most of 1.1 (keep last paragraph), drop 1.2, and 3.\n\nLikely drop \u201crequesting router\u201d/\u201cdelegating router\u201d now too.",
+          "createdAt": "2025-05-08T20:13:06Z",
+          "updatedAt": "2025-05-08T20:13:06Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I've distributed a version (see your email) to compare and discuss (in the branch). This also includes a bunch of other minor fixes (typos, acknowledgements update, ...) - so I'm hopeful we can commit it\n\nBTW: As this has a lot of changes, it may be best to hold off on merging other things on main until we decide to go with this or not to keep merge simpler (but perhaps git can deal with it).",
+          "createdAt": "2025-05-09T17:04:51Z",
+          "updatedAt": "2025-05-09T17:05:31Z"
+        }
+      ]
+    },
+    {
+      "number": 72,
+      "id": "I_kwDOFL5NeM61y6M7",
+      "title": "Ketan Talaulikar - 1.3, merging DHCPv4/v6",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/72",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "ad-review"
+      ],
+      "body": "324\t   Merging DHCPv4 and DHCPv6 configuration is out of scope for this\n325\t   document.  [[RFC4477](https://datatracker.ietf.org/doc/rfc4477/)] discusses some issues and possible strategies\n\n<major> Is this important consideration not yet settled by the WG? If it is\nthen suggest clarifying. If it is not then does it impact maturity level to \nmove to Internet Standard?",
+      "createdAt": "2025-05-08T20:27:09Z",
+      "updatedAt": "2025-05-10T10:17:00Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "For #71, I propose dropping section 1.3 and therefore this text would disappear and hence reference to RFC4477 also goes away.",
+          "createdAt": "2025-05-08T20:29:28Z",
+          "updatedAt": "2025-05-08T20:29:28Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Note that this issue is addressed in my work on #71, Ketan Talaulikar - remove material & references to pre-8415 RFCs. Basically moved text into Out of Scope section.",
+          "createdAt": "2025-05-10T10:16:59Z",
+          "updatedAt": "2025-05-10T10:16:59Z"
+        }
+      ]
+    },
+    {
+      "number": 73,
+      "id": "I_kwDOFL5NeM61y8F-",
+      "title": "Ketan Talaulikar - 7.2 UDP Ports",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/73",
+      "state": "CLOSED",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "ad-review"
+      ],
+      "body": "1029\t7.2.  UDP Ports\n\n1031\t   Clients listen for DHCP messages on UDP port 546.  Servers and relay\n1032\t   agents listen for DHCP messages on UDP port 547.\n\n1034\t   Clients, servers, and relay agents MAY send DHCP messages from any\n1035\t   UDP (source) port they are allowed to use, including their designated\n1036\t   destination ports.  Nevertheless, regardless of the source port used,\n1037\t   DHCP messages MUST be sent to ports specified above (e.g., clients\n1038\t   sending to port 547).\n\n<major> Suggest rephrasing for clarity.\n\nSUGGEST\n\nClients listen for DHCP messages on UDP port 546.  Servers and relay agents listen for DHCP messages on UDP port 547. These designated destination ports MUST be used for sending DHCP messages (e.g., clients sending to port 547).\n\nClients, servers, and relay agents MAY send DHCP messages from any UDP (source) port they are allowed to use, including their designated destination ports.",
+      "createdAt": "2025-05-08T20:31:30Z",
+      "updatedAt": "2025-05-09T11:49:16Z",
+      "closedAt": "2025-05-09T11:49:15Z",
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This section was reworked from -09 to -10 from comments about \u201cdesignated ports\u201d.\n\nHence, I propose we close this and use the -10 version as is.",
+          "createdAt": "2025-05-08T20:32:44Z",
+          "updatedAt": "2025-05-08T20:32:44Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The section 7.2 (UDP ports) rewrite is much better indeed and addresses my comments/suggestions. I didn't want to propose more drastic changes, but I am very happy with what has been done. Thanks.\n\nFor the rest, please feel free to share PR links or diffs if you would like me to check/confirm before posting.\n\nThanks,\nKetan",
+          "createdAt": "2025-05-09T11:49:15Z",
+          "updatedAt": "2025-05-09T11:49:15Z"
+        }
+      ]
+    },
+    {
+      "number": 74,
+      "id": "I_kwDOFL5NeM61y-dG",
+      "title": "Ketan Talaulikar - 16, unicast messages",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/74",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "ad-review"
+      ],
+      "body": "1950\t   Clients, relay agents, and servers MUST NOT discard messages that\n1951\t   contain unknown options (or instances of vendor options with unknown\n1952\t   enterprise-number values).  These options should be ignored as if\n1953\t   they were not present.  This is critical to provide for future\n1954\t   extensions of DHCP.\n\n<major> There was a text blob here in [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) that used normative MUST to\ndiscard certain unicast messages. That has been removed. Is that really\nappropriate? Was this text wrong? I am not a DHCP expert, but this seems like\ngoing beyond the stated desire to remove the Server Unicast Option?",
+      "createdAt": "2025-05-08T20:37:12Z",
+      "updatedAt": "2025-05-08T20:48:27Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Likely close as clients must now multicast all packets (server unicast option was deprecated). And, we felt that there may be ot be much need to have servers check that certains packets were not unicast. See 18.4, as servers likely drop all client messages that are unicast.",
+          "createdAt": "2025-05-08T20:42:18Z",
+          "updatedAt": "2025-05-08T20:42:18Z"
+        }
+      ]
+    },
+    {
+      "number": 75,
+      "id": "I_kwDOFL5NeM61zDEd",
+      "title": "Ketan Talaulikar - 18.3",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/75",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "ad-review"
+      ],
+      "body": "3319\t   When a client receives a Reconfigure message from the server, the\n3320\t   client initiates sending a Renew, Rebind, or Information-request\n3321\t   message as indicated by msg-type in the Reconfigure Message option\n3322\t   (see Section 21.19).  The server sends IAs and/or other configuration\n3323\t   information to the client in a Reply message.  The server MAY include\n3324\t   options containing the IAs and new values for other configuration\n3325\t   parameters in the Reply message, even if those IAs and parameters\n3326\t   were not requested in the client's message.\n\n<major> Since the text blobs related to use of unicast in each of the\nfollowing sub-sections have been removed, perhaps we need something here to\nindicate that the handling of unicast messages for all these messages is\ncovered in section 18.4 ?",
+      "createdAt": "2025-05-08T20:46:37Z",
+      "updatedAt": "2025-05-10T10:17:54Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I don\u2019t understand the issue. Servers (or relays) always unicast responses to client messages. The unicast that was removed was in the client to server direction, not the other way around.",
+          "createdAt": "2025-05-08T20:47:53Z",
+          "updatedAt": "2025-05-10T10:17:53Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -3652,6 +3811,36 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 76,
+      "id": "PR_kwDOFL5NeM6VlsIJ",
+      "title": "#70 Ketan Talaulikar's and #69 Mike Bishop's minor fixes",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/76",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mcr",
+        "tomaszmrugalski",
+        "twintersunh"
+      ],
+      "labels": [],
+      "body": "Fixed the #70 issues (and a bit more in similar text).",
+      "createdAt": "2025-05-09T13:33:28Z",
+      "updatedAt": "2025-05-09T13:43:43Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "730effffb56ab419bbb36b0976f8104488277567",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "70-ketan-talaulikar---minor-fixes",
+      "headRefOid": "82e35d15aa746beeb4b78412152ba436c2950518",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
