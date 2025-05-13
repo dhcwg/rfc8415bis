@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-11T02:05:25.798050+00:00",
+  "timestamp": "2025-05-13T02:00:47.787675+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1356,13 +1356,15 @@
       "state": "OPEN",
       "author": "tomaszmrugalski",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "tomaszmrugalski"
+      ],
       "labels": [
         "ops-review"
       ],
       "body": "Comment from Tim Chown:\n\n> Section 18.2.11\n> \n> No mention of the requirement to authenticate the message?\n",
       "createdAt": "2025-05-07T16:52:52Z",
-      "updatedAt": "2025-05-07T16:52:52Z",
+      "updatedAt": "2025-05-12T14:33:01Z",
       "closedAt": null,
       "comments": []
     },
@@ -1374,15 +1376,25 @@
       "state": "OPEN",
       "author": "tomaszmrugalski",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "tomaszmrugalski"
+      ],
       "labels": [
         "ops-review"
       ],
       "body": "Seems we missed some (many \ud83d\ude12) comments about 18.2 and its sections, before publishing -10.\n\nSection 18.2.6\n\n> Para 6 - another example of an implied MUST\u2026 \u201cthe client MUST include\u201d.  Also\n> here section 16.12 says the DUIDs MUST match but I don\u2019t see that stated here?\n\nSection 18.2.7\n> \n> Para 3 - another implied MUST\n\nSection 18.2.8\n> Para 4 - implied MUST.\n\nSection 18.2.12\n> \n> Para 3 - \u201cThe client includes\u201d - implied MUST\n\nSection 18.3.9\n> \n> Para 1 - implied MUST - \u201cThe server MUST include\u201d\n\n",
       "createdAt": "2025-05-07T17:30:06Z",
-      "updatedAt": "2025-05-07T17:47:22Z",
+      "updatedAt": "2025-05-12T14:33:12Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "For:\n\nSection 18.2.6\n\nPara 6 - another example of an implied MUST\u2026 \u201cthe client MUST include\u201d. Also\nhere section 16.12 says the DUIDs MUST match but I don\u2019t see that stated here?\n\nI don\u2019t understand the comment about DUID\u2019s must match as this is about client transmission, not reception (server\u2019s discard messages with server duid that doesn\u2019t match their server duid).\n\nUsing MUST below is I think all that is needed here?\n\n   When responding to a Reconfigure, the client MUST include a Server\n   Identifier option (see Section 21.3) with the identifier from the\n   Reconfigure message to which the client is responding.\n",
+          "createdAt": "2025-05-11T10:28:30Z",
+          "updatedAt": "2025-05-11T10:28:30Z"
+        }
+      ]
     },
     {
       "number": 69,
@@ -1442,7 +1454,7 @@
       ],
       "body": "These set of comments are about removing references to RFCs incorporated and obsoleted by 8415 and removing background material. Line numbers reference -09 draft.\n\n274\t1.1.  Relationship to Previous DHCPv6 Standards\n\n276\t   The initial specification of DHCPv6 was defined in [[RFC3315](https://datatracker.ietf.org/doc/rfc3315/)], and a\n277\t   number of follow-up documents were published over the years:\n\n<major> I see that this document is trying to carry forward history prior\nto [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) about DHCPv6 specifications. I find this concerning since it asks\nthe reader to go back to those old and obsoleted documents when reading this\nbrand new RFC. My concern is that it has the potential to at worst confuse and\nat best waste time of someone trying to implement DHCPv6 afresh. Especially, \ngiven that this is moving to Internet Standard, I would like to discuss if\nthere are any problems in removing all references to the obsoleted documents\nother than [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) itself.\n\nThe reader could be pointed to [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) section 1.1 for history (just as done \nfor IA_TA).\n\n\n311\t1.2.  Relationship to DHCPv4\n\n313\t   The operational models and relevant configuration information for\n314\t   DHCPv4 [[RFC2131](https://datatracker.ietf.org/doc/rfc2131/)] [[RFC2132](https://datatracker.ietf.org/doc/rfc2132/)] and DHCPv6 are sufficiently different that\n315\t   integration between the two services is not included in this\n316\t   document.  [[RFC3315](https://datatracker.ietf.org/doc/rfc3315/)] suggested that future work might be to extend\n317\t   DHCPv6 to carry IPv4 address and configuration information.  However,\n318\t   the current consensus of the IETF is that DHCPv4 should be used\n319\t   rather than DHCPv6 when conveying IPv4 configuration information to\n\n<major> The above text may be harmful to new implementations of DHCPv6. If the\nWG has taken the decision to not use it for IPv4, then isn't now the\ntime to clarify this aspect before this moves to Internet Standard? If I were\nimplementing DHCPv6 currently, would I design and write code expecting that at\nsome point, my implementation would need to support IPv4 as well? Or, can\nthe spec provide definitive clarity to implementors on such aspects and not\ncarry forward these uncertainties?\n\n\n793\t6.1.  Stateless DHCP\n\n795\t   Stateless DHCP [[RFC3736](https://datatracker.ietf.org/doc/rfc3736/)] can be used at any time, typically when a\n796\t   node requires some missing or expired configuration information that\n797\t   is available via DHCP.\n\n<major> [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) obsoleted [RFC3736](https://datatracker.ietf.org/doc/rfc3736/). This document obsoletes [RFC8415](https://datatracker.ietf.org/doc/rfc8415/). Why do we \nstill need to reference [RFC3736](https://datatracker.ietf.org/doc/rfc3736/) for this term. Perhaps we should have a forward \nreference to section 6.1 of this document instead? Please see similar comments\nfor a few other references to obsoleted RFCs.\n\n\n836\t6.3.  DHCP for Prefix Delegation\n\n838\t   The prefix delegation mechanism, originally described in [[RFC3633](https://datatracker.ietf.org/doc/rfc3633/)],\n\n<major> Isn't the reference to [RFC3633](https://datatracker.ietf.org/doc/rfc3633/) that has been obsoleted to the 2nd\ndegree avoidable?\n\n\n1009\t7.1.  Multicast Addresses\n\n1011\t   [[RFC3315](https://datatracker.ietf.org/doc/rfc3315/)] registered the following multicast addresses, and this\n1012\t   specification is now authoritative for:\n\n<major> The reference to [RFC3315](https://datatracker.ietf.org/doc/rfc3315/) is outdated and incorrect. The IANA registry\npoints to [RFC8415](https://datatracker.ietf.org/doc/rfc8415/). What does it mean \"now authoritative for\"? That was perhaps\nappropriate for [RFC8415](https://datatracker.ietf.org/doc/rfc8415/), but seems very odd for this document.\n\n\n2316\t18.1.  A Single Exchange for Multiple IA Options\n\n2318\t   This document assumes that a client SHOULD use a single transaction\n2319\t   for all of the IA options required on an interface; this simplifies\n2320\t   the client implementation and reduces the potential number of\n2321\t   transactions required (for the background on this design choice,\n2322\t   refer to Section 4 of [[RFC7550](https://datatracker.ietf.org/doc/rfc7550/)]).  To facilitate a client's use of a\n\n<major> Isn't the reference to [RFC7550](https://datatracker.ietf.org/doc/rfc7550/) that has been obsoleted to the 2nd\ndegree avoidable?\n\n\n3933\t19.1.  Relaying a Client Message or a Relay-forward Message\n\n3935\t   A relay agent relays both messages from clients and Relay-forward\n3936\t   messages from other relay agents.  When a relay agent receives a\n3937\t   Relay-forward message, a recognized message type for which it is not\n3938\t   the intended target, or an unrecognized message type [[RFC7283](https://datatracker.ietf.org/doc/rfc7283/)], it\n\n<major> Isn't the reference to [RFC7283](https://datatracker.ietf.org/doc/rfc7283/) that has been obsoleted to the 2nd\ndegree avoidable?\n\n\n4790\t21.11.  Authentication Option\n\n4792\t   The Authentication option carries authentication information to\n4793\t   authenticate the identity and contents of DHCP messages.  The use of\n4794\t   the Authentication option is described in Section 20.  The delayed\n4795\t   authentication protocol, defined in [[RFC3315](https://datatracker.ietf.org/doc/rfc3315/)], was obsoleted by\n4796\t   [[RFC8415](https://datatracker.ietf.org/doc/rfc8415/)].  The format of the Authentication option is:\n\n<major> If this is something that was already obsoleted by [RFC8415](https://datatracker.ietf.org/doc/rfc8415/), why is it\neven present in this document",
       "createdAt": "2025-05-08T20:08:36Z",
-      "updatedAt": "2025-05-09T17:05:32Z",
+      "updatedAt": "2025-05-12T16:46:29Z",
       "closedAt": null,
       "comments": [
         {
@@ -1458,6 +1470,13 @@
           "body": "I've distributed a version (see your email) to compare and discuss (in the branch). This also includes a bunch of other minor fixes (typos, acknowledgements update, ...) - so I'm hopeful we can commit it\n\nBTW: As this has a lot of changes, it may be best to hold off on merging other things on main until we decide to go with this or not to keep merge simpler (but perhaps git can deal with it).",
           "createdAt": "2025-05-09T17:04:51Z",
           "updatedAt": "2025-05-09T17:05:31Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "On 5/12/25, Ketan emailed:\n\nHi Bernie,\n\nThanks for sharing this diff. It looks good to me and does take care of removing all the obsolete references. In doing so, you (authors) have brought it up to date with the current status which is very much appreciated.\n\nThanks,\nKetan\n",
+          "createdAt": "2025-05-12T16:46:28Z",
+          "updatedAt": "2025-05-12T16:46:28Z"
         }
       ]
     },
@@ -3835,6 +3854,36 @@
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "70-ketan-talaulikar---minor-fixes",
       "headRefOid": "82e35d15aa746beeb4b78412152ba436c2950518",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 77,
+      "id": "PR_kwDOFL5NeM6V3psG",
+      "title": "71 ketan talaulikar",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/77",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mcr",
+        "tomaszmrugalski",
+        "twintersunh"
+      ],
+      "labels": [],
+      "body": "Applied fixes and Ketan comfirmed.",
+      "createdAt": "2025-05-12T16:47:59Z",
+      "updatedAt": "2025-05-12T16:47:59Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "730effffb56ab419bbb36b0976f8104488277567",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "71-ketan-talaulikar",
+      "headRefOid": "eb6646b666c6b6feb31431daa323fc7a157fbead",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
