@@ -2014,7 +2014,7 @@ addresses, and this specification is now authoritative for:</t>
         <t>Servers and relay agents MUST discard any received Reply
         messages.</t>
       </section>
-      <section numbered="true" toc="default">
+      <section anchor="RFC3315-15.11" numbered="true" toc="default">
         <name>Reconfigure Message</name>
         <t>Servers and relay agents MUST discard any received Reconfigure
         messages.</t>
@@ -2645,10 +2645,9 @@ addresses, and this specification is now authoritative for:</t>
           client is interested in receiving. The client MAY include options
           with data values as hints to the server about parameter values the
           client would like to have returned.</t>
-          <t>When responding to a Reconfigure, the client includes a Server
+          <t>When responding to a Reconfigure, the client MUST include a Server
           Identifier option (see <xref target="RFC3315-22.3" format="default"/>) with the
-          identifier from the Reconfigure message
-          to which the client is responding.</t>
+          identifier from the Reconfigure message to which the client is responding.</t>
           <t>The first Information-request message from the client on the
           interface MUST be delayed by a random amount of time between 0 and
           INF_MAX_DELAY. The client transmits the message according to <xref target="RFC3315-14" format="default"/>, using the following parameters: </t>
@@ -2670,9 +2669,9 @@ addresses, and this specification is now authoritative for:</t>
           <t>The client sets the "msg-type" field to RELEASE. The client
           generates a transaction ID and places this value in the
           "transaction‑id" field.</t>
-          <t>The client places the identifier of the server that allocated the
-          lease(s) in a Server Identifier option
-           (see <xref target="RFC3315-22.3" format="default"/>).</t>
+          <t>The client MUST include a Server Identifier option
+          (see <xref target="RFC3315-22.3" format="default"/>) in the Renew
+          message, identifying the server with allocated the lease(s).</t>
           <t>The client MUST include a Client Identifier option
           (see <xref target="RFC3315-22.2" format="default"/>) to identify
           itself to the server.</t>
@@ -2732,9 +2731,10 @@ addresses, and this specification is now authoritative for:</t>
           <t>The client sets the "msg-type" field to DECLINE. The client
           generates a transaction ID and places this value in the
           "transaction‑id" field.</t>
-          <t>The client places the identifier of the server that allocated the
-          address(es) in a Server Identifier option
-          (see <xref target="RFC3315-22.3" format="default"/>).</t>
+
+          <t>The client MUST include a Server Identifier option
+          (see <xref target="RFC3315-22.3" format="default"/>) in the Decline
+          message, identifying the server with allocated the lease(s).</t>
           <t>The client MUST include a Client Identifier option
           (see <xref target="RFC3315-22.2" format="default"/>) to identify
           itself to the server.</t>
@@ -3030,6 +3030,9 @@ addresses, and this specification is now authoritative for:</t>
           programs, the client SHOULD log these events and MAY notify these
           programs of the change through an implementation-specific
           interface.</t>
+          <t>The message MUST be dropped if it doesn't pass the validation,
+          as explained in (see <xref target="RFC3315-15.11" format="default"/>),
+          in particular in case the authentication is missing or fails.</t>
           <t>Upon receipt of a valid Reconfigure message, the client responds
           with a Renew message, a Rebind message, or an
           Information-request message as indicated by the Reconfigure Message
@@ -3086,7 +3089,7 @@ addresses, and this specification is now authoritative for:</t>
           <t>When the client detects that it may have moved to a new link and it
           has obtained addresses and no delegated prefixes from a server, the
           client SHOULD initiate a Confirm/Reply message exchange. The client
-          includes any IAs assigned to the interface that may have moved to a
+          MUST include any IAs assigned to the interface that may have moved to a
           new link, along with the addresses associated with those IAs, in its
           Confirm message. Any responding servers will indicate whether those
           addresses are appropriate for the link to which the client is
