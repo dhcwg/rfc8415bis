@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 7 November 2025                                   M. Richardson
+Expires: 14 November 2025                                  M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                              6 May 2025
+                                                             13 May 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -20,7 +20,7 @@ Expires: 7 November 2025                                   M. Richardson
 
 Abstract
 
-   This document describes the Dynamic Host Configuration Protocol for
+   This document specifies the Dynamic Host Configuration Protocol for
    IPv6 (DHCPv6): an extensible mechanism for configuring nodes with
    network configuration parameters, IP addresses, and prefixes.
    Parameters can be provided statelessly, or in combination with
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 November 2025.
+   This Internet-Draft will expire on 14 November 2025.
 
 Copyright Notice
 
@@ -245,7 +245,7 @@ Table of Contents
 
 1.  Introduction
 
-   This document describes DHCP for IPv6 (DHCPv6), a client/server
+   This document specifies DHCP for IPv6 (DHCPv6), a client/server
    protocol that provides managed configuration of devices.  The basic
    operation of DHCPv6 provides configuration for clients connected to
    the same link as the server.  Relay agent functionality is also
@@ -310,8 +310,8 @@ Table of Contents
    allowing clients to unicast some messages directly to the server if
    the server sent the Server Unicast option to a client in an early
    exchange.  It also clarifies the UDP ports used by clients, servers,
-   and relay agents (Section 7.2).  For a complete list of changes made
-   to [RFC8415] see Appendix A.
+   and relay agents (Section 7.2).  See Appendix A for a list of
+   differences from [RFC8415].
 
 1.2.  Relationship to DHCPv4
 
@@ -696,10 +696,10 @@ Table of Contents
    or addresses determined through other mechanisms for transmitting and
    receiving DHCP messages.
 
-   A DHCP client sends messages using a reserved, link-scoped multicast
-   destination address (ALL_DHCP_Relay_Agents_and_Servers - ff02::1:2)
-   so that the client need not be configured with the address or
-   addresses of DHCP servers.
+   A DHCP client sends all messages using a reserved, link-scoped
+   multicast destination address (ALL_DHCP_Relay_Agents_and_Servers -
+   ff02::1:2) so that the client need not be configured with the address
+   or addresses of DHCP servers.
 
    To allow a DHCP client to send a message to a DHCP server that is not
    attached to the same link, a DHCP relay agent on the client's link
@@ -977,11 +977,11 @@ Table of Contents
 
    A client that has delegated any of the address space received through
    DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant
-   delegated prefix while any of the address space is outstanding.
-   [RFC9096] section WPD-9 makes this Best Current Practice.  That
+   delegated prefix while any of the address space is outstanding.  That
    includes addresses leased out by DHCPv6 (IA_NA), prefixes delegated
    via DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router
-   Advertisements.
+   Advertisements.  Requirement WPD-9 in [RFC9096] makes this the Best
+   Current Practice.
 
    [RFC9096] section 3.3 further provides more guidance on coordination
    of lifetimes between WAN (DHCPv6-PD client) and LAN (DHCPv6-PD
@@ -4352,11 +4352,12 @@ Table of Contents
    described in Section 21.1.  All values in options are represented in
    network byte order.
 
-   This document describes the DHCP options defined as part of the base
-   DHCP specification.  Other options may be defined in the future in
-   separate documents.  See [RFC7227] for guidelines regarding the
-   definition of new options.  See Section 25 for additional information
-   about the DHCPv6 "Option Codes" registry maintained by IANA.
+   This document specifies the DHCP options defined as part of this base
+   DHCP specification.  Other options have been or may be defined in the
+   future in separate documents.  See [RFC7227] for guidelines regarding
+   the definition of new options.  See Section 25 for additional
+   information about the DHCPv6 "Option Codes" registry maintained by
+   IANA.
 
    Unless otherwise noted, each option may appear only in the options
    area of a DHCP message and may appear only once.  If an option does

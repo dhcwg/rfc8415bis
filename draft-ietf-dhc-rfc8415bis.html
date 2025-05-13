@@ -11,7 +11,7 @@
 <meta content="Sheng Jiang" name="author">
 <meta content="Timothy Winters" name="author">
 <meta content="
-       This document describes the Dynamic Host Configuration Protocol for
+       This document specifies the Dynamic Host Configuration Protocol for
       IPv6 (DHCPv6): an extensible mechanism for configuring nodes with
       network configuration parameters, IP addresses, and prefixes. Parameters
       can be provided statelessly, or in combination with stateful assignment
@@ -1064,7 +1064,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Mrugalski, et al.</td>
-<td class="center">Expires 7 November 2025</td>
+<td class="center">Expires 14 November 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1080,12 +1080,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc8415" class="eref">8415</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-05-06" class="published">6 May 2025</time>
+<time datetime="2025-05-13" class="published">13 May 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-11-07">7 November 2025</time></dd>
+<dd class="expires"><time datetime="2025-11-14">14 November 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1114,7 +1114,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Dynamic Host Configuration Protocol for IPv6 (DHCPv6)</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document describes the Dynamic Host Configuration Protocol for
+<p id="section-abstract-1">This document specifies the Dynamic Host Configuration Protocol for
       IPv6 (DHCPv6): an extensible mechanism for configuring nodes with
       network configuration parameters, IP addresses, and prefixes. Parameters
       can be provided statelessly, or in combination with stateful assignment
@@ -1145,7 +1145,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 14 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1712,7 +1712,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">This document describes DHCP for IPv6 (DHCPv6), a client/server
+<p id="section-1-1">This document specifies DHCP for IPv6 (DHCPv6), a client/server
       protocol that provides managed configuration of devices. The basic
       operation of DHCPv6 provides configuration for clients connected to
       the same link as the server. Relay agent functionality is also
@@ -1783,8 +1783,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
         directly to the server if the server sent the Server Unicast option
         to a client in an early exchange. It also clarifies the UDP ports used
         by clients, servers, and relay agents (<a href="#udp-ports" class="auto internal xref">Section 7.2</a>).
-        For a complete list of changes made to <span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span>
-        see <a href="#ChangeSummary" class="auto internal xref">Appendix A</a>.<a href="#section-1.1-4" class="pilcrow">¶</a></p>
+        See <a href="#ChangeSummary" class="auto internal xref">Appendix A</a> for a list of differences
+        from <span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span>.<a href="#section-1.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="dhcpv4">
@@ -2251,7 +2251,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
      The client uses a link-local source address or
      addresses determined through other mechanisms for transmitting and
      receiving DHCP messages.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">A DHCP client sends messages using a reserved, link-scoped
+<p id="section-5-2">A DHCP client sends all messages using a reserved, link-scoped
      multicast destination address (ALL_DHCP_Relay_Agents_and_Servers - ff02::1:2) so that the client need not be
      configured with the address or addresses of DHCP servers.<a href="#section-5-2" class="pilcrow">¶</a></p>
 <p id="section-5-3">To allow a DHCP client to send a message to a DHCP server that is
@@ -2554,11 +2554,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
          A client that has delegated any of the address space received through
          DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant
          delegated prefix while any of the address space is outstanding.
-         <span>[<a href="#RFC9096" class="cite xref">RFC9096</a>]</span> section WPD-9 makes this
-         Best Current Practice.
          That includes addresses leased out by DHCPv6 (IA_NA), prefixes delegated
          via DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router
-         Advertisements.<a href="#section-6.3-13" class="pilcrow">¶</a></p>
+         Advertisements.
+         Requirement WPD-9 in <span>[<a href="#RFC9096" class="cite xref">RFC9096</a>]</span> makes this
+         the Best Current Practice.<a href="#section-6.3-13" class="pilcrow">¶</a></p>
 <p id="section-6.3-14">
          <span>[<a href="#RFC9096" class="cite xref">RFC9096</a>]</span> section 3.3 further
          provides more guidance on coordination of lifetimes between WAN
@@ -6492,8 +6492,8 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
       DHCP messages. Every option shares a common base format, as described in
       <a href="#RFC3315-22.1" class="auto internal xref">Section 21.1</a>. All values in options are
       represented in network byte order.<a href="#section-21-1" class="pilcrow">¶</a></p>
-<p id="section-21-2">This document describes the DHCP options defined as part of the base
-      DHCP specification. Other options may be defined in the future in
+<p id="section-21-2">This document specifies the DHCP options defined as part of this base
+      DHCP specification. Other options have been or may be defined in the future in
       separate documents. See <span>[<a href="#RFC7227" class="cite xref">RFC7227</a>]</span> for guidelines regarding
       the definition of new options.
       See <a href="#iana" class="auto internal xref">Section 25</a> for additional information about the
