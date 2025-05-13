@@ -1470,6 +1470,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.18.2.2.2.12">
                     <p id="section-toc.1-1.18.2.2.2.12.1"><a href="#section-18.2.12" class="auto internal xref">18.2.12</a>. <a href="#name-refreshing-configuration-in" class="internal xref">Refreshing Configuration Information</a></p>
 </li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.18.2.2.2.13">
+                    <p id="section-toc.1-1.18.2.2.2.13.1"><a href="#section-18.2.13" class="auto internal xref">18.2.13</a>. <a href="#name-restarting-server-discovery" class="internal xref">Restarting Server Discovery Process</a></p>
+</li>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.18.2.3">
@@ -5076,7 +5079,8 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
             response to a Solicit (with a Rapid Commit option;
             see <a href="#RFC3315-22.14" class="auto internal xref">Section 21.14</a>) or a Request,
             the client can either reissue the message without specifying any
-            addresses or restart the DHCP server discovery process (see <a href="#configuration-exchange" class="auto internal xref">Section 18</a>).<a href="#section-18.2.10.1-1" class="pilcrow">¶</a></p>
+            addresses or restart the DHCP server discovery process (see <a href="#configuration-exchange" class="auto internal xref">Section 18</a>
+            or <a href="#RFC8415bis-18.2.13" class="auto internal xref">Section 18.2.13</a>).<a href="#section-18.2.10.1-1" class="pilcrow">¶</a></p>
 <p id="section-18.2.10.1-2">If the Reply was received in response to a Solicit (with a
             Rapid Commit option), Request, Renew, or Rebind message, the
             client updates the information it has recorded about IAs from the
@@ -5190,12 +5194,6 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
                 IA.<a href="#section-18.2.10.1-9.3" class="pilcrow">¶</a>
 </li>
             </ul>
-<p id="section-18.2.10.1-10">Whenever a client restarts the DHCP server discovery process or
-            selects an alternate server as described in <a href="#RFC3315-17.1.3" class="auto internal xref">Section 18.2.9</a>, the client SHOULD stop using all
-            the addresses and delegated prefixes for which it has bindings and
-            try to obtain all required leases from the new server. This
-            facilitates the client using a single state machine for all
-            bindings.<a href="#section-18.2.10.1-10" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="reply-release-decline">
@@ -5358,6 +5356,21 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
             server, it sends Information-request as described in <a href="#RFC3315-18.1.5" class="auto internal xref">Section 18.2.6</a><a href="#section-18.2.12-9.3" class="pilcrow">¶</a>
 </li>
           </ul>
+</section>
+</div>
+<div id="RFC8415bis-18.2.13">
+<section id="section-18.2.13">
+          <h4 id="name-restarting-server-discovery">
+<a href="#section-18.2.13" class="section-number selfRef">18.2.13. </a><a href="#name-restarting-server-discovery" class="section-name selfRef">Restarting Server Discovery Process</a>
+          </h4>
+<p id="section-18.2.13-1">Whenever a client restarts the DHCP server discovery process or
+        selects an alternate server as described in <a href="#RFC3315-17.1.3" class="auto internal xref">Section 18.2.9</a>,
+        the client SHOULD stop using any addresses and delegated prefixes for
+        which it has bindings (see <a href="#RFC3315-18.1.6" class="auto internal xref">Section 18.2.7</a>)
+        and any previously received other configuration
+        information, and try to obtain new bindings and other configuration
+        information from a "new" server. This facilitates the client using a
+        single state machine for all bindings.<a href="#section-18.2.13-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
