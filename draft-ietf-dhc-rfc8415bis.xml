@@ -94,7 +94,7 @@
     <keyword>IPv6</keyword>
     <keyword>DHCP</keyword>
     <abstract>
-      <t>This document describes the Dynamic Host Configuration Protocol for
+      <t>This document specifies the Dynamic Host Configuration Protocol for
       IPv6 (DHCPv6): an extensible mechanism for configuring nodes with
       network configuration parameters, IP addresses, and prefixes. Parameters
       can be provided statelessly, or in combination with stateful assignment
@@ -110,7 +110,7 @@
   <middle>
     <section anchor="intro-and-overview" numbered="true" toc="default">
       <name>Introduction</name>
-      <t>This document describes DHCP for IPv6 (DHCPv6), a client/server
+      <t>This document specifies DHCP for IPv6 (DHCPv6), a client/server
       protocol that provides managed configuration of devices. The basic
       operation of DHCPv6 provides configuration for clients connected to
       the same link as the server. Relay agent functionality is also
@@ -172,8 +172,8 @@
         directly to the server if the server sent the Server Unicast option
         to a client in an early exchange. It also clarifies the UDP ports used
         by clients, servers, and relay agents (<xref target="udp-ports" format="default"/>).
-        For a complete list of changes made to <xref target="RFC8415" format="default"/>
-        see <xref target="ChangeSummary" format="default"/>.</t>
+        See <xref target="ChangeSummary" format="default"/> for a list of differences
+        from <xref target="RFC8415" format="default"/>.</t>
       </section>
       <section anchor="dhcpv4" numbered="true" toc="default">
         <name>Relationship to DHCPv4</name>
@@ -512,7 +512,7 @@
      The client uses a link-local source address or
      addresses determined through other mechanisms for transmitting and
      receiving DHCP messages.</t>
-      <t>A DHCP client sends messages using a reserved, link-scoped
+      <t>A DHCP client sends all messages using a reserved, link-scoped
      multicast destination address (ALL_DHCP_Relay_Agents_and_Servers - ff02::1:2) so that the client need not be
      configured with the address or addresses of DHCP servers.</t>
       <t>To allow a DHCP client to send a message to a DHCP server that is
@@ -789,11 +789,11 @@
          A client that has delegated any of the address space received through
          DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant
          delegated prefix while any of the address space is outstanding.
-         <xref target="RFC9096" format="default" /> section WPD-9 makes this
-         Best Current Practice.
          That includes addresses leased out by DHCPv6 (IA_NA), prefixes delegated
          via DHCPv6-PD (IA_PD), and addresses autoconfigured by IPv6 Router
          Advertisements.
+         Requirement WPD-9 in <xref target="RFC9096" format="default" /> makes this
+         the Best Current Practice.
        </t>
        <t>
          <xref target="RFC9096" format="default" /> section 3.3 further
@@ -4130,8 +4130,8 @@ addresses, and this specification is now authoritative for:</t>
       DHCP messages. Every option shares a common base format, as described in
       <xref target="RFC3315-22.1" format="default"/>. All values in options are
       represented in network byte order.</t>
-      <t>This document describes the DHCP options defined as part of the base
-      DHCP specification. Other options may be defined in the future in
+      <t>This document specifies the DHCP options defined as part of this base
+      DHCP specification. Other options have been or may be defined in the future in
       separate documents. See <xref target="RFC7227" format="default"/> for guidelines regarding
       the definition of new options.
       See <xref target="iana" format="default"/> for additional information about the
