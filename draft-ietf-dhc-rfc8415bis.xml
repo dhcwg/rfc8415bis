@@ -2850,27 +2850,8 @@ addresses, and this specification is now authoritative for:</t>
           for which the Reply was received.</t>
           <t>The client MAY choose to report any status code or message from
           the Status Code option in the Reply message.</t>
-          <t>When a client received a configuration option in an earlier
-          Reply and then sends a Renew, Rebind, or Information-request and
-          the requested option is not present in the Reply, the client
-          SHOULD stop using the previously received configuration
-          information.  In other words, the client should behave as if
-          it never received this configuration option and return to the
-          relevant default state.  If there is no viable way to stop using
-          the received configuration information, the values
-          received/configured from the option MAY persist if there are
-          no other sources for that data and they have no external impact.
-          For example, a client that previously received a Client FQDN
-          option (see <xref target="RFC4704" format="default"/>) and used it to set up
-          its hostname is allowed to continue
-          using it if there is no reasonable way for a node to unset its
-          hostname and it has no external impact.  As a counter-example,
-          a client that previously received an NTP server address from
-          the DHCP server and does not receive it anymore MUST stop
-          using the configured NTP server address.  The client
-          SHOULD be open to other sources of the same configuration
-          information.  This behavior does not apply to any IA options,
-          as their processing is described in detail in the next section.</t>
+          <t>The topic of revoking previously assigned options is discussed
+          in <xref target="revoking-config" format="default" />.</t>
           <t>When a client receives a requested option that has an updated
           value from what was previously received, the client SHOULD make
           use of that updated value as soon as possible for its configuration
@@ -3014,6 +2995,31 @@ addresses, and this specification is now authoritative for:</t>
             <t>Refer to <xref target="RFC4242-Option" format="default"/> for details on how the
             Information Refresh Time option (whether or not present in the
             Reply) should be handled by the client.</t>
+          </section>
+
+          <section anchor="revoking-config" numbered="true" toc="default">
+            <name>Revoking Previously Provided Options</name>
+          <t>When a client received a configuration option in an earlier
+          Reply and then sends a Renew, Rebind, or Information-request and
+          the requested option is not present in the Reply, the client
+          SHOULD stop using the previously received configuration
+          information.  In other words, the client should behave as if
+          it never received this configuration option and return to the
+          relevant default state.  If there is no viable way to stop using
+          the received configuration information, the values
+          received/configured from the option MAY persist if there are
+          no other sources for that data and they have no external impact.
+          For example, a client that previously received a Client FQDN
+          option (see <xref target="RFC4704" format="default"/>) and used
+          it to set up its hostname is allowed to continue
+          using it if there is no reasonable way for a node to unset its
+          hostname and it has no external impact.  As a counter-example,
+          a client that previously received an NTP server address from
+          the DHCP server and does not receive it anymore MUST stop
+          using the configured NTP server address.  The client
+          SHOULD be open to other sources of the same configuration
+          information.  This behavior does not apply to any IA options,
+          as their processing is described in detail in the next section.</t>
           </section>
         </section>
         <section numbered="true" toc="default">
