@@ -168,6 +168,7 @@ Table of Contents
          18.2.10.2.  Reply for Release and Decline
          18.2.10.3.  Reply for Confirm
          18.2.10.4.  Reply for Information-request
+         18.2.10.5.  Revoking Previously Provided Options
        18.2.11. Receipt of Reconfigure Messages
        18.2.12. Refreshing Configuration Information
        18.2.13. Restarting Server Discovery Process
@@ -3039,25 +3040,8 @@ Table of Contents
    The client MAY choose to report any status code or message from the
    Status Code option in the Reply message.
 
-   When a client received a configuration option in an earlier Reply and
-   then sends a Renew, Rebind, or Information-request and the requested
-   option is not present in the Reply, the client SHOULD stop using the
-   previously received configuration information.  In other words, the
-   client should behave as if it never received this configuration
-   option and return to the relevant default state.  If there is no
-   viable way to stop using the received configuration information, the
-   values received/configured from the option MAY persist if there are
-   no other sources for that data and they have no external impact.  For
-   example, a client that previously received a Client FQDN option (see
-   [RFC4704]) and used it to set up its hostname is allowed to continue
-   using it if there is no reasonable way for a node to unset its
-   hostname and it has no external impact.  As a counter-example, a
-   client that previously received an NTP server address from the DHCP
-   server and does not receive it anymore MUST stop using the configured
-   NTP server address.  The client SHOULD be open to other sources of
-   the same configuration information.  This behavior does not apply to
-   any IA options, as their processing is described in detail in the
-   next section.
+   The topic of revoking previously assigned options is discussed in
+   Section 18.2.10.5.
 
    When a client receives a requested option that has an updated value
    from what was previously received, the client SHOULD make use of that
@@ -3201,6 +3185,28 @@ Table of Contents
    Refer to Section 21.23 for details on how the Information Refresh
    Time option (whether or not present in the Reply) should be handled
    by the client.
+
+18.2.10.5.  Revoking Previously Provided Options
+
+   When a client received a configuration option in an earlier Reply and
+   then sends a Renew, Rebind, or Information-request and the requested
+   option is not present in the Reply, the client SHOULD stop using the
+   previously received configuration information.  In other words, the
+   client should behave as if it never received this configuration
+   option and return to the relevant default state.  If there is no
+   viable way to stop using the received configuration information, the
+   values received/configured from the option MAY persist if there are
+   no other sources for that data and they have no external impact.  For
+   example, a client that previously received a Client FQDN option (see
+   [RFC4704]) and used it to set up its hostname is allowed to continue
+   using it if there is no reasonable way for a node to unset its
+   hostname and it has no external impact.  As a counter-example, a
+   client that previously received an NTP server address from the DHCP
+   server and does not receive it anymore MUST stop using the configured
+   NTP server address.  The client SHOULD be open to other sources of
+   the same configuration information.  This behavior does not apply to
+   any IA options, as their processing is described in detail in the
+   next section.
 
 18.2.11.  Receipt of Reconfigure Messages
 

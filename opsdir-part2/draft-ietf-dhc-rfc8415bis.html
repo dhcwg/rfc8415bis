@@ -1462,6 +1462,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
                       <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.18.2.2.2.10.2.4">
                         <p id="section-toc.1-1.18.2.2.2.10.2.4.1"><a href="#section-18.2.10.4" class="auto internal xref">18.2.10.4</a>.  <a href="#name-reply-for-information-reque" class="internal xref">Reply for Information-request</a></p>
 </li>
+                      <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.18.2.2.2.10.2.5">
+                        <p id="section-toc.1-1.18.2.2.2.10.2.5.1"><a href="#section-18.2.10.5" class="auto internal xref">18.2.10.5</a>.  <a href="#name-revoking-previously-provide" class="internal xref">Revoking Previously Provided Options</a></p>
+</li>
                     </ul>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.18.2.2.2.11">
@@ -5045,27 +5048,8 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
           for which the Reply was received.<a href="#section-18.2.10-4" class="pilcrow">¶</a></p>
 <p id="section-18.2.10-5">The client MAY choose to report any status code or message from
           the Status Code option in the Reply message.<a href="#section-18.2.10-5" class="pilcrow">¶</a></p>
-<p id="section-18.2.10-6">When a client received a configuration option in an earlier
-          Reply and then sends a Renew, Rebind, or Information-request and
-          the requested option is not present in the Reply, the client
-          SHOULD stop using the previously received configuration
-          information.  In other words, the client should behave as if
-          it never received this configuration option and return to the
-          relevant default state.  If there is no viable way to stop using
-          the received configuration information, the values
-          received/configured from the option MAY persist if there are
-          no other sources for that data and they have no external impact.
-          For example, a client that previously received a Client FQDN
-          option (see <span>[<a href="#RFC4704" class="cite xref">RFC4704</a>]</span>) and used it to set up
-          its hostname is allowed to continue
-          using it if there is no reasonable way for a node to unset its
-          hostname and it has no external impact.  As a counter-example,
-          a client that previously received an NTP server address from
-          the DHCP server and does not receive it anymore MUST stop
-          using the configured NTP server address.  The client
-          SHOULD be open to other sources of the same configuration
-          information.  This behavior does not apply to any IA options,
-          as their processing is described in detail in the next section.<a href="#section-18.2.10-6" class="pilcrow">¶</a></p>
+<p id="section-18.2.10-6">The topic of revoking previously assigned options is discussed
+          in <a href="#revoking-config" class="auto internal xref">Section 18.2.10.5</a>.<a href="#section-18.2.10-6" class="pilcrow">¶</a></p>
 <p id="section-18.2.10-7">When a client receives a requested option that has an updated
           value from what was previously received, the client SHOULD make
           use of that updated value as soon as possible for its configuration
@@ -5233,6 +5217,34 @@ addresses, and this specification is now authoritative for:<a href="#section-7.1
 <p id="section-18.2.10.4-1">Refer to <a href="#RFC4242-Option" class="auto internal xref">Section 21.23</a> for details on how the
             Information Refresh Time option (whether or not present in the
             Reply) should be handled by the client.<a href="#section-18.2.10.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="revoking-config">
+<section id="section-18.2.10.5">
+            <h5 id="name-revoking-previously-provide">
+<a href="#section-18.2.10.5" class="section-number selfRef">18.2.10.5. </a><a href="#name-revoking-previously-provide" class="section-name selfRef">Revoking Previously Provided Options</a>
+            </h5>
+<p id="section-18.2.10.5-1">When a client received a configuration option in an earlier
+          Reply and then sends a Renew, Rebind, or Information-request and
+          the requested option is not present in the Reply, the client
+          SHOULD stop using the previously received configuration
+          information.  In other words, the client should behave as if
+          it never received this configuration option and return to the
+          relevant default state.  If there is no viable way to stop using
+          the received configuration information, the values
+          received/configured from the option MAY persist if there are
+          no other sources for that data and they have no external impact.
+          For example, a client that previously received a Client FQDN
+          option (see <span>[<a href="#RFC4704" class="cite xref">RFC4704</a>]</span>) and used
+          it to set up its hostname is allowed to continue
+          using it if there is no reasonable way for a node to unset its
+          hostname and it has no external impact.  As a counter-example,
+          a client that previously received an NTP server address from
+          the DHCP server and does not receive it anymore MUST stop
+          using the configured NTP server address.  The client
+          SHOULD be open to other sources of the same configuration
+          information.  This behavior does not apply to any IA options,
+          as their processing is described in detail in the next section.<a href="#section-18.2.10.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
