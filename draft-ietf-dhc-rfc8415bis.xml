@@ -3133,7 +3133,7 @@ addresses, and this specification is now authoritative for:</t>
         selects an alternate server as described in <xref target="RFC3315-17.1.3" />,
         the client SHOULD stop using any addresses and delegated prefixes for
         which it has bindings (see <xref target="RFC3315-18.1.6" />)
-        and any previously received other configuration
+        and if possible, any previously received other configuration
         information, and try to obtain new bindings and other configuration
         information from a "new" server. This facilitates the client using a
         single state machine for all bindings.</t>
