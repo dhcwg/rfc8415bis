@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-13T02:00:47.787675+00:00",
+  "timestamp": "2025-05-15T01:58:14.155709+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -768,7 +768,7 @@
       ],
       "body": "Section 18.2.10\n\nPara 6 here is a really important principle about what to do if a subsequent\nReply omits something included in a previous Reply.  This should be stated\nclearly earlier?",
       "createdAt": "2025-04-23T16:24:58Z",
-      "updatedAt": "2025-05-06T19:44:52Z",
+      "updatedAt": "2025-05-13T16:35:41Z",
       "closedAt": null,
       "comments": [
         {
@@ -784,6 +784,13 @@
           "body": "I think this section is appropriate as is. In any document, there are important parts that are deep in the text.\n\nI would close this as won't fix.",
           "createdAt": "2025-05-05T15:42:29Z",
           "updatedAt": "2025-05-05T15:42:29Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Perhaps we could do the same thing as with #40 - keep the text exactly as is, but move to its own dedicated section? @twintersunh  and @mcr, what's your opinion? @bevolz prefers to keep it as it is.",
+          "createdAt": "2025-05-13T16:35:40Z",
+          "updatedAt": "2025-05-13T16:35:40Z"
         }
       ]
     },
@@ -803,7 +810,7 @@
       ],
       "body": "Section 18.2.10.1\n\nAnother important principle in here about what a client must do when restarting\nthe server discovery process.\n",
       "createdAt": "2025-04-23T16:25:31Z",
-      "updatedAt": "2025-05-06T19:44:52Z",
+      "updatedAt": "2025-05-13T16:27:12Z",
       "closedAt": null,
       "comments": [
         {
@@ -833,6 +840,13 @@
           "body": "As an FYI, the original text was added in https://datatracker.ietf.org/doc/html/draft-dhcwg-dhc-rfc3315bis-04 (in section 19.1.8). Likely as some of the work to roll in RFC7550. ",
           "createdAt": "2025-05-05T21:55:03Z",
           "updatedAt": "2025-05-05T21:55:03Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@bevolz's proposal (https://github.com/dhcwg/rfc8415bis/issues/40#issuecomment-2851395727) is now implemented in #78. Thanks for proposing the text!",
+          "createdAt": "2025-05-13T16:27:11Z",
+          "updatedAt": "2025-05-13T16:27:11Z"
         }
       ]
     },
@@ -1427,7 +1441,7 @@
       "id": "I_kwDOFL5NeM61oY3G",
       "title": "Ketan Talaulikar - minor fixes",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/70",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -1436,9 +1450,17 @@
       ],
       "body": "Note: Line numbers refer to -09 draft.\n\nThis is the minor nits. Leaving removing older references / text and any remaining comments to another issue.\n\n17\tAbstract\n\n19\t   This document describes the Dynamic Host Configuration Protocol for\n20\t   IPv6 (DHCPv6): an extensible mechanism for configuring nodes with\n\n<minor> perhaps ... s/describes/specifies ?\n\n\n683\t   A DHCP client sends messages using a reserved, link-scoped multicast\n684\t   destination address (ALL_DHCP_Relay_Agenda_and_service - ff02::1:2)\n\n<minor> How about s/client sends messages/client sends all messages/ ... to \nbetter express the change and its intent?\n\n\n948\t   A client that has delegated any of the address space received through\n949\t   DHCP Prefix Delegation MUST NOT issue a DHCP Release on the relevant\n950\t   delegated prefix while any of the address space is outstanding.\n951\t   [[RFC9096](https://datatracker.ietf.org/doc/rfc9096/)] section WPD-9 makes this Best Current Practice.  That\n\n<minor> I didn't find a section WPD-9 in [RFC9096](https://datatracker.ietf.org/doc/rfc9096/). Is it section 3.1? If so,\nplease rephrase. If still using WPD-9, please expand that acronym.\n\nNote: WPD-9 is a requirement in section 3 and more fully discussed in section 3.1. Likely we should change section to requirement?\n\n\n\n",
       "createdAt": "2025-05-07T22:05:02Z",
-      "updatedAt": "2025-05-08T20:49:48Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-05-13T15:02:05Z",
+      "closedAt": "2025-05-13T14:58:23Z",
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks for feedback Tomek!",
+          "createdAt": "2025-05-13T15:02:04Z",
+          "updatedAt": "2025-05-13T15:02:04Z"
+        }
+      ]
     },
     {
       "number": 71,
@@ -3836,7 +3858,7 @@
       "id": "PR_kwDOFL5NeM6VlsIJ",
       "title": "#70 Ketan Talaulikar's and #69 Mike Bishop's minor fixes",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/76",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -3847,19 +3869,63 @@
       "labels": [],
       "body": "Fixed the #70 issues (and a bit more in similar text).",
       "createdAt": "2025-05-09T13:33:28Z",
-      "updatedAt": "2025-05-09T13:43:43Z",
+      "updatedAt": "2025-05-13T14:58:22Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "730effffb56ab419bbb36b0976f8104488277567",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "70-ketan-talaulikar---minor-fixes",
       "headRefOid": "82e35d15aa746beeb4b78412152ba436c2950518",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "closedAt": "2025-05-13T14:58:22Z",
+      "mergedAt": "2025-05-13T14:58:22Z",
+      "mergedBy": "bevolz",
+      "mergeCommit": {
+        "oid": "0667b2866d1e50f83d032d935cd59baf18770b4c"
+      },
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I\u2019d like to avoid pulling in 9686. That RFC makes it clear that source address is different.",
+          "createdAt": "2025-05-13T14:57:38Z",
+          "updatedAt": "2025-05-13T14:57:38Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM6pGtBB",
+          "commit": {
+            "abbreviatedOid": "82e35d1"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-13T14:49:08Z",
+          "updatedAt": "2025-05-13T14:49:08Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "In most cases link-local, with one exception: ADDR-REG-INFORM, which is sent from the global address being registered. See Section 4.2 of RFC9686:\r\n\r\n> Unlike other types of messages, which are sent from the link-local address of the client, the ADDR-REG-INFORM message MUST be sent from the address being registered.\r\n\r\nMight be useful to point this out.",
+              "createdAt": "2025-05-13T14:49:08Z",
+              "updatedAt": "2025-05-13T14:49:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6pGt6B",
+          "commit": {
+            "abbreviatedOid": "82e35d1"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I've posted one comment about source address. That's something to consider. If you feel that's not needed, the rest of those changes are good.",
+          "createdAt": "2025-05-13T14:50:11Z",
+          "updatedAt": "2025-05-13T14:50:11Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 77,
@@ -3890,6 +3956,53 @@
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 78,
+      "id": "PR_kwDOFL5NeM6WBrCJ",
+      "title": "Remaining Opsdir comments",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/78",
+      "state": "OPEN",
+      "author": "tomaszmrugalski",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Several comments raised by Tim were missed or we ran out of time before -10 was published. Here's the list:\r\n\r\n- [x] 18.2.11 - Auth required\r\n- [x] Normative language in 18.2.* and 18.3.*\r\n- [x] what does a client do when restarting the discovery process - see #40 \r\n- [ ] what does the client do if subsequent transmission omits something - see #39\r\n\r\nFixes #40",
+      "createdAt": "2025-05-13T15:44:31Z",
+      "updatedAt": "2025-05-13T16:29:17Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "0667b2866d1e50f83d032d935cd59baf18770b4c",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "opsdir-part2",
+      "headRefOid": "e0c1e99d00424cab15ba335da86b15bdfcbe0ce2",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM6pH8b8",
+          "commit": {
+            "abbreviatedOid": "e0c1e99"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-13T16:28:23Z",
+          "updatedAt": "2025-05-13T16:28:23Z",
+          "comments": [
+            {
+              "originalPosition": 102,
+              "body": "I'd add extra \"if possible\". Sometimes it's not possible to stop using a configuration. How do you stop using a hostname or a timezone?",
+              "createdAt": "2025-05-13T16:28:23Z",
+              "updatedAt": "2025-05-13T16:28:24Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
