@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 14 November 2025                                  M. Richardson
+Expires: 16 November 2025                                  M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                             13 May 2025
+                                                             15 May 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 November 2025.
+   This Internet-Draft will expire on 16 November 2025.
 
 Copyright Notice
 
@@ -3325,11 +3325,11 @@ Table of Contents
    Whenever a client restarts the DHCP server discovery process or
    selects an alternate server as described in Section 18.2.9, the
    client SHOULD stop using any addresses and delegated prefixes for
-   which it has bindings (see Section 18.2.7) and any previously
-   received other configuration information, and try to obtain new
-   bindings and other configuration information from a "new" server.
-   This facilitates the client using a single state machine for all
-   bindings.
+   which it has bindings (see Section 18.2.7) and if possible, any
+   previously received other configuration information, and try to
+   obtain new bindings and other configuration information from a "new"
+   server.  This facilitates the client using a single state machine for
+   all bindings.
 
 18.3.  Server Behavior
 
