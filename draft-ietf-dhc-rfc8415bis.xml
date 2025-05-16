@@ -152,8 +152,8 @@
         <t>This document specifies the DHCPv6 protocol behavior. The server policy, such as
         what options to assign to which clients, which subnets or pools of resources to use,
         which clients' requests should be denied etc. are out of scope for this document.</t>
-        <t>Server configuration, operation and management are also out of scope. One
-        possible way to manage a DHCPv6 server is proposed in <xref target="RFC9243" format="default"/>.</t>
+        <t>Server configuration, operation and management are also out of scope. An
+        approach to manage DHCPv6 relays and servers is specified in <xref target="RFC9243" format="default"/>.</t>
         <t>Merging DHCPv4 <xref target="RFC2131" format="default"/> and DHCPv6 configuration is out of scope for
         this document. <xref target="RFC4477" format="default"/> discusses some issues
         and possible strategies for running DHCPv4 and DHCPv6 services
@@ -421,12 +421,12 @@
     <section anchor="Client-Server-Exchanges" numbered="true" toc="default">
       <name>Client/Server Exchanges</name>
       <t>Clients and servers exchange DHCP messages using UDP
-     (see <xref target="RFC0768" format="default"/> and BCP 145 <xref target="RFC8085" format="default"/>).
+     (see <xref target="RFC0768" format="default"/> and <xref target="BCP145" format="default"/>).
      The client uses a link-local source address or
      addresses determined through other mechanisms for transmitting and
      receiving DHCP messages.</t>
       <t>A DHCP client sends all messages using a reserved, link-scoped
-     multicast destination address (ALL_DHCP_Relay_Agents_and_Servers - ff02::1:2) so that the client need not be
+     multicast destination address (All_DHCP_Relay_Agents_and_Servers - ff02::1:2) so that the client need not be
      configured with the address or addresses of DHCP servers.</t>
       <t>To allow a DHCP client to send a message to a DHCP server that is
      not attached to the same link, a DHCP relay agent on the client's link
@@ -731,7 +731,7 @@
         deployment, the server will grant one address for each IA_NA
         option (see <xref target="RFC3315-22.4" format="default"/>).</t>
         <t>To meet the recommendations of <xref target="RFC7934" format="default" />,
-        A client can explicitly request multiple addresses by sending
+        a client can explicitly request multiple addresses by sending
         multiple IA_NA options. A client can send multiple
         IA_NA options in its initial transmissions.
         Alternatively, it can send an extra Request message
@@ -753,13 +753,13 @@
       </section>
       <section anchor="use-case-addr-registration" numbered="true" toc="default">
         <name>Registering Self-generated Addresses</name>
-        <t><xref target="RFC9686" format="default"/> introduced a method for
+        <t><xref target="RFC9686" format="default"/> introduces a method for
         devices to register their self-generated or statically configured addresses
         in the DHCPv6 servers. The general idea is that devices would notify the
         server about addresses that they are using, so that the server can log
         or record these addresses as required by local policy.</t>
 
-        <t>The major difference between other use cases and this is that the address
+        <t>The major specificity of this mechanism is that the address
         selection is not done by the DHCP server, but by the device itself. The most
         of the lifecycle remains the same in principle: a lease is created by the server,
         and the device performs periodic actions to get the lease renewed, and eventually
@@ -3702,7 +3702,7 @@
           configuration information.</t>
           <t>The hop-count value in the Relay-forward message is set to
           0.</t>
-          <t>The relay SHOULD insert a Client Link-Layer option as described
+          <t>The relay SHOULD insert a Client Link-Layer Address option as described
           in <xref target="RFC6939" format="default"/>.</t>
           <t>If the relay agent cannot use the address in the link-address
           field to identify the interface through which the response to the
@@ -5883,24 +5883,7 @@
           <seriesInfo name="RFC" value="7227"/>
           <seriesInfo name="DOI" value="10.17487/RFC7227"/>
         </reference>
-        <reference anchor="RFC8085" target="https://www.rfc-editor.org/info/rfc8085" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8085.xml">
-          <front>
-            <title>UDP Usage Guidelines</title>
-            <author fullname="L. Eggert" initials="L." surname="Eggert"/>
-            <author fullname="G. Fairhurst" initials="G." surname="Fairhurst"/>
-            <author fullname="G. Shepherd" initials="G." surname="Shepherd"/>
-            <date month="March" year="2017"/>
-            <abstract>
-              <t>The User Datagram Protocol (UDP) provides a minimal message-passing transport that has no inherent congestion control mechanisms. This document provides guidelines on the use of UDP for the designers of applications, tunnels, and other protocols that use UDP. Congestion control guidelines are a primary focus, but the document also provides guidance on other topics, including message sizes, reliability, checksums, middlebox traversal, the use of Explicit Congestion Notification (ECN), Differentiated Services Code Points (DSCPs), and ports.</t>
-              <t>Because congestion control is critical to the stable operation of the Internet, applications and other protocols that choose to use UDP as an Internet transport must employ mechanisms to prevent congestion collapse and to establish some degree of fairness with concurrent traffic. They may also need to implement additional mechanisms, depending on how they use UDP.</t>
-              <t>Some guidance is also applicable to the design of other protocols (e.g., protocols layered directly on IP or via IP-based tunnels), especially when these protocols do not themselves provide congestion control.</t>
-              <t>This document obsoletes RFC 5405 and adds guidelines for multicast UDP usage.</t>
-            </abstract>
-          </front>
-          <seriesInfo name="BCP" value="145"/>
-          <seriesInfo name="RFC" value="8085"/>
-          <seriesInfo name="DOI" value="10.17487/RFC8085"/>
-        </reference>
+        <?rfc include="reference.BCP.145.xml" ?>
         <reference anchor="RFC8174" target="https://www.rfc-editor.org/info/rfc8174" xml:base="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml">
           <front>
             <title>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</title>
