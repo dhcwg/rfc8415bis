@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 16 November 2025                                  M. Richardson
+Expires: 17 November 2025                                  M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                             15 May 2025
+                                                             16 May 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 November 2025.
+   This Internet-Draft will expire on 17 November 2025.
 
 Copyright Notice
 
@@ -292,7 +292,8 @@ Table of Contents
    be denied etc. are out of scope for this document.
 
    Server configuration, operation and management are also out of scope.
-   One possible way to manage a DHCPv6 server is proposed in [RFC9243].
+   An approach to manage DHCPv6 relays and servers is specified in
+   [RFC9243].
 
    Merging DHCPv4 [RFC2131] and DHCPv6 configuration is out of scope for
    this document.  [RFC4477] discusses some issues and possible
@@ -598,12 +599,12 @@ Table of Contents
 4.  Client/Server Exchanges
 
    Clients and servers exchange DHCP messages using UDP (see [RFC0768]
-   and BCP 145 [RFC8085]).  The client uses a link-local source address
-   or addresses determined through other mechanisms for transmitting and
+   and [BCP145]).  The client uses a link-local source address or
+   addresses determined through other mechanisms for transmitting and
    receiving DHCP messages.
 
    A DHCP client sends all messages using a reserved, link-scoped
-   multicast destination address (ALL_DHCP_Relay_Agents_and_Servers -
+   multicast destination address (All_DHCP_Relay_Agents_and_Servers -
    ff02::1:2) so that the client need not be configured with the address
    or addresses of DHCP servers.
 
@@ -908,7 +909,7 @@ Table of Contents
    event is in progress.  In a typical deployment, the server will grant
    one address for each IA_NA option (see Section 20.4).
 
-   To meet the recommendations of [RFC7934], A client can explicitly
+   To meet the recommendations of [RFC7934], a client can explicitly
    request multiple addresses by sending multiple IA_NA options.  A
    client can send multiple IA_NA options in its initial transmissions.
    Alternatively, it can send an extra Request message with additional
@@ -931,20 +932,20 @@ Table of Contents
 
 5.6.  Registering Self-generated Addresses
 
-   [RFC9686] introduced a method for devices to register their self-
+   [RFC9686] introduces a method for devices to register their self-
    generated or statically configured addresses in the DHCPv6 servers.
    The general idea is that devices would notify the server about
    addresses that they are using, so that the server can log or record
    these addresses as required by local policy.
 
-   The major difference between other use cases and this is that the
-   address selection is not done by the DHCP server, but by the device
-   itself.  The most of the lifecycle remains the same in principle: a
-   lease is created by the server, and the device performs periodic
-   actions to get the lease renewed, and eventually the lease can
-   expire.  However, this mechanism uses different message types (ADDR-
-   REG-INFORM and ADDR-REG-REPLY) and has different source address
-   requirements, as defined in [RFC9686].
+   The major specificity of this mechanism is that the address selection
+   is not done by the DHCP server, but by the device itself.  The most
+   of the lifecycle remains the same in principle: a lease is created by
+   the server, and the device performs periodic actions to get the lease
+   renewed, and eventually the lease can expire.  However, this
+   mechanism uses different message types (ADDR-REG-INFORM and ADDR-REG-
+   REPLY) and has different source address requirements, as defined in
+   [RFC9686].
 
 6.  DHCP Constants
 
@@ -3917,8 +3918,8 @@ Table of Contents
 
    The hop-count value in the Relay-forward message is set to 0.
 
-   The relay SHOULD insert a Client Link-Layer option as described in
-   [RFC6939].
+   The relay SHOULD insert a Client Link-Layer Address option as
+   described in [RFC6939].
 
    If the relay agent cannot use the address in the link-address field
    to identify the interface through which the response to the client
@@ -6007,6 +6008,14 @@ Table of Contents
 
 25.1.  Normative References
 
+   [BCP145]   Best Current Practice 145,
+              <https://www.rfc-editor.org/info/bcp145>.
+              At the time of writing, this BCP comprises the following:
+
+              Eggert, L., Fairhurst, G., and G. Shepherd, "UDP Usage
+              Guidelines", BCP 145, RFC 8085, DOI 10.17487/RFC8085,
+              March 2017, <https://www.rfc-editor.org/info/rfc8085>.
+
    [RFC0768]  Postel, J., "User Datagram Protocol", STD 6, RFC 768,
               DOI 10.17487/RFC0768, August 1980,
               <https://www.rfc-editor.org/info/rfc768>.
@@ -6053,10 +6062,6 @@ Table of Contents
               "Host Address Availability Recommendations", BCP 204,
               RFC 7934, DOI 10.17487/RFC7934, July 2016,
               <https://www.rfc-editor.org/info/rfc7934>.
-
-   [RFC8085]  Eggert, L., Fairhurst, G., and G. Shepherd, "UDP Usage
-              Guidelines", BCP 145, RFC 8085, DOI 10.17487/RFC8085,
-              March 2017, <https://www.rfc-editor.org/info/rfc8085>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
