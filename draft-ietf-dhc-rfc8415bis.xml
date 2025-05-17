@@ -3089,6 +3089,20 @@
         server MAY include options containing the IAs and new values for other
         configuration parameters in the Reply message, even if those IAs and
         parameters were not requested in the client's message.</t>
+      <section anchor="use-multicast" numbered="true" toc="default">
+        <name>Reception of Unicast Messages from Clients</name>
+        <t>The server SHOULD NOT accept unicast traffic from a
+        client. The Server Unicast option (see <xref target="RFC3315-22.12" format="default"/>)
+        and UseMulticast status code (see <xref target="RFC3315-22.13" format="default"/>)
+        have been obsoleted and hence clients should no longer send messages
+        to a server's unicast address nor receive the UseMulticast status code.
+        However, a server that previously supported the Server Unicast option
+        and is upgraded to not support it, MAY continue to receive
+        unicast messages if it previously sent the client the Server Unicast
+        option. But this causes no harm and the client will eventually switch
+        back to sending multicast messages (such as after the lease's rebinding time
+        is reached or the client is rebooted).</t>
+      </section>
         <section anchor="RFC3315-17.2.1" numbered="true" toc="default">
           <name>Receipt of Solicit Messages</name>
           <t>The server determines the information about the client and its
@@ -3638,20 +3652,6 @@
           <t>Default and initial values for REC_TIMEOUT and REC_MAX_RC are
           documented in <xref target="RFC3315-5.5" format="default"/>.</t>
         </section>
-      </section>
-      <section anchor="use-multicast" numbered="true" toc="default">
-        <name>Reception of Unicast Messages</name>
-        <t>The server SHOULD NOT accept unicast traffic from a
-        client. The Server Unicast option (see <xref target="RFC3315-22.12" format="default"/>)
-        and UseMulticast status code (see <xref target="RFC3315-22.13" format="default"/>)
-        have been obsoleted and hence clients should no longer send messages
-        to a server's unicast address nor receive the UseMulticast status code.
-        However, a server that previously supported the Server Unicast option
-        and is upgraded to not support it, MAY continue to receive
-        unicast messages if it previously sent the client the Server Unicast
-        option. But this causes no harm and the client will eventually switch
-        back to sending multicast messages (such as after the lease's rebinding time
-        is reached or the client is rebooted).</t>
       </section>
     </section>
     <section anchor="RFC3315-20" numbered="true" toc="default">
