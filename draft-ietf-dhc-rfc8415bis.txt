@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 17 November 2025                                  M. Richardson
+Expires: 18 November 2025                                  M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                             16 May 2025
+                                                             17 May 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 November 2025.
+   This Internet-Draft will expire on 18 November 2025.
 
 Copyright Notice
 
@@ -169,18 +169,18 @@ Table of Contents
        17.2.11. Receipt of Reconfigure Messages
        17.2.12. Refreshing Configuration Information
      17.3.  Server Behavior
-       17.3.1.  Receipt of Solicit Messages
-       17.3.2.  Receipt of Request Messages
-       17.3.3.  Receipt of Confirm Messages
-       17.3.4.  Receipt of Renew Messages
-       17.3.5.  Receipt of Rebind Messages
-       17.3.6.  Receipt of Information-request Messages
-       17.3.7.  Receipt of Release Messages
-       17.3.8.  Receipt of Decline Messages
-       17.3.9.  Creation of Advertise Messages
-       17.3.10. Transmission of Advertise and Reply Messages
-       17.3.11. Creation and Transmission of Reconfigure Messages
-     17.4.  Reception of Unicast Messages
+       17.3.1.  Reception of Unicast Messages from Clients
+       17.3.2.  Receipt of Solicit Messages
+       17.3.3.  Receipt of Request Messages
+       17.3.4.  Receipt of Confirm Messages
+       17.3.5.  Receipt of Renew Messages
+       17.3.6.  Receipt of Rebind Messages
+       17.3.7.  Receipt of Information-request Messages
+       17.3.8.  Receipt of Release Messages
+       17.3.9.  Receipt of Decline Messages
+       17.3.10. Creation of Advertise Messages
+       17.3.11. Transmission of Advertise and Reply Messages
+       17.3.12. Creation and Transmission of Reconfigure Messages
    18. Relay Agent Behavior
      18.1.  Relaying a Client Message or a Relay-forward Message
        18.1.1.  Relaying a Message from a Client
@@ -631,7 +631,7 @@ Table of Contents
    and/or prefix delegation by using a two-message exchange instead of
    the normal four-message exchange as discussed in the next section.
    Expedited assignment can be requested by the client, and servers may
-   or may not honor the request (see Sections 17.3.1 and 20.14 for more
+   or may not honor the request (see Sections 17.3.2 and 20.14 for more
    details and why servers may not honor this request).  Clients may
    request this expedited service in environments where it is likely
    that there is only one server available on a link and no expectation
@@ -2165,7 +2165,7 @@ Table of Contents
    sends an Information-request message (see Section 17.2.6) to the
    All_DHCP_Relay_Agents_and_Servers multicast address.  Servers respond
    with a Reply message containing the configuration information for the
-   client (see Section 17.3.6).
+   client (see Section 17.3.7).
 
    To request the assignment of one or more addresses or delegated
    prefixes, a client first locates a DHCP server and then requests the
@@ -2272,8 +2272,8 @@ Table of Contents
    the client implementation and reduces the potential number of
    transactions required.  To facilitate a client's use of a single
    transaction for all IA options, servers MUST return the same T1/T2
-   values for all IA options in a Reply (see Sections 17.3.2, 17.3.4,
-   and 17.3.5) so that the client will generate a single transaction
+   values for all IA options in a Reply (see Sections 17.3.3, 17.3.5,
+   and 17.3.6) so that the client will generate a single transaction
    when renewing or rebinding its leases.  However, because some servers
    may not yet conform to this requirement, a client MUST be prepared to
    select appropriate T1/T2 times as described in Section 17.2.4.
@@ -3256,7 +3256,7 @@ Table of Contents
    this information with each client in case it is needed to send a
    Reconfigure message at a later time, unless the server has been
    configured with addresses that can be used to send Reconfigure
-   messages directly to the client (see Section 17.3.11).  Note that
+   messages directly to the client (see Section 17.3.12).  Note that
    servers that support leasequery [RFC5007] also need to record this
    information.
 
@@ -3277,7 +3277,21 @@ Table of Contents
    parameters in the Reply message, even if those IAs and parameters
    were not requested in the client's message.
 
-17.3.1.  Receipt of Solicit Messages
+17.3.1.  Reception of Unicast Messages from Clients
+
+   The server SHOULD NOT accept unicast traffic from a client.  The
+   Server Unicast option (see Section 20.12) and UseMulticast status
+   code (see Section 20.13) have been obsoleted and hence clients should
+   no longer send messages to a server's unicast address nor receive the
+   UseMulticast status code.  However, a server that previously
+   supported the Server Unicast option and is upgraded to not support
+   it, MAY continue to receive unicast messages if it previously sent
+   the client the Server Unicast option.  But this causes no harm and
+   the client will eventually switch back to sending multicast messages
+   (such as after the lease's rebinding time is reached or the client is
+   rebooted).
+
+17.3.2.  Receipt of Solicit Messages
 
    The server determines the information about the client and its
    location as described in Section 12 and checks its administrative
@@ -3294,15 +3308,15 @@ Table of Contents
    the Solicit message, or (3) the server has not been configured to
    respond with committed assignments of leases and other resources, the
    server sends an Advertise message to the client as described in
-   Section 17.3.9.
+   Section 17.3.10.
 
    If the client has included a Rapid Commit option in the Solicit
    message and the server has been configured to respond with committed
    assignments of leases and other resources, the server responds to the
    Solicit with a Reply message.  The server produces the Reply message
    as though it had received a Request message as described in
-   Section 17.3.2.  The server transmits the Reply message as described
-   in Section 17.3.10.  The server MUST commit the assignment of any
+   Section 17.3.3.  The server transmits the Reply message as described
+   in Section 17.3.11.  The server MUST commit the assignment of any
    addresses and delegated prefixes or other configuration information
    before sending a Reply message to a client.  In this case, the server
    includes a Rapid Commit option in the Reply message to indicate that
@@ -3323,7 +3337,7 @@ Table of Contents
       the leases from the other servers will be committed to the client
       but not used by the client.
 
-17.3.2.  Receipt of Request Messages
+17.3.3.  Receipt of Request Messages
 
    When the server receives a valid Request message, the server creates
    the bindings for that client according to the server's policy and
@@ -3412,7 +3426,7 @@ Table of Contents
       the same buffer as before, and it is easy to miss some of those
       steps.
 
-17.3.3.  Receipt of Confirm Messages
+17.3.4.  Receipt of Confirm Messages
 
    When the server receives a Confirm message, the server determines
    whether the addresses in the Confirm message are appropriate for the
@@ -3439,7 +3453,7 @@ Table of Contents
    server includes a Status Code option (see Section 20.13) indicating
    the status of the Confirm message.
 
-17.3.4.  Receipt of Renew Messages
+17.3.5.  Receipt of Renew Messages
 
    For each IA in the Renew message from a client, the server locates
    the client's binding and verifies that the information in the IA from
@@ -3522,7 +3536,7 @@ Table of Contents
    facilitates the client being able to renew all of the bindings at the
    same time.
 
-17.3.5.  Receipt of Rebind Messages
+17.3.6.  Receipt of Rebind Messages
 
    When the server receives a Rebind message that contains an IA option
    from a client, it locates the client's binding and verifies that the
@@ -3621,7 +3635,7 @@ Table of Contents
    Reply.  This facilitates the client being able to renew all of the
    bindings at the same time.
 
-17.3.6.  Receipt of Information-request Messages
+17.3.7.  Receipt of Information-request Messages
 
    When the server receives an Information-request message, the client
    is requesting configuration information that does not include the
@@ -3651,7 +3665,7 @@ Table of Contents
    respond, the client may continue to retransmit the
    Information-request message indefinitely.
 
-17.3.7.  Receipt of Release Messages
+17.3.8.  Receipt of Release Messages
 
    The server constructs a Reply message by setting the "msg-type" field
    to REPLY and copying the transaction ID from the Release message into
@@ -3679,7 +3693,7 @@ Table of Contents
    after the lifetimes on the leases have expired to allow the server to
    reassign the previously assigned leases to a client.
 
-17.3.8.  Receipt of Decline Messages
+17.3.9.  Receipt of Decline Messages
 
    Upon the receipt of a valid Decline message, the server examines the
    IAs and the addresses in the IAs for validity.  If the IAs in the
@@ -3709,7 +3723,7 @@ Table of Contents
    includes a Status Code option with the value NoBinding in the IA
    option.  No other options are included in the IA option.
 
-17.3.9.  Creation of Advertise Messages
+17.3.10.  Creation of Advertise Messages
 
    The server sets the "msg-type" field to ADVERTISE and copies the
    contents of the "transaction-id" field from the Solicit message
@@ -3774,7 +3788,7 @@ Table of Contents
 
    Transmission of Advertise messages is described in the next section.
 
-17.3.10.  Transmission of Advertise and Reply Messages
+17.3.11.  Transmission of Advertise and Reply Messages
 
    If the original message was received directly by the server, the
    server unicasts the Advertise or Reply message directly to the client
@@ -3794,7 +3808,7 @@ Table of Contents
    Section 18.3 for more details on the construction of Relay-reply
    messages.
 
-17.3.11.  Creation and Transmission of Reconfigure Messages
+17.3.12.  Creation and Transmission of Reconfigure Messages
 
    The server sets the "msg-type" field to RECONFIGURE and sets the
    "transaction-id" field to 0.  The server includes a Server Identifier
@@ -3850,20 +3864,6 @@ Table of Contents
 
    Default and initial values for REC_TIMEOUT and REC_MAX_RC are
    documented in Section 6.6.
-
-17.4.  Reception of Unicast Messages
-
-   The server SHOULD NOT accept unicast traffic from a client.  The
-   Server Unicast option (see Section 20.12) and UseMulticast status
-   code (see Section 20.13) have been obsoleted and hence clients should
-   no longer send messages to a server's unicast address nor receive the
-   UseMulticast status code.  However, a server that previously
-   supported the Server Unicast option and is upgraded to not support
-   it, MAY continue to receive unicast messages if it previously sent
-   the client the Server Unicast option.  But this causes no harm and
-   the client will eventually switch back to sending multicast messages
-   (such as after the lease's rebinding time is reached or the client is
-   rebooted).
 
 18.  Relay Agent Behavior
 
