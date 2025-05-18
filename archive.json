@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-15T01:58:14.155709+00:00",
+  "timestamp": "2025-05-18T02:07:03.449213+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -768,7 +768,7 @@
       ],
       "body": "Section 18.2.10\n\nPara 6 here is a really important principle about what to do if a subsequent\nReply omits something included in a previous Reply.  This should be stated\nclearly earlier?",
       "createdAt": "2025-04-23T16:24:58Z",
-      "updatedAt": "2025-05-13T16:35:41Z",
+      "updatedAt": "2025-05-15T15:42:16Z",
       "closedAt": null,
       "comments": [
         {
@@ -791,6 +791,13 @@
           "body": "Perhaps we could do the same thing as with #40 - keep the text exactly as is, but move to its own dedicated section? @twintersunh  and @mcr, what's your opinion? @bevolz prefers to keep it as it is.",
           "createdAt": "2025-05-13T16:35:40Z",
           "updatedAt": "2025-05-13T16:35:40Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Taking advantage of the fact that both @mcr and me attending RIPE, we discussed the matter face to face. Michael said moving the text to its own section, but not changing it is a reasonable compromise. As such, I did that in #78.",
+          "createdAt": "2025-05-15T15:42:15Z",
+          "updatedAt": "2025-05-15T15:42:15Z"
         }
       ]
     },
@@ -1415,7 +1422,7 @@
       "id": "I_kwDOFL5NeM61oULy",
       "title": "Mike Bishop\u2019s comments",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/69",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -1424,8 +1431,8 @@
       ],
       "body": "1.1: RFCs are immutable; \"For a complete list of changes made to [[RFC8415](https://datatracker.ietf.org/doc/rfc8415/)] see Appendix A.\" => \"For a complete list of differences from [[RFC8415](https://datatracker.ietf.org/doc/rfc8415/)], see Appendix A.\"\n\n7.6: \"This table of values used to describe the message transmission behavior of clients and servers.\" => \"This table of values is used to describe the message transmission behavior of clients and servers.\" (Otherwise it invites the question what it describes now!)\n\nNote\n7.6 was already fixed in -10.",
       "createdAt": "2025-05-07T21:51:09Z",
-      "updatedAt": "2025-05-09T13:42:39Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-16T10:30:31Z",
+      "closedAt": "2025-05-16T10:30:31Z",
       "comments": [
         {
           "author": "bevolz",
@@ -1467,7 +1474,7 @@
       "id": "I_kwDOFL5NeM61ywSt",
       "title": "Ketan Talaulikar - remove material & references to pre-8415 RFCs",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/71",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -1476,8 +1483,8 @@
       ],
       "body": "These set of comments are about removing references to RFCs incorporated and obsoleted by 8415 and removing background material. Line numbers reference -09 draft.\n\n274\t1.1.  Relationship to Previous DHCPv6 Standards\n\n276\t   The initial specification of DHCPv6 was defined in [[RFC3315](https://datatracker.ietf.org/doc/rfc3315/)], and a\n277\t   number of follow-up documents were published over the years:\n\n<major> I see that this document is trying to carry forward history prior\nto [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) about DHCPv6 specifications. I find this concerning since it asks\nthe reader to go back to those old and obsoleted documents when reading this\nbrand new RFC. My concern is that it has the potential to at worst confuse and\nat best waste time of someone trying to implement DHCPv6 afresh. Especially, \ngiven that this is moving to Internet Standard, I would like to discuss if\nthere are any problems in removing all references to the obsoleted documents\nother than [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) itself.\n\nThe reader could be pointed to [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) section 1.1 for history (just as done \nfor IA_TA).\n\n\n311\t1.2.  Relationship to DHCPv4\n\n313\t   The operational models and relevant configuration information for\n314\t   DHCPv4 [[RFC2131](https://datatracker.ietf.org/doc/rfc2131/)] [[RFC2132](https://datatracker.ietf.org/doc/rfc2132/)] and DHCPv6 are sufficiently different that\n315\t   integration between the two services is not included in this\n316\t   document.  [[RFC3315](https://datatracker.ietf.org/doc/rfc3315/)] suggested that future work might be to extend\n317\t   DHCPv6 to carry IPv4 address and configuration information.  However,\n318\t   the current consensus of the IETF is that DHCPv4 should be used\n319\t   rather than DHCPv6 when conveying IPv4 configuration information to\n\n<major> The above text may be harmful to new implementations of DHCPv6. If the\nWG has taken the decision to not use it for IPv4, then isn't now the\ntime to clarify this aspect before this moves to Internet Standard? If I were\nimplementing DHCPv6 currently, would I design and write code expecting that at\nsome point, my implementation would need to support IPv4 as well? Or, can\nthe spec provide definitive clarity to implementors on such aspects and not\ncarry forward these uncertainties?\n\n\n793\t6.1.  Stateless DHCP\n\n795\t   Stateless DHCP [[RFC3736](https://datatracker.ietf.org/doc/rfc3736/)] can be used at any time, typically when a\n796\t   node requires some missing or expired configuration information that\n797\t   is available via DHCP.\n\n<major> [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) obsoleted [RFC3736](https://datatracker.ietf.org/doc/rfc3736/). This document obsoletes [RFC8415](https://datatracker.ietf.org/doc/rfc8415/). Why do we \nstill need to reference [RFC3736](https://datatracker.ietf.org/doc/rfc3736/) for this term. Perhaps we should have a forward \nreference to section 6.1 of this document instead? Please see similar comments\nfor a few other references to obsoleted RFCs.\n\n\n836\t6.3.  DHCP for Prefix Delegation\n\n838\t   The prefix delegation mechanism, originally described in [[RFC3633](https://datatracker.ietf.org/doc/rfc3633/)],\n\n<major> Isn't the reference to [RFC3633](https://datatracker.ietf.org/doc/rfc3633/) that has been obsoleted to the 2nd\ndegree avoidable?\n\n\n1009\t7.1.  Multicast Addresses\n\n1011\t   [[RFC3315](https://datatracker.ietf.org/doc/rfc3315/)] registered the following multicast addresses, and this\n1012\t   specification is now authoritative for:\n\n<major> The reference to [RFC3315](https://datatracker.ietf.org/doc/rfc3315/) is outdated and incorrect. The IANA registry\npoints to [RFC8415](https://datatracker.ietf.org/doc/rfc8415/). What does it mean \"now authoritative for\"? That was perhaps\nappropriate for [RFC8415](https://datatracker.ietf.org/doc/rfc8415/), but seems very odd for this document.\n\n\n2316\t18.1.  A Single Exchange for Multiple IA Options\n\n2318\t   This document assumes that a client SHOULD use a single transaction\n2319\t   for all of the IA options required on an interface; this simplifies\n2320\t   the client implementation and reduces the potential number of\n2321\t   transactions required (for the background on this design choice,\n2322\t   refer to Section 4 of [[RFC7550](https://datatracker.ietf.org/doc/rfc7550/)]).  To facilitate a client's use of a\n\n<major> Isn't the reference to [RFC7550](https://datatracker.ietf.org/doc/rfc7550/) that has been obsoleted to the 2nd\ndegree avoidable?\n\n\n3933\t19.1.  Relaying a Client Message or a Relay-forward Message\n\n3935\t   A relay agent relays both messages from clients and Relay-forward\n3936\t   messages from other relay agents.  When a relay agent receives a\n3937\t   Relay-forward message, a recognized message type for which it is not\n3938\t   the intended target, or an unrecognized message type [[RFC7283](https://datatracker.ietf.org/doc/rfc7283/)], it\n\n<major> Isn't the reference to [RFC7283](https://datatracker.ietf.org/doc/rfc7283/) that has been obsoleted to the 2nd\ndegree avoidable?\n\n\n4790\t21.11.  Authentication Option\n\n4792\t   The Authentication option carries authentication information to\n4793\t   authenticate the identity and contents of DHCP messages.  The use of\n4794\t   the Authentication option is described in Section 20.  The delayed\n4795\t   authentication protocol, defined in [[RFC3315](https://datatracker.ietf.org/doc/rfc3315/)], was obsoleted by\n4796\t   [[RFC8415](https://datatracker.ietf.org/doc/rfc8415/)].  The format of the Authentication option is:\n\n<major> If this is something that was already obsoleted by [RFC8415](https://datatracker.ietf.org/doc/rfc8415/), why is it\neven present in this document",
       "createdAt": "2025-05-08T20:08:36Z",
-      "updatedAt": "2025-05-12T16:46:29Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-15T21:31:55Z",
+      "closedAt": "2025-05-15T21:31:55Z",
       "comments": [
         {
           "author": "bevolz",
@@ -1507,7 +1514,7 @@
       "id": "I_kwDOFL5NeM61y6M7",
       "title": "Ketan Talaulikar - 1.3, merging DHCPv4/v6",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/72",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -1516,8 +1523,8 @@
       ],
       "body": "324\t   Merging DHCPv4 and DHCPv6 configuration is out of scope for this\n325\t   document.  [[RFC4477](https://datatracker.ietf.org/doc/rfc4477/)] discusses some issues and possible strategies\n\n<major> Is this important consideration not yet settled by the WG? If it is\nthen suggest clarifying. If it is not then does it impact maturity level to \nmove to Internet Standard?",
       "createdAt": "2025-05-08T20:27:09Z",
-      "updatedAt": "2025-05-10T10:17:00Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-15T21:33:13Z",
+      "closedAt": "2025-05-15T21:33:13Z",
       "comments": [
         {
           "author": "bevolz",
@@ -1599,7 +1606,7 @@
       "id": "I_kwDOFL5NeM61zDEd",
       "title": "Ketan Talaulikar - 18.3",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/75",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -1608,8 +1615,8 @@
       ],
       "body": "3319\t   When a client receives a Reconfigure message from the server, the\n3320\t   client initiates sending a Renew, Rebind, or Information-request\n3321\t   message as indicated by msg-type in the Reconfigure Message option\n3322\t   (see Section 21.19).  The server sends IAs and/or other configuration\n3323\t   information to the client in a Reply message.  The server MAY include\n3324\t   options containing the IAs and new values for other configuration\n3325\t   parameters in the Reply message, even if those IAs and parameters\n3326\t   were not requested in the client's message.\n\n<major> Since the text blobs related to use of unicast in each of the\nfollowing sub-sections have been removed, perhaps we need something here to\nindicate that the handling of unicast messages for all these messages is\ncovered in section 18.4 ?",
       "createdAt": "2025-05-08T20:46:37Z",
-      "updatedAt": "2025-05-10T10:17:54Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-17T14:48:47Z",
+      "closedAt": "2025-05-17T14:48:47Z",
       "comments": [
         {
           "author": "bevolz",
@@ -1617,6 +1624,46 @@
           "body": "I don\u2019t understand the issue. Servers (or relays) always unicast responses to client messages. The unicast that was removed was in the client to server direction, not the other way around.",
           "createdAt": "2025-05-08T20:47:53Z",
           "updatedAt": "2025-05-10T10:17:53Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Emailed Ketan about this issue.",
+          "createdAt": "2025-05-16T14:42:58Z",
+          "updatedAt": "2025-05-16T14:42:58Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Ketan responded:\n\n\u201cYou will note that the special handling by server for unicast for each type of message was covered by text blobs in each of sections 18.3.x in RFC8415 - they are now removed. The handling of unicast is now covered in section 18.4. There is no technical issue here. I was wondering if it would be helpful to add some text in section 18.3 (towards the end and just before the start of 18.3.1) that provides a forward reference to section 18.4 about handling of unicast messages by the server. This is purely an editorial thing.\u201d\n\nAnd, thinking about this further, I propose:\n\n\u201cI\u2019m thinking that we should just move 18.4 to become a new 18.3.1 (modify title to \u201cReception of Unicast Messages from Clients\u201d). This 18.4 section should really be part of 18.3 as that is about server behavior.\u201d\n",
+          "createdAt": "2025-05-16T15:26:29Z",
+          "updatedAt": "2025-05-16T15:26:29Z"
+        }
+      ]
+    },
+    {
+      "number": 79,
+      "id": "I_kwDOFL5NeM62yD0m",
+      "title": "Mohamed Boucadair - new minor nits from -10",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/79",
+      "state": "CLOSED",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "ad-review"
+      ],
+      "body": "I checked diff 09/10. I really like the changes. FWIW, some minor \u201cthings\u201d I\nsport when reviewing the changes:\n\n# Section 1.3: More accurate scope of 9243\n\nOLD: One possible way to manage a DHCPv6 server is proposed in [RFC9243]\n\nNEW: An approach to manage DHCPv6 relays and servers is specified  in [RFC9243]\n\n# Section 5\n\n## ALL_DHCP_Relay_Agents_and_Servers\n\nConsider changing it to All_DHCP_Relay_Agents_and_Servers :-)\n\n## Naturally inherit whatever updates will be made to RFC8085\n\nOLD: and BCP 145 [RFC8085]\n\nNEW: and [BCP145]\n\n## Help readers find where DHCP multicast addresses are defined\n\nFor example, consider the following change:\n\nOLD: All_DHCP_Relay_Agents_and_Servers multicast address\n\nNEW: All_DHCP_Relay_Agents_and_Servers multicast address (Section 7.1)\n\n# Section 6.5: nit\n\nOLD: To meet the recommendations of [RFC7934], A client\n\nNEW: To meet the recommendations of [RFC7934], a client\n\n# Section 6.6\n\n## nit\n\nOLD: [RFC9686] introduced a method\n\nNEW: [RFC9686] introduces a method\n\n## minor edit\n\nOLD: The major difference between other use cases and this is\n\nNEW: The major specificity of this mechanism is\n\n# Section 18.2.6: Use the correct option name\n\nOLD: The relay SHOULD insert a Client Link-Layer option\n\nNEW: The relay SHOULD insert a Client Link-Layer Address option\n\nThank you again for your effort on the maintenance of this important piece.\n\nCheers,\nMed",
+      "createdAt": "2025-05-15T15:03:18Z",
+      "updatedAt": "2025-05-16T10:27:42Z",
+      "closedAt": "2025-05-16T10:27:42Z",
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think we should make all these changes.",
+          "createdAt": "2025-05-15T21:34:07Z",
+          "updatedAt": "2025-05-15T21:34:07Z"
         }
       ]
     }
@@ -3869,7 +3916,7 @@
       "labels": [],
       "body": "Fixed the #70 issues (and a bit more in similar text).",
       "createdAt": "2025-05-09T13:33:28Z",
-      "updatedAt": "2025-05-13T14:58:22Z",
+      "updatedAt": "2025-05-16T10:30:06Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "730effffb56ab419bbb36b0976f8104488277567",
@@ -3932,7 +3979,7 @@
       "id": "PR_kwDOFL5NeM6V3psG",
       "title": "71 ketan talaulikar",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/77",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -3943,19 +3990,57 @@
       "labels": [],
       "body": "Applied fixes and Ketan comfirmed.",
       "createdAt": "2025-05-12T16:47:59Z",
-      "updatedAt": "2025-05-12T16:47:59Z",
+      "updatedAt": "2025-05-15T21:31:54Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "730effffb56ab419bbb36b0976f8104488277567",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "71-ketan-talaulikar",
       "headRefOid": "eb6646b666c6b6feb31431daa323fc7a157fbead",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "closedAt": "2025-05-15T21:31:54Z",
+      "mergedAt": "2025-05-15T21:31:54Z",
+      "mergedBy": "bevolz",
+      "mergeCommit": {
+        "oid": "c8c80e2c8750876261be53ff03196073063e3311"
+      },
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "It will renumber everything after section 3 as that is being removed. The -11 .txt file I distributed via email added a dummy section 3 to prevent renumbering to make it easier to compare, but I added that to local .xml copy to produce .txt version.\r\n\r\nEric didn\u2019t seem concerned about renumbering.",
+          "createdAt": "2025-05-15T11:00:53Z",
+          "updatedAt": "2025-05-15T11:00:53Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> It will renumber everything after section 3 as that is being removed. The -11 .txt file I distributed via email added a dummy section 3 to prevent renumbering to make it easier to compare, but I added that to local .xml copy to produce .txt version.\r\n\r\nThat wasn't obvious to me.\r\nCan we include the dummy section then.\r\n\r\n",
+          "createdAt": "2025-05-15T15:48:19Z",
+          "updatedAt": "2025-05-15T15:48:19Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I\u2019m not thrilled about that \u2026 and as Eric said, it shouldn\u2019t really matter.I think someone mentioned other RFCs had done this \u2026 if there\u2019s an example, maybe we can look at it? I haven\u2019t looked.- Bernie (from iPad)On May 15, 2025, at 11:48\u202fAM, Michael Richardson ***@***.***> wrote:\ufeff\r\nmcr left a comment (dhcwg/rfc8415bis#77)\r\n\r\nIt will renumber everything after section 3 as that is being removed. The -11 .txt file I distributed via email added a dummy section 3 to prevent renumbering to make it easier to compare, but I added that to local .xml copy to produce .txt version.\r\n\r\nThat wasn't obvious to me.\r\nCan we include the dummy section then.\r\n\r\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you authored the thread.Message ID: ***@***.***>",
+          "createdAt": "2025-05-15T17:21:36Z",
+          "updatedAt": "2025-05-15T17:21:36Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM6pdbzm",
+          "commit": {
+            "abbreviatedOid": "eb6646b"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "This is pretty major surgery.  I tried to get Eric (our AD) to be more specific (in person, at RIPE90) about how much IS should/can change, and I guess we got interrupted, because I don't think I got an answer.\r\nI don't feel strongly.\r\nI think that this change does not cause any renumbering of sections compared to 8415. I would want to avoid that if we can.",
+          "createdAt": "2025-05-15T09:58:30Z",
+          "updatedAt": "2025-05-15T09:58:30Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 78,
@@ -3967,20 +4052,28 @@
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "Several comments raised by Tim were missed or we ran out of time before -10 was published. Here's the list:\r\n\r\n- [x] 18.2.11 - Auth required\r\n- [x] Normative language in 18.2.* and 18.3.*\r\n- [x] what does a client do when restarting the discovery process - see #40 \r\n- [ ] what does the client do if subsequent transmission omits something - see #39\r\n\r\nFixes #40",
+      "body": "Several comments raised by Tim were missed or we ran out of time before -10 was published. Here's the list:\r\n\r\n- [x] 18.2.11 - Auth required\r\n- [x] Normative language in 18.2.* and 18.3.*\r\n- [x] what does a client do when restarting the discovery process - see #40 \r\n- [x] what does the client do if subsequent transmission omits something - see #39\r\n\r\nFixes #40\r\nFixes #39 ",
       "createdAt": "2025-05-13T15:44:31Z",
-      "updatedAt": "2025-05-13T16:29:17Z",
+      "updatedAt": "2025-05-15T22:24:27Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "0667b2866d1e50f83d032d935cd59baf18770b4c",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "opsdir-part2",
-      "headRefOid": "e0c1e99d00424cab15ba335da86b15bdfcbe0ce2",
+      "headRefOid": "c5c762e408419ac6689c5e1f701487da0fc7206e",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "As far as I can tell, this PR addresses are remaining ops-dir comments from Tim. Please review.",
+          "createdAt": "2025-05-15T15:44:46Z",
+          "updatedAt": "2025-05-15T15:44:46Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOFL5NeM6pH8b8",
@@ -4001,8 +4094,186 @@
               "updatedAt": "2025-05-13T16:28:24Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6pdSG2",
+          "commit": {
+            "abbreviatedOid": "e0c1e99"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2025-05-15T09:47:58Z",
+          "updatedAt": "2025-05-15T09:48:15Z",
+          "comments": [
+            {
+              "originalPosition": 102,
+              "body": "```suggestion\r\n        and if possible, any previously received other configuration\r\n        information, and try to obtain new bindings and other configuration\r\n```",
+              "createdAt": "2025-05-15T09:47:58Z",
+              "updatedAt": "2025-05-15T09:48:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6pdURv",
+          "commit": {
+            "abbreviatedOid": "e0c1e99"
+          },
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-15T09:50:48Z",
+          "updatedAt": "2025-05-15T09:50:48Z",
+          "comments": [
+            {
+              "originalPosition": 102,
+              "body": "Michael agrees with this, as he offered exactly this suggestion [here](https://github.com/dhcwg/rfc8415bis/pull/78#pullrequestreview-2843025846). Resolving.",
+              "createdAt": "2025-05-15T09:50:48Z",
+              "updatedAt": "2025-05-15T09:50:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6plIq_",
+          "commit": {
+            "abbreviatedOid": "c5c762e"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-15T22:19:04Z",
+          "updatedAt": "2025-05-15T22:19:04Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "It should be \u201cwhich allocated the lease\u201d, not with!",
+              "createdAt": "2025-05-15T22:19:04Z",
+              "updatedAt": "2025-05-15T22:19:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6plI4S",
+          "commit": {
+            "abbreviatedOid": "c5c762e"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-15T22:19:38Z",
+          "updatedAt": "2025-05-15T22:19:38Z",
+          "comments": [
+            {
+              "originalPosition": 45,
+              "body": "Same issue here - which not with!",
+              "createdAt": "2025-05-15T22:19:38Z",
+              "updatedAt": "2025-05-15T22:19:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6plK3Y",
+          "commit": {
+            "abbreviatedOid": "c5c762e"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-15T22:24:27Z",
+          "updatedAt": "2025-05-15T22:24:27Z",
+          "comments": [
+            {
+              "originalPosition": 129,
+              "body": "I think \u201cin the next section\u201d is no longer appropriate now that this has moved. Need to refer to anchor=\"reply-solicit-request-renew-rebind\".",
+              "createdAt": "2025-05-15T22:24:27Z",
+              "updatedAt": "2025-05-15T22:24:28Z"
+            }
+          ]
         }
       ]
+    },
+    {
+      "number": 80,
+      "id": "PR_kwDOFL5NeM6WZRMo",
+      "title": "Address #79 - Mohamed Boucadair - new minor nits",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/80",
+      "state": "MERGED",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mcr",
+        "tomaszmrugalski",
+        "twintersunh"
+      ],
+      "labels": [],
+      "body": "I did all EXCEPT:\r\n\r\nOLD: All_DHCP_Relay_Agents_and_Servers multicast address\r\n\r\nNEW: All_DHCP_Relay_Agents_and_Servers multicast address (Section 7.1)\r\n\r\nThere are multiple places and not really sure this is worth it as there are only 2 addresses?",
+      "createdAt": "2025-05-15T22:14:37Z",
+      "updatedAt": "2025-05-16T10:28:00Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "c8c80e2c8750876261be53ff03196073063e3311",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "79-mohamed-boucadair---new-minor-nits-from--10",
+      "headRefOid": "f3121d6d35c3113210beeb0441c3dc9ff3aca7d5",
+      "closedAt": "2025-05-16T10:27:40Z",
+      "mergedAt": "2025-05-16T10:27:40Z",
+      "mergedBy": "bevolz",
+      "mergeCommit": {
+        "oid": "15c3d6d921cf499ea2245f77bde7fed37e74dfbb"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM6po_U0",
+          "commit": {
+            "abbreviatedOid": "f3121d6"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-16T09:34:08Z",
+          "updatedAt": "2025-05-16T09:34:08Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 81,
+      "id": "PR_kwDOFL5NeM6Wfhk4",
+      "title": "Address #75 - Ketan Talaulikar (18.3/18.4)",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/81",
+      "state": "MERGED",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mcr",
+        "tomaszmrugalski",
+        "twintersunh"
+      ],
+      "labels": [],
+      "body": "Moved 18.4 to become a new 18.3.1, as this is really about server behavior and should be located in 18.3.",
+      "createdAt": "2025-05-16T15:48:08Z",
+      "updatedAt": "2025-05-17T14:48:46Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "15c3d6d921cf499ea2245f77bde7fed37e74dfbb",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "75-ketan-talaulikar---183",
+      "headRefOid": "b4593d792ce47b8aef533518013ea3a1ab0ea280",
+      "closedAt": "2025-05-17T14:48:46Z",
+      "mergedAt": "2025-05-17T14:48:46Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "c69e9dd08d50b859297b2322e4fe74a753ac2a6c"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
