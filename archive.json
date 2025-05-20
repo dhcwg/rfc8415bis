@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-18T02:07:03.449213+00:00",
+  "timestamp": "2025-05-20T02:01:30.942818+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1589,15 +1589,15 @@
       ],
       "body": "1950\t   Clients, relay agents, and servers MUST NOT discard messages that\n1951\t   contain unknown options (or instances of vendor options with unknown\n1952\t   enterprise-number values).  These options should be ignored as if\n1953\t   they were not present.  This is critical to provide for future\n1954\t   extensions of DHCP.\n\n<major> There was a text blob here in [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) that used normative MUST to\ndiscard certain unicast messages. That has been removed. Is that really\nappropriate? Was this text wrong? I am not a DHCP expert, but this seems like\ngoing beyond the stated desire to remove the Server Unicast Option?",
       "createdAt": "2025-05-08T20:37:12Z",
-      "updatedAt": "2025-05-08T20:48:27Z",
+      "updatedAt": "2025-05-19T01:51:15Z",
       "closedAt": null,
       "comments": [
         {
           "author": "bevolz",
           "authorAssociation": "COLLABORATOR",
-          "body": "Likely close as clients must now multicast all packets (server unicast option was deprecated). And, we felt that there may be ot be much need to have servers check that certains packets were not unicast. See 18.4, as servers likely drop all client messages that are unicast.",
+          "body": "Likely close as clients must now multicast all packets (server unicast option was deprecated). And, we felt that there may not be need to have servers check that certains packets were not unicast. See 18.4, as servers likely drop all client messages that are unicast.",
           "createdAt": "2025-05-08T20:42:18Z",
-          "updatedAt": "2025-05-08T20:42:18Z"
+          "updatedAt": "2025-05-19T01:51:14Z"
         }
       ]
     },
