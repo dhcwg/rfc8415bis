@@ -2519,8 +2519,8 @@
           uses the Solicit message to locate a new DHCP server and sends a
           Request for the expired IAs to the new server. If the terminated
           Rebind exchange was initiated as a result of receiving a Reconfigure
-          message, the client ignores and discards the Reconfigure
-          message.</t>
+          message, the client terminates the reconfigure process and resumes
+          as if the Reconfigure message had not been received.</t>
         </section>
         <section anchor="RFC3315-18.1.5" numbered="true" toc="default">
           <name>Creation and Transmission of Information-request Messages</name>
