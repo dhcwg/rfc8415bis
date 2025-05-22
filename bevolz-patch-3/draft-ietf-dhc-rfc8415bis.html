@@ -4643,8 +4643,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
           uses the Solicit message to locate a new DHCP server and sends a
           Request for the expired IAs to the new server. If the terminated
           Rebind exchange was initiated as a result of receiving a Reconfigure
-          message, the client ignores and discards the Reconfigure
-          message.<a href="#section-17.2.5-8" class="pilcrow">¶</a></p>
+          message, the client terminates the reconfigure process and resumes
+          as if the Reconfigure message had not been received.<a href="#section-17.2.5-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="RFC3315-18.1.5">
