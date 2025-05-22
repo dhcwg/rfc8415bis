@@ -2593,7 +2593,7 @@ Table of Contents
    interactions with the server is no longer valid and it is willing to
    receive Reconfigure messages.  This updates the server's information
    so it is able to continue to communicate with the client (either
-   directly or via Relay-Reply's).
+   directly or via Relay-reply's).
 
    If T1 or T2 had been set to 0 by the server (for an IA_NA or IA_PD)
    in a previous Reply, the client may, at its discretion, send a Renew
