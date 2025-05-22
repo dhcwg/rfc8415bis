@@ -1917,7 +1917,7 @@
         <t>Servers and relay agents MUST discard any received Reply
         messages.</t>
       </section>
-      <section numbered="true" toc="default">
+      <section anchor="RFC3315-15.11" numbered="true" toc="default">
         <name>Reconfigure Message</name>
         <t>Servers and relay agents MUST discard any received Reconfigure
         messages.</t>
@@ -2546,10 +2546,9 @@
           client is interested in receiving. The client MAY include options
           with data values as hints to the server about parameter values the
           client would like to have returned.</t>
-          <t>When responding to a Reconfigure, the client includes a Server
+          <t>When responding to a Reconfigure, the client MUST include a Server
           Identifier option (see <xref target="RFC3315-22.3" format="default"/>) with the
-          identifier from the Reconfigure message
-          to which the client is responding.</t>
+          identifier from the Reconfigure message to which the client is responding.</t>
           <t>The first Information-request message from the client on the
           interface MUST be delayed by a random amount of time between 0 and
           INF_MAX_DELAY. The client transmits the message according to <xref target="RFC3315-14" format="default"/>, using the following parameters: </t>
@@ -2571,9 +2570,9 @@
           <t>The client sets the "msg-type" field to RELEASE. The client
           generates a transaction ID and places this value in the
           "transaction‑id" field.</t>
-          <t>The client places the identifier of the server that allocated the
-          lease(s) in a Server Identifier option
-           (see <xref target="RFC3315-22.3" format="default"/>).</t>
+          <t>The client MUST include a Server Identifier option
+          (see <xref target="RFC3315-22.3" format="default"/>) in the Renew
+          message, identifying the server which allocated the lease(s).</t>
           <t>The client MUST include a Client Identifier option
           (see <xref target="RFC3315-22.2" format="default"/>) to identify
           itself to the server.</t>
@@ -2633,9 +2632,10 @@
           <t>The client sets the "msg-type" field to DECLINE. The client
           generates a transaction ID and places this value in the
           "transaction‑id" field.</t>
-          <t>The client places the identifier of the server that allocated the
-          address(es) in a Server Identifier option
-          (see <xref target="RFC3315-22.3" format="default"/>).</t>
+
+          <t>The client MUST include a Server Identifier option
+          (see <xref target="RFC3315-22.3" format="default"/>) in the Decline
+          message, identifying the server which allocated the lease(s).</t>
           <t>The client MUST include a Client Identifier option
           (see <xref target="RFC3315-22.2" format="default"/>) to identify
           itself to the server.</t>
@@ -2751,27 +2751,8 @@
           for which the Reply was received.</t>
           <t>The client MAY choose to report any status code or message from
           the Status Code option in the Reply message.</t>
-          <t>When a client received a configuration option in an earlier
-          Reply and then sends a Renew, Rebind, or Information-request and
-          the requested option is not present in the Reply, the client
-          SHOULD stop using the previously received configuration
-          information.  In other words, the client should behave as if
-          it never received this configuration option and return to the
-          relevant default state.  If there is no viable way to stop using
-          the received configuration information, the values
-          received/configured from the option MAY persist if there are
-          no other sources for that data and they have no external impact.
-          For example, a client that previously received a Client FQDN
-          option (see <xref target="RFC4704" format="default"/>) and used it to set up
-          its hostname is allowed to continue
-          using it if there is no reasonable way for a node to unset its
-          hostname and it has no external impact.  As a counter-example,
-          a client that previously received an NTP server address from
-          the DHCP server and does not receive it anymore MUST stop
-          using the configured NTP server address.  The client
-          SHOULD be open to other sources of the same configuration
-          information.  This behavior does not apply to any IA options,
-          as their processing is described in detail in the next section.</t>
+          <t>The topic of revoking previously assigned options is discussed
+          in <xref target="revoking-config" format="default" />.</t>
           <t>When a client receives a requested option that has an updated
           value from what was previously received, the client SHOULD make
           use of that updated value as soon as possible for its configuration
@@ -2782,7 +2763,8 @@
             response to a Solicit (with a Rapid Commit option;
             see <xref target="RFC3315-22.14" format="default"/>) or a Request,
             the client can either reissue the message without specifying any
-            addresses or restart the DHCP server discovery process (see <xref target="configuration-exchange" format="default"/>).</t>
+            addresses or restart the DHCP server discovery process (see <xref target="configuration-exchange" format="default"/>
+            or <xref target="RFC8415bis-18.2.13" format="default"/>).</t>
             <t>If the Reply was received in response to a Solicit (with a
             Rapid Commit option), Request, Renew, or Rebind message, the
             client updates the information it has recorded about IAs from the
@@ -2887,12 +2869,6 @@
               <li>Otherwise accepts the information in the
                 IA.</li>
             </ul>
-            <t>Whenever a client restarts the DHCP server discovery process or
-            selects an alternate server as described in <xref target="RFC3315-17.1.3" format="default"/>, the client SHOULD stop using all
-            the addresses and delegated prefixes for which it has bindings and
-            try to obtain all required leases from the new server. This
-            facilitates the client using a single state machine for all
-            bindings.</t>
           </section>
           <section anchor="reply-release-decline" numbered="true" toc="default">
             <name>Reply for Release and Decline</name>
@@ -2921,6 +2897,31 @@
             Information Refresh Time option (whether or not present in the
             Reply) should be handled by the client.</t>
           </section>
+
+          <section anchor="revoking-config" numbered="true" toc="default">
+            <name>Revoking Previously Provided Options</name>
+          <t>When a client received a configuration option in an earlier
+          Reply and then sends a Renew, Rebind, or Information-request and
+          the requested option is not present in the Reply, the client
+          SHOULD stop using the previously received configuration
+          information.  In other words, the client should behave as if
+          it never received this configuration option and return to the
+          relevant default state.  If there is no viable way to stop using
+          the received configuration information, the values
+          received/configured from the option MAY persist if there are
+          no other sources for that data and they have no external impact.
+          For example, a client that previously received a Client FQDN
+          option (see <xref target="RFC4704" format="default"/>) and used
+          it to set up its hostname is allowed to continue
+          using it if there is no reasonable way for a node to unset its
+          hostname and it has no external impact.  As a counter-example,
+          a client that previously received an NTP server address from
+          the DHCP server and does not receive it anymore MUST stop
+          using the configured NTP server address.  The client
+          SHOULD be open to other sources of the same configuration
+          information.  This behavior does not apply to any IA options,
+          as their processing is described in <xref target="reply-solicit-request-renew-rebind" /></t>
+          </section>
         </section>
         <section numbered="true" toc="default">
           <name>Receipt of Reconfigure Messages</name>
@@ -2931,6 +2932,9 @@
           programs, the client SHOULD log these events and MAY notify these
           programs of the change through an implementation-specific
           interface.</t>
+          <t>The message MUST be dropped if it doesn't pass the validation,
+          as explained in (see <xref target="RFC3315-15.11" format="default"/>),
+          in particular in case the authentication is missing or fails.</t>
           <t>Upon receipt of a valid Reconfigure message, the client responds
           with a Renew message, a Rebind message, or an
           Information-request message as indicated by the Reconfigure Message
@@ -2987,7 +2991,7 @@
           <t>When the client detects that it may have moved to a new link and it
           has obtained addresses and no delegated prefixes from a server, the
           client SHOULD initiate a Confirm/Reply message exchange. The client
-          includes any IAs assigned to the interface that may have moved to a
+          MUST include any IAs assigned to the interface that may have moved to a
           new link, along with the addresses associated with those IAs, in its
           Confirm message. Any responding servers will indicate whether those
           addresses are appropriate for the link to which the client is
@@ -3029,6 +3033,17 @@
             server, it sends Information-request as described in <xref target="RFC3315-18.1.5" /></li>
           </ul>
 
+        </section>
+        <section anchor="RFC8415bis-18.2.13" numbered="true" toc="default">
+          <name>Restarting Server Discovery Process</name>
+          <t>Whenever a client restarts the DHCP server discovery process or
+        selects an alternate server as described in <xref target="RFC3315-17.1.3" />,
+        the client SHOULD stop using any addresses and delegated prefixes for
+        which it has bindings (see <xref target="RFC3315-18.1.6" />)
+        and if possible, any previously received other configuration
+        information, and try to obtain new bindings and other configuration
+        information from a "new" server. This facilitates the client using a
+        single state machine for all bindings.</t>
         </section>
       </section>
       <section anchor="RFC3315-18.2" numbered="true" toc="default">
