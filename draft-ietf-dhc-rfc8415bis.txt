@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 18 November 2025                                  M. Richardson
+Expires: 23 November 2025                                  M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                             17 May 2025
+                                                             22 May 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 November 2025.
+   This Internet-Draft will expire on 23 November 2025.
 
 Copyright Notice
 
@@ -166,8 +166,10 @@ Table of Contents
          17.2.10.2.  Reply for Release and Decline
          17.2.10.3.  Reply for Confirm
          17.2.10.4.  Reply for Information-request
+         17.2.10.5.  Revoking Previously Provided Options
        17.2.11. Receipt of Reconfigure Messages
        17.2.12. Refreshing Configuration Information
+       17.2.13. Restarting Server Discovery Process
      17.3.  Server Behavior
        17.3.1.  Reception of Unicast Messages from Clients
        17.3.2.  Receipt of Solicit Messages
@@ -2710,7 +2712,7 @@ Table of Contents
    with data values as hints to the server about parameter values the
    client would like to have returned.
 
-   When responding to a Reconfigure, the client includes a Server
+   When responding to a Reconfigure, the client MUST include a Server
    Identifier option (see Section 20.3) with the identifier from the
    Reconfigure message to which the client is responding.
 
@@ -2736,8 +2738,9 @@ Table of Contents
    generates a transaction ID and places this value in the
    "transaction-id" field.
 
-   The client places the identifier of the server that allocated the
-   lease(s) in a Server Identifier option (see Section 20.3).
+   The client MUST include a Server Identifier option (see Section 20.3)
+   in the Renew message, identifying the server which allocated the
+   lease(s).
 
    The client MUST include a Client Identifier option (see Section 20.2)
    to identify itself to the server.
@@ -2806,8 +2809,9 @@ Table of Contents
    generates a transaction ID and places this value in the
    "transaction-id" field.
 
-   The client places the identifier of the server that allocated the
-   address(es) in a Server Identifier option (see Section 20.3).
+   The client MUST include a Server Identifier option (see Section 20.3)
+   in the Decline message, identifying the server which allocated the
+   lease(s).
 
    The client MUST include a Client Identifier option (see Section 20.2)
    to identify itself to the server.
@@ -2930,25 +2934,8 @@ Table of Contents
    The client MAY choose to report any status code or message from the
    Status Code option in the Reply message.
 
-   When a client received a configuration option in an earlier Reply and
-   then sends a Renew, Rebind, or Information-request and the requested
-   option is not present in the Reply, the client SHOULD stop using the
-   previously received configuration information.  In other words, the
-   client should behave as if it never received this configuration
-   option and return to the relevant default state.  If there is no
-   viable way to stop using the received configuration information, the
-   values received/configured from the option MAY persist if there are
-   no other sources for that data and they have no external impact.  For
-   example, a client that previously received a Client FQDN option (see
-   [RFC4704]) and used it to set up its hostname is allowed to continue
-   using it if there is no reasonable way for a node to unset its
-   hostname and it has no external impact.  As a counter-example, a
-   client that previously received an NTP server address from the DHCP
-   server and does not receive it anymore MUST stop using the configured
-   NTP server address.  The client SHOULD be open to other sources of
-   the same configuration information.  This behavior does not apply to
-   any IA options, as their processing is described in detail in the
-   next section.
+   The topic of revoking previously assigned options is discussed in
+   Section 17.2.10.5.
 
    When a client receives a requested option that has an updated value
    from what was previously received, the client SHOULD make use of that
@@ -2961,7 +2948,7 @@ Table of Contents
    to a Solicit (with a Rapid Commit option; see Section 20.14) or a
    Request, the client can either reissue the message without specifying
    any addresses or restart the DHCP server discovery process (see
-   Section 17).
+   Section 17 or Section 17.2.13).
 
    If the Reply was received in response to a Solicit (with a Rapid
    Commit option), Request, Renew, or Rebind message, the client updates
@@ -3067,13 +3054,6 @@ Table of Contents
 
    *  Otherwise accepts the information in the IA.
 
-   Whenever a client restarts the DHCP server discovery process or
-   selects an alternate server as described in Section 17.2.9, the
-   client SHOULD stop using all the addresses and delegated prefixes for
-   which it has bindings and try to obtain all required leases from the
-   new server.  This facilitates the client using a single state machine
-   for all bindings.
-
 17.2.10.2.  Reply for Release and Decline
 
    When the client receives a valid Reply message in response to a
@@ -3100,6 +3080,27 @@ Table of Contents
    Time option (whether or not present in the Reply) should be handled
    by the client.
 
+17.2.10.5.  Revoking Previously Provided Options
+
+   When a client received a configuration option in an earlier Reply and
+   then sends a Renew, Rebind, or Information-request and the requested
+   option is not present in the Reply, the client SHOULD stop using the
+   previously received configuration information.  In other words, the
+   client should behave as if it never received this configuration
+   option and return to the relevant default state.  If there is no
+   viable way to stop using the received configuration information, the
+   values received/configured from the option MAY persist if there are
+   no other sources for that data and they have no external impact.  For
+   example, a client that previously received a Client FQDN option (see
+   [RFC4704]) and used it to set up its hostname is allowed to continue
+   using it if there is no reasonable way for a node to unset its
+   hostname and it has no external impact.  As a counter-example, a
+   client that previously received an NTP server address from the DHCP
+   server and does not receive it anymore MUST stop using the configured
+   NTP server address.  The client SHOULD be open to other sources of
+   the same configuration information.  This behavior does not apply to
+   any IA options, as their processing is described in Section 17.2.10.1
+
 17.2.11.  Receipt of Reconfigure Messages
 
    A client receives Reconfigure messages sent to UDP port 546 on
@@ -3108,6 +3109,10 @@ Table of Contents
    results of a reconfiguration event may affect application-layer
    programs, the client SHOULD log these events and MAY notify these
    programs of the change through an implementation-specific interface.
+
+   The message MUST be dropped if it doesn't pass the validation, as
+   explained in (see Section 15.11), in particular in case the
+   authentication is missing or fails.
 
    Upon receipt of a valid Reconfigure message, the client responds with
    a Renew message, a Rebind message, or an Information-request message
@@ -3170,10 +3175,10 @@ Table of Contents
    When the client detects that it may have moved to a new link and it
    has obtained addresses and no delegated prefixes from a server, the
    client SHOULD initiate a Confirm/Reply message exchange.  The client
-   includes any IAs assigned to the interface that may have moved to a
-   new link, along with the addresses associated with those IAs, in its
-   Confirm message.  Any responding servers will indicate whether those
-   addresses are appropriate for the link to which the client is
+   MUST include any IAs assigned to the interface that may have moved to
+   a new link, along with the addresses associated with those IAs, in
+   its Confirm message.  Any responding servers will indicate whether
+   those addresses are appropriate for the link to which the client is
    attached with the status in the Reply message it returns to the
    client.
 
@@ -3213,6 +3218,17 @@ Table of Contents
 
    *  Else, if only network information was obtained from the server, it
       sends Information-request as described in Section 17.2.6
+
+17.2.13.  Restarting Server Discovery Process
+
+   Whenever a client restarts the DHCP server discovery process or
+   selects an alternate server as described in Section 17.2.9, the
+   client SHOULD stop using any addresses and delegated prefixes for
+   which it has bindings (see Section 17.2.7) and if possible, any
+   previously received other configuration information, and try to
+   obtain new bindings and other configuration information from a "new"
+   server.  This facilitates the client using a single state machine for
+   all bindings.
 
 17.3.  Server Behavior
 
