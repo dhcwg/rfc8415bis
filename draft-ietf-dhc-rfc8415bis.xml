@@ -2418,7 +2418,9 @@
           <t>A client MUST also initiate a Renew/Reply message exchange before
           time T1 if the client's link-local address used in previous
           interactions with the server is no longer valid and it is willing
-          to receive Reconfigure messages.</t>
+          to receive Reconfigure messages. This updates the server's information
+          so it is able to continue to communicate with the client (either
+          directly or via Relay-Reply's).</t>
           <t>If T1 or T2 had been set to 0 by the server (for an IA_NA or
           IA_PD) in a previous
           Reply, the client may, at its discretion, send a Renew or Rebind
