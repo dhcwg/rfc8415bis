@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 16 November 2025                                  M. Richardson
+Expires: 23 November 2025                                  M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                             15 May 2025
+                                                             22 May 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 November 2025.
+   This Internet-Draft will expire on 23 November 2025.
 
 Copyright Notice
 
@@ -2845,7 +2845,7 @@ Table of Contents
    "transaction-id" field.
 
    The client MUST include a Server Identifier option (see Section 21.3)
-   in the Renew message, identifying the server with allocated the
+   in the Renew message, identifying the server which allocated the
    lease(s).
 
    The client MUST include a Client Identifier option (see Section 21.2)
@@ -2916,7 +2916,7 @@ Table of Contents
    "transaction-id" field.
 
    The client MUST include a Server Identifier option (see Section 21.3)
-   in the Decline message, identifying the server with allocated the
+   in the Decline message, identifying the server which allocated the
    lease(s).
 
    The client MUST include a Client Identifier option (see Section 21.2)
@@ -3205,8 +3205,7 @@ Table of Contents
    server and does not receive it anymore MUST stop using the configured
    NTP server address.  The client SHOULD be open to other sources of
    the same configuration information.  This behavior does not apply to
-   any IA options, as their processing is described in detail in the
-   next section.
+   any IA options, as their processing is described in Section 18.2.10.1
 
 18.2.11.  Receipt of Reconfigure Messages
 
