@@ -2671,7 +2671,7 @@ addresses, and this specification is now authoritative for:</t>
           "transaction‑id" field.</t>
           <t>The client MUST include a Server Identifier option
           (see <xref target="RFC3315-22.3" format="default"/>) in the Renew
-          message, identifying the server with allocated the lease(s).</t>
+          message, identifying the server which allocated the lease(s).</t>
           <t>The client MUST include a Client Identifier option
           (see <xref target="RFC3315-22.2" format="default"/>) to identify
           itself to the server.</t>
@@ -2734,7 +2734,7 @@ addresses, and this specification is now authoritative for:</t>
 
           <t>The client MUST include a Server Identifier option
           (see <xref target="RFC3315-22.3" format="default"/>) in the Decline
-          message, identifying the server with allocated the lease(s).</t>
+          message, identifying the server which allocated the lease(s).</t>
           <t>The client MUST include a Client Identifier option
           (see <xref target="RFC3315-22.2" format="default"/>) to identify
           itself to the server.</t>
@@ -3019,7 +3019,7 @@ addresses, and this specification is now authoritative for:</t>
           using the configured NTP server address.  The client
           SHOULD be open to other sources of the same configuration
           information.  This behavior does not apply to any IA options,
-          as their processing is described in detail in the next section.</t>
+          as their processing is described in <xref target="reply-solicit-request-renew-rebind" /></t>
           </section>
         </section>
         <section numbered="true" toc="default">
