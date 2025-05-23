@@ -1790,6 +1790,25 @@
       present.  This is critical to provide for future extensions of DHCP.</t>
       <t>A client or server MUST discard any received DHCP messages
       with an unknown message type.</t>
+      <t>
+      Clients SHOULD MOT accept multicast messages.
+      </t>
+      <t>
+      Servers SHOULD NOT accept unicast traffic from clients.
+      The Server Unicast option (see <xref target="RFC3315-22.12" format="default"/>)
+      and UseMulticast status code (see <xref target="RFC3315-22.13" format="default"/>)
+      have been obsoleted and hence clients should no longer send messages
+      to a server's unicast address nor receive the UseMulticast status code.
+      However, a server that previously supported the Server Unicast option
+      and is upgraded to not support it, MAY continue to receive
+      unicast messages if it previously sent the client the Server Unicast
+      option. But this causes no harm and the client will eventually switch
+      back to sending multicast messages (such as after the lease's rebinding time
+      is reached or the client is rebooted).
+      </t>
+      <t>
+      Relay agents SHOULD NOT accept multicast messages from clients.
+      </t>
       <section numbered="true" toc="default">
         <name>Use of Transaction IDs</name>
         <t>The "transaction-id" field holds a value used by clients and
@@ -2418,7 +2437,9 @@
           <t>A client MUST also initiate a Renew/Reply message exchange before
           time T1 if the client's link-local address used in previous
           interactions with the server is no longer valid and it is willing
-          to receive Reconfigure messages.</t>
+          to receive Reconfigure messages. This updates the server's information
+          so it is able to continue to communicate with the client (either
+          directly or via Relay-reply's).</t>
           <t>If T1 or T2 had been set to 0 by the server (for an IA_NA or
           IA_PD) in a previous
           Reply, the client may, at its discretion, send a Renew or Rebind
@@ -2517,8 +2538,8 @@
           uses the Solicit message to locate a new DHCP server and sends a
           Request for the expired IAs to the new server. If the terminated
           Rebind exchange was initiated as a result of receiving a Reconfigure
-          message, the client ignores and discards the Reconfigure
-          message.</t>
+          message, the client terminates the reconfigure process and resumes
+          as if the Reconfigure message had not been received.</t>
         </section>
         <section anchor="RFC3315-18.1.5" numbered="true" toc="default">
           <name>Creation and Transmission of Information-request Messages</name>
@@ -3104,20 +3125,6 @@
         server MAY include options containing the IAs and new values for other
         configuration parameters in the Reply message, even if those IAs and
         parameters were not requested in the client's message.</t>
-      <section anchor="use-multicast" numbered="true" toc="default">
-        <name>Reception of Unicast Messages from Clients</name>
-        <t>The server SHOULD NOT accept unicast traffic from a
-        client. The Server Unicast option (see <xref target="RFC3315-22.12" format="default"/>)
-        and UseMulticast status code (see <xref target="RFC3315-22.13" format="default"/>)
-        have been obsoleted and hence clients should no longer send messages
-        to a server's unicast address nor receive the UseMulticast status code.
-        However, a server that previously supported the Server Unicast option
-        and is upgraded to not support it, MAY continue to receive
-        unicast messages if it previously sent the client the Server Unicast
-        option. But this causes no harm and the client will eventually switch
-        back to sending multicast messages (such as after the lease's rebinding time
-        is reached or the client is rebooted).</t>
-      </section>
         <section anchor="RFC3315-17.2.1" numbered="true" toc="default">
           <name>Receipt of Solicit Messages</name>
           <t>The server determines the information about the client and its
