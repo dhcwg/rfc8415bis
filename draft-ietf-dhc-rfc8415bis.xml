@@ -1791,7 +1791,7 @@
       <t>A client or server MUST discard any received DHCP messages
       with an unknown message type.</t>
       <t>
-      Clients SHOULD MOT accept multicast messages.
+      Clients SHOULD NOT accept multicast messages.
       </t>
       <t>
       Servers SHOULD NOT accept unicast traffic from clients.
