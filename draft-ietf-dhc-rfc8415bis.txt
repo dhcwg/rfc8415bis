@@ -1924,7 +1924,7 @@ Table of Contents
    (such as after the lease's rebinding time is reached or the client is
    rebooted).
 
-   Relay agents SHOULD NOT accept multicast messages from clients.
+   Relay agents SHOULD NOT accept unicast messages from clients.
 
 15.1.  Use of Transaction IDs
 
