@@ -1910,7 +1910,7 @@ Table of Contents
    A client or server MUST discard any received DHCP messages with an
    unknown message type.
 
-   Clients SHOULD MOT accept multicast messages.
+   Clients SHOULD NOT accept multicast messages.
 
    Servers SHOULD NOT accept unicast traffic from clients.  The Server
    Unicast option (see Section 20.12) and UseMulticast status code (see
