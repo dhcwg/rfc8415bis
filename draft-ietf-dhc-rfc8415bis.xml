@@ -1807,7 +1807,7 @@
       is reached or the client is rebooted).
       </t>
       <t>
-      Relay agents SHOULD NOT accept multicast messages from clients.
+      Relay agents SHOULD NOT accept unicast messages from clients.
       </t>
       <section numbered="true" toc="default">
         <name>Use of Transaction IDs</name>
