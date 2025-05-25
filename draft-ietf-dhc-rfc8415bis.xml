@@ -3063,7 +3063,7 @@
         which it has bindings (see <xref target="RFC3315-18.1.6" />)
         and if possible, any previously received other configuration
         information, and try to obtain new bindings and other configuration
-        information from a "new" server. This facilitates the client using a
+        information from a "new" server for the same interface. This facilitates the client using a
         single state machine for all bindings.</t>
         </section>
       </section>
