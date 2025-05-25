@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-20T02:01:30.942818+00:00",
+  "timestamp": "2025-05-25T02:09:46.504376+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -757,7 +757,7 @@
       "id": "I_kwDOFL5NeM6zrvze",
       "title": "ops-review: what if subsequent replies omit something?",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/39",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -768,8 +768,8 @@
       ],
       "body": "Section 18.2.10\n\nPara 6 here is a really important principle about what to do if a subsequent\nReply omits something included in a previous Reply.  This should be stated\nclearly earlier?",
       "createdAt": "2025-04-23T16:24:58Z",
-      "updatedAt": "2025-05-15T15:42:16Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-22T12:08:12Z",
+      "closedAt": "2025-05-22T12:08:12Z",
       "comments": [
         {
           "author": "bevolz",
@@ -806,7 +806,7 @@
       "id": "I_kwDOFL5NeM6zrwGz",
       "title": "ops-review: what does a client do when restarting the server discovery process",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/40",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mcr",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -817,8 +817,8 @@
       ],
       "body": "Section 18.2.10.1\n\nAnother important principle in here about what a client must do when restarting\nthe server discovery process.\n",
       "createdAt": "2025-04-23T16:25:31Z",
-      "updatedAt": "2025-05-13T16:27:12Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-22T12:08:12Z",
+      "closedAt": "2025-05-22T12:08:12Z",
       "comments": [
         {
           "author": "mcr",
@@ -1232,17 +1232,19 @@
       "id": "I_kwDOFL5NeM61RO1n",
       "title": "IntDir Review - 18.2.2",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/61",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "bevolz"
+      ],
       "labels": [
         "int-dir review"
       ],
       "body": "Section 18.2.2\n  *  Initiate the server discovery process described in Section 18.\n\nI'm not sure if \"Section 18\" is an appropriate reference to \"server discoveryprocess\". I've checked RFC3315, and found that it referred to \"section 17\", whose title is \"DHCP Server Solicitation\". Maybe a better equivalent of this in this draft is Section 18.2.1?\n\nSection 18.2.10.3 has the same issue in its reference to \"Section 18\". (And there may be some more).",
       "createdAt": "2025-05-06T01:03:57Z",
-      "updatedAt": "2025-05-06T19:45:38Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-22T15:46:46Z",
+      "closedAt": "2025-05-22T15:46:46Z",
       "comments": [
         {
           "author": "bevolz",
@@ -1250,6 +1252,13 @@
           "body": "Maybe reference 18.2? 18.2.1 may be too specific?\n\nAlso, I suspect that there are more places where we just refer to 18. which could have similar issues.\n",
           "createdAt": "2025-05-06T14:12:56Z",
           "updatedAt": "2025-05-06T14:12:56Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Reexamining this issue, 18.2.1 (or soon to be 17.2.1) never mentions the word \"discovery\". Section 18.2 (17.2) does - it has the first description of \"server discovery process\". 18.2.1 (17.2.1) is about sending Solicits.\n\nThus I think it best to CLOSE this issue as not planned.",
+          "createdAt": "2025-05-22T15:46:41Z",
+          "updatedAt": "2025-05-22T15:46:41Z"
         }
       ]
     },
@@ -1258,17 +1267,19 @@
       "id": "I_kwDOFL5NeM61RPnq",
       "title": "IntDir Review - 18.2.4",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/62",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "bevolz"
+      ],
       "labels": [
         "int-dir review"
       ],
       "body": "Section 18.2.4\n  A client MUST also initiate a Renew/Reply message exchange before\n  time T1 if the client's link-local address used in previous\n  interactions with the server is no longer valid and it is willing to\n  receive Reconfigure messages.\n\nIt's not very clear to me why link-local address is specifically mentioned here. Perhaps it's because the client could receive a Reconfigure message to that link-local address. But, if so, doesn't a non link-local address have the same issue (even if it would be rare to use a non LL address for DHCP message exchanges to/from a client)? Perhaps we should say something like \"if the client's address used as the destination address in previous messages from the server is no longer valid\"?",
       "createdAt": "2025-05-06T01:05:47Z",
-      "updatedAt": "2025-05-06T19:45:38Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-23T16:11:25Z",
+      "closedAt": "2025-05-23T16:11:25Z",
       "comments": [
         {
           "author": "bevolz",
@@ -1284,17 +1295,19 @@
       "id": "I_kwDOFL5NeM61RQXz",
       "title": "IntDir Review - 18.2.5",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/63",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "bevolz"
+      ],
       "labels": [
         "int-dir review"
       ],
       "body": "Section 18.2.5\n  The message exchange is terminated when the valid lifetimes of all\n  leases across all IAs have expired, at which time the client uses the\n  Solicit message to locate a new DHCP server and sends a Request\n  for the expired IAs to the new server.  If the terminated Rebind\n  exchange was initiated as a result of receiving a Reconfigure\n  message, the client ignores and discards the Reconfigure message.\n\nI don't understand the second sentence: what's \"the\" Reconfigure message? If it the one that triggered REBIND, it was already processed, so \"ignores and discard\" don't make sense. Perhaps it should be similar to 18.2.4, which states \"ignores and discards any additional Reconfigure messages it may receive\"?",
       "createdAt": "2025-05-06T01:07:35Z",
-      "updatedAt": "2025-05-06T19:45:39Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-23T16:11:25Z",
+      "closedAt": "2025-05-23T16:11:25Z",
       "comments": [
         {
           "author": "bevolz",
@@ -1310,17 +1323,18 @@
       "id": "I_kwDOFL5NeM61RQrO",
       "title": "IntDir Review - 18.3.10",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/64",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [
-        "int-dir review"
+        "int-dir review",
+        "wontfix"
       ],
       "body": "Section 18.3.10\n  If the original message was received directly by the server, the\n  server unicasts the Advertise or Reply message directly to the client\n  using the address in the source address field from the IP datagram in\n  which the original message was received.  The Advertise or Reply\n  message MUST be unicast through the interface on which the original\n  message was received.\n\nThis may be pedantic, but I think limiting the outgoing interface is too strict. I guess the intent is to ensure that the Reply is sent back to the link to which ALL_DHCP_Relay_Agenda_and_service belongs (which makes sense). Since Section 17 seems to be aware of the case where two interfaces belong to the same link, I think we can also be flexible here, e.g., replacing \"interface\" with \"link\".",
       "createdAt": "2025-05-06T01:08:45Z",
-      "updatedAt": "2025-05-06T19:45:39Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-22T12:19:15Z",
+      "closedAt": "2025-05-22T12:19:13Z",
       "comments": [
         {
           "author": "bevolz",
@@ -1328,6 +1342,13 @@
           "body": "We use \"through the interface\" at least 4 times (searched on that string, though doesn't search across line wraps). So, there are multiple places which might need this change. Doing a similar search for \"through the link\" has 0 hits.\n\nLikely the use of interface and link are confused in more places. So maybe this is a bigger issue and maybe best to leave be?\n",
           "createdAt": "2025-05-06T14:02:23Z",
           "updatedAt": "2025-05-06T14:02:23Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Authors prefer to keep \"interface\" everywhere.",
+          "createdAt": "2025-05-22T12:19:13Z",
+          "updatedAt": "2025-05-22T12:19:13Z"
         }
       ]
     },
@@ -1374,7 +1395,7 @@
       "id": "I_kwDOFL5NeM61l2Ci",
       "title": "ops-review: auth required in 18.2.11",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/67",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "tomaszmrugalski",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1385,16 +1406,24 @@
       ],
       "body": "Comment from Tim Chown:\n\n> Section 18.2.11\n> \n> No mention of the requirement to authenticate the message?\n",
       "createdAt": "2025-05-07T16:52:52Z",
-      "updatedAt": "2025-05-12T14:33:01Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-05-22T12:09:20Z",
+      "closedAt": "2025-05-22T12:09:20Z",
+      "comments": [
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixed in #78 ",
+          "createdAt": "2025-05-22T12:09:20Z",
+          "updatedAt": "2025-05-22T12:09:20Z"
+        }
+      ]
     },
     {
       "number": 68,
       "id": "I_kwDOFL5NeM61mNNh",
       "title": "ops-review: missed several requirement keywords in 18.2.* and 18.3.*",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/68",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "tomaszmrugalski",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1405,8 +1434,8 @@
       ],
       "body": "Seems we missed some (many \ud83d\ude12) comments about 18.2 and its sections, before publishing -10.\n\nSection 18.2.6\n\n> Para 6 - another example of an implied MUST\u2026 \u201cthe client MUST include\u201d.  Also\n> here section 16.12 says the DUIDs MUST match but I don\u2019t see that stated here?\n\nSection 18.2.7\n> \n> Para 3 - another implied MUST\n\nSection 18.2.8\n> Para 4 - implied MUST.\n\nSection 18.2.12\n> \n> Para 3 - \u201cThe client includes\u201d - implied MUST\n\nSection 18.3.9\n> \n> Para 1 - implied MUST - \u201cThe server MUST include\u201d\n\n",
       "createdAt": "2025-05-07T17:30:06Z",
-      "updatedAt": "2025-05-12T14:33:12Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-22T12:09:35Z",
+      "closedAt": "2025-05-22T12:09:34Z",
       "comments": [
         {
           "author": "bevolz",
@@ -1414,6 +1443,13 @@
           "body": "For:\n\nSection 18.2.6\n\nPara 6 - another example of an implied MUST\u2026 \u201cthe client MUST include\u201d. Also\nhere section 16.12 says the DUIDs MUST match but I don\u2019t see that stated here?\n\nI don\u2019t understand the comment about DUID\u2019s must match as this is about client transmission, not reception (server\u2019s discard messages with server duid that doesn\u2019t match their server duid).\n\nUsing MUST below is I think all that is needed here?\n\n   When responding to a Reconfigure, the client MUST include a Server\n   Identifier option (see Section 21.3) with the identifier from the\n   Reconfigure message to which the client is responding.\n",
           "createdAt": "2025-05-11T10:28:30Z",
           "updatedAt": "2025-05-11T10:28:30Z"
+        },
+        {
+          "author": "tomaszmrugalski",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixed in #78 ",
+          "createdAt": "2025-05-22T12:09:34Z",
+          "updatedAt": "2025-05-22T12:09:34Z"
         }
       ]
     },
@@ -1580,17 +1616,19 @@
       "id": "I_kwDOFL5NeM61y-dG",
       "title": "Ketan Talaulikar - 16, unicast messages",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/74",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "bevolz"
+      ],
       "labels": [
         "ad-review"
       ],
       "body": "1950\t   Clients, relay agents, and servers MUST NOT discard messages that\n1951\t   contain unknown options (or instances of vendor options with unknown\n1952\t   enterprise-number values).  These options should be ignored as if\n1953\t   they were not present.  This is critical to provide for future\n1954\t   extensions of DHCP.\n\n<major> There was a text blob here in [RFC8415](https://datatracker.ietf.org/doc/rfc8415/) that used normative MUST to\ndiscard certain unicast messages. That has been removed. Is that really\nappropriate? Was this text wrong? I am not a DHCP expert, but this seems like\ngoing beyond the stated desire to remove the Server Unicast Option?",
       "createdAt": "2025-05-08T20:37:12Z",
-      "updatedAt": "2025-05-19T01:51:15Z",
-      "closedAt": null,
+      "updatedAt": "2025-05-23T16:11:26Z",
+      "closedAt": "2025-05-23T16:11:26Z",
       "comments": [
         {
           "author": "bevolz",
@@ -1598,6 +1636,20 @@
           "body": "Likely close as clients must now multicast all packets (server unicast option was deprecated). And, we felt that there may not be need to have servers check that certains packets were not unicast. See 18.4, as servers likely drop all client messages that are unicast.",
           "createdAt": "2025-05-08T20:42:18Z",
           "updatedAt": "2025-05-19T01:51:14Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This is beginning (4th paragraph) of section 16.0.",
+          "createdAt": "2025-05-22T12:26:03Z",
+          "updatedAt": "2025-05-22T12:26:03Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "So, I decided to roll the unicast/multicast rules into section 16.0 (end). And, removed the other section.\n\nNote: Other messages sent by \"clients\" (such as Leasequery) could unicast (either to a server or via a relay). But we don't cover those in this RFC. I'm a bit concerned though that if the rules are too strict, some servers (and maybe relays) could start dropping these messages when obviously they shouldn't.",
+          "createdAt": "2025-05-22T16:25:17Z",
+          "updatedAt": "2025-05-22T16:25:17Z"
         }
       ]
     },
@@ -1609,13 +1661,15 @@
       "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "bevolz"
+      ],
       "labels": [
         "ad-review"
       ],
       "body": "3319\t   When a client receives a Reconfigure message from the server, the\n3320\t   client initiates sending a Renew, Rebind, or Information-request\n3321\t   message as indicated by msg-type in the Reconfigure Message option\n3322\t   (see Section 21.19).  The server sends IAs and/or other configuration\n3323\t   information to the client in a Reply message.  The server MAY include\n3324\t   options containing the IAs and new values for other configuration\n3325\t   parameters in the Reply message, even if those IAs and parameters\n3326\t   were not requested in the client's message.\n\n<major> Since the text blobs related to use of unicast in each of the\nfollowing sub-sections have been removed, perhaps we need something here to\nindicate that the handling of unicast messages for all these messages is\ncovered in section 18.4 ?",
       "createdAt": "2025-05-08T20:46:37Z",
-      "updatedAt": "2025-05-17T14:48:47Z",
+      "updatedAt": "2025-05-22T12:27:13Z",
       "closedAt": "2025-05-17T14:48:47Z",
       "comments": [
         {
@@ -1666,6 +1720,40 @@
           "updatedAt": "2025-05-15T21:34:07Z"
         }
       ]
+    },
+    {
+      "number": 83,
+      "id": "I_kwDOFL5NeM64FO4K",
+      "title": "Med\u2019s email - 17.2.13",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/83",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "ad-review"
+      ],
+      "body": "From Med about -11:\n\nFor \"17.2.13. Restarting Server Discovery Process\", I would make it explicit that \"obtain new bindings and other configuration information from a \"new\" server\" for the same interface.\n\nI'm afraid that these changes need to be captured in https://datatracker.ietf.org/doc/html/draft-ietf-dhc-rfc8415bis-11#name-summary-of-changes.\n\nAs we lost the 1:1 mapping with the sections in 8415, a mapping as the one in https://datatracker.ietf.org/doc/html/rfc9522#appendix-A.2 (or similar) may be helpful. It is up to you to decide if we can supply a similar text.",
+      "createdAt": "2025-05-24T11:13:37Z",
+      "updatedAt": "2025-05-24T11:13:37Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 84,
+      "id": "I_kwDOFL5NeM64FPNb",
+      "title": "Bernie: packet vs message",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/84",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We might want to review use of \u201cpacket\u201d \u2026 there are 25 instances vs   1000+ for \u201cmessage\u201d. While a few uses of packet is appropriate, probably half should be message. While minor, likely worth doing now.",
+      "createdAt": "2025-05-24T11:16:01Z",
+      "updatedAt": "2025-05-24T11:16:01Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -4047,24 +4135,26 @@
       "id": "PR_kwDOFL5NeM6WBrCJ",
       "title": "Remaining Opsdir comments",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/78",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "tomaszmrugalski",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Several comments raised by Tim were missed or we ran out of time before -10 was published. Here's the list:\r\n\r\n- [x] 18.2.11 - Auth required\r\n- [x] Normative language in 18.2.* and 18.3.*\r\n- [x] what does a client do when restarting the discovery process - see #40 \r\n- [x] what does the client do if subsequent transmission omits something - see #39\r\n\r\nFixes #40\r\nFixes #39 ",
       "createdAt": "2025-05-13T15:44:31Z",
-      "updatedAt": "2025-05-15T22:24:27Z",
+      "updatedAt": "2025-05-22T12:08:11Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "0667b2866d1e50f83d032d935cd59baf18770b4c",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "opsdir-part2",
-      "headRefOid": "c5c762e408419ac6689c5e1f701487da0fc7206e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "633038a2ea05153edf893359a62115ba3d2689a1",
+      "closedAt": "2025-05-22T12:08:11Z",
+      "mergedAt": "2025-05-22T12:08:11Z",
+      "mergedBy": "mcr",
+      "mergeCommit": {
+        "oid": "30fbb46f8705ed3cf7e2ee604843b687f4e26d19"
+      },
       "comments": [
         {
           "author": "tomaszmrugalski",
@@ -4194,6 +4284,38 @@
               "updatedAt": "2025-05-15T22:24:28Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6qhtvY",
+          "commit": {
+            "abbreviatedOid": "c5c762e"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-22T12:05:14Z",
+          "updatedAt": "2025-05-22T12:06:59Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "```suggestion\r\n          message, identifying the server which allocated the lease(s).</t>\r\n```",
+              "createdAt": "2025-05-22T12:05:14Z",
+              "updatedAt": "2025-05-22T12:06:59Z"
+            },
+            {
+              "originalPosition": 45,
+              "body": "```suggestion\r\n          message, identifying the server which allocated the lease(s).</t>\r\n```",
+              "createdAt": "2025-05-22T12:05:39Z",
+              "updatedAt": "2025-05-22T12:06:59Z"
+            },
+            {
+              "originalPosition": 129,
+              "body": "```suggestion\r\n          as their processing is described in <xref target=\"reply-solicit-request-renew-rebind\" /></t>\r\n```",
+              "createdAt": "2025-05-22T12:06:43Z",
+              "updatedAt": "2025-05-22T12:06:59Z"
+            }
+          ]
         }
       ]
     },
@@ -4274,6 +4396,80 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 82,
+      "id": "PR_kwDOFL5NeM6XQPAz",
+      "title": "Address IntDir and Ketan Review comments ",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/82",
+      "state": "MERGED",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mcr",
+        "tomaszmrugalski",
+        "twintersunh"
+      ],
+      "labels": [],
+      "body": "#62, add text as indicated in comments.",
+      "createdAt": "2025-05-22T15:51:35Z",
+      "updatedAt": "2025-05-23T15:27:56Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "30fbb46f8705ed3cf7e2ee604843b687f4e26d19",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "bevolz-patch-3",
+      "headRefOid": "394d5af6b5f966ed69198673fe3731a0017c8068",
+      "closedAt": "2025-05-23T15:27:56Z",
+      "mergedAt": "2025-05-23T15:27:56Z",
+      "mergedBy": "bevolz",
+      "mergeCommit": {
+        "oid": "cad6d8ab5e8cab7eb2b211e7c797bc6adcb92c6b"
+      },
+      "comments": [
+        {
+          "author": "twintersunh",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I reviewed these changes, and they look good to me as well.",
+          "createdAt": "2025-05-23T14:37:25Z",
+          "updatedAt": "2025-05-23T14:37:25Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM6qlOUP",
+          "commit": {
+            "abbreviatedOid": "1b80ffd"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-22T16:29:34Z",
+          "updatedAt": "2025-05-22T16:29:34Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "```suggestion\r\n          directly or via Relay-reply's).</t>\r\n```",
+              "createdAt": "2025-05-22T16:29:34Z",
+              "updatedAt": "2025-05-22T16:29:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6qni43",
+          "commit": {
+            "abbreviatedOid": "394d5af"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-22T20:27:58Z",
+          "updatedAt": "2025-05-22T20:27:58Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
