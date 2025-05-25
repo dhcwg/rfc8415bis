@@ -394,7 +394,7 @@
             prefixes delegated (via IA_PD option(s)) to the client. T1 is expressed as
             an absolute value in messages (in seconds), is conveyed within IA
             containers (currently the IA_NA and IA_PD options), and is interpreted as a time
-            interval since the packet's reception. The value stored in the T1 field in
+            interval since the message's reception. The value stored in the T1 field in
             IA options is referred to as the T1 value. The actual time when the
             timer expires is referred to as the T1 time.</dd>
           <dt>T2</dt>
@@ -404,7 +404,7 @@
             delegated (via IA_PD option(s)) to the client. T2 is expressed as an absolute value
             in messages (in seconds), is conveyed within IA containers
             (currently the IA_NA and IA_PD options), and is interpreted as a time interval
-            since the packet's reception. The value stored in the T2 field in IA options
+            since the message's reception. The value stored in the T2 field in IA options
             is referred to as the T2 value. The actual time when the timer expires
             is referred to as the T2 time.</dd>
           <dt>top-level option</dt>
@@ -1648,7 +1648,7 @@
         number in a certain time interval. This method of bounding burstiness also
         guarantees that the long-term transmission rate will not be exceeded.</t>
         <t>A transmission rate limit SHOULD be configurable. A possible
-        default could be 20 packets in 20 seconds.</t>
+        default could be 20 messages in 20 seconds.</t>
         <t>For a device that has multiple interfaces, the limit MUST be
         enforced on a per-interface basis.</t>
         <t>Rate limiting of forwarded DHCP messages and server-side messages
@@ -1669,7 +1669,7 @@
         the discretion of the client. However, they are not completely
         discretionary.</t>
         <t>When T1 and/or T2 values are set to 0, the client MUST choose a
-        time to avoid packet storms. In particular, it MUST NOT transmit
+        time to avoid message storms. In particular, it MUST NOT transmit
         immediately. If the client received multiple IA options, it SHOULD
         pick renew and/or rebind transmission times so all IA options are
         handled in one exchange, if possible. The client MUST choose renew
@@ -2792,7 +2792,7 @@
             IA options contained in the Reply message:</t>
             <ul spacing="normal">
               <li>Calculate T1 and T2 times (based on T1 and T2
-                values sent in the packet and the packet reception time), if
+                values sent in the message and the message reception time), if
                 appropriate for the IA type.</li>
               <li>Add any new leases in the IA option to the IA
                 as recorded by the client.</li>
@@ -3088,7 +3088,7 @@
         client message if one was present.</t>
         <t>In most response messages, the server includes options containing
         configuration information for the client. The server must be aware of
-        the recommendations on packet sizes and the use of fragmentation
+        the recommendations on message sizes and the use of fragmentation
         as discussed in Section 5 of <xref target="RFC8200" format="default"/>. If the
         client included an Option Request option (see <xref target="RFC3315-22.7" format="default"/>) in its message, the server includes options
         in the response message containing configuration parameters for all of
@@ -3835,16 +3835,16 @@
       </section>
       <section anchor="relay-srv-interaction" numbered="true" toc="default">
         <name>Interaction between Relay Agents and Servers</name>
-        <t>Each time a packet is relayed by a relay agent towards a server, a
-        new encapsulation level is added around the packet. Each relay is
+        <t>Each time a message is relayed by a relay agent towards a server, a
+        new encapsulation level is added around the message. Each relay is
         allowed to insert additional options on the encapsulation level it
-        added but MUST NOT change anything in the packet being encapsulated. If
+        added but MUST NOT change anything in the message being encapsulated. If
         there are multiple relays between a client and a server, multiple
-        encapsulations are used. Although it makes packet processing slightly
+        encapsulations are used. Although it makes message processing slightly
         more complex, it provides the major advantage of having a clear
         indication as to which relay inserted which option. The response
-        packet is expected to travel through the same relays, but in
-        reverse order. Each time a response packet is relayed back towards a
+        message is expected to travel through the same relays, but in
+        reverse order. Each time a response message is relayed back towards a
         client, one encapsulation level is removed.</t>
         <t>In certain cases, relays can add one or more options. These options
         can be added for several reasons:</t>
@@ -3856,7 +3856,7 @@
         can be used by the server to determine its allocation policy.</li>
           <li>Second, a relay may need some information to send a response back to
         the client. Relay agents are expected to be stateless (not retain any
-        state after a packet has been processed). A relay agent may include
+        state after a message has been processed). A relay agent may include
         the Interface-Id option (see <xref target="RFC3315-22.18" format="default"/>), which
         will be echoed back in the response. It can include other options and
         ask the server to echo one or more of the options back in the response.
@@ -3864,7 +3864,7 @@
         back to the client, or for other needs. The client will never see
         these options. See <xref target="RFC4994" format="default"/> for details.</li>
           <li>Third, sometimes a relay is the best device to provide values for
-        certain options. A relay can insert an option into the packet being
+        certain options. A relay can insert an option into the message being
         forwarded to the server and ask the server to pass that option back
         to the client. The client will receive that option. It should be noted
         that the server is the ultimate authority here, and -- depending on
@@ -3872,7 +3872,7 @@
         client. See <xref target="RFC6422" format="default"/> for details.</li>
         </ul>
         <t>For various reasons, servers may need to retain the
-        relay information after the packet processing is completed.
+        relay information after the message processing is completed.
         One is a bulk leasequery mechanism that may ask for all addresses
         and/or prefixes that were assigned via a specific relay. A second is
         for the reconfigure mechanism. The server may choose to not send the
@@ -4964,7 +4964,7 @@
             the Vendor‑specific Information options returned.</li>
           <li>MAY return all configured Vendor-specific
             Information options.</li>
-          <li>MAY use other information in the packet or in its
+          <li>MAY use other information in the message or in its
             configuration to determine which set of Enterprise Numbers in the
             Vendor-specific Information options to return.</li>
         </ul>
@@ -5683,7 +5683,7 @@
         <li>For wired networks where clients typically are connected to a switch
       port, snooping DHCP multicast (or unicast) traffic becomes difficult, as
       the switches limit the traffic delivered to a port. The client's DHCP
-      multicast packets (with destination address fe02::1:2) are only forwarded
+      multicast messages (with destination address fe02::1:2) are only forwarded
       to the DHCP server's (or relay's) switch port -- not all ports. Also, the
       server's (or relay's) unicast replies are only delivered to the target
       client's port -- not all ports.</li>
