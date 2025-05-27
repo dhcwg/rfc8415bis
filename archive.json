@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-25T02:09:46.504376+00:00",
+  "timestamp": "2025-05-27T01:59:38.475999+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1752,6 +1752,22 @@
       "body": "We might want to review use of \u201cpacket\u201d \u2026 there are 25 instances vs   1000+ for \u201cmessage\u201d. While a few uses of packet is appropriate, probably half should be message. While minor, likely worth doing now.",
       "createdAt": "2025-05-24T11:16:01Z",
       "updatedAt": "2025-05-24T11:16:01Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 87,
+      "id": "I_kwDOFL5NeM64OD8b",
+      "title": "Add note to section 15 re multicast/unicast rules",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/87",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I\u2019m wondering if we should add the following to the end of section 15.0 where the new multicast/unicast rules were added:\n\n\u201cNote: The multicast/unicast rules mentioned above apply to the DHCP messages within this document. Messages defined in other and future documents may have different rules.\u201d\n\nI\u2019m still a bit concerned that if someone follows these rules too strictly they may not realize this doesn\u2019t apply to all dhcp messages.",
+      "createdAt": "2025-05-26T10:16:04Z",
+      "updatedAt": "2025-05-26T10:16:04Z",
       "closedAt": null,
       "comments": []
     }
@@ -4470,6 +4486,58 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 85,
+      "id": "PR_kwDOFL5NeM6XiYX5",
+      "title": "Address #83 - 17.2.13",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/85",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-25T11:26:29Z",
+      "updatedAt": "2025-05-25T11:26:29Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "d3e1ca3c854e8eab796b2c8eefa2f938b9f90998",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "bevolz-patch-4",
+      "headRefOid": "accb0908e949fa56960d559faa5c5bd22d12d336",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 86,
+      "id": "PR_kwDOFL5NeM6XiZP3",
+      "title": "Address #84 - use of packet vs message",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/86",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Changed packet(s) to message(s) in places where text references DHCPv6 messages, as that is the terminology generally used in the document.",
+      "createdAt": "2025-05-25T11:34:44Z",
+      "updatedAt": "2025-05-25T11:34:44Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "d3e1ca3c854e8eab796b2c8eefa2f938b9f90998",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "bevolz-patch-5",
+      "headRefOid": "5ee66b904598e4d0ee8085772cc29b377ee821e6",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
