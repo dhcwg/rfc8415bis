@@ -4830,11 +4830,11 @@ Table of Contents
    The Server Unicast option is obsolete.  Please refer to [RFC8415] for
    historical information on this option.
 
-   The client SHOULD NOT request this option in Option Request option.
-   The server SHOULD NOT send this option, even when requested by
-   clients.  When any entity receives Server Unicast option, the option
-   SHOULD be ignored and the message processing should continue as
-   usual.
+   The client SHOULD NOT request this option in the Option Request
+   option.  The server SHOULD NOT send this option, even when requested
+   by clients.  When any entity receives Server Unicast option, the
+   option SHOULD be ignored and the message processing should continue
+   as usual.
 
    As this option was not very popular and it typically required special
    configuration by those server implementations that did support it,
