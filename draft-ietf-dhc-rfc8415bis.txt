@@ -6,13 +6,13 @@ Network Working Group                                       T. Mrugalski
 Internet-Draft                                                       ISC
 Obsoletes: 8415 (if approved)                                    B. Volz
 Intended status: Standards Track                  Individual Contributor
-Expires: 24 November 2025                                  M. Richardson
+Expires: 2 December 2025                                   M. Richardson
                                                                      SSW
                                                                 S. Jiang
                                                                     BUPT
                                                               T. Winters
                                                                  QA Cafe
-                                                             23 May 2025
+                                                             31 May 2025
 
 
          Dynamic Host Configuration Protocol for IPv6 (DHCPv6)
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 November 2025.
+   This Internet-Draft will expire on 2 December 2025.
 
 Copyright Notice
 
@@ -3245,8 +3245,8 @@ Table of Contents
    which it has bindings (see Section 17.2.7) and if possible, any
    previously received other configuration information, and try to
    obtain new bindings and other configuration information from a "new"
-   server.  This facilitates the client using a single state machine for
-   all bindings.
+   server for the same interface.  This facilitates the client using a
+   single state machine for all bindings.
 
 17.3.  Server Behavior
 
