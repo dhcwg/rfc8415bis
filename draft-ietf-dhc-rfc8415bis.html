@@ -2096,7 +2096,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
             prefixes delegated (via IA_PD option(s)) to the client. T1 is expressed as
             an absolute value in messages (in seconds), is conveyed within IA
             containers (currently the IA_NA and IA_PD options), and is interpreted as a time
-            interval since the packet's reception. The value stored in the T1 field in
+            interval since the message's reception. The value stored in the T1 field in
             IA options is referred to as the T1 value. The actual time when the
             timer expires is referred to as the T1 time.<a href="#section-3.2-2.50" class="pilcrow">¶</a>
 </dd>
@@ -2108,7 +2108,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
             delegated (via IA_PD option(s)) to the client. T2 is expressed as an absolute value
             in messages (in seconds), is conveyed within IA containers
             (currently the IA_NA and IA_PD options), and is interpreted as a time interval
-            since the packet's reception. The value stored in the T2 field in IA options
+            since the message's reception. The value stored in the T2 field in IA options
             is referred to as the T2 value. The actual time when the timer expires
             is referred to as the T2 time.<a href="#section-3.2-2.52" class="pilcrow">¶</a>
 </dd>
@@ -3589,7 +3589,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         number in a certain time interval. This method of bounding burstiness also
         guarantees that the long-term transmission rate will not be exceeded.<a href="#section-13.1-3" class="pilcrow">¶</a></p>
 <p id="section-13.1-4">A transmission rate limit SHOULD be configurable. A possible
-        default could be 20 packets in 20 seconds.<a href="#section-13.1-4" class="pilcrow">¶</a></p>
+        default could be 20 messages in 20 seconds.<a href="#section-13.1-4" class="pilcrow">¶</a></p>
 <p id="section-13.1-5">For a device that has multiple interfaces, the limit MUST be
         enforced on a per-interface basis.<a href="#section-13.1-5" class="pilcrow">¶</a></p>
 <p id="section-13.1-6">Rate limiting of forwarded DHCP messages and server-side messages
@@ -3615,7 +3615,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         the discretion of the client. However, they are not completely
         discretionary.<a href="#section-13.2-3" class="pilcrow">¶</a></p>
 <p id="section-13.2-4">When T1 and/or T2 values are set to 0, the client MUST choose a
-        time to avoid packet storms. In particular, it MUST NOT transmit
+        time to avoid message storms. In particular, it MUST NOT transmit
         immediately. If the client received multiple IA options, it SHOULD
         pick renew and/or rebind transmission times so all IA options are
         handled in one exchange, if possible. The client MUST choose renew
@@ -4960,7 +4960,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
             IA options contained in the Reply message:<a href="#section-17.2.10.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-17.2.10.1-3.1">Calculate T1 and T2 times (based on T1 and T2
-                values sent in the packet and the packet reception time), if
+                values sent in the message and the message reception time), if
                 appropriate for the IA type.<a href="#section-17.2.10.1-3.1" class="pilcrow">¶</a>
 </li>
               <li class="normal" id="section-17.2.10.1-3.2">Add any new leases in the IA option to the IA
@@ -5300,7 +5300,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         client message if one was present.<a href="#section-17.3-4" class="pilcrow">¶</a></p>
 <p id="section-17.3-5">In most response messages, the server includes options containing
         configuration information for the client. The server must be aware of
-        the recommendations on packet sizes and the use of fragmentation
+        the recommendations on message sizes and the use of fragmentation
         as discussed in Section 5 of <span>[<a href="#RFC8200" class="cite xref">RFC8200</a>]</span>. If the
         client included an Option Request option (see <a href="#RFC3315-22.7" class="auto internal xref">Section 20.7</a>) in its message, the server includes options
         in the response message containing configuration parameters for all of
@@ -6127,16 +6127,16 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-interaction-between-relay-a">
 <a href="#section-18.4" class="section-number selfRef">18.4. </a><a href="#name-interaction-between-relay-a" class="section-name selfRef">Interaction between Relay Agents and Servers</a>
         </h3>
-<p id="section-18.4-1">Each time a packet is relayed by a relay agent towards a server, a
-        new encapsulation level is added around the packet. Each relay is
+<p id="section-18.4-1">Each time a message is relayed by a relay agent towards a server, a
+        new encapsulation level is added around the message. Each relay is
         allowed to insert additional options on the encapsulation level it
-        added but MUST NOT change anything in the packet being encapsulated. If
+        added but MUST NOT change anything in the message being encapsulated. If
         there are multiple relays between a client and a server, multiple
-        encapsulations are used. Although it makes packet processing slightly
+        encapsulations are used. Although it makes message processing slightly
         more complex, it provides the major advantage of having a clear
         indication as to which relay inserted which option. The response
-        packet is expected to travel through the same relays, but in
-        reverse order. Each time a response packet is relayed back towards a
+        message is expected to travel through the same relays, but in
+        reverse order. Each time a response message is relayed back towards a
         client, one encapsulation level is removed.<a href="#section-18.4-1" class="pilcrow">¶</a></p>
 <p id="section-18.4-2">In certain cases, relays can add one or more options. These options
         can be added for several reasons:<a href="#section-18.4-2" class="pilcrow">¶</a></p>
@@ -6149,7 +6149,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </li>
           <li class="normal" id="section-18.4-3.2">Second, a relay may need some information to send a response back to
         the client. Relay agents are expected to be stateless (not retain any
-        state after a packet has been processed). A relay agent may include
+        state after a message has been processed). A relay agent may include
         the Interface-Id option (see <a href="#RFC3315-22.18" class="auto internal xref">Section 20.18</a>), which
         will be echoed back in the response. It can include other options and
         ask the server to echo one or more of the options back in the response.
@@ -6158,7 +6158,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         these options. See <span>[<a href="#RFC4994" class="cite xref">RFC4994</a>]</span> for details.<a href="#section-18.4-3.2" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-18.4-3.3">Third, sometimes a relay is the best device to provide values for
-        certain options. A relay can insert an option into the packet being
+        certain options. A relay can insert an option into the message being
         forwarded to the server and ask the server to pass that option back
         to the client. The client will receive that option. It should be noted
         that the server is the ultimate authority here, and -- depending on
@@ -6167,7 +6167,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </li>
         </ul>
 <p id="section-18.4-4">For various reasons, servers may need to retain the
-        relay information after the packet processing is completed.
+        relay information after the message processing is completed.
         One is a bulk leasequery mechanism that may ask for all addresses
         and/or prefixes that were assigned via a specific relay. A second is
         for the reconfigure mechanism. The server may choose to not send the
@@ -7604,7 +7604,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
           <li class="normal" id="section-20.17-13.2">MAY return all configured Vendor-specific
             Information options.<a href="#section-20.17-13.2" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-20.17-13.3">MAY use other information in the packet or in its
+          <li class="normal" id="section-20.17-13.3">MAY use other information in the message or in its
             configuration to determine which set of Enterprise Numbers in the
             Vendor-specific Information options to return.<a href="#section-20.17-13.3" class="pilcrow">¶</a>
 </li>
@@ -8451,7 +8451,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
           <li class="normal" id="section-22.4-2.2">For wired networks where clients typically are connected to a switch
       port, snooping DHCP multicast (or unicast) traffic becomes difficult, as
       the switches limit the traffic delivered to a port. The client's DHCP
-      multicast packets (with destination address fe02::1:2) are only forwarded
+      multicast messages (with destination address fe02::1:2) are only forwarded
       to the DHCP server's (or relay's) switch port -- not all ports. Also, the
       server's (or relay's) unicast replies are only delivered to the target
       client's port -- not all ports.<a href="#section-22.4-2.2" class="pilcrow">¶</a>
