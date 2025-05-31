@@ -4590,15 +4590,15 @@
         <t>The Server Unicast option is obsolete. Please refer to
          <xref target="RFC8415" format="default"/> for historical information on this option.</t>
 
-         <t>The client SHOULD NOT request this option in ORO.  The server SHOULD NOT send
-         this option, even when requested by clients.  When any entity receives server unicast
+         <t>The client SHOULD NOT request this option in Option Request option. The server SHOULD NOT send
+         this option, even when requested by clients.  When any entity receives Server Unicast
          option, the option SHOULD be ignored and the message processing should continue as
          usual.</t>
 
          <t>As this option was not very popular and it typically required special
          configuration by those server implementations that did support it,
-         clients still requesting this option in ORO are increasingly unlikely
-         to get it.</t>
+         clients still requesting this option in the Option Request option are increasingly unlikely
+         to receive it.</t>
 
       </section>
       <section anchor="RFC3315-22.13" numbered="true" toc="default">
