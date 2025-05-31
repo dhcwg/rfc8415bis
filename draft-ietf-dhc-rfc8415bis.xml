@@ -1809,6 +1809,11 @@
       <t>
       Relay agents SHOULD NOT accept unicast messages from clients.
       </t>
+      <t>
+      Note: The multicast/unicast rules mentioned above apply to the DHCP messages
+      within this document. Messages defined in other and future documents may
+      have different rules.
+      </t>
       <section numbered="true" toc="default">
         <name>Use of Transaction IDs</name>
         <t>The "transaction-id" field holds a value used by clients and
