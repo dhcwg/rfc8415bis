@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-27T01:59:38.475999+00:00",
+  "timestamp": "2025-06-01T02:26:12.048509+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1726,7 +1726,7 @@
       "id": "I_kwDOFL5NeM64FO4K",
       "title": "Med\u2019s email - 17.2.13",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/83",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -1735,25 +1735,41 @@
       ],
       "body": "From Med about -11:\n\nFor \"17.2.13. Restarting Server Discovery Process\", I would make it explicit that \"obtain new bindings and other configuration information from a \"new\" server\" for the same interface.\n\nI'm afraid that these changes need to be captured in https://datatracker.ietf.org/doc/html/draft-ietf-dhc-rfc8415bis-11#name-summary-of-changes.\n\nAs we lost the 1:1 mapping with the sections in 8415, a mapping as the one in https://datatracker.ietf.org/doc/html/rfc9522#appendix-A.2 (or similar) may be helpful. It is up to you to decide if we can supply a similar text.",
       "createdAt": "2025-05-24T11:13:37Z",
-      "updatedAt": "2025-05-24T11:13:37Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-05-31T11:25:41Z",
+      "closedAt": "2025-05-31T11:25:41Z",
+      "comments": [
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Your commit looks fine to me.",
+          "createdAt": "2025-05-30T22:32:50Z",
+          "updatedAt": "2025-05-30T22:32:50Z"
+        }
+      ]
     },
     {
       "number": 84,
       "id": "I_kwDOFL5NeM64FPNb",
       "title": "Bernie: packet vs message",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/84",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "We might want to review use of \u201cpacket\u201d \u2026 there are 25 instances vs   1000+ for \u201cmessage\u201d. While a few uses of packet is appropriate, probably half should be message. While minor, likely worth doing now.",
       "createdAt": "2025-05-24T11:16:01Z",
-      "updatedAt": "2025-05-24T11:16:01Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-05-31T11:26:44Z",
+      "closedAt": "2025-05-31T11:26:44Z",
+      "comments": [
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "LGTM.\n",
+          "createdAt": "2025-05-30T22:33:23Z",
+          "updatedAt": "2025-05-30T22:33:23Z"
+        }
+      ]
     },
     {
       "number": 87,
@@ -1767,9 +1783,41 @@
       "labels": [],
       "body": "I\u2019m wondering if we should add the following to the end of section 15.0 where the new multicast/unicast rules were added:\n\n\u201cNote: The multicast/unicast rules mentioned above apply to the DHCP messages within this document. Messages defined in other and future documents may have different rules.\u201d\n\nI\u2019m still a bit concerned that if someone follows these rules too strictly they may not realize this doesn\u2019t apply to all dhcp messages.",
       "createdAt": "2025-05-26T10:16:04Z",
-      "updatedAt": "2025-05-26T10:16:04Z",
+      "updatedAt": "2025-05-30T22:33:41Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "if this makes someone happy, then do it.\n",
+          "createdAt": "2025-05-30T22:33:40Z",
+          "updatedAt": "2025-05-30T22:33:40Z"
+        }
+      ]
+    },
+    {
+      "number": 88,
+      "id": "I_kwDOFL5NeM64y3fR",
+      "title": "Bernie - Minor section 20.12 cleanup",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/88",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Cleanup section 20.12 (note bolded text):\n\n   The Server Unicast option is obsolete.  Please refer to [RFC8415] for\n   historical information on this option.\n\n   The client SHOULD NOT request this option in **the Option Request option.**  The server SHOULD\n   NOT send this option, even when requested by clients.  When any\n   entity receives **the Server Unicast** option, the option SHOULD be ignored\n   and the message processing should continue as usual.\n\n   As this option was not very popular and it typically required special\n   configuration by those server implementations that did support it,\n   clients still requesting this option in **the Option Request option** are increasingly unlikely\n   to get it.\n\nI'm also wondering if the last paragraph is even necessary and should just be deleted?",
+      "createdAt": "2025-05-29T13:24:54Z",
+      "updatedAt": "2025-05-30T22:34:47Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Except for s/increasingly unlikely to get it/increasingly unlikely to receive it/\nI'd keep that paragraph.\n",
+          "createdAt": "2025-05-30T22:34:46Z",
+          "updatedAt": "2025-05-30T22:34:46Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -4492,24 +4540,26 @@
       "id": "PR_kwDOFL5NeM6XiYX5",
       "title": "Address #83 - 17.2.13",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/85",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-05-25T11:26:29Z",
-      "updatedAt": "2025-05-25T11:26:29Z",
+      "updatedAt": "2025-05-31T11:25:04Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "d3e1ca3c854e8eab796b2c8eefa2f938b9f90998",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "bevolz-patch-4",
       "headRefOid": "accb0908e949fa56960d559faa5c5bd22d12d336",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-05-31T11:25:04Z",
+      "mergedAt": "2025-05-31T11:25:04Z",
+      "mergedBy": "bevolz",
+      "mergeCommit": {
+        "oid": "f6fdf2b3cbd1cf1c3e93f959eea95dfeba3d5a20"
+      },
       "comments": [],
       "reviews": []
     },
@@ -4518,26 +4568,95 @@
       "id": "PR_kwDOFL5NeM6XiZP3",
       "title": "Address #84 - use of packet vs message",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/86",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Changed packet(s) to message(s) in places where text references DHCPv6 messages, as that is the terminology generally used in the document.",
       "createdAt": "2025-05-25T11:34:44Z",
-      "updatedAt": "2025-05-25T11:34:44Z",
+      "updatedAt": "2025-05-31T11:26:26Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "d3e1ca3c854e8eab796b2c8eefa2f938b9f90998",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "bevolz-patch-5",
       "headRefOid": "5ee66b904598e4d0ee8085772cc29b377ee821e6",
+      "closedAt": "2025-05-31T11:26:25Z",
+      "mergedAt": "2025-05-31T11:26:25Z",
+      "mergedBy": "bevolz",
+      "mergeCommit": {
+        "oid": "543cc5588e3f366c740015c5a4520e6b40e306fa"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 89,
+      "id": "PR_kwDOFL5NeM6YZTGX",
+      "title": "Apply issues #87 and #88",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/89",
+      "state": "OPEN",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-31T14:01:27Z",
+      "updatedAt": "2025-05-31T23:30:24Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "543cc5588e3f366c740015c5a4520e6b40e306fa",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "bevolz-patch-5",
+      "headRefOid": "e3ea21bbdcd39996855b49aab0d0e18eb3ba09f0",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOFL5NeM6r8X7h",
+          "commit": {
+            "abbreviatedOid": "dbf97f3"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-31T23:26:58Z",
+          "updatedAt": "2025-05-31T23:26:59Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "```suggestion\r\n         <t>The client SHOULD NOT request this option in the Option Request option. The server SHOULD NOT send\r\n```",
+              "createdAt": "2025-05-31T23:26:58Z",
+              "updatedAt": "2025-05-31T23:26:59Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6r8Zh9",
+          "commit": {
+            "abbreviatedOid": "e564b3a"
+          },
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-05-31T23:29:55Z",
+          "updatedAt": "2025-05-31T23:29:55Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "```suggestion\r\n         this option, even when requested by clients.  When any entity receives the Server Unicast\r\n```",
+              "createdAt": "2025-05-31T23:29:55Z",
+              "updatedAt": "2025-05-31T23:29:55Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
