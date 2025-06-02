@@ -184,6 +184,16 @@
       here, as long as its external behavior is consistent with that described
       in this document.</t>
     </section>
+    <section anchor="old-background" numbered="true" toc="default">
+      <name>Background</name>
+      <t>
+        This section, which contained background on IPv6 specifications of
+        relevance to DHCPv6, has been removed; those interested should refer
+        to <xref target="RFC8415" />.
+        However, this section is retained to keep the major section numbering
+        consistent with <xref target="RFC8415" />.
+      </t>
+    </section>
     <section anchor="terminology" numbered="true" toc="default">
       <name>Terminology</name>
       <t>This section defines terminology specific to IPv6 and DHCP used in
