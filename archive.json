@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-01T02:26:12.048509+00:00",
+  "timestamp": "2025-06-03T02:03:30.888117+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1776,15 +1776,15 @@
       "id": "I_kwDOFL5NeM64OD8b",
       "title": "Add note to section 15 re multicast/unicast rules",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/87",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "I\u2019m wondering if we should add the following to the end of section 15.0 where the new multicast/unicast rules were added:\n\n\u201cNote: The multicast/unicast rules mentioned above apply to the DHCP messages within this document. Messages defined in other and future documents may have different rules.\u201d\n\nI\u2019m still a bit concerned that if someone follows these rules too strictly they may not realize this doesn\u2019t apply to all dhcp messages.",
       "createdAt": "2025-05-26T10:16:04Z",
-      "updatedAt": "2025-05-30T22:33:41Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-01T20:55:41Z",
+      "closedAt": "2025-06-01T20:55:41Z",
       "comments": [
         {
           "author": "mcr",
@@ -1800,15 +1800,15 @@
       "id": "I_kwDOFL5NeM64y3fR",
       "title": "Bernie - Minor section 20.12 cleanup",
       "url": "https://github.com/dhcwg/rfc8415bis/issues/88",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Cleanup section 20.12 (note bolded text):\n\n   The Server Unicast option is obsolete.  Please refer to [RFC8415] for\n   historical information on this option.\n\n   The client SHOULD NOT request this option in **the Option Request option.**  The server SHOULD\n   NOT send this option, even when requested by clients.  When any\n   entity receives **the Server Unicast** option, the option SHOULD be ignored\n   and the message processing should continue as usual.\n\n   As this option was not very popular and it typically required special\n   configuration by those server implementations that did support it,\n   clients still requesting this option in **the Option Request option** are increasingly unlikely\n   to get it.\n\nI'm also wondering if the last paragraph is even necessary and should just be deleted?",
       "createdAt": "2025-05-29T13:24:54Z",
-      "updatedAt": "2025-05-30T22:34:47Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-01T20:55:52Z",
+      "closedAt": "2025-06-01T20:55:52Z",
       "comments": [
         {
           "author": "mcr",
@@ -1816,6 +1816,46 @@
           "body": "Except for s/increasingly unlikely to get it/increasingly unlikely to receive it/\nI'd keep that paragraph.\n",
           "createdAt": "2025-05-30T22:34:46Z",
           "updatedAt": "2025-05-30T22:34:46Z"
+        }
+      ]
+    },
+    {
+      "number": 90,
+      "id": "I_kwDOFL5NeM65PgUb",
+      "title": "Add empty section 3?",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/90",
+      "state": "CLOSED",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "question"
+      ],
+      "body": "Awaiting comments from RFC Editor initiated by MCR, below. Depending on response, we may proceed to add the empty section to align most sections with RFC8415 sections.\n\nHi,\nRFC8415bis (going to Internet Standard) has been mostly the same structure as RFC8415. But, we recently decided to remove section 3, which is history. The result is that RFC8415bis will have off-by-one section headers compared to 8415.\n\nI would like the put an empty section three in: \"This section intentionally blank\" to maintain the numbering.  Has this been done before? Does the RPC have an opinion about this?",
+      "createdAt": "2025-06-01T20:59:22Z",
+      "updatedAt": "2025-06-02T21:54:01Z",
+      "closedAt": "2025-06-02T21:54:00Z",
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "FYI: The Broadbank Forum uses \u201cTo preserve section numbering with the previous version of document this section is intentionally blank.\u201d See https://www.broadband-forum.org/download/af-sig-0061.001.pdf.",
+          "createdAt": "2025-06-02T14:58:06Z",
+          "updatedAt": "2025-06-02T14:58:06Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Michael received following response:\n\nHi Michael,\n\nOn 5/31/25 12:45 PM, Michael Richardson wrote:\nHi,\nRFC8415bis (going to Internet Standard) has been mostly the same structure as RFC8415.\nBut, we recently decided to remove section 3, which is history.\nThe result is that RFC8415bis will have off-by-one section headers compared\nto 8415.\nI would like the put an empty section three in: \"This section intentionally\nblank\" to maintain the numbering.  Has this been done before?\n\n[JM] Only RFC 1190 has something like this. It says \"This page intentionally left blank\" in a few places.\n\nDoes the RPC have an opinion about this?\n\n[JM] We believe it would be better if the section says something like \"In RFC 8415, this section contained background information\" with either a pointer or an explanation of why that content is no longer relevant.\n\nBest regards,\nJean [jmahoney@staff.rfc-editor.org]",
+          "createdAt": "2025-06-02T18:49:21Z",
+          "updatedAt": "2025-06-02T18:49:21Z"
+        },
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Could use something like:\n\n3. Background\n\nThis section, which contained background on IPv6 specifications of relevance to DHCPv6, has been removed; those interested should refer to [RFC8415]. However, this section is retained to keep the major section numbering consistent with [RFC8415].\n\n",
+          "createdAt": "2025-06-02T18:56:22Z",
+          "updatedAt": "2025-06-02T18:56:22Z"
         }
       ]
     }
@@ -4596,24 +4636,26 @@
       "id": "PR_kwDOFL5NeM6YZTGX",
       "title": "Apply issues #87 and #88",
       "url": "https://github.com/dhcwg/rfc8415bis/pull/89",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bevolz",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-05-31T14:01:27Z",
-      "updatedAt": "2025-05-31T23:30:24Z",
+      "updatedAt": "2025-06-01T20:55:22Z",
       "baseRepository": "dhcwg/rfc8415bis",
       "baseRefName": "main",
       "baseRefOid": "543cc5588e3f366c740015c5a4520e6b40e306fa",
       "headRepository": "dhcwg/rfc8415bis",
       "headRefName": "bevolz-patch-5",
       "headRefOid": "e3ea21bbdcd39996855b49aab0d0e18eb3ba09f0",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-06-01T20:55:22Z",
+      "mergedAt": "2025-06-01T20:55:22Z",
+      "mergedBy": "bevolz",
+      "mergeCommit": {
+        "oid": "0802515b49d5141e3b93078aebb54813767aaa8a"
+      },
       "comments": [],
       "reviews": [
         {
@@ -4655,8 +4697,49 @@
               "updatedAt": "2025-05-31T23:29:55Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOFL5NeM6sBmp0",
+          "commit": {
+            "abbreviatedOid": "e3ea21b"
+          },
+          "author": "mcr",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-01T20:50:54Z",
+          "updatedAt": "2025-06-01T20:50:54Z",
+          "comments": []
         }
       ]
+    },
+    {
+      "number": 91,
+      "id": "PR_kwDOFL5NeM6YsMSI",
+      "title": "retain dummy section 3",
+      "url": "https://github.com/dhcwg/rfc8415bis/pull/91",
+      "state": "MERGED",
+      "author": "mcr",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "close #90 ",
+      "createdAt": "2025-06-02T19:36:37Z",
+      "updatedAt": "2025-06-02T21:54:00Z",
+      "baseRepository": "dhcwg/rfc8415bis",
+      "baseRefName": "main",
+      "baseRefOid": "0802515b49d5141e3b93078aebb54813767aaa8a",
+      "headRepository": "dhcwg/rfc8415bis",
+      "headRefName": "obsoleted-section-3",
+      "headRefOid": "98ac1eebf48eaea9a0f65126d5fdcad45dbcd4a9",
+      "closedAt": "2025-06-02T21:54:00Z",
+      "mergedAt": "2025-06-02T21:54:00Z",
+      "mergedBy": "bevolz",
+      "mergeCommit": {
+        "oid": "4a8b1e1adf477fedf55cc483255a4e3124f623c4"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
