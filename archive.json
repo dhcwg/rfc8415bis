@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-03T02:03:30.888117+00:00",
+  "timestamp": "2025-07-06T02:20:22.665785+00:00",
   "repo": "dhcwg/rfc8415bis",
   "labels": [
     {
@@ -1856,6 +1856,32 @@
           "body": "Could use something like:\n\n3. Background\n\nThis section, which contained background on IPv6 specifications of relevance to DHCPv6, has been removed; those interested should refer to [RFC8415]. However, this section is retained to keep the major section numbering consistent with [RFC8415].\n\n",
           "createdAt": "2025-06-02T18:56:22Z",
           "updatedAt": "2025-06-02T18:56:22Z"
+        }
+      ]
+    },
+    {
+      "number": 92,
+      "id": "I_kwDOFL5NeM6-5wq8",
+      "title": "Add RFC3633 restriction text?",
+      "url": "https://github.com/dhcwg/rfc8415bis/issues/92",
+      "state": "CLOSED",
+      "author": "bevolz",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "question"
+      ],
+      "body": "See https://mailarchive.ietf.org/arch/msg/dhcwg/NOggf0GaffIsOFYZEA8r_tqsSNY/ as maybe we should consider adding this text from RFC3633 back?\n\nBut, needs further investigation to determine if removed on purpose or if it was just an oversight.",
+      "createdAt": "2025-07-04T13:47:43Z",
+      "updatedAt": "2025-07-05T21:05:43Z",
+      "closedAt": "2025-07-05T21:05:43Z",
+      "comments": [
+        {
+          "author": "bevolz",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Michael researched this and discovered it was removed from RFC3633 by errata 2468, see https://www.rfc-editor.org/errata/rfc3633.\n\nSo, we will close this issue and leave document as is.",
+          "createdAt": "2025-07-05T21:05:17Z",
+          "updatedAt": "2025-07-05T21:05:17Z"
         }
       ]
     }
